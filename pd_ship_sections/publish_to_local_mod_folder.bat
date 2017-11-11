@@ -39,5 +39,5 @@ xcopy /R /Y /Q %modfile_source% %modfile_dest_folder%
 xcopy /R /Y /Q /S /E /I %moddir_source%* %moddir_dest%
 
 ::Pause, so that the user can see if there were any errors
-pause
-exit
+::pause
+::exit
