@@ -1,0 +1,78 @@
+namespace = all_enigmatic_clean
+
+country_event = {
+	# Check whether the main event has fired before. If not, proceed to the main event.
+	id = all_enigmatic_clean.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { NOT = { has_country_flag = all_enigmatic_clean_tech_granted } }
+	immediate = { country_event = { id = all_enigmatic_clean.2 } }
+}
+
+country_event = {
+	# Check whether the country has some (but not all) enigmatic tech. If it does, give permanent research options for the others.
+	id = all_enigmatic_clean.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_technology = tech_enigmatic_deflector
+			has_technology = tech_enigmatic_power_core
+			has_technology = tech_enigmatic_encoder
+			has_technology = tech_enigmatic_decoder
+			has_technology = tech_enigmatic_disruption_field
+		}
+		NOT = {
+			AND = {
+				OR = {
+					has_technology = tech_enigmatic_deflector
+					has_tech_option = tech_enigmatic_deflector
+				}
+				OR = {
+					has_technology = tech_enigmatic_power_core
+					has_tech_option = tech_enigmatic_power_core
+				}
+				OR = {
+					has_technology = tech_enigmatic_encoder
+					has_tech_option = tech_enigmatic_encoder
+				}
+				OR = {
+					has_technology = tech_enigmatic_decoder
+					has_tech_option = tech_enigmatic_decoder
+				}
+				OR = {
+					has_technology = tech_enigmatic_disruption_field
+					has_tech_option = tech_enigmatic_disruption_field
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { NOT = { has_technology = tech_enigmatic_deflector } }
+			add_research_option = tech_enigmatic_deflector
+		}
+		if = {
+			limit = { NOT = { has_technology = tech_enigmatic_power_core } }
+			add_research_option = tech_enigmatic_power_core
+		}
+		if = {
+			limit = { NOT = { has_technology = tech_enigmatic_encoder } }
+			add_research_option = tech_enigmatic_encoder
+		}
+		if = {
+			limit = { NOT = { has_technology = tech_enigmatic_decoder } }
+			add_research_option = tech_enigmatic_decoder
+		}
+		if = {
+			limit = { NOT = { has_technology = tech_enigmatic_disruption_field } }
+			add_research_option = tech_enigmatic_disruption_field
+		}
+		hidden_effect = {
+			set_country_flag = all_enigmatic_clean_tech_granted
+		}
+	}
+	
+}

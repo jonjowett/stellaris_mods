@@ -1,0 +1,205 @@
+namespace = guardian
+
+# Artists
+country_event = {
+	id = guardian.300
+	title = guardian.300.name
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_country_flag
+				artist_enclave_diplomacy_continued = { text = guardian.300.desc.continued }
+				recently_purchased_art = { text = guardian.302.a.reply }
+				recently_purchased_patron = { text = guardian.304.a.reply }
+				recently_purchased_festival = { text = guardian.303.a.reply }
+				default = { text = guardian.300.desc }
+			}
+		}
+	}
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave
+		room = enclave_artist_room
+	}
+	
+	trigger = {
+		from = {
+			is_country_type = enclave
+			has_country_flag = artist_enclave_country
+		}
+		OR = {
+			OR = {
+				has_country_flag = artist_enclave_diplomacy_continued
+				NOT = { has_country_flag = artist_enclave_diplomacy_engaged }
+			}
+			has_country_flag = recently_purchased_art
+			has_country_flag = recently_purchased_patron
+			has_country_flag = recently_purchased_festival
+		}
+		NOT = {	has_country_flag = enclave_artist_ignores }
+	}
+
+	immediate = {
+		save_event_target_as = my_country
+		set_country_flag = artist_enclave_diplomacy_engaged
+		if = {
+			limit = {
+				NOT = { exists = event_target:artist_enclave }
+			}
+			from = {
+				save_event_target_as = artist_enclave
+			}
+		}
+	}
+
+	option = {
+		name = guardian.300.a
+		trigger = {
+			check_variable = {
+				which = artist_monument_purchased
+				value < 5
+			}
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+		}
+		hidden_effect = {
+			country_event = { id = guardian.302 }
+		}
+	}
+	option = {
+		name = guardian.300.a
+		response_text = guardian.300.a.reply
+		is_dialog_only = yes
+		trigger = {
+			check_variable = {
+				which = artist_monument_purchased
+				value = 5
+			}
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+		}
+	}
+	option = {
+		name = guardian.300.b
+		trigger = {
+			NOT = { has_modifier = enclave_artist_patron }
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+		}
+		hidden_effect = {
+			country_event = { id = guardian.304 }
+		}
+	}
+	option = {
+		name = guardian.300.b.stop
+		response_text = guardian.300.b.reply
+		trigger = {
+			has_modifier = enclave_artist_patron
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+		}
+		custom_tooltip = opinion-5
+		custom_tooltip = guardian.300.b.stop.tooltip
+		remove_modifier = enclave_artist_patron
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+			remove_country_flag = artist_patron
+			set_country_flag = enclave_stopped_patronage
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
+		}
+	}
+	option = {
+		name = guardian.300.c
+		trigger = {
+			NOT = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_country_flag = artist_festival_purchased
+				has_authority = auth_hive_mind
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = guardian.300.c.allow
+				NOT = {
+					has_country_flag = artist_festival_purchased
+				}
+				event_target:artist_enclave_country = {
+					trust = {
+						who = root
+						value > 49.99
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = guardian.303 }
+		}
+	}
+	option = {
+		name = guardian.300.c
+		trigger = {
+			has_country_flag = artist_festival_purchased
+			NOT = { 
+				has_valid_civic = civic_fanatic_purifiers 
+				has_authority = auth_hive_mind
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				text = guardian.300.c.outofstock
+				NOT = {
+					has_country_flag = artist_festival_purchased
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = guardian.303 }
+		}
+	}
+	
+	option = {
+		name = guardian.300.d
+		trigger = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
+		is_dialog_only = yes
+		response_text = guardian.300.d.reply
+	}
+	
+	#Mod insertion - Buy influence
+	option = {
+		name = guardian.300.buy_influence
+		trigger = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
+		hidden_effect = {
+			country_event = { id = buy_influence.100 }
+		}
+	}
+	
+	option = {
+		name = GOODBYE
+		trigger = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
+		default_hide_option = yes
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+			remove_country_flag = artist_enclave_diplomacy_continued
+		}
+	}
+
+	option = {
+		name = SCUM
+		trigger = { has_valid_civic = civic_fanatic_purifiers }
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+			remove_country_flag = artist_enclave_diplomacy_continued
+			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_patron
+			remove_country_flag = recently_purchased_festival
+		}
+	}
+}

@@ -1,0 +1,13 @@
+﻿l_english:
+
+ ### BUY INFLUENCE - ADDITIONS TO ARTIST
+ guardian.300.buy_influence:0 "We want you to run a propaganda campaign."
+ buy_influence.100.desc:0 "How very mundane of you!\n\nNormally, we prefer to concentrate our creative energies on works that are more... creative. But we would be willing to help you if you could make a small donation to prevent our artists from starving.\n\nWhat kind of campaign would you like us to run?"
+ buy_influence.100.a:0 "Leafletting"
+ buy_influence.100.a.reply:0 "Ah yes, highly cost-effective. We'll get right on it."
+ buy_influence.100.b:0 "Viral marketing"
+ buy_influence.100.b.reply:0 "An opportunity to infect the hearts and minds of the galaxy with viral memes? Intriguing!"
+ buy_influence.100.c:0 "Conventional"
+ buy_influence.100.c.reply:0 "Well, I'm sure we can find some way to spice it up. Consider it done!"
+ buy_influence.100.d:0 "Saturation"
+ buy_influence.100.d.reply:0 "By the time we're done, everyone in the galaxy will have heard of your empire! Every day! For months!"

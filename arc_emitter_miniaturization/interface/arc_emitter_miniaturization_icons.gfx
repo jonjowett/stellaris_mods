@@ -1,0 +1,13 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_ship_part_miniaturized_arc_emitter_1"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_arc_emitter_1.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ship_part_miniaturized_arc_emitter_2"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_arc_emitter_2.dds"
+	}
+	
+}

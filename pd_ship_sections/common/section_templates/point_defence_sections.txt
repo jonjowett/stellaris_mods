@@ -1,0 +1,66 @@
+ship_section_template = {
+	key = "PD_SHIP_SECTIONS_BATTLESHIP_STERN_PD4"
+	ship_size = battleship
+	fits_on_slot = stern
+	entity = "battleship_stern_S4_entity"
+	icon = "GFX_ship_part_core_stern"
+	
+	component_slot = {
+		name = "SMALL_GUN_01"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_01"
+	}
+	
+	component_slot = {
+		name = "SMALL_GUN_02"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_02"
+	}	
+	
+	component_slot = {
+		name = "SMALL_GUN_03"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_03"
+	}
+	
+	component_slot = {
+		name = "SMALL_GUN_04"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_04"
+	}
+	
+	large_utility_slots = 2
+	aux_utility_slots = 1
+	
+	cost = 240
+}
+
+ship_section_template = {
+	key = "PD_SHIP_SECTIONS_CRUISER_STERN_PD2"
+	ship_size = cruiser
+	fits_on_slot = stern
+	entity = "cruiser_stern_S2_entity"
+	icon = "GFX_ship_part_core_stern"
+
+	component_slot = {
+		name = "SMALL_GUN_01"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_01"
+	}
+	
+	component_slot = {
+		name = "SMALL_GUN_02"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_02"
+	}
+	
+	medium_utility_slots = 3
+	
+	cost = 120
+}
