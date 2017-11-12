@@ -1,3 +1,0 @@
-﻿NGameplay = {
-	LEADER_MAX_SKILL_CAP = 15 #Default value is 10
-}
