@@ -27,12 +27,9 @@ country_event = {
 	}
 	
 	trigger = {
-		OR = {
-			from = {
-				is_country_type = enclave
-				has_country_flag = artist_enclave_country
-			}
-			exists = event_target:artist_enclave
+		from = {
+			is_country_type = enclave
+			has_country_flag = artist_enclave_country
 		}
 		OR = {
 			OR = {
@@ -66,12 +63,7 @@ country_event = {
 				which = artist_monument_purchased
 				value < 5
 			}
-			#MOD EDIT - Prettified
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
-			}
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
 		}
 		hidden_effect = {
 			country_event = { id = guardian.302 }
@@ -86,61 +78,48 @@ country_event = {
 				which = artist_monument_purchased
 				value = 5
 			}
-			#MOD EDIT - Prettified
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
-			}
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
 		}
 	}
 	option = {
 		name = guardian.300.b
 		trigger = {
 			NOT = { has_modifier = enclave_artist_patron }
-			#MOD EDIT - Prettified
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
-			}
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
 		}
 		hidden_effect = {
 			country_event = { id = guardian.304 }
 		}
 	}
-#	option = {
-#		name = guardian.300.b.stop
-#		response_text = guardian.300.b.reply
-#		trigger = {
-#			has_modifier = enclave_artist_patron
-#			NOT = { has_valid_civic = civic_fanatic_purifiers }
-#		}
-#		custom_tooltip = opinion-5
-#		custom_tooltip = guardian.300.b.stop.tooltip
-#		remove_modifier = enclave_artist_patron
-#		hidden_effect = {
-#			remove_country_flag = artist_enclave_diplomacy_engaged
-#			remove_country_flag = artist_patron
-#			set_country_flag = enclave_stopped_patronage
-#			event_target:artist_enclave_country = {
-#				add_trust = {
-#					who = root
-#					amount = -5
-#				}
-#			}
-#		}
-#	}
+	option = {
+		name = guardian.300.b.stop
+		response_text = guardian.300.b.reply
+		trigger = {
+			has_modifier = enclave_artist_patron
+			NOT = { has_valid_civic = civic_fanatic_purifiers }
+		}
+		custom_tooltip = opinion-5
+		custom_tooltip = guardian.300.b.stop.tooltip
+		remove_modifier = enclave_artist_patron
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+			remove_country_flag = artist_patron
+			set_country_flag = enclave_stopped_patronage
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
+		}
+	}
 	option = {
 		name = guardian.300.c
 		trigger = {
-			#MOD EDIT - Changed NOT into NOR because it makes more sense (I think a list of conditions inside NOT is treated as NOT = { AND = { cond1 cond2 cond3 } } )
-			NOR = {
+			NOT = {
 				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
 				has_country_flag = artist_festival_purchased
-				has_ethic = ethic_gestalt_consciousness
+				has_authority = auth_hive_mind
 			}
 		}
 		allow = {
@@ -158,11 +137,6 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			remove_country_flag = artist_enclave_diplomacy_engaged
-			remove_country_flag = artist_enclave_diplomacy_continued
-			remove_country_flag = recently_purchased_art
-			remove_country_flag = recently_purchased_patron
-			remove_country_flag = recently_purchased_festival
 			country_event = { id = guardian.303 }
 		}
 	}
@@ -170,13 +144,9 @@ country_event = {
 		name = guardian.300.c
 		trigger = {
 			has_country_flag = artist_festival_purchased
-			#MOD EDIT - Replaced the abbreviated NOT condition with a NOR that matches the one above
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
-				has_country_flag = artist_festival_purchased
-				has_ethic = ethic_gestalt_consciousness
+			NOT = { 
+				has_valid_civic = civic_fanatic_purifiers 
+				has_authority = auth_hive_mind
 			}
 		}
 		allow = {
@@ -188,56 +158,21 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			remove_country_flag = artist_enclave_diplomacy_engaged
-			remove_country_flag = artist_enclave_diplomacy_continued
-			remove_country_flag = recently_purchased_art
-			remove_country_flag = recently_purchased_patron
-			remove_country_flag = recently_purchased_festival
 			country_event = { id = guardian.303 }
 		}
 	}
 	
 	option = {
 		name = guardian.300.d
-		#MOD EDIT - Prettified
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
-			}
-		}
+		trigger = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
 		is_dialog_only = yes
 		response_text = guardian.300.d.reply
 	}
 	
-	# For those who have declined offer to build ministry of culture
-	option = {
-		name = guardian.300.f
-		trigger = {
-			has_country_flag = enclave_artist_patron_event_1
-			NOR = { 
-				has_valid_civic = civic_fanatic_purifiers 
-				has_valid_civic = civic_hive_devouring_swarm 
-				has_ai_personality = exterminators 
-				has_country_flag = artist_building_patron
-			}
-		}
-		hidden_effect = {
-			country_event = { id = guardian.316 }
-		}
-	}
-	
-	#MOD INSERTION - Buy influence
+	#Mod insertion - Buy influence
 	option = {
 		name = guardian.300.buy_influence
-		trigger = {
-			NOR = { 
-				has_valid_civic = civic_fanatic_purifiers 
-				has_valid_civic = civic_hive_devouring_swarm 
-				has_ai_personality = exterminators 
-			}
-		}
+		trigger = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
 		hidden_effect = {
 			country_event = { id = buy_influence.100 }
 		}
@@ -245,46 +180,20 @@ country_event = {
 	
 	option = {
 		name = GOODBYE
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_ai_personality = exterminators } }
+		trigger = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
 		default_hide_option = yes
 		hidden_effect = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
-			remove_country_flag = recently_purchased_art
-			remove_country_flag = recently_purchased_patron
-			remove_country_flag = recently_purchased_festival
 		}
 	}
 
 	option = {
 		name = SCUM
 		trigger = { has_valid_civic = civic_fanatic_purifiers }
-		hidden_effect = {
-			remove_country_flag = artist_enclave_diplomacy_engaged
-			remove_country_flag = artist_enclave_diplomacy_continued
-			remove_country_flag = recently_purchased_art
-			remove_country_flag = recently_purchased_patron
-			remove_country_flag = recently_purchased_festival
-		}
-	}
-	
-	option = {
-		name = TASTY
-		trigger = { has_valid_civic = civic_hive_devouring_swarm }
-		hidden_effect = {
-			remove_country_flag = artist_enclave_diplomacy_engaged
-			remove_country_flag = artist_enclave_diplomacy_continued
-			remove_country_flag = recently_purchased_art
-			remove_country_flag = recently_purchased_patron
-			remove_country_flag = recently_purchased_festival
-		}
 	}
 
-	option = {
-		name = EXTERMINATE
-		trigger = {
-			has_ai_personality = exterminators
-		}
+	after = {
 		hidden_effect = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
@@ -293,14 +202,4 @@ country_event = {
 			remove_country_flag = recently_purchased_festival
 		}
 	}
-
-	#after = {
-	#	hidden_effect = {
-	#		remove_country_flag = artist_enclave_diplomacy_engaged
-	#		remove_country_flag = artist_enclave_diplomacy_continued
-	#		remove_country_flag = recently_purchased_art
-	#		remove_country_flag = recently_purchased_patron
-	#		remove_country_flag = recently_purchased_festival
-	#	}
-	#}
 }
