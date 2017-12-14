@@ -1,5 +1,5 @@
 country_event = {
-	id = endgame_unity.{{EVENT_ID}}
+	id = endgame_unity.{{EVENT_NO}}
 	is_triggered_only = yes
 	
 	title = endgame_unity.10.title

@@ -2,3 +2,7 @@
 # For more details, please see the github repo: https://github.com/jonjowett/stellaris_mods
 
 namespace = endgame_unity
+
+
+
+
