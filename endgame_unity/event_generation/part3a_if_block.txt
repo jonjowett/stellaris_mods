@@ -1,0 +1,9 @@
+		if = {
+			limit = {
+				AND = {
+					num_pops > {{MIN_POPS}}
+					num_pops < {{MAX_POPS}}
+				}
+			}
+			country_event = { endgame_unity.{{EVENT_ID}} }
+		}
