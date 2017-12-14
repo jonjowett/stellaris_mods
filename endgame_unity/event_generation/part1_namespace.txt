@@ -1,1 +1,4 @@
+# This file is programmatically generated, as this is the only practical way to get a unity cost that varies based on number of pops.
+# For more details, please see the github repo: https://github.com/jonjowett/stellaris_mods
+
 namespace = endgame_unity
