@@ -113,8 +113,7 @@ country_event = {
 					num_pops < 20
 				}
 			}
-			country_event = { endgame_unity.101 }
-			break = yes
+			country_event = { id = endgame_unity.101 }
 		}
 		if = {
 			limit = {
@@ -123,8 +122,7 @@ country_event = {
 					num_pops < 40
 				}
 			}
-			country_event = { endgame_unity.102 }
-			break = yes
+			country_event = { id = endgame_unity.102 }
 		}
 		if = {
 			limit = {
@@ -133,8 +131,7 @@ country_event = {
 					num_pops < 60
 				}
 			}
-			country_event = { endgame_unity.103 }
-			break = yes
+			country_event = { id = endgame_unity.103 }
 		}
 		if = {
 			limit = {
@@ -143,8 +140,7 @@ country_event = {
 					num_pops < 80
 				}
 			}
-			country_event = { endgame_unity.104 }
-			break = yes
+			country_event = { id = endgame_unity.104 }
 		}
 		if = {
 			limit = {
@@ -153,8 +149,7 @@ country_event = {
 					num_pops < 100
 				}
 			}
-			country_event = { endgame_unity.105 }
-			break = yes
+			country_event = { id = endgame_unity.105 }
 		}
 		if = {
 			limit = {
@@ -163,8 +158,7 @@ country_event = {
 					num_pops < 125
 				}
 			}
-			country_event = { endgame_unity.106 }
-			break = yes
+			country_event = { id = endgame_unity.106 }
 		}
 		if = {
 			limit = {
@@ -173,8 +167,7 @@ country_event = {
 					num_pops < 150
 				}
 			}
-			country_event = { endgame_unity.107 }
-			break = yes
+			country_event = { id = endgame_unity.107 }
 		}
 		if = {
 			limit = {
@@ -183,8 +176,7 @@ country_event = {
 					num_pops < 175
 				}
 			}
-			country_event = { endgame_unity.108 }
-			break = yes
+			country_event = { id = endgame_unity.108 }
 		}
 		if = {
 			limit = {
@@ -193,8 +185,7 @@ country_event = {
 					num_pops < 200
 				}
 			}
-			country_event = { endgame_unity.109 }
-			break = yes
+			country_event = { id = endgame_unity.109 }
 		}
 		if = {
 			limit = {
@@ -203,8 +194,7 @@ country_event = {
 					num_pops < 250
 				}
 			}
-			country_event = { endgame_unity.110 }
-			break = yes
+			country_event = { id = endgame_unity.110 }
 		}
 		if = {
 			limit = {
@@ -213,8 +203,7 @@ country_event = {
 					num_pops < 300
 				}
 			}
-			country_event = { endgame_unity.111 }
-			break = yes
+			country_event = { id = endgame_unity.111 }
 		}
 		if = {
 			limit = {
@@ -223,8 +212,7 @@ country_event = {
 					num_pops < 350
 				}
 			}
-			country_event = { endgame_unity.112 }
-			break = yes
+			country_event = { id = endgame_unity.112 }
 		}
 		if = {
 			limit = {
@@ -233,8 +221,7 @@ country_event = {
 					num_pops < 400
 				}
 			}
-			country_event = { endgame_unity.113 }
-			break = yes
+			country_event = { id = endgame_unity.113 }
 		}
 		if = {
 			limit = {
@@ -243,8 +230,7 @@ country_event = {
 					num_pops < 450
 				}
 			}
-			country_event = { endgame_unity.114 }
-			break = yes
+			country_event = { id = endgame_unity.114 }
 		}
 		if = {
 			limit = {
@@ -253,8 +239,7 @@ country_event = {
 					num_pops < 500
 				}
 			}
-			country_event = { endgame_unity.115 }
-			break = yes
+			country_event = { id = endgame_unity.115 }
 		}
 		if = {
 			limit = {
@@ -263,8 +248,7 @@ country_event = {
 					num_pops < 600
 				}
 			}
-			country_event = { endgame_unity.116 }
-			break = yes
+			country_event = { id = endgame_unity.116 }
 		}
 		if = {
 			limit = {
@@ -273,8 +257,7 @@ country_event = {
 					num_pops < 700
 				}
 			}
-			country_event = { endgame_unity.117 }
-			break = yes
+			country_event = { id = endgame_unity.117 }
 		}
 		if = {
 			limit = {
@@ -283,8 +266,7 @@ country_event = {
 					num_pops < 800
 				}
 			}
-			country_event = { endgame_unity.118 }
-			break = yes
+			country_event = { id = endgame_unity.118 }
 		}
 		if = {
 			limit = {
@@ -293,8 +275,7 @@ country_event = {
 					num_pops < 900
 				}
 			}
-			country_event = { endgame_unity.119 }
-			break = yes
+			country_event = { id = endgame_unity.119 }
 		}
 		if = {
 			limit = {
@@ -303,8 +284,7 @@ country_event = {
 					num_pops < 1000
 				}
 			}
-			country_event = { endgame_unity.120 }
-			break = yes
+			country_event = { id = endgame_unity.120 }
 		}
 		if = {
 			limit = {
@@ -313,8 +293,7 @@ country_event = {
 					num_pops < 1200
 				}
 			}
-			country_event = { endgame_unity.121 }
-			break = yes
+			country_event = { id = endgame_unity.121 }
 		}
 		if = {
 			limit = {
@@ -323,8 +302,7 @@ country_event = {
 					num_pops < 1400
 				}
 			}
-			country_event = { endgame_unity.122 }
-			break = yes
+			country_event = { id = endgame_unity.122 }
 		}
 		if = {
 			limit = {
@@ -333,8 +311,7 @@ country_event = {
 					num_pops < 1600
 				}
 			}
-			country_event = { endgame_unity.123 }
-			break = yes
+			country_event = { id = endgame_unity.123 }
 		}
 		if = {
 			limit = {
@@ -343,8 +320,7 @@ country_event = {
 					num_pops < 1800
 				}
 			}
-			country_event = { endgame_unity.124 }
-			break = yes
+			country_event = { id = endgame_unity.124 }
 		}
 		if = {
 			limit = {
@@ -353,8 +329,7 @@ country_event = {
 					num_pops < 2000
 				}
 			}
-			country_event = { endgame_unity.125 }
-			break = yes
+			country_event = { id = endgame_unity.125 }
 		}
 		if = {
 			limit = {
@@ -363,8 +338,7 @@ country_event = {
 					num_pops < 2500
 				}
 			}
-			country_event = { endgame_unity.126 }
-			break = yes
+			country_event = { id = endgame_unity.126 }
 		}
 		if = {
 			limit = {
@@ -373,8 +347,7 @@ country_event = {
 					num_pops < 3000
 				}
 			}
-			country_event = { endgame_unity.127 }
-			break = yes
+			country_event = { id = endgame_unity.127 }
 		}
 		if = {
 			limit = {
@@ -383,8 +356,7 @@ country_event = {
 					num_pops < 3500
 				}
 			}
-			country_event = { endgame_unity.128 }
-			break = yes
+			country_event = { id = endgame_unity.128 }
 		}
 		if = {
 			limit = {
@@ -393,8 +365,7 @@ country_event = {
 					num_pops < 4000
 				}
 			}
-			country_event = { endgame_unity.129 }
-			break = yes
+			country_event = { id = endgame_unity.129 }
 		}
 		if = {
 			limit = {
@@ -403,8 +374,7 @@ country_event = {
 					num_pops < 4500
 				}
 			}
-			country_event = { endgame_unity.130 }
-			break = yes
+			country_event = { id = endgame_unity.130 }
 		}
 		if = {
 			limit = {
@@ -413,8 +383,7 @@ country_event = {
 					num_pops < 5000
 				}
 			}
-			country_event = { endgame_unity.131 }
-			break = yes
+			country_event = { id = endgame_unity.131 }
 		}
 		if = {
 			limit = {
@@ -423,8 +392,7 @@ country_event = {
 					num_pops < 6000
 				}
 			}
-			country_event = { endgame_unity.132 }
-			break = yes
+			country_event = { id = endgame_unity.132 }
 		}
 		if = {
 			limit = {
@@ -433,8 +401,7 @@ country_event = {
 					num_pops < 7000
 				}
 			}
-			country_event = { endgame_unity.133 }
-			break = yes
+			country_event = { id = endgame_unity.133 }
 		}
 		if = {
 			limit = {
@@ -443,8 +410,7 @@ country_event = {
 					num_pops < 8000
 				}
 			}
-			country_event = { endgame_unity.134 }
-			break = yes
+			country_event = { id = endgame_unity.134 }
 		}
 		if = {
 			limit = {
@@ -453,8 +419,7 @@ country_event = {
 					num_pops < 9000
 				}
 			}
-			country_event = { endgame_unity.135 }
-			break = yes
+			country_event = { id = endgame_unity.135 }
 		}
 		if = {
 			limit = {
@@ -463,8 +428,7 @@ country_event = {
 					num_pops < 10000
 				}
 			}
-			country_event = { endgame_unity.136 }
-			break = yes
+			country_event = { id = endgame_unity.136 }
 		}
 		if = {
 			limit = {
@@ -473,8 +437,7 @@ country_event = {
 					num_pops < 1000000000
 				}
 			}
-			country_event = { endgame_unity.137 }
-			break = yes
+			country_event = { id = endgame_unity.137 }
 		}
 
 	}
@@ -1348,7 +1311,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -2224,7 +2187,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -3100,7 +3063,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -3976,7 +3939,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -4852,7 +4815,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -5728,7 +5691,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -6604,7 +6567,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -7480,7 +7443,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -8356,7 +8319,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -9232,7 +9195,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -10108,7 +10071,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -10984,7 +10947,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -11860,7 +11823,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -12736,7 +12699,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -13612,7 +13575,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -14488,7 +14451,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -15364,7 +15327,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -16240,7 +16203,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -17116,7 +17079,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -17992,7 +17955,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -18868,7 +18831,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -19744,7 +19707,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -20620,7 +20583,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -21496,7 +21459,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -22372,7 +22335,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -23248,7 +23211,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -24124,7 +24087,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -25000,7 +24963,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -25876,7 +25839,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -26752,7 +26715,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -27628,7 +27591,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -28504,7 +28467,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -29380,7 +29343,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -30256,7 +30219,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -31132,7 +31095,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -32008,7 +31971,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}
@@ -32884,7 +32847,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}

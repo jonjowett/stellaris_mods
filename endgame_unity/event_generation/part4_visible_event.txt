@@ -863,7 +863,7 @@ country_event = {
 						NOT = { has_technology = tech_robomodding }
 					}
 					OR = {
-						has_modifier = endgame_unity_machinist_5
+						has_modifier = endgame_unity_roboticist_m_5
 						NOT = { has_authority = auth_machine_intelligence }
 						NOT = { has_technology = tech_robomodding_m }
 					}

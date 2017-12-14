@@ -5,6 +5,5 @@
 					num_pops < {{MAX_POPS}}
 				}
 			}
-			country_event = { endgame_unity.{{EVENT_NO}} }
-			break = yes
+			country_event = { id = endgame_unity.{{EVENT_NO}} }
 		}
