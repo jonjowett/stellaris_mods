@@ -154,6 +154,9 @@ dyson_sphere_2 = {
 	monthly_production = {
 		energy = 250
 	}
+	
+	#MOD ADDED
+	construction_blocks_others = no
 
 	possible = {
 		from = { has_ascension_perk = ap_galactic_wonders }
