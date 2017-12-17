@@ -1,0 +1,9 @@
+	###############################
+	## DEPRECIATED HULL SECTIONS ##
+	###############################
+objectTypes = {
+	pdxmesh = {
+		name = "humanoid_01_battleship_stern_S4_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_battleship_stern_S4.mesh"
+	}
+}
