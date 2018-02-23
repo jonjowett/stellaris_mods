@@ -63,7 +63,8 @@ dyson_sphere_0 = {
 		}
 		custom_tooltip = {
 			fail_text = "requires_no_existing_megastructure"
-			NOT = { has_any_megastructure = yes }
+			#NOT = { has_any_megastructure = yes }
+			has_no_non_gate_megastructure = yes
 		}
 	}
 	
@@ -84,23 +85,21 @@ dyson_sphere_0 = {
 		}
 	}
 	
+	# root = system
+	# from = country	
 	ai_weight = {
 		factor = 15
 		
 		modifier = {
 			factor = 0.1
-			has_any_megastructure_in_empire = yes
-		}
+			starbase = { NOT = { has_starbase_size >= starbase_starfortress } }
+		}	
 		
 		modifier = {
 			factor = 0.1
-			any_system_within_border = {
-				OR = {
-					has_megastructure = dyson_sphere_1
-					has_megastructure = dyson_sphere_2
-					has_megastructure = dyson_sphere_3
-					has_megastructure = dyson_sphere_4
-					has_megastructure = dyson_sphere_5	
+			any_neighbor_system = { 
+				NOT = { 
+					owner = { is_same_value = from } 
 				}
 			}
 		}

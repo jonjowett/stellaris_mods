@@ -22,7 +22,7 @@ think_tank_0 = {
 	}
 
 	maintenance = {
-		energy = 5
+		energy = 25
 	}
 	
 	potential = {
@@ -40,11 +40,15 @@ think_tank_0 = {
 		planet_possible = {
 			custom_tooltip = {
 				fail_text = "requires_no_existing_megastructure"
-				has_any_megastructure = no
+				#has_any_megastructure = no
+				has_no_non_gate_megastructure = yes
 				NOR = {
 					has_planet_flag = megastructure
 					has_planet_flag = has_megastructure
-					solar_system = { has_any_megastructure = yes }
+					#solar_system = {
+						#has_any_megastructure = yes
+						#has_no_non_gate_megastructure = no
+					#}
 				}
 			}
 			custom_tooltip = {
@@ -83,30 +87,31 @@ think_tank_0 = {
 		} # use these for all non-star megastructures
 	}
 	
+	# root = system
+	# from = country	
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 2.0
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
-		}
-		
+			factor = 0.1
+			starbase = { NOT = { has_starbase_size >= starbase_starfortress } }
+		}	
+
 		modifier = {
 			factor = 0.1
-			has_any_megastructure_in_empire = yes
-		}
+			any_neighbor_system = { 
+				NOT = { 
+					owner = { is_same_value = from } 
+				}
+			}
+		}		
 		
 		modifier = {
-			factor = 0
-			any_system_within_border = {
+			factor = 2.0
+			from = {
 				OR = {
-					has_megastructure = think_tank_1
-					has_megastructure = think_tank_2
-					has_megastructure = think_tank_3
-					has_megastructure = think_tank_4
-				}
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}			
 			}
 		}
 	}
@@ -150,7 +155,7 @@ think_tank_1 = {
 	}
 
 	maintenance = {
-		energy = 8
+		energy = 50
 	}
 }
 
@@ -182,7 +187,7 @@ think_tank_2 = {
 	}
 
 	maintenance = {
-		energy = 12
+		energy = 75
 	}
 }
 
@@ -214,7 +219,7 @@ think_tank_3 = {
 	}
 
 	maintenance = {
-		energy = 15
+		energy = 75
 	}
 }
 
@@ -243,7 +248,7 @@ think_tank_4 = {
 	}
 
 	maintenance = {
-		energy = @energy_maintenance
+		energy = 100
 	}
 }
 
@@ -272,7 +277,7 @@ think_tank_restored = {
 	upgrade_from = {
 		think_tank_ruined
 	}
-	build_time = 3600
+	build_time = 4800
 	build_cost = {
 		minerals = 30000
 	}
@@ -281,6 +286,10 @@ think_tank_restored = {
 		society_research = @stage_3_research_bonus
 		engineering_research = @stage_3_research_bonus
 		physics_research = @stage_3_research_bonus
+	}
+	
+	maintenance = {
+		energy = 100
 	}
 
 	possible = {

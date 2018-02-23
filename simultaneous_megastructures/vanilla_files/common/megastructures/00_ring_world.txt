@@ -51,8 +51,8 @@ ring_world_1 = {
 
 		custom_tooltip = {
 			fail_text = "requires_no_existing_megastructure"
-			#NOT = { solar_system = { has_any_megastructure_in_empire = yes } }
-			NOT = { has_any_megastructure = yes }
+			#NOT = { has_any_megastructure = yes }
+			has_no_non_gate_megastructure = yes
 		}
 	}
 	
@@ -75,10 +75,20 @@ ring_world_1 = {
 	
 	ai_weight = {
 		factor = 10		
+		
 		modifier = {
-			factor = 0.5
-			has_any_megastructure_in_empire = yes
-		}
+			factor = 0.1
+			starbase = { NOT = { has_starbase_size >= starbase_starfortress } }
+		}	
+
+		modifier = {
+			factor = 0.1
+			any_neighbor_system = { 
+				NOT = { 
+					owner = { is_same_value = from } 
+				}
+			}
+		}		
 	}
 	
 	on_build_start = {}
@@ -333,7 +343,7 @@ ring_world_restored = {
 		weight = 300
 		modifier = {
 			weight = 0
-			is_country_type = fallen_empire
+			from = { is_country_type = fallen_empire }
 		}
 	}
 
