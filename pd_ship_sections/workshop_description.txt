@@ -1,0 +1,37 @@
+This micro-mod adds two new stern sections for vanilla cruisers and battleships. (Because, in vanilla, the only way to get point defence on cruisers and battleships is to use hangars, which are rubbish.)
+
+Added ship sections:
+ --- Cruiser Point Defence Stern: 2 point defence, 2 aux utility
+ --- Battleship Point Defence Stern: 4 point defence, 2 aux utility
+
+--------------------
+
+FAQ:
+
+Q: Does this mod also add PD ship sections for [some other mod]?
+A: No. This mod only adds ship sections to the vanilla battleship and cruiser. If you want PD ship sections in [some other mod], please ask the authors of that mod. I'm sorry, but I'm not prepared to patch & support every ship-size mod that's out there.
+
+Q: Aren't the screenshots out of date?
+A: Yes, they are. (In particular, stern slots should only have aux utility slots, rather than normal utility slots.) I'll update them later. The ship sections in-game are consistent with the other sterns.
+
+--------------------
+
+Technical info / compatibility:
+ --- No vanilla game files are edited, so this mod should be fully compatible with all other mods.
+ --- The vanilla game contains graphics for stern sections with 2 or 4 small weapons; this mod reuses those graphical assets. I haven't tested the mod with all of the ship designs, so it's possible you might get graphical errors.
+ --- Compatible with the Humanoid DLC, thanks to the [url=https://forum.paradoxplaza.com/forum/index.php?threads/modders-resources-depreciated-ship-sections-for-humanoids.1059655/]efforts[/url] of the kind people at Team Nessassity.
+
+Mods used in the screenshots:
+ --- [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1196764711]Arc Emitter Miniaturization[/url]
+ --- [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1196859854]All Enigmatic Technologies (Clean)[/url]
+ --- [url=http://steamcommunity.com/sharedfiles/filedetails/?id=790455347]Advanced Ship Behaviour Modules[/url]
+
+All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)
+ 
+Tested version: 2.0
+
+Required DLC: None
+
+Ironman compatible: Yes
+
+Achievement compatible: No

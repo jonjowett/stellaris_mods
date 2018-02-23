@@ -1,0 +1,31 @@
+Since patch 1.6, you can only obtain one technology from the Enigmatic Fortress.
+
+This micro-mod:
+ --- Grants you the ability to research all Enigmatic technologies once you have finished researching one of them.
+ --- Fixes the Enigmatic Distruption Field, so it can be used on military stations.
+
+--------------------
+
+Inspiration:
+ --- This mod was inspired by the original [url=http://steamcommunity.com/sharedfiles/filedetails/?id=922899798]All Enigmatic Technologies[/url] mod by Sam: 
+ --- Unfortunately, that mod edits the technologies themselves, which means that it's not 100% compatible with other mods (and it also requires updates every time Paradox changes the vanilla technologies).
+
+--------------------
+
+Technical info / compatibility:
+ --- This mod is CLEAN - no vanilla files are altered. Hence, it should be compatible with all other mods.
+ --- The Enigmatic tech research options are granted by event, which is triggered by completing research on any tech. This is seamless for new games - but, if you are adding this mod to a game in progress where you have already researched an Enigmatic tech, you will need to wait until you've finished researching some other tech.
+ --- The fixed Enigmatic Disruption Field is implemented as a new component and is clearly tagged in Ship Designer (so you can choose to use the vanilla component if it's fixed at some point in the future, or a version that's fixed by some other mod).
+
+Mods used in the screenshots:
+ --- [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1196765161]Arc Emitter Miniaturization[/url]
+
+All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)
+
+Tested version: 1.8.3
+
+Required DLC: Leviathans
+
+Ironman compatible: Yes
+
+Achievement compatible: No

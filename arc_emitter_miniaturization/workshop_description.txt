@@ -1,0 +1,32 @@
+Ever wanted to create battleships with nothing but arc emitters? Battleships that laugh at your enemies' so-called "shields", "armour" and "evasion"?
+
+--------------------
+
+This mod adds Large-sized arc emitters to the game ("Miniaturized Arc Emitter" and "Miniaturized Focused Arc Emitter").
+
+The new weapon stats have been derived from the vanilla XL weapons, following the patterns established by other weapons (eg. Giga Cannon vs Kinetic Artillery).
+
+This mod also adds two new technologies to the game, which are required to unlock the new weapons.
+
+--------------------
+
+I personally love the mechanics of the XL Arc Emitters as flavourful endgame weapons - but unfortunately there are no similar mechanics in the L weapon class. This means that the L weapons on your battleships have to cut through armour and shields even though your XL weapons bypass all that, which means that XL Arc Emitters are highly suboptimal.
+
+--------------------
+
+Technical info / compatibility:
+ --- This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.
+
+Mods used in the screenshots:
+ --- [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1196859854]All Enigmatic Technologies (Clean)[/url]
+ --- [url=http://steamcommunity.com/sharedfiles/filedetails/?id=790455347]Advanced Ship Behaviour Modules[/url]
+
+All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)
+
+Tested version: 1.8.3
+
+Required DLC: None
+
+Ironman compatible: Yes
+
+Achievement compatible: No
