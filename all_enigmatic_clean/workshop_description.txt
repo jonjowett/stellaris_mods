@@ -1,3 +1,7 @@
+UPDATE: I believe that this mod is not relevant for v2.0. However, if you disagree, please explain why in the comments below.
+
+--------------------
+
 Since patch 1.6, you can only obtain one technology from the Enigmatic Fortress.
 
 This micro-mod:
