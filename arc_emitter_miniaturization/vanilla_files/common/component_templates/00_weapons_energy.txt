@@ -271,76 +271,6 @@ weapon_component_template = {
 }
 
 # ####################
-# Spaceport Laser
-# ####################
-
-weapon_component_template = {
-	key = "SMALL_SPACEPORT_LASER"
-	size = small
-	entity = "small_laser_gun_entity"
-	type = instant
-	icon = "GFX_ship_part_laser_1"
-	icon_frame = 1
-	#color = { 0.1 1.0 0.1 1 }
-	
-	projectile_gfx = "gamma_laser_l"
-	hidden = yes
-	component_set = "SPACEPORT_LASER"
-	tags = { weapon_type_energy }
-}
-
-weapon_component_template = {
-	key = "MEDIUM_SPACEPORT_LASER"
-	size = medium
-	entity = "medium_laser_gun_entity"
-	type = instant
-	icon = "GFX_ship_part_laser_1"
-	icon_frame = 1
-	#color = { 0.1 1.0 0.1 1 }
-	
-	projectile_gfx = "gamma_laser_l"
-	hidden = yes
-	component_set = "SPACEPORT_LASER"
-	tags = { weapon_type_energy }
-}
-
-weapon_component_template = {
-	key = "LARGE_SPACEPORT_LASER"
-	size = large
-	entity = "large_laser_gun_entity"
-	type = instant
-	icon = "GFX_ship_part_laser_1"
-	icon_frame = 1
-	#color = { 0.1 1.0 0.1 1 }
-	
-	projectile_gfx = "gamma_laser_l"
-	hidden = yes
-	component_set = "SPACEPORT_LASER"
-	tags = { weapon_type_energy }
-}
-
-# ###################################
-# Fallen Empire Spaceport Lance
-# ###################################
-
-# ## Fallen Empire Energy Lance
-weapon_component_template = {
-	key = "LARGE_FALLEN_EMPIRE_SPACEPORT_LANCE"
-	size = large
-	entity = "large_laser_gun_entity"
-	type = instant
-	
-	icon = "GFX_ship_part_energy_lance_2"
-	icon_frame = 1
-	#color = { 0.1 1.0 0.1 1 }
-	
-	hidden = yes
-	component_set = "FALLEN_EMPIRE_SPACEPORT_LANCE"
-	projectile_gfx = "tachyon_lance"
-	tags = { weapon_type_energy }
-}
-
-# ####################
 #  Plasma
 # ####################
 
@@ -360,6 +290,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_thrower_s"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 	upgrades_to = "SMALL_PLASMA_2"
 }
 
@@ -378,6 +309,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_thrower_m"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 	upgrades_to = "MEDIUM_PLASMA_2"
 }
 
@@ -396,6 +328,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_thrower_l"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 	upgrades_to = "LARGE_PLASMA_2"
 }
 
@@ -416,6 +349,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_accelerator_s"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 	upgrades_to = "SMALL_PLASMA_3"
 }
 
@@ -434,6 +368,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_accelerator_m"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 	upgrades_to = "MEDIUM_PLASMA_3"
 }
 
@@ -452,6 +387,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_accelerator_l"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 	upgrades_to = "LARGE_PLASMA_3"
 }
 
@@ -471,6 +407,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_cannon_s"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 }
 
 weapon_component_template = {
@@ -488,6 +425,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_cannon_m"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 }
 
 weapon_component_template = {
@@ -505,6 +443,7 @@ weapon_component_template = {
 	projectile_gfx = "plasma_cannon_l"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	ai_tag_weight = 3
 }
 
 # ####################
@@ -526,8 +465,8 @@ weapon_component_template = {
 	component_set = "DISRUPTOR_1"
 	projectile_gfx = "disruptor_1_small"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 5
 	upgrades_to = "SMALL_DISRUPTOR_2"
 }
 
@@ -545,28 +484,9 @@ weapon_component_template = {
 	component_set = "DISRUPTOR_1"
 	projectile_gfx = "disruptor_1_medium"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 5
 	upgrades_to = "MEDIUM_DISRUPTOR_2"
-}
-
-weapon_component_template = {
-	key = "LARGE_DISRUPTOR_1"
-	size = large
-	entity = "large_laser_gun_entity"
-	type = instant
-	
-	icon = "GFX_ship_part_disruptor_1"
-	icon_frame = 1
-	#color = { 1.0 1.0 1.0 1 }
-	
-	prerequisites = { "tech_disruptors_1" }
-	component_set = "DISRUPTOR_1"
-	projectile_gfx = "disruptor_1_large"
-	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
-	upgrades_to = "LARGE_DISRUPTOR_2"
 }
 
 # ## Disruptor 2
@@ -584,8 +504,8 @@ weapon_component_template = {
 	component_set = "DISRUPTOR_2"
 	projectile_gfx = "disruptor_2_small"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 5
 	upgrades_to = "SMALL_DISRUPTOR_3"
 }
 
@@ -603,28 +523,9 @@ weapon_component_template = {
 	component_set = "DISRUPTOR_2"
 	projectile_gfx = "disruptor_2_medium"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 5
 	upgrades_to = "MEDIUM_DISRUPTOR_3"
-}
-
-weapon_component_template = {
-	key = "LARGE_DISRUPTOR_2"
-	size = large
-	entity = "large_laser_gun_entity"
-	type = instant
-	
-	icon = "GFX_ship_part_disruptor_2"
-	icon_frame = 1
-	#color = { 0.1 1.0 0.1 1 }
-	
-	prerequisites = { "tech_disruptors_2" }
-	component_set = "DISRUPTOR_2"
-	projectile_gfx = "disruptor_2_large"
-	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
-	upgrades_to = "LARGE_DISRUPTOR_3"
 }
 
 # ## Disruptor 3
@@ -642,8 +543,8 @@ weapon_component_template = {
 	component_set = "DISRUPTOR_3"
 	projectile_gfx = "disruptor_3_small"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 5
 }
 
 weapon_component_template = {
@@ -660,26 +561,8 @@ weapon_component_template = {
 	component_set = "DISRUPTOR_3"
 	projectile_gfx = "disruptor_3_medium"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
-}
-
-weapon_component_template = {
-	key = "LARGE_DISRUPTOR_3"
-	size = large
-	entity = "large_laser_gun_entity"
-	type = instant
-	
-	icon = "GFX_ship_part_disruptor_3"
-	icon_frame = 1
-	#color = { 0.1 1.0 0.1 1 }
-	
-	prerequisites = { "tech_disruptors_3" }
-	component_set = "DISRUPTOR_3"
-	projectile_gfx = "disruptor_3_large"
-	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_shield }
-	ai_tag_weight = 4
+	ai_tags = { weapon_role_anti_hull }
+	ai_tag_weight = 5
 }
 
 # #####################
@@ -718,6 +601,47 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 }
 
+# ####################
+#  Proton Launchers
+# ####################
+
+# ## Proton Launchers 1
+weapon_component_template = {
+	key = "ENERGY_TORPEDO_1"
+	size = large
+	entity = "turret_energy_torpedo_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_energy_torpedo_1"
+	icon_frame = 1
+	
+	prerequisites = { "tech_energy_torpedoes_1" }
+	component_set = "ENERGY_TORPEDO_1"
+	projectile_gfx = "proton_torpedoes"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	upgrades_to = "ENERGY_TORPEDO_2"
+}
+
+# ## Proton Launchers 2
+weapon_component_template = {
+	key = "ENERGY_TORPEDO_2"
+	size = large
+	entity = "turret_energy_torpedo_entity"
+	type = instant
+	
+	icon = "GFX_ship_part_energy_torpedo_2"
+	icon_frame = 1
+	
+	prerequisites = { "tech_energy_torpedoes_2" }
+	component_set = "ENERGY_TORPEDO_2"
+	projectile_gfx = "neutron_torpedoes"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+}
+
 # #####################
 #	Psionic
 # #####################
@@ -738,3 +662,4 @@ weapon_component_template = {
 	component_set = "PSIONIC_BLAST_1"
 	cost = 0
 }
+

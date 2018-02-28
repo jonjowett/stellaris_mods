@@ -1,8 +1,5 @@
-#NB: You can use the console command 'reload stats' in-game to instantly load any modifications to the below.
-
-#Entries in weapon_components.csv, for the XL versions on which these miniaturized arc emitters were based (latest extract: v1.8.3)
-#LARGE_ARC_EMITTER_1;50.00;-100.00;1.00;184.00;0.00;1.00;1.00;22.00;30.00;60.00;100.00;1.00;1.00;0.00;0.00;0.00;0.00;0.00;0.00;
-#LARGE_ARC_EMITTER_2;60.00;-120.00;1.00;221.00;0.00;1.00;1.00;22.00;30.00;60.00;110.00;1.00;1.00;0.00;0.00;0.00;0.00;0.00;0.00;
+#NB: - You can use the console command 'reload stats' in-game to instantly load any modifications to the below.
+#    - The special component sets & icons are required to make the *technologies* have the correct icon. (For some reason, you get "icon missing" if you link to the default icons.)
 
 # Miniaturized Arc Emitter
 weapon_component_template = {
@@ -18,33 +15,38 @@ weapon_component_template = {
 	component_set = "MINIATURIZED_ARC_EMITTER_1_SET"
 	projectile_gfx = "arc_emitter"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
 	upgrades_to = "MINIATURIZED_ARC_EMITTER_2_WEAPON"
 	
-	#Cost & power are 1/2 of the XL version
-	cost = 25
-	power = -50
+	#Cost, power & damage are scaled in the same way as kinetic artillery vs mega/giga cannon
+	cost = 120
+	power = -70
+	damage = { min = 1 max = 293 }
 	
-	#Damage is 2/3 of the XL version
-	damage = { min = 1 max = 123 }
-	
-	#Zero shield damage + full penetration
-	#NB: In case this is used for other weapons, shield_damage = 1.5 means +50% in-game.
-	shield_damage = 0
+	#Additional damage & penetration copied from the XL weapons (ie. full penetration, no bonus damage)
+	#NB: In case this is used for other weapons, XXX_damage = 1.5 means +50% in-game.
+	hull_damage = 1
+	armor_damage = 1
+	shield_damage = 1
 	shield_penetration = 1
 	armor_penetration = 1
 	
-	#Relatively high windup and cooldown (approx 2/3 of XL), to prevent these weapons from being ridiculously overpowered
+	#Windup copied from cloud lightning (which is very slightly better than kinetic artillery - I think the techs would be able to do at least this well in late-game)
+	windup = { min = 1 max = 19 }
+	
+	#Cooldown is scaled in the same way as kinetic artillery vs mega/giga cannon
 	#NB: 'cooldown' in the CSV is 'total_fire_time' here.
-	windup = { min = 15 max = 23 }
-	total_fire_time = 40
+	total_fire_time = 44
 	
-	#Range is the same as other L-slot weapons
-	range = 80
+	#Range is scaled in the same way as kinetic artillery vs mega/giga cannon
+	range = 120
 	
-	#100% accuracy and tracking
+	#100% accuracy, as per the XL weapon
 	accuracy = 1
-	tracking = 1
+	
+	#30% tracking, as per cloud lightning
+	tracking = 0.3
 	
 	#There's a load of stuff relating to missiles in the CSV, which I've omitted because it's clearly irrelevant.
 	
@@ -64,32 +66,37 @@ weapon_component_template = {
 	component_set = "MINIATURIZED_ARC_EMITTER_2_SET"
 	projectile_gfx = "focused_arc_emitter"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_armor weapon_role_anti_shield }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
 	
-	#Cost & power are 1/2 of the XL version
-	cost = 30
-	power = -60
+	#Cost, power & damage are scaled in the same way as kinetic artillery vs mega/giga cannon
+	cost = 155
+	power = -90
+	damage = { min = 1 max = 383 }
 	
-	#Damage is 2/3 of the XL version
-	damage = { min = 1 max = 147 }
-	
-	#Zero shield damage + full penetration
-	#NB: In case this is used for other weapons, shield_damage = 1.5 means +50% in-game.
-	shield_damage = 0
+	#Additional damage & penetration copied from the XL weapons (ie. full penetration, no bonus damage)
+	#NB: In case this is used for other weapons, XXX_damage = 1.5 means +50% in-game.
+	hull_damage = 1
+	armor_damage = 1
+	shield_damage = 1
 	shield_penetration = 1
 	armor_penetration = 1
 	
-	#Relatively high windup and cooldown (approx 2/3 of XL), to prevent these weapons from being ridiculously overpowered
+	#Windup copied from cloud lightning (which is very slightly better than kinetic artillery - I think the techs would be able to do at least this well in late-game)
+	windup = { min = 1 max = 19 }
+	
+	#Cooldown is scaled in the same way as kinetic artillery vs mega/giga cannon
 	#NB: 'cooldown' in the CSV is 'total_fire_time' here.
-	windup = { min = 15 max = 23 }
-	total_fire_time = 40
+	total_fire_time = 44
 	
-	#For XL there's an increase of 10 range compared with arc emitter; this increase is preserved here.
-	range = 90
+	#Range is scaled in the same way as kinetic artillery vs mega/giga cannon
+	range = 120
 	
-	#100% accuracy and tracking
+	#100% accuracy, as per the XL weapon
 	accuracy = 1
-	tracking = 1
+	
+	#30% tracking, as per cloud lightning
+	tracking = 0.3
 	
 	#There's a load of stuff relating to missiles in the CSV, which I've omitted because it's clearly irrelevant.
 	
