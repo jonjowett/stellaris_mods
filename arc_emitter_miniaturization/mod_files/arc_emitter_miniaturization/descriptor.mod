@@ -7,4 +7,4 @@ tags={
 }
 picture="arc_emitter_miniaturization_icon.jpg"
 remote_file_id="1196764711"
-supported_version="1.9.*"
+supported_version="2.0.*"
