@@ -1,0 +1,7 @@
+# Copy the icon for the disruption field, in case it is removed in future.
+spriteTypes = {
+	spriteType = {
+		name = "GFX_all_enigmatic_clean_ship_part_enigmatic_disruption_field"
+		texturefile = "gfx/interface/icons/ship_parts/all_enigmatic_clean_ship_part_enigmatic_disruption_field.dds"
+	}
+}

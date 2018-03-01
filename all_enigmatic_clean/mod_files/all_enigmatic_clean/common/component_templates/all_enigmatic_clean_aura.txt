@@ -1,19 +1,22 @@
 # Icons set here are the ones show in the actual slot. The reason is so that we can support different icons for different sizes. 
 
+@shipAuraRange = 80 # Copied from 00_utilities_auras
+
 utility_component_template = {
-	key = "ENIGMATIC_DISRUPTION_FIELD_REENABLED"
+	key = "ALL_ENIGMATIC_CLEAN_ENIGMATIC_DISRUPTION_FIELD"
 	size = medium
-	icon = "GFX_ship_part_enigmatic_disruption_field"
+	icon = "GFX_all_enigmatic_clean_ship_part_enigmatic_disruption_field"
 	icon_frame = 1
 	power = 0
 	cost = 0
-	prerequisites = { tech_enigmatic_disruption_field }
+	prerequisites = { tech_all_enigmatic_clean_enigmatic_disruption_field }
 	
-	component_set = "station_large_aura_components" #IMPORTANT EDIT: Add it to the list of auras on military stations
+	size_restriction = { titan }
+	component_set = "ship_aura_components" # Ensures that it appears in the list of ship auras
 	
 	hostile_aura = {
 		name = "aura_shield_dampener"
-		radius = 120
+		radius = @shipAuraRange
 		apply_on = ships
 		
 		stack_info = {			#A ship can only be affected by one aura of a certain id. If multiple auras have the same ID the one with the highest priority will be applied.
@@ -22,8 +25,9 @@ utility_component_template = {
 		}
 		
 		modifier = {
-			ship_shield_regen_add_perc = -0.10
-			ship_fire_rate_mult = -0.20
+			# Shield Dampener + Quantum Destabiliser
+			ship_shield_mult = -0.20
+			ship_fire_rate_mult = -0.10
 		}
 		
 		graphics = {

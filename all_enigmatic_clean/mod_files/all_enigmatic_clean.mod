@@ -1,4 +1,4 @@
-name="All Enigmatic Technologies (Clean) (1.8 & 1.9; not 2.0+)"
+name="All Enigmatic Technologies (Clean)"
 path="mod/all_enigmatic_clean"
 tags={
 	"Technologies"
@@ -6,4 +6,4 @@ tags={
 }
 picture="all_enigmatic_clean_icon.jpg"
 remote_file_id="1196859854"
-supported_version="1.9.*"
+supported_version="2.0.*"

@@ -1,78 +1,521 @@
 namespace = all_enigmatic_clean
 
 country_event = {
-	# Check whether the main event has fired before. If not, proceed to the main event.
+	# Check whether the country has researched both the encoder and decoder, and also hasn't already obtained all of the additional techs granted by this event chain.
+	# This is designed as a quick check, because this event will be called every time that every country researches a tech.
 	id = all_enigmatic_clean.1
 	hide_window = yes
 	is_triggered_only = yes
-	trigger = { NOT = { has_country_flag = all_enigmatic_clean_tech_granted } }
-	immediate = { country_event = { id = all_enigmatic_clean.2 } }
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = {
+					has_technology = tech_enigmatic_encoder
+					has_technology = tech_enigmatic_decoder
+				}
+				NOT = { has_country_flag = all_enigmatic_clean_tech_granted }
+			}
+			country_event = { id = all_enigmatic_clean.2 }
+		}
+	}
+	
 }
 
 country_event = {
-	# Check whether the country has some (but not all) enigmatic tech. If it does, give permanent research options for the others.
+	# Check if the country already has all of the relevant techs (or tech options). If they do, set the flag and exit. If not, go to the next step.
 	id = all_enigmatic_clean.2
 	hide_window = yes
 	is_triggered_only = yes
 	
+	immediate = {
+		if = {
+			limit = {
+				AND = {
+					OR = {
+						has_technology = tech_dark_matter_power_core
+						has_tech_option = tech_dark_matter_power_core
+					}
+					OR = {
+						has_technology = tech_dark_matter_deflector
+						has_tech_option = tech_dark_matter_deflector
+					}
+					OR = {
+						has_technology = tech_all_enigmatic_clean_enigmatic_disruption_field
+						has_tech_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+					}
+				}
+			}
+			set_country_flag = all_enigmatic_clean_tech_granted
+			else = { country_event = { id = all_enigmatic_clean.3 } }
+		}
+	}
+}
+
+country_event = {
+	# Potentially show an initial message explaining this mod
+	id = all_enigmatic_clean.3
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = all_enigmatic_clean_initial_message_shown } }
+			country_event = { id = all_enigmatic_clean.100 }
+			else = { country_event = { id = all_enigmatic_clean.200 } }
+		}
+	}
+}
+
+country_event = {
+	# Initial message explaining this mod
+	id = all_enigmatic_clean.100
+	title = all_enigmatic_clean.initial_message.title
+	desc = all_enigmatic_clean.initial_message.desc
+	picture = GFX_evt_physics_research
+	show_sound = event_radio_chatter
+	is_triggered_only = yes
+	option = {
+		name = INTERESTING
+		hidden_effect = { set_country_flag = all_enigmatic_clean_initial_message_shown }
+		hidden_effect = { country_event = { id = all_enigmatic_clean.200 } }
+	}
+}
+
+country_event = {
+	# Grant any applicable research options.
+	# No need to add an explicit test for "all options granted" at the end - this will be handled the next time the country researches a tech.
+	id = all_enigmatic_clean.200
+	title = all_enigmatic_clean.research_options_granted.title
+	desc = all_enigmatic_clean.research_options_granted.desc
+	picture = GFX_evt_physics_research
+	show_sound = event_radio_chatter
+	is_triggered_only = yes
+	
 	trigger = {
-		OR = {
-			has_technology = tech_enigmatic_deflector
-			has_technology = tech_enigmatic_power_core
+		#Check whether any new research options can be granted. If not, this event will not be visible.
+		AND = {
 			has_technology = tech_enigmatic_encoder
 			has_technology = tech_enigmatic_decoder
-			has_technology = tech_enigmatic_disruption_field
-		}
-		NOT = {
-			AND = {
-				OR = {
-					has_technology = tech_enigmatic_deflector
-					has_tech_option = tech_enigmatic_deflector
+			OR = {
+				AND = {
+					has_technology = tech_zero_point_power
+					NOT = {
+						OR = {
+							has_technology = tech_dark_matter_power_core
+							has_tech_option = tech_dark_matter_power_core
+						}
+					}
 				}
-				OR = {
-					has_technology = tech_enigmatic_power_core
-					has_tech_option = tech_enigmatic_power_core
+				AND = {
+					has_technology = tech_shields_5
+					NOT = {
+						OR = {
+							has_technology = tech_dark_matter_deflector
+							has_tech_option = tech_dark_matter_deflector
+						}
+					}
 				}
-				OR = {
-					has_technology = tech_enigmatic_encoder
-					has_tech_option = tech_enigmatic_encoder
-				}
-				OR = {
-					has_technology = tech_enigmatic_decoder
-					has_tech_option = tech_enigmatic_decoder
-				}
-				OR = {
-					has_technology = tech_enigmatic_disruption_field
-					has_tech_option = tech_enigmatic_disruption_field
+				AND = {
+					has_technology = tech_titans
+					NOT = {
+						OR = {
+							has_technology = tech_all_enigmatic_clean_enigmatic_disruption_field
+							has_tech_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+						}
+					}
 				}
 			}
 		}
 	}
 	
-	immediate = {
+	option = {
+		name = INTERESTING
 		if = {
-			limit = { NOT = { has_technology = tech_enigmatic_deflector } }
-			add_research_option = tech_enigmatic_deflector
+			limit = {
+				AND = {
+					has_technology = tech_zero_point_power
+					NOT = {
+						OR = {
+							has_technology = tech_dark_matter_power_core
+							has_tech_option = tech_dark_matter_power_core
+						}
+					}
+				}
+			}
+			add_research_option = tech_dark_matter_power_core
 		}
 		if = {
-			limit = { NOT = { has_technology = tech_enigmatic_power_core } }
-			add_research_option = tech_enigmatic_power_core
+			limit = {
+				AND = {
+					has_technology = tech_shields_5
+					NOT = {
+						OR = {
+							has_technology = tech_dark_matter_deflector
+							has_tech_option = tech_dark_matter_deflector
+						}
+					}
+				}
+			}
+			add_research_option = tech_dark_matter_deflector
 		}
 		if = {
-			limit = { NOT = { has_technology = tech_enigmatic_encoder } }
-			add_research_option = tech_enigmatic_encoder
-		}
-		if = {
-			limit = { NOT = { has_technology = tech_enigmatic_decoder } }
-			add_research_option = tech_enigmatic_decoder
-		}
-		if = {
-			limit = { NOT = { has_technology = tech_enigmatic_disruption_field } }
-			add_research_option = tech_enigmatic_disruption_field
-		}
-		hidden_effect = {
-			set_country_flag = all_enigmatic_clean_tech_granted
+			limit = {
+				AND = {
+					has_technology = tech_titans
+					NOT = {
+						OR = {
+							has_technology = tech_all_enigmatic_clean_enigmatic_disruption_field
+							has_tech_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+						}
+					}
+				}
+			}
+			add_research_option = tech_all_enigmatic_clean_enigmatic_disruption_field
 		}
 	}
 	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Testing - Check country flags
+
+country_event = {
+	id = all_enigmatic_clean.900
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = all_enigmatic_clean_initial_message_shown
+				has_country_flag = all_enigmatic_clean_tech_granted
+			}
+			country_event = { id = all_enigmatic_clean.901 }
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = all_enigmatic_clean_initial_message_shown }
+				has_country_flag = all_enigmatic_clean_tech_granted
+			}
+			country_event = { id = all_enigmatic_clean.902 }
+		}
+		if = {
+			limit = {
+				has_country_flag = all_enigmatic_clean_initial_message_shown
+				NOT = { has_country_flag = all_enigmatic_clean_tech_granted }
+			}
+			country_event = { id = all_enigmatic_clean.903 }
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = all_enigmatic_clean_initial_message_shown }
+				NOT = { has_country_flag = all_enigmatic_clean_tech_granted }
+			}
+			country_event = { id = all_enigmatic_clean.904 }
+		}
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.901
+	title = "Country Flag Check (Mod: AETClean)"
+	desc = "all_enigmatic_clean_initial_message_shown: SET all_enigmatic_clean_tech_granted: SET"
+	picture = GFX_evt_throne_room
+	is_triggered_only = yes
+	option = { name = OK }
+}
+
+country_event = {
+	id = all_enigmatic_clean.902
+	title = "Country Flag Check (Mod: AETClean)"
+	desc = "all_enigmatic_clean_initial_message_shown: NOT SET all_enigmatic_clean_tech_granted: SET"
+	picture = GFX_evt_throne_room
+	is_triggered_only = yes
+	option = { name = OK }
+}
+
+country_event = {
+	id = all_enigmatic_clean.903
+	title = "Country Flag Check (Mod: AETClean)"
+	desc = "all_enigmatic_clean_initial_message_shown: SET all_enigmatic_clean_tech_granted: NOT SET"
+	picture = GFX_evt_throne_room
+	is_triggered_only = yes
+	option = { name = OK }
+}
+
+country_event = {
+	id = all_enigmatic_clean.904
+	title = "Country Flag Check (Mod: AETClean)"
+	desc = "all_enigmatic_clean_initial_message_shown: NOT SET all_enigmatic_clean_tech_granted: NOT SET"
+	picture = GFX_evt_throne_room
+	is_triggered_only = yes
+	option = { name = OK }
+}
+
+
+
+
+
+
+# Testing - Manipulate country flags
+
+country_event = {
+	id = all_enigmatic_clean.910
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		remove_country_flag = all_enigmatic_clean_initial_message_shown
+		remove_country_flag = all_enigmatic_clean_tech_granted
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.911
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		remove_country_flag = all_enigmatic_clean_initial_message_shown
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.912
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		remove_country_flag = all_enigmatic_clean_tech_granted
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.913
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = all_enigmatic_clean_initial_message_shown
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.914
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = all_enigmatic_clean_tech_granted
+	}
+}
+
+
+
+
+
+
+# Testing - Add prereq techs
+
+country_event = {
+	id = all_enigmatic_clean.920
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_zero_point_power message = yes }
+		give_technology = { tech = tech_shields_5 message = yes }
+		give_technology = { tech = tech_titans message = yes }
+		give_technology = { tech = tech_enigmatic_encoder message = yes }
+		give_technology = { tech = tech_enigmatic_decoder message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.921
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_zero_point_power message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.922
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_shields_5 message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.923
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_titans message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.924
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_enigmatic_encoder message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.925
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_enigmatic_decoder message = yes }
+	}
+}
+
+
+
+
+
+
+# Testing - Add tech options directly
+
+country_event = {
+	id = all_enigmatic_clean.930
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_research_option = tech_dark_matter_power_core
+		add_research_option = tech_dark_matter_deflector
+		add_research_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.931
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_research_option = tech_dark_matter_power_core
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.932
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_research_option = tech_dark_matter_deflector
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.933
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_research_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+	}
+}
+
+
+
+
+
+
+# Testing - Grant techs directly
+
+country_event = {
+	id = all_enigmatic_clean.940
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_dark_matter_power_core message = yes }
+		give_technology = { tech = tech_dark_matter_deflector message = yes }
+		give_technology = { tech = tech_all_enigmatic_clean_enigmatic_disruption_field message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.941
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_dark_matter_power_core message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.942
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_dark_matter_deflector message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.943
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_all_enigmatic_clean_enigmatic_disruption_field message = yes }
+	}
 }

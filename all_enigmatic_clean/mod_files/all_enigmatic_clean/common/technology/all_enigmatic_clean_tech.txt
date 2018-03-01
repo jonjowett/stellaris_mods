@@ -1,0 +1,23 @@
+# Constants copied from 00_guardian_tech
+@guardiantechcost = 15000
+@guardiantechtier = 5
+
+#Constants copied from 00_fallen_empire_tech
+@fallentechcost = 25000
+@fallentechtier = 5
+
+#Enigmatic Disruption Field
+tech_all_enigmatic_clean_enigmatic_disruption_field = {
+	# Use the fallen empire tech cost, for consistency with the cost of the dark matter reactor / deflector.
+	cost = @fallentechcost
+	area = physics
+	tier = @fallentechtier
+	category = { field_manipulation }
+	ai_update_type = all
+	weight = 0
+	is_rare = yes
+	
+	weight_modifier = {
+		factor = 0
+	}
+}
