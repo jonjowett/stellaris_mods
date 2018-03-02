@@ -1,0 +1,234 @@
+ship_section_template = {
+	key = "TITAN_HANGARS_BOW_4H"
+	ship_size = titan
+	fits_on_slot = bow
+	entity = "titan_bow_entity"
+	icon = "GFX_ship_part_core_bow"
+	
+	#AI Should always prefer to put the beam here; leave the hangar option for players only.
+	ai_weight = {
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+	
+	# T = 2 * XL = 2 * (2 * L) = 2 * (2 * H) = 4H
+	# Add 2 extra hangar slots, for balance.
+	# This is going to look a bit weird, but I don't see how to avoid it. I am not a 3D artist!
+	
+	component_slot = {
+		name = "TITAN_HANGARS_BOW_H_01"
+		slot_size = large
+		slot_type = strike_craft
+		locatorname = "xl_gun_01"
+		rotation = 90
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_BOW_H_02"
+		slot_size = large
+		slot_type = strike_craft
+		locatorname = "xl_gun_01"
+		rotation = 90
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_BOW_H_03"
+		slot_size = large
+		slot_type = strike_craft
+		locatorname = "xl_gun_01"
+		rotation = 90
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_BOW_H_04"
+		slot_size = large
+		slot_type = strike_craft
+		locatorname = "xl_gun_01"
+		rotation = 90
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_BOW_H_05"
+		slot_size = large
+		slot_type = strike_craft
+		locatorname = "xl_gun_01"
+		rotation = 90
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_BOW_H_06"
+		slot_size = large
+		slot_type = strike_craft
+		locatorname = "xl_gun_01"
+		rotation = 90
+	}
+	
+	large_utility_slots = 6
+	
+	cost = 400
+}
+
+ship_section_template = {
+	key = "TITAN_HANGARS_MID_3H4PD"
+	ship_size = titan
+	fits_on_slot = mid
+	entity = "titan_mid_entity"
+	icon = "GFX_ship_part_core_mid"
+	
+	# AI weight for hangar sections copied from battleships.txt
+	ai_weight = {
+		modifier = {
+			factor = 10.0
+			is_preferred_weapons = weapon_type_strike_craft
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { is_preferred_weapons = weapon_type_strike_craft }
+		}		
+	}
+	
+	# 4 L = 3 H + 4 PD
+	# Add 2 extra hangar slots, for balance
+	# The 4 PD also fill up the visible slots on the top of the ship mesh, so there isn't a nasty-looking blank area.
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_H_01"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_01"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_H_02"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_02"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_H_03"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_03"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_H_04"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_04"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_H_05"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_01"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_PD_01"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "large_gun_01"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_PD_02"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "large_gun_02"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_PD_03"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "large_gun_03"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_MID_PD_04"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "large_gun_04"
+	}
+	
+	large_utility_slots = 6
+	
+	cost = 400
+}
+
+ship_section_template = {
+	key = "TITAN_HANGARS_STERN_2H2PD"
+	ship_size = titan
+	fits_on_slot = stern
+	entity = "titan_stern_entity"
+	icon = "GFX_ship_part_core_stern"
+	
+	# AI weight for hangar sections copied from battleships.txt
+	ai_weight = {
+		modifier = {
+			factor = 10.0
+			is_preferred_weapons = weapon_type_strike_craft
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { is_preferred_weapons = weapon_type_strike_craft }
+		}		
+	}
+	
+	# 2 L = 2 H
+	# Add 1 extra hangar slot, for balance
+	
+	component_slot = {
+		name = "TITAN_HANGARS_STERN_H_01"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_01"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_STERN_H_02"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_02"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_STERN_H_03"
+		slot_size = large
+		slot_type = strike_craft
+		rotation = 90
+		locatorname = "large_gun_01"
+	}
+	
+	# Add 2 PD, to fill up the slots that are visible in the ship mesh (so there isn't a blank area on top of the ship)
+	
+	component_slot = {
+		name = "TITAN_HANGARS_STERN_PD_01"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "large_gun_01"
+	}
+	
+	component_slot = {
+		name = "TITAN_HANGARS_STERN_PD_02"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "large_gun_02"
+	}
+	
+	aux_utility_slots = 3
+	
+	cost = 400
+}

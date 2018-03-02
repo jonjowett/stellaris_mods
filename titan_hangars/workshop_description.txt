@@ -1,0 +1,29 @@
+This micro-mod adds hangar ship sections for titans.
+
+[h1]Added ship sections:[/h1]
+[list][*]Titan Hangar Bow: 6 hangars; 6 large utilities
+[*]Titan Hangar Core: 5 hangars + 4 point defence; 6 large utilities
+[*]Titan Hangar Stern: 3 hangars + 2 point defence; 3 aux utilities[/list]
+
+[h1]Rationale:[/h1]
+[list][*]Number of hangar slots is calculated as follows: 1T = 2L; 1L = 1.5H.
+[*]In vanilla, 1L = 1H. However, following some quick testing, I increased this to 1.5L so that hangar titans aren't significantly worse than beam titans.
+[*]The point defence slots were added so that there's something sitting on the otherwise-blank L slots.[/list]
+
+[h1]FAQ:[/h1]
+
+Q: Does this mod also add titan hangars for [some other mod]?
+A: No. This mod only adds ship sections to the vanilla titan. If you want titan hangars in [some other mod], please ask the authors of that mod. I'm sorry, but I'm not prepared to patch & support every ship-size mod that's out there.
+
+[h1]Technical info / compatibility:[/h1]
+[list][*]Requires Apocalypse DLC (to unlock titans).
+[*]No vanilla game files are edited, so this mod should be fully compatible with all other mods.[/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
+
+[h1]TLDR:[/h1]
+[list][*]Tested version: 2.0.1
+[*]Required DLC: Apocalypse
+[*]Ironman compatible: Yes
+[*]Achievement compatible: No[/list]
