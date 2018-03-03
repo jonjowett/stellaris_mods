@@ -1,27 +1,20 @@
-Allows you to buy influence from the Artisan Enclave, by running propaganda campaigns.
+This mod allows you to buy influence from the Artisan Enclave, by running propaganda campaigns.
 
-This is very expensive (20 minerals + 20 energy per 1 influence) - but I think it's a reasonable way to pick up influence without simply cheating.
+The propaganda campaigns are implemented in the same way as for the trade companies: a constant drain on resources that can be cancelled at any time.
 
---------------------
+The cost of a propaganda campaign is very expensive (20 minerals + 20 energy per 1 influence) - but I think it's a reasonable way to pick up influence without simply cheating.
 
-Technical info / compatibility:
- --- Edited the "front screen" of the Artisan Enclave (guardian.300 in events\guardian_events.txt), to act as a gateway into this mod.
- --- No other vanilla files are edited, so this mod should be compatible with anything that doesn't alter the Artisan Enclave.
+[h1]Technical info / compatibility:[/h1]
+[list][*]Edited the guardian.300 event (the "front screen" of the Artisan Enclave), to act as a gateway into this mod.
+[*]Edited the guardian.330 event, so that the Propaganda Campaign is removed if you annoy the Artisans. (Not tested.)
+[*]Edited the guardian.333 event, so that the Propaganda Campaign is removed if all of the Artisan Enclaves are destroyed. (Not tested.)
+[*]No other vanilla files are edited, so this mod should be compatible with anything that doesn't alter the Artisan Enclave.[/list]
 
-All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
-Tested version: 1.8.3
-
-Ironman compatible: Yes
-
-Achievement compatible: No
-
-Required DLC: Leviathans
-
---------------------
-
-CHANGELOG:
-
-v0.1 Initial upload, not playtested
-v0.2 Uploaded cleaner version that's compatible with 1.6.1 and 1.8.3. (guardian.300 didn't change)
-v0.3 Uploaded cleaner version that properly replicates the vanilla guardian.300 event. This version is probably not compatible with 1.6.1.
+[h1]TL;DR[/h1]
+[list][*]Tested version: 2.0.1
+[*]Required DLC: Leviathans
+[*]Ironman compatible: Yes
+[*]Achievement compatible: No[/list]

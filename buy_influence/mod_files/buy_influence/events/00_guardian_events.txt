@@ -27,12 +27,9 @@ country_event = {
 	}
 	
 	trigger = {
-		OR = {
-			from = {
-				is_country_type = enclave
-				has_country_flag = artist_enclave_country
-			}
-			exists = event_target:artist_enclave
+		from = {
+			is_country_type = enclave
+			has_country_flag = artist_enclave_country
 		}
 		OR = {
 			OR = {
@@ -70,7 +67,7 @@ country_event = {
 			NOR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
+				has_valid_civic = civic_machine_terminator
 			}
 		}
 		hidden_effect = {
@@ -90,7 +87,7 @@ country_event = {
 			NOR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
+				has_valid_civic = civic_machine_terminator
 			}
 		}
 	}
@@ -102,7 +99,7 @@ country_event = {
 			NOR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
+				has_valid_civic = civic_machine_terminator
 			}
 		}
 		hidden_effect = {
@@ -138,7 +135,7 @@ country_event = {
 			NOR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
+				has_valid_civic = civic_machine_terminator
 				has_country_flag = artist_festival_purchased
 				has_ethic = ethic_gestalt_consciousness
 			}
@@ -152,7 +149,7 @@ country_event = {
 				event_target:artist_enclave_country = {
 					trust = {
 						who = root
-						value > 49.99
+						value > 49
 					}
 				}
 			}
@@ -174,7 +171,7 @@ country_event = {
 			NOR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
+				has_valid_civic = civic_machine_terminator
 				has_country_flag = artist_festival_purchased
 				has_ethic = ethic_gestalt_consciousness
 			}
@@ -204,7 +201,7 @@ country_event = {
 			NOR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
-				has_ai_personality = exterminators
+				has_valid_civic = civic_machine_terminator
 			}
 		}
 		is_dialog_only = yes
@@ -222,9 +219,58 @@ country_event = {
 				has_ai_personality = exterminators 
 				has_country_flag = artist_building_patron
 			}
+			# former .316 trigger
+			exists = event_target:artist_enclave_country
+			has_modifier = enclave_artist_patron
+			has_country_flag = artist_patron
+			NOT = {
+				has_country_flag = enclave_stopped_patronage
+				has_country_flag = enclave_artist_ignores
+				#has_country_flag = artist_building_patron
+			}
 		}
 		hidden_effect = {
 			country_event = { id = guardian.316 }
+		}
+	}
+	
+	option = { # Art College
+		name = guardian.300.g
+		trigger = {
+			#MOD EDIT - Prettified
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+			}
+			NOT = {
+				event_target:artist_enclave_country = {
+					has_country_flag = art_college@root
+				}
+			}
+			any_system_within_border = {
+				has_star_flag = enclave
+				any_ship_in_system = {
+					exists = owner
+					owner = {
+						is_same_value = event_target:artist_enclave_country
+					}
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = guardian.300.g.opinion
+				event_target:artist_enclave_country = {
+					trust = { 
+						who = root
+						value > 49 
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = guardian.340 }
 		}
 	}
 	
@@ -235,7 +281,13 @@ country_event = {
 			NOR = { 
 				has_valid_civic = civic_fanatic_purifiers 
 				has_valid_civic = civic_hive_devouring_swarm 
-				has_ai_personality = exterminators 
+				has_valid_civic = civic_machine_terminator
+			}
+			NOR = {
+				has_modifier = buy_influence_0point5
+				has_modifier = buy_influence_1point0
+				has_modifier = buy_influence_1point5
+				has_modifier = buy_influence_2point0
 			}
 		}
 		hidden_effect = {
@@ -243,9 +295,36 @@ country_event = {
 		}
 	}
 	
+	#MOD INSERTION - Buy influence
+	option = {
+		name = guardian.300.buy_influence_cancel
+		trigger = {
+			NOR = { 
+				has_valid_civic = civic_fanatic_purifiers 
+				has_valid_civic = civic_hive_devouring_swarm 
+				has_valid_civic = civic_machine_terminator
+			}
+			OR = {
+				has_modifier = buy_influence_0point5
+				has_modifier = buy_influence_1point0
+				has_modifier = buy_influence_1point5
+				has_modifier = buy_influence_2point0
+			}
+		}
+		custom_tooltip = guardian.300.buy_influence_cancel.tooltip
+		hidden_effect = {
+			remove_modifier = buy_influence_0point5
+			remove_modifier = buy_influence_1point0
+			remove_modifier = buy_influence_1point5
+			remove_modifier = buy_influence_2point0
+		}
+		is_dialog_only = yes
+		response_text = guardian.300.buy_influence_cancel.response
+	}
+	
 	option = {
 		name = GOODBYE
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_ai_personality = exterminators } }
+		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
 		default_hide_option = yes
 		hidden_effect = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
@@ -283,7 +362,7 @@ country_event = {
 	option = {
 		name = EXTERMINATE
 		trigger = {
-			has_ai_personality = exterminators
+			has_valid_civic = civic_machine_terminator
 		}
 		hidden_effect = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
@@ -303,4 +382,123 @@ country_event = {
 	#		remove_country_flag = recently_purchased_festival
 	#	}
 	#}
+}
+
+# All artist stations have been destroyed
+country_event = {
+	id = guardian.333
+	title = guardian.300.name
+	desc = guardian.333.desc
+	picture = GFX_evt_exploding_ship
+	show_sound = event_super_explosion
+	location = event_target:destroyed_station_location
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_communications = event_target:artist_enclave
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_artist_patron
+					has_country_flag = artist_patron
+				}
+			}
+			remove_modifier = enclave_artist_patron
+			remove_country_flag = artist_patron
+		}
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_artist_festival
+					has_country_flag = artist_festival_purchased
+				}
+			}
+			remove_modifier = enclave_artist_festival
+			remove_country_flag = artist_festival_purchased
+		}
+		
+		#MOD ADDED - Remove empire modifiers if artists are destroyed
+		if = {
+			limit = {
+				OR = {
+					has_modifier = buy_influence_0point5
+					has_modifier = buy_influence_1point0
+					has_modifier = buy_influence_1point5
+					has_modifier = buy_influence_2point0
+				}
+			}
+			remove_modifier = buy_influence_0point5
+			remove_modifier = buy_influence_1point0
+			remove_modifier = buy_influence_1point5
+			remove_modifier = buy_influence_2point0
+		}
+		
+	}
+
+	option = {
+		name = TERRIBLE
+		custom_tooltip = guardian.307.a.tooltip
+		trigger = {
+			NOT = { has_country_flag = enclave_artist_ignores }
+		}
+	}
+	option = {
+		name = OK
+		custom_tooltip = guardian.307.a.tooltip
+		trigger = {
+			has_country_flag = enclave_artist_ignores
+		}
+	}
+}
+
+country_event = {
+	id = guardian.330
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		from = {
+			has_country_flag = artist_enclave_country
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_artist_patron
+					has_country_flag = artist_patron
+				}
+			}
+			remove_modifier = enclave_artist_patron
+			remove_country_flag = artist_patron
+		}
+		
+		#MOD ADDED - Remove empire modifiers if you annoyed the artists
+		if = {
+			limit = {
+				OR = {
+					has_modifier = buy_influence_0point5
+					has_modifier = buy_influence_1point0
+					has_modifier = buy_influence_1point5
+					has_modifier = buy_influence_2point0
+				}
+			}
+			remove_modifier = buy_influence_0point5
+			remove_modifier = buy_influence_1point0
+			remove_modifier = buy_influence_1point5
+			remove_modifier = buy_influence_2point0
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_country_flag = enclave_artist_ignores }
+			}
+			set_country_flag = enclave_artist_ignores
+		}
+	}
 }

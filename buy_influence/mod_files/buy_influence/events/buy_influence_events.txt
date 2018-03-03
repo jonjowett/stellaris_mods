@@ -23,71 +23,46 @@ country_event = {
 
 	option = {
 		name = buy_influence.100.a
-		add_minerals = -1000
-		add_energy = -1000
-		add_influence = 50
-		allow = {
-			custom_tooltip = {
-				text = guardian.deal.tooltip
-				minerals > 999.99
-				energy > 999.99
-			}
-		}
 		response_text = buy_influence.100.a.reply
+		add_modifier = {
+			modifier = "buy_influence_0point5"
+			days = -1
+		}
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
 	}
 
 	option = {
 		name = buy_influence.100.b
-		add_minerals = -2000
-		add_energy = -2000
-		add_influence = 100
-		allow = {
-			custom_tooltip = {
-				text = guardian.deal.tooltip
-				minerals > 1999.99
-				energy > 1999.99
-			}
-		}
 		response_text = buy_influence.100.b.reply
+		add_modifier = {
+			modifier = "buy_influence_1point0"
+			days = -1
+		}
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
 	}
 
 	option = {
 		name = buy_influence.100.c
-		add_minerals = -4000
-		add_energy = -4000
-		add_influence = 200
-		allow = {
-			custom_tooltip = {
-				text = guardian.deal.tooltip
-				minerals > 3999.99
-				energy > 3999.99
-			}
-		}
 		response_text = buy_influence.100.c.reply
+		add_modifier = {
+			modifier = "buy_influence_1point5"
+			days = -1
+		}
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
 	}
 
 	option = {
 		name = buy_influence.100.d
-		add_minerals = -10000
-		add_energy = -10000
-		add_influence = 500
-		allow = {
-			custom_tooltip = {
-				text = guardian.deal.tooltip
-				minerals > 9999.99
-				energy > 9999.99
-			}
-		}
 		response_text = buy_influence.100.d.reply
-	}
-	
-	option = {
-		name = TOOPOOR
-		trigger = {
-			OR = {
-				minerals < 1000
-				energy < 1000
-			}
+		add_modifier = {
+			modifier = "buy_influence_2point0"
+			days = -1
 		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
@@ -97,12 +72,7 @@ country_event = {
 	option = {
 		name = NODEAL
 		default_hide_option = yes
-		trigger = {
-			NOR = {
-				minerals < 1000
-				energy < 1000
-			}
-		}
+		response_text = buy_influence.100.nodeal.reply
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
 		}
