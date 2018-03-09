@@ -1,0 +1,11 @@
+﻿l_english:
+ edict_rlcse_1:0 "Land Clearance"
+ edict_rlcse_1_desc:0 "Successive land clearance is possible, but significantly more expensive.\n\n"
+ edict_rlcse_2:0 "$edict_rlcse_1$"
+ edict_rlcse_2_desc:0 "$edict_rlcse_1_desc$"
+ edict_rlcse_3:0 "$edict_rlcse_1$"
+ edict_rlcse_3_desc:0 "$edict_rlcse_1_desc$"
+ edict_rlcse_4:0 "$edict_rlcse_1$"
+ edict_rlcse_4_desc:0 "$edict_rlcse_1_desc$"
+ edict_rlcse_5:0 "$edict_rlcse_1$"
+ edict_rlcse_5_desc:0 "$edict_rlcse_1_desc$"

@@ -1,0 +1,248 @@
+@max_planet_size = 25
+
+# NB: 4 & 5 might be possible, with a big enough discount to edict cost (or an increase to influence cap)
+@rlcse_1_influence = 200
+@rlcse_1_energy = 1000
+@rlcse_2_influence = 400
+@rlcse_2_energy = 2000
+@rlcse_3_influence = 800
+@rlcse_3_energy = 4000
+@rlcse_4_influence = 1600
+@rlcse_4_energy = 8000
+@rlcse_5_influence = 3200
+@rlcse_5_energy = 16000
+
+
+planet_edict = {
+	name = "rlcse_1"
+	cost = { influence = @rlcse_1_influence energy = rlcse_1_energy }
+	length = 0
+	
+	potential = {
+		habitable_structure = no
+		planet_size < @max_planet_size #Hide the edict if the planet is already max size
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_planet_flag = land_clearance_happened
+		NOT = { has_planet_flag = rlcse_1_happened }
+		NOT = { has_planet_flag = rlcse_2_happened }
+		NOT = { has_planet_flag = rlcse_3_happened }
+		NOT = { has_planet_flag = rlcse_4_happened }
+		NOT = { has_planet_flag = rlcse_5_happened }
+	}
+	
+	effect = {
+		if = {
+			limit = { planet_size <= 12 }
+			custom_tooltip = land_clearance_increase_size_3
+			hidden_effect = { change_planet_size = 3 }						
+			else = {
+				if = {
+					limit = { planet_size <= 15 }
+					custom_tooltip = land_clearance_increase_size_2
+					hidden_effect = { change_planet_size = 2 }			
+					else = {	
+						custom_tooltip = land_clearance_increase_size_1
+						hidden_effect = { change_planet_size = 1 }
+					}
+				}			
+			}
+		}
+		hidden_effect = { set_planet_flag = rlcse_1_happened }
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			num_pops < 10
+		}
+	}
+}
+
+
+planet_edict = {
+	name = "rlcse_2"
+	cost = { influence = @rlcse_2_influence energy = rlcse_2_energy }
+	length = 0
+	
+	potential = {
+		habitable_structure = no
+		planet_size < @max_planet_size #Hide the edict if the planet is already max size
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_planet_flag = land_clearance_happened
+		has_planet_flag = rlcse_1_happened
+		NOT = { has_planet_flag = rlcse_2_happened }
+		NOT = { has_planet_flag = rlcse_3_happened }
+		NOT = { has_planet_flag = rlcse_4_happened }
+		NOT = { has_planet_flag = rlcse_5_happened }
+	}
+	
+	effect = {
+		if = {
+			limit = { planet_size <= 12 }
+			custom_tooltip = land_clearance_increase_size_3
+			hidden_effect = { change_planet_size = 3 }						
+			else = {
+				if = {
+					limit = { planet_size <= 15 }
+					custom_tooltip = land_clearance_increase_size_2
+					hidden_effect = { change_planet_size = 2 }			
+					else = {	
+						custom_tooltip = land_clearance_increase_size_1
+						hidden_effect = { change_planet_size = 1 }
+					}
+				}			
+			}
+		}
+		hidden_effect = { set_planet_flag = rlcse_2_happened }
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			num_pops < 10
+		}
+	}
+}
+
+
+planet_edict = {
+	name = "rlcse_3"
+	cost = { influence = @rlcse_3_influence energy = rlcse_3_energy }
+	length = 0
+	
+	potential = {
+		habitable_structure = no
+		planet_size < @max_planet_size #Hide the edict if the planet is already max size
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_planet_flag = land_clearance_happened
+		has_planet_flag = rlcse_1_happened
+		has_planet_flag = rlcse_2_happened
+		NOT = { has_planet_flag = rlcse_3_happened }
+		NOT = { has_planet_flag = rlcse_4_happened }
+		NOT = { has_planet_flag = rlcse_5_happened }
+	}
+	
+	effect = {
+		if = {
+			limit = { planet_size <= 12 }
+			custom_tooltip = land_clearance_increase_size_3
+			hidden_effect = { change_planet_size = 3 }						
+			else = {
+				if = {
+					limit = { planet_size <= 15 }
+					custom_tooltip = land_clearance_increase_size_2
+					hidden_effect = { change_planet_size = 2 }			
+					else = {	
+						custom_tooltip = land_clearance_increase_size_1
+						hidden_effect = { change_planet_size = 1 }
+					}
+				}			
+			}
+		}
+		hidden_effect = { set_planet_flag = rlcse_3_happened }
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			num_pops < 10
+		}
+	}
+}
+
+
+planet_edict = {
+	name = "rlcse_4"
+	cost = { influence = @rlcse_4_influence energy = rlcse_4_energy }
+	length = 0
+	
+	potential = {
+		habitable_structure = no
+		planet_size < @max_planet_size #Hide the edict if the planet is already max size
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_planet_flag = land_clearance_happened
+		has_planet_flag = rlcse_1_happened
+		has_planet_flag = rlcse_2_happened
+		has_planet_flag = rlcse_3_happened
+		NOT = { has_planet_flag = rlcse_4_happened }
+		NOT = { has_planet_flag = rlcse_5_happened }
+	}
+	
+	effect = {
+		if = {
+			limit = { planet_size <= 12 }
+			custom_tooltip = land_clearance_increase_size_3
+			hidden_effect = { change_planet_size = 3 }						
+			else = {
+				if = {
+					limit = { planet_size <= 15 }
+					custom_tooltip = land_clearance_increase_size_2
+					hidden_effect = { change_planet_size = 2 }			
+					else = {	
+						custom_tooltip = land_clearance_increase_size_1
+						hidden_effect = { change_planet_size = 1 }
+					}
+				}			
+			}
+		}
+		hidden_effect = { set_planet_flag = rlcse_4_happened }
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			num_pops < 10
+		}
+	}
+}
+
+
+planet_edict = {
+	name = "rlcse_5"
+	cost = { influence = @rlcse_5_influence energy = rlcse_5_energy }
+	length = 0
+	
+	potential = {
+		habitable_structure = no
+		planet_size < @max_planet_size #Hide the edict if the planet is already max size
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_planet_flag = land_clearance_happened
+		has_planet_flag = rlcse_1_happened
+		has_planet_flag = rlcse_2_happened
+		has_planet_flag = rlcse_3_happened
+		has_planet_flag = rlcse_4_happened
+		NOT = { has_planet_flag = rlcse_5_happened }
+	}
+	
+	effect = {
+		if = {
+			limit = { planet_size <= 12 }
+			custom_tooltip = land_clearance_increase_size_3
+			hidden_effect = { change_planet_size = 3 }						
+			else = {
+				if = {
+					limit = { planet_size <= 15 }
+					custom_tooltip = land_clearance_increase_size_2
+					hidden_effect = { change_planet_size = 2 }			
+					else = {	
+						custom_tooltip = land_clearance_increase_size_1
+						hidden_effect = { change_planet_size = 1 }
+					}
+				}			
+			}
+		}
+		hidden_effect = { set_planet_flag = rlcse_5_happened }
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			num_pops < 10
+		}
+	}
+}
