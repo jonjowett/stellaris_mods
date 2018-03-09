@@ -5,6 +5,6 @@ tags={
 	"Technologies"
 	"Military"
 }
-picture="arc_emitter_miniaturization_icon.jpg"
+picture="arc_emitter_miniaturization_icon.png"
 remote_file_id="1196764711"
 supported_version="2.0.*"
