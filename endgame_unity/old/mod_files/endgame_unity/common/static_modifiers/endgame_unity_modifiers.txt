@@ -1,0 +1,231 @@
+#Influence generation techs (in the early game) either give you +1 per month or +1 from factions per month
+endgame_unity_influence_1 = {
+	country_resource_influence_add = 1
+}
+endgame_unity_influence_2 = {
+	country_resource_influence_add = 2
+}
+endgame_unity_influence_3 = {
+	country_resource_influence_add = 3
+}
+endgame_unity_influence_4 = {
+	country_resource_influence_add = 4
+}
+endgame_unity_influence_5 = {
+	country_resource_influence_add = 5
+}
+
+
+
+#The discovery tradition finisher is +10% - but you get the finisher for "free" after unlocking all traditions, so it's not worth the same as a normal tradition.
+endgame_unity_research_1 = {
+	all_technology_research_speed = 0.2
+}
+endgame_unity_research_2 = {
+	all_technology_research_speed = 0.4
+}
+endgame_unity_research_3 = {
+	all_technology_research_speed = 0.6
+}
+endgame_unity_research_4 = {
+	all_technology_research_speed = 0.8
+}
+endgame_unity_research_5 = {
+	all_technology_research_speed = 1.0
+}
+
+
+
+#+10% is equivalent to early- and mid-game techs that give you +10% fleet cap, and to the most interesting part of the "Master Shipwrights" tradition in the Supremacy tree.
+endgame_unity_fleetcap_1 = {
+	navy_size_mult = 0.10
+}
+endgame_unity_fleetcap_2 = {
+	navy_size_mult = 0.20
+}
+endgame_unity_fleetcap_3 = {
+	navy_size_mult = 0.30
+}
+endgame_unity_fleetcap_4 = {
+	navy_size_mult = 0.40
+}
+endgame_unity_fleetcap_5 = {
+	navy_size_mult = 0.50
+}
+
+
+
+#There's no direct equivalent to these modifiers, but it would be nice to have something that helps "tall" empires
+endgame_unity_megastructure_1 = {
+	megastructure_build_speed_mult = 0.4
+	mod_megastructure_build_cost_mult = -0.05
+}
+endgame_unity_megastructure_2 = {
+	megastructure_build_speed_mult = 0.8
+	mod_megastructure_build_cost_mult = -0.1
+}
+endgame_unity_megastructure_3 = {
+	megastructure_build_speed_mult = 1.2
+	mod_megastructure_build_cost_mult = -0.15
+}
+endgame_unity_megastructure_4 = {
+	megastructure_build_speed_mult = 1.6
+	mod_megastructure_build_cost_mult = -0.2
+}
+endgame_unity_megastructure_5 = {
+	megastructure_build_speed_mult = 2.0
+	mod_megastructure_build_cost_mult = -0.25
+}
+
+
+
+#+5% fire rate and +5% weapons range per level feels about the same as 1 tradition.
+#(You get +15% in the harmony and supremacy trees.)
+endgame_unity_weapons_1 = {
+	ship_weapon_range_mult = 0.05
+	ship_fire_rate_mult = 0.05
+}
+endgame_unity_weapons_2 = {
+	ship_weapon_range_mult = 0.1
+	ship_fire_rate_mult = 0.1
+}
+endgame_unity_weapons_3 = {
+	ship_weapon_range_mult = 0.15
+	ship_fire_rate_mult = 0.15
+}
+endgame_unity_weapons_4 = {
+	ship_weapon_range_mult = 0.2
+	ship_fire_rate_mult = 0.2
+}
+endgame_unity_weapons_5 = {
+	ship_weapon_range_mult = 0.25
+	ship_fire_rate_mult = 0.25
+}
+
+
+
+#Various traditions give +2 to specified leader level cap, so +1 across all leaders seems reasonable.
+#A small increase to experience gain will help the leaders actually reach those levels.
+endgame_unity_leaders_1 = {
+	icon = "gfx/interface/icons/modifiers/mod_leader_species_exp_gain.dds"
+	leader_skill_levels = 1
+	species_leader_exp_gain = 0.1
+}
+endgame_unity_leaders_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_leader_species_exp_gain.dds"
+	leader_skill_levels = 2
+	species_leader_exp_gain = 0.2
+}
+endgame_unity_leaders_3 = {
+	icon = "gfx/interface/icons/modifiers/mod_leader_species_exp_gain.dds"
+	leader_skill_levels = 3
+	species_leader_exp_gain = 0.3
+}
+endgame_unity_leaders_4 = {
+	icon = "gfx/interface/icons/modifiers/mod_leader_species_exp_gain.dds"
+	leader_skill_levels = 4
+	species_leader_exp_gain = 0.4
+}
+endgame_unity_leaders_5 = {
+	icon = "gfx/interface/icons/modifiers/mod_leader_species_exp_gain.dds"
+	leader_skill_levels = 5
+	species_leader_exp_gain = 0.5
+}
+
+
+
+#There are traditions that add +1 trait point and decrease modification cost at the same time.
+#But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+endgame_unity_geneticist_1 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
+	BIOLOGICAL_species_trait_points_add = 1
+}
+endgame_unity_geneticist_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
+	BIOLOGICAL_species_trait_points_add = 1
+	modify_species_cost_mult = -0.1
+}
+endgame_unity_geneticist_3 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
+	BIOLOGICAL_species_trait_points_add = 2
+	modify_species_cost_mult = -0.1
+}
+endgame_unity_geneticist_4 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
+	BIOLOGICAL_species_trait_points_add = 2
+	modify_species_cost_mult = -0.2
+}
+endgame_unity_geneticist_5 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
+	BIOLOGICAL_species_trait_points_add = 3
+	modify_species_cost_mult = -0.2
+}
+
+
+
+#There are ascension perks (for machine empires) that add +1 trait point and decrease modification cost at the same time.
+#But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+endgame_unity_roboticist_1 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	ROBOT_species_trait_points_add = 1
+	pop_robot_build_speed_mult = 0.1
+}
+endgame_unity_roboticist_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	ROBOT_species_trait_points_add = 1
+	pop_robot_build_speed_mult = 0.2
+	modify_species_cost_mult = -0.1
+}
+endgame_unity_roboticist_3 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	ROBOT_species_trait_points_add = 2
+	pop_robot_build_speed_mult = 0.3
+	modify_species_cost_mult = -0.1
+}
+endgame_unity_roboticist_4 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	ROBOT_species_trait_points_add = 2
+	pop_robot_build_speed_mult = 0.4
+	modify_species_cost_mult = -0.2
+}
+endgame_unity_roboticist_5 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	ROBOT_species_trait_points_add = 3
+	pop_robot_build_speed_mult = 0.5
+	modify_species_cost_mult = -0.2
+}
+
+
+
+#There are ascension perks (for machine empires) that add +1 trait point and decrease modification cost at the same time.
+#But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+endgame_unity_roboticist_m_1 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	MACHINE_species_trait_points_add = 1
+}
+endgame_unity_roboticist_m_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	MACHINE_species_trait_points_add = 1
+	modify_species_cost_mult = -0.1
+}
+endgame_unity_roboticist_m_3 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	MACHINE_species_trait_points_add = 2
+	modify_species_cost_mult = -0.1
+}
+endgame_unity_roboticist_m_4 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	MACHINE_species_trait_points_add = 2
+	modify_species_cost_mult = -0.2
+}
+endgame_unity_roboticist_m_5 = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
+	MACHINE_species_trait_points_add = 3
+	modify_species_cost_mult = -0.2
+}
+
+
+
+endgame_unity_spend_refused = {
+	icon = "gfx/interface/icons/modifiers/country_resource_unity_mult.dds"
+}
