@@ -1,17 +1,17 @@
 ﻿l_english:
  
  tech_miniaturized_arc_emitter_1:0 "Miniaturized Arc Emitters"
- tech_miniaturized_arc_emitter_1_desc:0 "These arc emitters have been miniaturized, allowing them to be used on smaller mounting points."
+ tech_miniaturized_arc_emitter_1_desc:0 "These emitters have been miniaturized, allowing them to be used on smaller mounting points."
  tech_miniaturized_arc_emitter_2:0 "Miniaturized Focused Arc Emitters"
- tech_miniaturized_arc_emitter_2_desc:0 "These miniaturized arc emitters also have miniaturized focusing lenses, resulting in a more powerful energy discharge."
+ tech_miniaturized_arc_emitter_2_desc:0 "These miniaturized emitters also have miniaturized focusing lenses, resulting in a more powerful energy discharge."
  
  MINIATURIZED_ARC_EMITTER_1_WEAPON:0 "Miniaturized Arc Emitter"
- MINIATURIZED_ARC_EMITTER_1_WEAPON_DESC:0 "This arc emitter has been miniaturized, allowing it to be used on smaller mounting points."
+ MINIATURIZED_ARC_EMITTER_1_WEAPON_DESC:0 "These emitters have been miniaturized, allowing them to be used on smaller mounting points."
  MINIATURIZED_ARC_EMITTER_2_WEAPON:0 "Miniaturized Focused Arc Emitter"
- MINIATURIZED_ARC_EMITTER_2_WEAPON_DESC:0 "This miniaturized arc emitter also has miniaturized focusing lenses, resulting in a more powerful energy discharge."
+ MINIATURIZED_ARC_EMITTER_2_WEAPON_DESC:0 "These miniaturized emitters also have miniaturized focusing lenses, resulting in a more powerful energy discharge."
  
- MINIATURIZED_ARC_EMITTER_1_SET:0 "$MINIATURIZED_ARC_EMITTER_1_WEAPON$"
- MINIATURIZED_ARC_EMITTER_1_SET_DESC:0 "$MINIATURIZED_ARC_EMITTER_1_WEAPON_DESC$"
- MINIATURIZED_ARC_EMITTER_2_SET:0 "$MINIATURIZED_ARC_EMITTER_2_WEAPON$"
- MINIATURIZED_ARC_EMITTER_2_SET_DESC:0 "$MINIATURIZED_ARC_EMITTER_2_WEAPON_DESC$"
+ MINIATURIZED_ARC_EMITTER_1_SET:0 "Miniaturized Arc Emitter"
+ MINIATURIZED_ARC_EMITTER_1_SET_DESC:0 "These emitters have been miniaturized, allowing them to be used on smaller mounting points."
+ MINIATURIZED_ARC_EMITTER_2_SET:0 "Miniaturized Focused Arc Emitter"
+ MINIATURIZED_ARC_EMITTER_2_SET_DESC:0 "These miniaturized emitters also have miniaturized focusing lenses, resulting in a more powerful energy discharge."
 
