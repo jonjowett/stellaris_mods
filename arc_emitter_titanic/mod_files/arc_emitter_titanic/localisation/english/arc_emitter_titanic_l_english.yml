@@ -1,0 +1,11 @@
+﻿l_english:
+ 
+ tech_arc_emitter_titanic:0 "Titanic Arc Emitters"
+ tech_arc_emitter_titanic_desc:0 "These arc emitters have been increased in size, granting a significant increase in power. However, they are now so large that they can only be mounted on the very largest of our ships."
+ 
+ TITANIC_ARC_EMITTER_WEAPON:0 "Titanic Arc Emitter"
+ TITANIC_ARC_EMITTER_WEAPON_DESC:0 "This arc emitter has been increased in size, granting a significant increase in power. However, it is now so large that it can only be mounted on the very largest of our ships."
+ 
+ TITANIC_ARC_EMITTER_SET:0 "$TITANIC_ARC_EMITTER_WEAPON$"
+ TITANIC_ARC_EMITTER_SET_DESC:0 "$TITANIC_ARC_EMITTER_WEAPON_DESC$"
+ 

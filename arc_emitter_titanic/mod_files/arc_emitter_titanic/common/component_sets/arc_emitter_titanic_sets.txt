@@ -1,0 +1,8 @@
+# Arc Emitter
+
+component_set = {
+	key = "TITANIC_ARC_EMITTER_SET"
+	
+	icon = "GFX_ship_part_titanic_arc_emitter"
+	icon_frame = 1	
+}

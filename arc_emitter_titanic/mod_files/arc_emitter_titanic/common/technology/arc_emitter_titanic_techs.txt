@@ -1,0 +1,50 @@
+#Constants from 00_phys_weapon_tech
+@tier5cost1 = 14000
+@tier5weight1 = 30
+
+tech_arc_emitter_titanic = {
+	area = physics
+	cost = @tier5cost1
+	tier = 3
+	category = { particles }
+	ai_update_type = military	
+	prerequisites = { "tech_arc_emitter_2" }
+	weight = @tier5weight1
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 2		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}

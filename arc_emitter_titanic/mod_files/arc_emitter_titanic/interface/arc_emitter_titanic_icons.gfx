@@ -1,0 +1,8 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_ship_part_titanic_arc_emitter"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_arc_emitter_2.dds"
+	}
+	
+}

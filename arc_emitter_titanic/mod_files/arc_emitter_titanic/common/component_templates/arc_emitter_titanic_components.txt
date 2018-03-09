@@ -1,0 +1,57 @@
+#NB: - You can use the console command 'reload stats' in-game to instantly load any modifications to the below.
+#    - The special component sets & icons are required to make the *technologies* have the correct icon. (For some reason, you get "icon missing" if you link to the default icons.)
+
+# Titanic Arc Emitter
+weapon_component_template = {
+	key = "TITANIC_ARC_EMITTER_WEAPON"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+		
+	icon = "GFX_ship_part_titanic_arc_emitter"
+	icon_frame = 1
+	
+	firing_arc = 10.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	prerequisites = { "tech_titans" "tech_arc_emitter_2" }
+	component_set = "TITANIC_ARC_EMITTER_SET"
+	projectile_gfx = "arc_emitter"
+	size_restriction = { titan }
+	
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	
+	#Cost & power are the same as for the perdition beam
+	cost = 500
+	power = -500
+	
+	#Damage is set so that average damage (7500) is the same as for the perdition beam
+	damage = { min = 1 max = 15000 }
+	
+	#Additional damage & penetration copied from the XL weapons (ie. full penetration, no bonus damage)
+	#NB: In case this is used for other weapons, XXX_damage = 1.5 means +50% in-game.
+	hull_damage = 1
+	armor_damage = 1
+	shield_damage = 1
+	shield_penetration = 1
+	armor_penetration = 1
+	
+	#Windup, cooldown & range copied from perdition beam
+	windup = { min = 30 max = 45 }
+	total_fire_time = 180
+	range = 250
+	
+	#100% accuracy, as per the XL weapon
+	accuracy = 1
+	
+	#0% tracking, as per the XL weapon and the perdition beam
+	tracking = 0
+	
+	#There's a load of stuff relating to missiles in the CSV, which I've omitted because it's clearly irrelevant.
+	
+}
