@@ -1,17 +1,15 @@
 #Constants from 00_phys_weapon_tech
-@tier4cost2 = 8000
-@tier4cost3 = 10000
-@tier4weight2 = 40
-@tier4weight3 = 35
+@tier3cost4 = 6000
+@tier3weight4 = 35
 
-tech_titanic_arc_emitter = {
+tech_miniaturized_arc_emitter_1 = {
 	area = physics
-	cost = @tier4cost2
+	cost = @tier3cost4
 	tier = 3
 	category = { particles }
 	ai_update_type = military	
 	prerequisites = { "tech_arc_emitter_1" }
-	weight = @tier4weight2
+	weight = @tier3weight4
 	
 	weight_modifier = {
 		modifier = {
@@ -53,12 +51,12 @@ tech_titanic_arc_emitter = {
 
 tech_miniaturized_arc_emitter_2 = {
 	area = physics
-	cost = @tier4cost3
+	cost = @tier3cost4
 	tier = 3
 	category = { particles }
 	ai_update_type = military	
 	prerequisites = { "tech_miniaturized_arc_emitter_1" "tech_arc_emitter_2" }
-	weight = @tier4weight3
+	weight = @tier3weight4
 	
 	weight_modifier = {
 		modifier = {
