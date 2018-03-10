@@ -82,6 +82,39 @@ endgame_unity_megastructure_5 = {
 
 
 
+# The ascension perk (world shaper) is -25% cost; the adaptability tree tradition is -15% cost
+# The strategic resources are -25% cost or +25% speed.
+# There is also a ruler trait that gives +25% speed.
+# So, max cost reduction in the base game is -65%.
+# +20% speed and -5% cost per level seems reasonable (in particular, the total cost reduction won't be more than 100%).
+endgame_unity_terraforming_1 = {
+	icon = "gfx/interface/icons/modifiers/mod_planet_building_build_speed_mult.dds"
+	terraform_speed_mult = 0.2
+	terraforming_cost_mult = -0.05
+}
+endgame_unity_terraforming_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_planet_building_build_speed_mult.dds"
+	terraform_speed_mult = 0.4
+	terraforming_cost_mult = -0.1
+}
+endgame_unity_terraforming_3 = {
+	icon = "gfx/interface/icons/modifiers/mod_planet_building_build_speed_mult.dds"
+	terraform_speed_mult = 0.6
+	terraforming_cost_mult = -0.15
+}
+endgame_unity_terraforming_4 = {
+	icon = "gfx/interface/icons/modifiers/mod_planet_building_build_speed_mult.dds"
+	terraform_speed_mult = 0.8
+	terraforming_cost_mult = -0.2
+}
+endgame_unity_terraforming_5 = {
+	icon = "gfx/interface/icons/modifiers/mod_planet_building_build_speed_mult.dds"
+	terraform_speed_mult = 1.0
+	terraforming_cost_mult = -0.25
+}
+
+
+
 #+5% fire rate and +5% weapons range per level feels about the same as 1 tradition. (You get +15% in home territory in harmony and a flat +10% in supremacy.)
 #There is also a unity ambition that gives +40% in home territory.
 #NB: +x% weapons range may or may not be broken - there's been an ongoing debate since 1.8ish.
@@ -104,6 +137,55 @@ endgame_unity_weapons_4 = {
 endgame_unity_weapons_5 = {
 	ship_weapon_range_mult = 0.25
 	ship_fire_rate_mult = 0.25
+}
+
+
+
+# Add half of a tech research option, per level
+endgame_unity_starship_hulls_1 = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_shield_mult.dds"
+	shipsize_corvette_hull_add = 50
+	shipsize_destroyer_hull_add = 100
+	shipsize_cruiser_hull_add = 200
+	shipsize_battleship_hull_add = 400
+	shipsize_titan_hull_add = 1000
+	shipsize_military_station_small_hull_add = 250
+}
+endgame_unity_starship_hulls_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_shield_mult.dds"
+	shipsize_corvette_hull_add = 100
+	shipsize_destroyer_hull_add = 200
+	shipsize_cruiser_hull_add = 400
+	shipsize_battleship_hull_add = 800
+	shipsize_titan_hull_add = 2000
+	shipsize_military_station_small_hull_add = 500
+}
+endgame_unity_starship_hulls_3 = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_shield_mult.dds"
+	shipsize_corvette_hull_add = 150
+	shipsize_destroyer_hull_add = 300
+	shipsize_cruiser_hull_add = 600
+	shipsize_battleship_hull_add = 1200
+	shipsize_titan_hull_add = 3000
+	shipsize_military_station_small_hull_add = 750
+}
+endgame_unity_starship_hulls_4 = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_shield_mult.dds"
+	shipsize_corvette_hull_add = 200
+	shipsize_destroyer_hull_add = 400
+	shipsize_cruiser_hull_add = 800
+	shipsize_battleship_hull_add = 1600
+	shipsize_titan_hull_add = 4000
+	shipsize_military_station_small_hull_add = 1000
+}
+endgame_unity_starship_hulls_5 = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_shield_mult.dds"
+	shipsize_corvette_hull_add = 250
+	shipsize_destroyer_hull_add = 500
+	shipsize_cruiser_hull_add = 1000
+	shipsize_battleship_hull_add = 2000
+	shipsize_titan_hull_add = 5000
+	shipsize_military_station_small_hull_add = 1250
 }
 
 

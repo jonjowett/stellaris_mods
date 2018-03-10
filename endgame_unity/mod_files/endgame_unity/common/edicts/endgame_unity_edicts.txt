@@ -122,6 +122,57 @@ country_edict = {
 }
 
 country_edict = {
+	name = "endgame_unity_choose_terraforming"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = {
+		NOT = { has_modifier = endgame_unity_terraforming_5 } 
+		has_technology = tech_terrestrial_sculpting
+	}
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_terraforming_1 }
+			remove_modifier = endgame_unity_terraforming_1
+			add_modifier = { modifier = endgame_unity_terraforming_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_terraforming_2 }
+					remove_modifier = endgame_unity_terraforming_2
+					add_modifier = { modifier = endgame_unity_terraforming_3 days = -1 }
+					if = {
+						limit = { NOT = { has_technology = tech_climate_restoration } }
+						add_research_option = tech_climate_restoration
+					}
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_terraforming_3 }
+							remove_modifier = endgame_unity_terraforming_3
+							add_modifier = { modifier = endgame_unity_terraforming_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_terraforming_4 }
+									remove_modifier = endgame_unity_terraforming_4
+									add_modifier = { modifier = endgame_unity_terraforming_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_terraforming_1 days = -1 }
+										if = {
+											limit = { NOT = { has_technology = tech_ecological_adaptation } }
+											add_research_option = tech_ecological_adaptation
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
 	name = "endgame_unity_choose_megastructure"
 	length = 0
 	is_ambition = yes
@@ -158,6 +209,94 @@ country_edict = {
 									add_modifier = { modifier = endgame_unity_megastructure_5 days = -1 }
 									else = {
 										add_modifier = { modifier = endgame_unity_megastructure_1 days = -1 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_starship_hulls"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = {
+		NOT = { has_modifier = endgame_unity_starship_hulls_5 }
+		has_technology = tech_titans
+	}
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_starship_hulls_1 }
+			remove_modifier = endgame_unity_starship_hulls_1
+			add_modifier = { modifier = endgame_unity_starship_hulls_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_starship_hulls_2 }
+					remove_modifier = endgame_unity_starship_hulls_2
+					add_modifier = { modifier = endgame_unity_starship_hulls_3 days = -1 }
+					if = {
+						limit = { NOT = { has_technology = tech_corvette_hull_2 } }
+						add_research_option = tech_corvette_hull_2
+					}
+					if = {
+						limit = { NOT = { has_technology = tech_destroyer_hull_2 } }
+						add_research_option = tech_destroyer_hull_2
+					}
+					if = {
+						limit = { NOT = { has_technology = tech_cruiser_hull_2 } }
+						add_research_option = tech_cruiser_hull_2
+					}
+					if = {
+						limit = { NOT = { has_technology = tech_battleship_hull_2 } }
+						add_research_option = tech_battleship_hull_2
+					}
+					if = {
+						limit = { NOT = { has_technology = tech_titan_hull_2 } }
+						add_research_option = tech_titan_hull_2
+					}
+					#NB: There is no 2nd hull-improvement tech for defence platforms
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_starship_hulls_3 }
+							remove_modifier = endgame_unity_starship_hulls_3
+							add_modifier = { modifier = endgame_unity_starship_hulls_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_starship_hulls_4 }
+									remove_modifier = endgame_unity_starship_hulls_4
+									add_modifier = { modifier = endgame_unity_starship_hulls_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_starship_hulls_1 days = -1 }
+										if = {
+											limit = { NOT = { has_technology = tech_corvette_hull_1 } }
+											add_research_option = tech_corvette_hull_1
+										}
+										if = {
+											limit = { NOT = { has_technology = tech_destroyer_hull_1 } }
+											add_research_option = tech_destroyer_hull_1
+										}
+										if = {
+											limit = { NOT = { has_technology = tech_cruiser_hull_1 } }
+											add_research_option = tech_cruiser_hull_1
+										}
+										if = {
+											limit = { NOT = { has_technology = tech_battleship_hull_1 } }
+											add_research_option = tech_battleship_hull_1
+										}
+										if = {
+											limit = { NOT = { has_technology = tech_titan_hull_1 } }
+											add_research_option = tech_titan_hull_1
+										}
+										if = {
+											limit = { NOT = { has_technology = tech_defense_platform_hull_1 } }
+											add_research_option = tech_defense_platform_hull_1
+										}
 									}
 								}
 							}

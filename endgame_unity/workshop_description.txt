@@ -1,21 +1,46 @@
-This mod adds 8 new unity ambitions, which add permanent buffs to your empire. Each of these buffs has 5 levels (Initial / Improved / Advanced / Extreme / Maximal).
+This mod adds 10 new unity ambitions, which add permanent buffs to your empire. Each of these buffs has 5 levels (Initial / Improved / Advanced / Extreme / Maximal).
 
 This gives you the ability to use unity to permanently improve your late-game empire, in ways that are not possible with repeatable technologies.
 
 [h1]Available buffs:[/h1]
-[list][*] Unified Diplomats (+1 influence per level)
-[*] Unified Researchers (+10% research speed per level)
-[*] Unified Logistics Corps (+10% naval capacity per level)
-[*] Unified Civil Engineers (+20% megastructure build speed and -5% megastructure build cost per level)
-[*] Unified Military Engineers (+5% fire rate and +5% weapons range per level)
-[*] Unified Leaders (+1 leader level cap and +10% leader experience gain per level)
-[*] Unified Geneticists (requires the ability to genemod):
-[list][*] +10% pop growth speed per level
+[list][*] [b][u]Unified Diplomats[/u][/b]:
+[list][*] +1 influence per level[/list]
+
+[*] [b][u]Unified Researchers[/u][/b]:
+[list][*] +10% research speed per level[/list]
+
+[*] [b][u]Unified Logistics Corps[/u][/b]:
+[list][*] +10% naval capacity per level[/list]
+
+[*] [b][u]Unified Terraformers[/u][/b]:
+[list][*] Requires the ability to terraform
+[*] +20% terraforming speed and -5% terraforming cost per level
+[*] Research options are granted at levels 1 (Ecological Adaptation) and 3 (Climate Restoration), if you don't already have them.[/list]
+
+[*] [b][u]Unified Civil Engineers[/u][/b]:
+[list][*] +20% megastructure build speed and -5% megastructure build cost per level[/list]
+
+[*] [b][u]Unified Starship Engineers[/u][/b]:
+[list][*] Requires the ability to build titans
+[*] +50/100/200/400/1000/250 hull points per level (for corvettes / destroyers / cruisers / battleships / titans / defence platforms)
+[*] Research options (for increasing hull strength) are granted at levels 1 & 3, if you don't already have them.[/list]
+
+[*] [b][u]Unified Weapons Engineers[/u][/b]:
+[list][*] +5% fire rate and +5% weapons range per level[/list]
+
+[*] [b][u]Unified Leaders[/u][/b]:
+[list][*] +1 leader level cap and +10% leader experience gain per level[/list]
+
+[*] [b][u]Unified Geneticists[/u][/b]:
+[list][*] Requires the ability to genemod
+[*] +10% pop growth speed per level
 [*] +1 to +3 biological trait points
 [*] 0% to 20% species modification cost reduction
 [*] Research options are granted at levels 1 (Gene Expressions) & 3 (Genetic Resequencing), if you don't already have them[/list]
-[*] Unified Roboticists (requires the ability to robomod):
-[list][*] +10% robot build speed per level
+
+[*] [b][u]Unified Roboticists[/u][/b]:
+[list][*] Requires the ability to robomod
+[*] +10% robot build speed per level
 [*] +1 to +3 robot/machine trait points
 [*] 0% to 20% species modification cost reduction
 [*] Research options for additional robomodding points are granted at levels 1 and 3, if you don't already have them[/list][/list]
