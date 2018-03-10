@@ -1,4 +1,4 @@
-This micro-mod adds Titanic Arc Emitters to the game.
+This micro-mod adds Titanic Arc Emitters to the game. (1-15000 damage, 100% accuracy, 100% shield & armour penetration.)
 
 It is primarily intended as a companion mod for [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1196764711]Arc Emitter Miniaturization[/url], so that players can choose to standardise their whole navy around arc emitters.
 
