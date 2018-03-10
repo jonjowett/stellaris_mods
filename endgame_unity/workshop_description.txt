@@ -20,13 +20,13 @@ This gives you the ability to use unity to permanently improve your late-game em
 [*] 0% to 20% species modification cost reduction
 [*] Research options for additional robomodding points are granted at levels 1 and 3, if you don't already have them[/list][/list]
 
+[h1]Suggested companion mods:[/h1]
+[list][*] [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1326068324]Increase Leader Level Cap to 20[/url] - so that you can get the full benefit of the "Unify Leaders" buff.[/list]
+
 [h1]Technical info & compatibility:[/h1]
 [list][*] This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.
 [*] The Unified Roboticists buff is split in two internally - different buffs for machine and biological empires.
 [*] The buffs should be properly gated if you don't have the necessary DLC (ie. you shouldn't be able to select them if you can't use them). But I have not fully tested this.[/list]
-
-[h1]Suggested companion mods:[/h1]
-[list][*] In order to get full use of the Unified Leaders buff, you should also install a mod that increases the maximum leader level cap.[/list]
 
 [h1]Earlier versions / Beta versions:[/h1]
 [list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
