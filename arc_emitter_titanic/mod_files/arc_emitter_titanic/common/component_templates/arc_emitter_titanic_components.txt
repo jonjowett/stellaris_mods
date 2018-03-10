@@ -17,12 +17,13 @@ weapon_component_template = {
 	static_rotation = yes
 	use_ship_kill_target = no
 	
-	prerequisites = { "tech_titans" "tech_arc_emitter_2" }
+	prerequisites = { "tech_titans" "tech_arc_emitter_titanic" }
 	component_set = "TITANIC_ARC_EMITTER_SET"
 	projectile_gfx = "arc_emitter"
 	size_restriction = { titan }
 	
 	tags = { weapon_type_energy }
+	ai_weight = { factor = 0 } #AI almost certainly shouldn't use this
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
 	

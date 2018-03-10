@@ -8,7 +8,7 @@ tech_arc_emitter_titanic = {
 	tier = 3
 	category = { particles }
 	ai_update_type = military	
-	prerequisites = { "tech_arc_emitter_2" }
+	prerequisites = { "tech_titans" "tech_arc_emitter_2" }
 	weight = @tier5weight1
 	
 	weight_modifier = {

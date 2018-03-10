@@ -1,0 +1,17 @@
+This micro-mod adds Titanic Arc Emitters to the game.
+
+It is primarily intended as a companion mod for [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1196764711]Arc Emitter Miniaturization[/url], so that players can choose to standardise their whole navy around arc emitters.
+
+May the RNG gods look favourably upon you!
+
+[h1]Technical info / compatibility:[/h1]
+[list][*]This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.[/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
+
+[h1]TLDR:[/h1]
+[list][*]Tested version: 2.0.1
+[*]Required DLC: None
+[*]Ironman compatible: Yes
+[*]Achievement compatible: No[/list]
