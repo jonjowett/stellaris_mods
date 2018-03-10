@@ -1,0 +1,7 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_text_leader_skill"
+		texturefile = "gfx/interface/icons/increase_leader_level_cap_to_20_icons.dds"
+		noOfFrames = 21
+	}
+}
