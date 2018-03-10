@@ -4,7 +4,7 @@
 @tier4weight2 = 40
 @tier4weight3 = 35
 
-tech_titanic_arc_emitter = {
+tech_miniaturized_arc_emitter_1 = {
 	area = physics
 	cost = @tier4cost2
 	tier = 3
