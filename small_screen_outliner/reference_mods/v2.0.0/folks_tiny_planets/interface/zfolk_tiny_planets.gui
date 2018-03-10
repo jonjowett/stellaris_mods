@@ -1,0 +1,125 @@
+guiTypes = {
+	containerWindowType = {
+		name = "outliner_member_planet_entry_window"
+		size = { width = 256 height = 20 }
+		position = { x = 0 y = 0 }
+		orientation = upper_right
+		moveable = no
+
+		buttonType = {
+			name = "background"
+			quadTextureSprite = "GFX_outliner_member_small_bg"
+			position = { x = 0 y = -5 }
+			clicksound = "click_outliner"
+		}
+
+		iconType = {
+			name = "type"
+			position = { x = 6 y = 0 }
+			spriteType = "GFX_planet_type"
+			frame = 1
+			alwaysTransparent = yes
+			scale = 0.52
+		}
+
+		iconType = {
+			name = "occupied"
+			position = { x = 6 y = -2 }
+			spriteType = "GFX_occupation_flag"
+			alwaysTransparent = no
+		}
+
+		iconType = {
+			name = "blockaded"
+			position = { x = 6 y = -2 }
+			spriteType = "GFX_planet_blockade"
+			alwaysTransparent = no
+		}
+
+		iconType = {
+			name = "invasion"
+			position = { x = 6 y = -2 }
+			spriteType = "GFX_planet_invasion"
+			alwaysTransparent = no
+		}
+
+		instantTextBoxType = {
+			name = "name"
+			font = "cg_16b"
+			text = "0"
+			position = { x = 28 y = 1 }
+			maxWidth = 220
+			maxHeight = 19
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			text_color_code = "E"
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "star"
+			font = "cg_16b"
+			text = ""
+			position = { x = -1000 y = -1000 }
+			maxWidth = 0
+			maxHeight = 0
+			fixedSize = yes
+			orientation = "UPPER_RIGHT"
+			format = right
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "class"
+			font = "cg_16b"
+			text = ""
+			position = { x = -1000 y = -1000 }
+			maxWidth = 0
+			maxHeight = 0
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+		}
+
+		containerWindowType = {
+			name = "constructions"
+			size = { width = 300 height = 20 }
+			position = { x = -138 y = 2 }
+			orientation = upper_right
+			moveable = no
+
+			OverlappingElementsBoxType = {
+				name = "box"
+				position = { x = 0 y = 0 }
+				size = { x = 130 y = 22 }
+				spacing = 0
+				format = right
+			}
+		}
+
+		containerWindowType = {
+			name = "colonize"
+			size = { width = 100% height = 100% }
+			position = { x = 0 y = 0 }
+			orientation = upper_left
+			moveable = no
+
+			iconType = {
+				name = "icon"
+				position = { x = -1000 y = -1000 }
+				spriteType = "GFX_ship_class_small"
+				frame = 14
+				scale = 0.8
+			}
+
+			iconType = {
+				name = "progress"
+				position = { x = 126 y = 5 }
+				spriteType = "GFX_outliner_planet_colonize_small_progressbar"
+				frame = 50
+			}
+		}
+	}
+}
