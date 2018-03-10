@@ -1,0 +1,405 @@
+@endgame_unity_num_asc_perks = 3 # Require number of ascension perks unlocked to be strictly greater than this, before the edicts are unlocked.
+
+
+country_edict = {
+	name = "endgame_unity_choose_influence"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = { NOT = { has_modifier = endgame_unity_influence_5 } }
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_influence_1 }
+			remove_modifier = endgame_unity_influence_1
+			add_modifier = { modifier = endgame_unity_influence_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_influence_2 }
+					remove_modifier = endgame_unity_influence_2
+					add_modifier = { modifier = endgame_unity_influence_3 days = -1 }
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_influence_3 }
+							remove_modifier = endgame_unity_influence_3
+							add_modifier = { modifier = endgame_unity_influence_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_influence_4 }
+									remove_modifier = endgame_unity_influence_4
+									add_modifier = { modifier = endgame_unity_influence_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_influence_1 days = -1 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_research"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = { NOT = { has_modifier = endgame_unity_research_5 } }
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_research_1 }
+			remove_modifier = endgame_unity_research_1
+			add_modifier = { modifier = endgame_unity_research_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_research_2 }
+					remove_modifier = endgame_unity_research_2
+					add_modifier = { modifier = endgame_unity_research_3 days = -1 }
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_research_3 }
+							remove_modifier = endgame_unity_research_3
+							add_modifier = { modifier = endgame_unity_research_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_research_4 }
+									remove_modifier = endgame_unity_research_4
+									add_modifier = { modifier = endgame_unity_research_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_research_1 days = -1 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_fleetcap"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = { NOT = { has_modifier = endgame_unity_fleetcap_5 } }
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_fleetcap_1 }
+			remove_modifier = endgame_unity_fleetcap_1
+			add_modifier = { modifier = endgame_unity_fleetcap_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_fleetcap_2 }
+					remove_modifier = endgame_unity_fleetcap_2
+					add_modifier = { modifier = endgame_unity_fleetcap_3 days = -1 }
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_fleetcap_3 }
+							remove_modifier = endgame_unity_fleetcap_3
+							add_modifier = { modifier = endgame_unity_fleetcap_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_fleetcap_4 }
+									remove_modifier = endgame_unity_fleetcap_4
+									add_modifier = { modifier = endgame_unity_fleetcap_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_fleetcap_1 days = -1 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_megastructure"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = {
+		NOT = { has_modifier = endgame_unity_megastructure_5 } 
+		OR = {
+			has_technology = tech_mega_engineering
+			has_ascension_perk = ap_the_circle_of_life
+			has_ascension_perk = ap_galactic_wonders
+			has_ascension_perk = ap_voidborn
+		}
+	}
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_megastructure_1 }
+			remove_modifier = endgame_unity_megastructure_1
+			add_modifier = { modifier = endgame_unity_megastructure_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_megastructure_2 }
+					remove_modifier = endgame_unity_megastructure_2
+					add_modifier = { modifier = endgame_unity_megastructure_3 days = -1 }
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_megastructure_3 }
+							remove_modifier = endgame_unity_megastructure_3
+							add_modifier = { modifier = endgame_unity_megastructure_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_megastructure_4 }
+									remove_modifier = endgame_unity_megastructure_4
+									add_modifier = { modifier = endgame_unity_megastructure_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_megastructure_1 days = -1 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_weapons"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = { NOT = { has_modifier = endgame_unity_weapons_5 } }
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_weapons_1 }
+			remove_modifier = endgame_unity_weapons_1
+			add_modifier = { modifier = endgame_unity_weapons_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_weapons_2 }
+					remove_modifier = endgame_unity_weapons_2
+					add_modifier = { modifier = endgame_unity_weapons_3 days = -1 }
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_weapons_3 }
+							remove_modifier = endgame_unity_weapons_3
+							add_modifier = { modifier = endgame_unity_weapons_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_weapons_4 }
+									remove_modifier = endgame_unity_weapons_4
+									add_modifier = { modifier = endgame_unity_weapons_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_weapons_1 days = -1 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_leaders"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = { NOT = { has_modifier = endgame_unity_leaders_5 } }
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_leaders_1 }
+			remove_modifier = endgame_unity_leaders_1
+			add_modifier = { modifier = endgame_unity_leaders_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_leaders_2 }
+					remove_modifier = endgame_unity_leaders_2
+					add_modifier = { modifier = endgame_unity_leaders_3 days = -1 }
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_leaders_3 }
+							remove_modifier = endgame_unity_leaders_3
+							add_modifier = { modifier = endgame_unity_leaders_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_leaders_4 }
+									remove_modifier = endgame_unity_leaders_4
+									add_modifier = { modifier = endgame_unity_leaders_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_leaders_1 days = -1 }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_geneticists"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = {
+		NOT = { has_modifier = endgame_unity_geneticists_5 }
+		has_technology = tech_gene_tailoring #Level 1 bio species editing
+	}
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_geneticists_1 }
+			remove_modifier = endgame_unity_geneticists_1
+			add_modifier = { modifier = endgame_unity_geneticists_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_geneticists_2 }
+					remove_modifier = endgame_unity_geneticists_2
+					add_modifier = { modifier = endgame_unity_geneticists_3 days = -1 }
+					if = {
+						limit = { NOT = { has_technology = tech_genetic_resequencing } }
+						add_research_option = tech_genetic_resequencing
+					}
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_geneticists_3 }
+							remove_modifier = endgame_unity_geneticists_3
+							add_modifier = { modifier = endgame_unity_geneticists_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_geneticists_4 }
+									remove_modifier = endgame_unity_geneticists_4
+									add_modifier = { modifier = endgame_unity_geneticists_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_geneticists_1 days = -1 }
+										if = {
+											limit = { NOT = { has_technology = tech_gene_expressions } }
+											add_research_option = tech_gene_expressions
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_roboticists"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = {
+		NOT = { has_modifier = endgame_unity_roboticists_5 }
+		NOT = { has_authority = auth_machine_intelligence	} #Machines aren't eligible for ROBOT robomodding
+		has_technology = tech_robomodding
+	}
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_roboticists_1 }
+			remove_modifier = endgame_unity_roboticists_1
+			add_modifier = { modifier = endgame_unity_roboticists_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_roboticists_2 }
+					remove_modifier = endgame_unity_roboticists_2
+					add_modifier = { modifier = endgame_unity_roboticists_3 days = -1 }
+					if = {
+						limit = { NOT = { has_technology = tech_robomodding_points_2 } }
+						add_research_option = tech_robomodding_points_2
+					}
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_roboticists_3 }
+							remove_modifier = endgame_unity_roboticists_3
+							add_modifier = { modifier = endgame_unity_roboticists_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_roboticists_4 }
+									remove_modifier = endgame_unity_roboticists_4
+									add_modifier = { modifier = endgame_unity_roboticists_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_roboticists_1 days = -1 }
+										if = {
+											limit = { NOT = { has_technology = tech_robomodding_points_1 } }
+											add_research_option = tech_robomodding_points_1
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_edict = {
+	name = "endgame_unity_choose_roboticists_m"
+	length = 0
+	is_ambition = yes
+	ai_weight = { weight = 1 }
+	potential = {
+		NOT = { has_modifier = endgame_unity_roboticists_m_5 }
+		has_authority = auth_machine_intelligence # Only machines can do MACHINE robomodding
+		has_technology = tech_robomodding_m
+	}
+	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
+	effect = {
+		if = {
+			limit = { has_modifier = endgame_unity_roboticists_m_1 }
+			remove_modifier = endgame_unity_roboticists_m_1
+			add_modifier = { modifier = endgame_unity_roboticists_m_2 days = -1 }
+			else = {
+				if = {
+					limit = { has_modifier = endgame_unity_roboticists_m_2 }
+					remove_modifier = endgame_unity_roboticists_m_2
+					add_modifier = { modifier = endgame_unity_roboticists_m_3 days = -1 }
+					if = {
+						limit = { NOT = { has_technology = tech_nanite_assemblers } }
+						add_research_option = tech_nanite_assemblers
+					}
+					else = {
+						if = {
+							limit = { has_modifier = endgame_unity_roboticists_m_3 }
+							remove_modifier = endgame_unity_roboticists_m_3
+							add_modifier = { modifier = endgame_unity_roboticists_m_4 days = -1 }
+							else = {
+								if = {
+									limit = { has_modifier = endgame_unity_roboticists_m_4 }
+									remove_modifier = endgame_unity_roboticists_m_4
+									add_modifier = { modifier = endgame_unity_roboticists_m_5 days = -1 }
+									else = {
+										add_modifier = { modifier = endgame_unity_roboticists_m_1 days = -1 }
+										if = {
+											limit = { NOT = { has_technology = tech_binary_motivators } }
+											add_research_option = tech_binary_motivators
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

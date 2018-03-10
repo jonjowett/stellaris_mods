@@ -1,71 +1,38 @@
-In vanilla, unity is pointless after you've completed all of the Tradition trees.
+This mod adds 8 new unity ambitions, which add permanent buffs to your empire. Each of these buffs has 5 levels (Initial / Improved / Advanced / Extreme / Maximal).
 
-This mod allows you to pay 500K unity for one of 8 permanent empire buffs (or for an improvement to an existing buff). All buffs have 5 levels (Initial / Improved / Advanced / Extreme / Maximal).
-
-The philosophy behind these buffs is to allow the player to tailor their late-game empire in ways that are not possible with repeatable technologies. I took inspiration from existing traditions and ascension perks, and from some early-game technologies.
-
+This gives you the ability to use unity to permanently improve your late-game empire, in ways that are not possible with repeatable technologies.
 
 [h1]Available buffs:[/h1]
 [list][*] Unified Diplomats (+1 influence per level)
-[*] Unified Researchers (+20% research speed per level)
-[*] Unified Navy (+10% fleet capacity per level)
-[*] Unified Civil Engineers (+40% megastructure build speed and -5% megastructure build cost per level)
+[*] Unified Researchers (+10% research speed per level)
+[*] Unified Logistics Corps (+10% naval capacity per level)
+[*] Unified Civil Engineers (+20% megastructure build speed and -5% megastructure build cost per level)
 [*] Unified Military Engineers (+5% fire rate and +5% weapons range per level)
 [*] Unified Leaders (+1 leader level cap and +10% leader experience gain per level)
-[*] Unified Geneticists (requires the ability to genemod; +1 to +3 biological trait points; 0% to 20% species modification cost reduction; Genetic Resequencing research option granted at level 3)
-[*] Unified Roboticists (requires the ability to robomod; +1 to +3 robot/machine trait points; 0% to 20% species modification cost reduction; research options for additional robomodding points are granted at levels 1 and 2 if you don't already have them)[/list]
-
-You can also tell the event to go away for 5 years (eg. if you have more than 500K unity but are saving it for some other purpose). If you somehow manage to unlock all of the buffs (20M unity!) then the event won't appear any more.
-
-
-[h1]WARNING - variable unity cost:[/h1]
-[list][*] I have now found a way to implement a variable unity cost that scales according to number of pops (beta version [url=https://github.com/jonjowett/stellaris_mods/blob/master/endgame_unity/packaged_mod/endgame_unity.zip]here[/url]).
-
-[*] I will change the workshop version of this mod to use the variable unity cost the next time Stellaris has a major patch (I don't want to affect your games in progress).[/list]
-
+[*] Unified Geneticists (requires the ability to genemod):
+[list][*] +10% pop growth speed per level
+[*] +1 to +3 biological trait points
+[*] 0% to 20% species modification cost reduction
+[*] Research options are granted at levels 1 (Gene Expressions) & 3 (Genetic Resequencing), if you don't already have them[/list]
+[*] Unified Roboticists (requires the ability to robomod):
+[list][*] +10% robot build speed per level
+[*] +1 to +3 robot/machine trait points
+[*] 0% to 20% species modification cost reduction
+[*] Research options for additional robomodding points are granted at levels 1 and 3, if you don't already have them[/list][/list]
 
 [h1]Technical info & compatibility:[/h1]
-[list][*] The only possible clash with other mods is in the single change I've made to defines - the maximum level a leader can reach is now 15. (It was 10 in the base game, but I thought it was worth increasing to 15 because you can get an additional +5 leader level cap from this mod.)
-
-[*] The event is triggered by the monthly pulse. This will slightly add to the lag on the 1st day of every month but it hasn't been noticeable in my playtesting.
-
+[list][*] This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.
 [*] The Unified Roboticists buff is split in two internally - different buffs for machine and biological empires.
-
 [*] The buffs should be properly gated if you don't have the necessary DLC (ie. you shouldn't be able to select them if you can't use them). But I have not fully tested this.[/list]
 
-
-[h1]Known bugs:[/h1]
-[list][*] The stars denoting leader level are missing for leader levels greater than 10.[/list]
-
-
-[h1]Future development:[/h1]
-[list][*] Change the unity cost from a fixed 500K to a variable amount that's calculated in the same way as tradition cost. If anyone knows how to do this, let me know![/list]
-
-
-[h1]Troubleshooting - event not appearing:[/h1]
-[list][*] Start a new non-ironman game (or, if your current game is non-ironman, save a backup copy)
-
-[*] Check that you don't have the "Unification Refused" empire modifier. If you do, the event should work properly once the modifier disappears. Otherwise, continue.
-
-[*] Check that you don't have all of the empire modifiers that are granted by this event. If you do, the dialog won't show up any more (because it's pointless). Otherwise, continue.
-
-[*] Give yourself 600k unity via the console ("unity 600000") and wait a year. (Don't spend the unity.) If the dialog appears sometime in the year, everything is working fine. Otherwise, continue.
-
-[*] Run the gatekeeper event via the console ("event endgame_unity.1"). If the dialog appears and the previous step didn't work, something very weird is happening! Leave me a message below. Otherwise, continue.
-
-[*] Run the main event via the console ("event endgame_unity.10"). If the dialog appears and the previous steps didn't work - again, something very weird is happening and you should leave me a message. Otherwise, continue.
-
-[*] At this point, the only reason for the dialog not appearing is if one of the following country flags has been incorrectly set: endgame_unity_dialog_open, endgame_unity_complete. This shouldn't ever happen - but you can fix it by [url=https://stellaris.paradoxwikis.com/Save-game_editing]editing your save[/url] to remove the flags.[/list]
-
+[h1]Suggested companion mods:[/h1]
+[list][*] In order to get full use of the Unified Leaders buff, you should also install a mod that increases the maximum leader level cap.[/list]
 
 [h1]Earlier versions / Beta versions:[/h1]
-[list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].
-
-[*] I have created a beta version with variable unity cost, [url=https://github.com/jonjowett/stellaris_mods/blob/master/endgame_unity/packaged_mod/endgame_unity.zip]here[/url].[/list]
-
+[list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
 
 [h1]TLDR:[/h1]
-[list][*] Tested version: 1.8.3
-[*] Required DLC: None
+[list][*] Tested version: 2.0.1
+[*] Required DLC: Apocalypse (to enable Unity Ambitions)
 [*] Ironman compatible: Yes
 [*] Achievement compatible: No[/list]
