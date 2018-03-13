@@ -1,0 +1,48 @@
+tech_repeatable_ascension_perks = {
+	area = society
+	cost = 20000
+	tier = 5
+	category = { statecraft } 
+	cost_per_level = 5000
+	ai_update_type = all
+	prerequisites = { "tech_ascension_theory" }
+	levels = 4
+	weight = 25
+	
+	modifier = {
+		ascension_perks_add = 1
+	}
+	
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0
+			NOT = { host_has_dlc = "Utopia" }
+		}
+		modifier = {
+			factor = 0.20
+			NOR = {
+				has_modifier = "curator_insight"
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_computing"
+				}			
+			}
+		}
+	}
+	
+	weight_groups = {
+		repeatable
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 9999
+	}
+}

@@ -1,0 +1,5 @@
+﻿	NCamera = {
+	}
+	NGameplay = {
+		ASCENSION_PERKS_SLOTS				= 20 # Number of ascension perk slots
+	}

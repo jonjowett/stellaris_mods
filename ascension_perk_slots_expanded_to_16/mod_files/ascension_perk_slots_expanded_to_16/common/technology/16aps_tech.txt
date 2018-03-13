@@ -1,0 +1,74 @@
+# Constants copied from 00_soc_tech_repeatable
+@repeatableTechBaseCost = 20000
+@repeatableTechLevelCost = 5000
+@repeatableTechTier = 5
+@repeatableTechWeight = 25
+@repeatableTechFactor = 0.5
+
+# Number of repeatable tech levels
+# Ensure this is in line with the total number of perks in defines,
+#      and also the number of visible slots in the traditions view.
+@repeatable_ascension_theory_levels = 8
+
+# Slightly decreased the weight for this tech - it's supposed to be rare!
+@repeatable_ascension_theory_weight = 20
+
+tech_16aps_repeatable_ascension_theory = {
+	area = society
+	cost = @repeatableTechBaseCost
+	tier = @repeatableTechTier
+	category = { statecraft } 
+	cost_per_level = @repeatableTechLevelCost
+	ai_update_type = all
+	is_rare = yes
+	levels = @repeatable_ascension_theory_levels
+	weight = @repeatable_ascension_theory_weight
+	
+	modifier = {
+		ascension_perks_add = 1
+	}
+	
+	weight_modifier = {
+		factor = @repeatableTechFactor
+		
+		# The prerequisite tech depends on whether you have the Apocalypse DLC or not.
+		# You can't use an OR clause in prerequisites = {}, so we use the hack below.
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = "tech_ascension_theory"
+				has_technology = "tech_ascension_theory_apoc"
+			}
+		}
+		
+		# Copied from ascension theory - this will usually make the tech show up even less frequently.
+		# Corrected the block so that it checks the *society* area for *statecraft* expertise (instead of physics & computing)
+		modifier = {
+			factor = 0.20
+			NOR = {
+				has_modifier = "curator_insight"
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_statecraft"
+				}			
+			}
+		}
+		
+	}
+	
+	weight_groups = {
+		repeatable
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	ai_weight = {
+		weight = 9999
+	}
+	
+}
