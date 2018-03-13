@@ -1,0 +1,3 @@
+NGameplay = {
+	COMMAND_LIMIT_MAX = 500 #Default value is 200, but this can be reached without researching any repeatable techs
+}

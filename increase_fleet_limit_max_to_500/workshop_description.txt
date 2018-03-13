@@ -1,0 +1,18 @@
+This micro-mod increases the maximum fleet capacity to 500.
+
+The reason for this is that, in the base game (v2.0.1):
+[list][*] Fleet capacity is capped at 200
+[*] There are repeatable techs that increase fleet cap by +10 per level
+[*] You can reach 200 fleet cap by researching all non-repeatable techs and taking all relevant traditions.[/list]
+
+[h1]Technical Info / Compatibility[/h1]
+[list][*] This mod should be compatible with every other mod that doesn't alter the same line in the defines file (ie. NGameplay -> FLEET_COMMAND_LIMIT).[/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
+
+[h1]TLDR:[/h1]
+[list][*]Tested version: 2.0.1
+[*]Required DLC: None
+[*]Ironman compatible: Yes
+[*]Achievement compatible: No[/list]
