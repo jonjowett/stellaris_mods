@@ -1,0 +1,67 @@
+# Constants copied from 01_edicts.txt
+@Edict3Cost = 300
+@Edict3Cost_Doubled = 600
+@Edict3Cost_Trebled = 900
+
+@WarPropagandaCynicismLength = 3600
+
+country_edict = {
+	name = "war_propaganda_edict_1"
+	length = 0
+	cost = { influence = @Edict3Cost }
+	
+	potential = {
+		AND = {
+			NOT = { has_ethic = ethic_gestalt_consciousness } # Gestalt don't have war exhaustion
+			has_technology = "tech_galactic_campaigns" # In v2.0.1, this means that the edict is inaccesible to FP, DS & DE. That's probably fine?
+		}
+	}
+	
+	allow = {
+		AND = {
+			is_at_war = yes 
+			NOT = { has_modifier = war_propaganda_cynicism_1 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+	
+	effect = {
+		add_modifier = {
+			modifier = war_propaganda_cynicism_1
+			days = @WarPropagandaCynicismLength
+		}
+		#owner = { add_static_war_exhaustion = { attacker = <country> location = <planet> value_for_planet_destruction = <0.0-1.0> #scales the amount WE that is added }} 
+		add_static_war_exhaustion = {
+			
+		}
+	}
+	
+}
+
+country_edict = {
+	name = "war_propaganda_edict_2"
+	length = 0
+	cost = { influence = @Edict3Cost_Doubled }
+	
+	potential = {
+		AND = {
+			NOT = { has_ethic = ethic_gestalt_consciousness } # Gestalt don't have war exhaustion
+			has_technology = "tech_galactic_campaigns" # In v2.0.1, this means that the edict is inaccesible to FP, DS & DE. That's probably fine?
+			has_modifier = war_propaganda_cynicism_1
+		}
+	}
+	
+	allow = {
+		AND = {
+			is_at_war = yes 
+			NOT = { has_modifier = war_propaganda_cynicism_2 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+	}
+}
