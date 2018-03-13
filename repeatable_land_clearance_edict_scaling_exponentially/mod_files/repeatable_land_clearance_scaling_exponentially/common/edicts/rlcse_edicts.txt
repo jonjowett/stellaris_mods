@@ -15,7 +15,10 @@
 
 planet_edict = {
 	name = "rlcse_1"
-	cost = { influence = @rlcse_1_influence energy = rlcse_1_energy }
+	cost = {
+		influence = @rlcse_1_influence
+		energy = @rlcse_1_energy
+	}
 	length = 0
 	
 	potential = {
@@ -62,7 +65,10 @@ planet_edict = {
 
 planet_edict = {
 	name = "rlcse_2"
-	cost = { influence = @rlcse_2_influence energy = rlcse_2_energy }
+	cost = {
+		influence = @rlcse_2_influence
+		energy = @rlcse_2_energy
+	}
 	length = 0
 	
 	potential = {
@@ -109,7 +115,10 @@ planet_edict = {
 
 planet_edict = {
 	name = "rlcse_3"
-	cost = { influence = @rlcse_3_influence energy = rlcse_3_energy }
+	cost = {
+		influence = @rlcse_3_influence
+		energy = @rlcse_3_energy
+	}
 	length = 0
 	
 	potential = {
@@ -156,7 +165,10 @@ planet_edict = {
 
 planet_edict = {
 	name = "rlcse_4"
-	cost = { influence = @rlcse_4_influence energy = rlcse_4_energy }
+	cost = {
+		influence = @rlcse_4_influence
+		energy = @rlcse_4_energy
+	}
 	length = 0
 	
 	potential = {
@@ -203,7 +215,10 @@ planet_edict = {
 
 planet_edict = {
 	name = "rlcse_5"
-	cost = { influence = @rlcse_5_influence energy = rlcse_5_energy }
+	cost = {
+		influence = @rlcse_5_influence
+		energy = @rlcse_5_energy
+	}
 	length = 0
 	
 	potential = {
