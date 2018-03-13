@@ -1,7 +1,6 @@
 # Constants copied from 01_edicts.txt
 @Edict3Cost = 300
 @Edict3Cost_Doubled = 600
-@Edict3Cost_Trebled = 900
 
 @WarPropagandaCynicismLength = 3600
 
