@@ -1,0 +1,8 @@
+﻿# The empty NCamera section is *required*, otherwise the NGameplay section is simply ignored!
+# No idea why that's true for this mod but not for others...
+NCamera = {
+}
+
+NGameplay = {
+	ASCENSION_PERKS_SLOTS = 16
+}

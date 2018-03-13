@@ -1,0 +1,13 @@
+This mod updates the number of available ascension perks to 16, and adds 8 levels of repeatable tech so that you can unlock all of the slots.
+
+[h1]Technical info / compatibility:[/h1]
+[list][*]This mod should be compatible with any other mod that doesn't alter the traditions view or NGameplay -> ASCENSION_PERKS_SLOTS in defines.[/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
+
+[h1]TLDR:[/h1]
+[list][*]Tested version: 2.0.1
+[*]Required DLC: None
+[*]Ironman compatible: Yes
+[*]Achievement compatible: No[/list]

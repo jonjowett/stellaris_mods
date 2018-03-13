@@ -4,4 +4,6 @@ tags={
 	"Gameplay"
 	"Technologies"
 }
+picture="16aps.png"
+remote_file_id="1330072114"
 supported_version="2.0.*"

@@ -1,0 +1,20 @@
+namespace = aps16
+
+country_event = {
+	
+	id = aps16.999
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+		give_technology = { tech = tech_16aps_repeatable_ascension_theory message = no }
+	}
+
+}

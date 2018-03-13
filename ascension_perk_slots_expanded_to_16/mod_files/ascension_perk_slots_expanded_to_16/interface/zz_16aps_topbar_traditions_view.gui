@@ -59,23 +59,23 @@ guiTypes = {
 	# ASCENSION PERKS ENTRY POSITIONS
 	################################################################
 	
-	# NB: Shift everything up by 10 so that it doesn't look awful
-	positionType = { name = "ap_0"	position = { x = 15 y = 40 } }
-	positionType = { name = "ap_1"	position = { x = 73 y = 40 } }
-	positionType = { name = "ap_2"	position = { x = 131 y = 40 } }
-	positionType = { name = "ap_3"	position = { x = 189 y = 40 } }
-	positionType = { name = "ap_4"	position = { x = 44 y = 89 } }
-	positionType = { name = "ap_5"	position = { x = 102 y = 89 } }
-	positionType = { name = "ap_6"	position = { x = 160 y = 89 } }
-	positionType = { name = "ap_7"	position = { x = 218 y = 89 } }
-	positionType = { name = "ap_8"	position = { x = 15 y = 138 } }
-	positionType = { name = "ap_9"	position = { x = 73 y = 138 } }
-	positionType = { name = "ap_10"	position = { x = 131 y = 138 } }
-	positionType = { name = "ap_11"	position = { x = 189 y = 138 } }
-	positionType = { name = "ap_12"	position = { x = 44 y = 187 } }
-	positionType = { name = "ap_13"	position = { x = 102 y = 187 } }
-	positionType = { name = "ap_14"	position = { x = 160 y = 187 } }
-	positionType = { name = "ap_15"	position = { x = 218 y = 187 } }
+	# NB: Shift everything up by 15 so that it doesn't look awful
+	positionType = { name = "ap_0"	position = { x = 15 y = 35 } }
+	positionType = { name = "ap_1"	position = { x = 73 y = 35 } }
+	positionType = { name = "ap_2"	position = { x = 131 y = 35 } }
+	positionType = { name = "ap_3"	position = { x = 189 y = 35 } }
+	positionType = { name = "ap_4"	position = { x = 44 y = 84 } }
+	positionType = { name = "ap_5"	position = { x = 102 y = 84 } }
+	positionType = { name = "ap_6"	position = { x = 160 y = 84 } }
+	positionType = { name = "ap_7"	position = { x = 218 y = 84 } }
+	positionType = { name = "ap_8"	position = { x = 15 y = 133 } }
+	positionType = { name = "ap_9"	position = { x = 73 y = 133 } }
+	positionType = { name = "ap_10"	position = { x = 131 y = 133 } }
+	positionType = { name = "ap_11"	position = { x = 189 y = 133 } }
+	positionType = { name = "ap_12"	position = { x = 44 y = 182 } }
+	positionType = { name = "ap_13"	position = { x = 102 y = 182 } }
+	positionType = { name = "ap_14"	position = { x = 160 y = 182 } }
+	positionType = { name = "ap_15"	position = { x = 218 y = 182 } }
 	
 	containerWindowType = {
 		name = "traditions_ascension_perk_entry"
