@@ -74,9 +74,9 @@ country_event = {
 	picture = GFX_evt_physics_research
 	show_sound = event_radio_chatter
 	is_triggered_only = yes
+	immediate = { set_country_flag = all_enigmatic_clean_initial_message_shown }
 	option = {
 		name = INTERESTING
-		hidden_effect = { set_country_flag = all_enigmatic_clean_initial_message_shown }
 		hidden_effect = { country_event = { id = all_enigmatic_clean.200 } }
 	}
 }
@@ -94,6 +94,7 @@ country_event = {
 	trigger = {
 		#Check whether any new research options can be granted. If not, this event will not be visible.
 		AND = {
+			NOT = { has_country_flag = all_enigmatic_clean_tech_grant_event_visible } # Prevent multiple popups following events that grant multiple techs instantaneously
 			has_technology = tech_enigmatic_encoder
 			has_technology = tech_enigmatic_decoder
 			OR = {
@@ -128,8 +129,11 @@ country_event = {
 		}
 	}
 	
+	immediate = { set_country_flag = all_enigmatic_clean_tech_grant_event_visible }
+	
 	option = {
 		name = INTERESTING
+		hidden_effect = { remove_country_flag = all_enigmatic_clean_tech_grant_event_visible }
 		if = {
 			limit = {
 				AND = {
