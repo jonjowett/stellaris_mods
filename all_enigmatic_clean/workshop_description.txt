@@ -3,6 +3,7 @@ This micro-mod grants you the ability to research Dark Matter Deflectors, Dark M
 In order to unlock these techs, you need to finish researching [u]both[/u] the Enigmatic Encoder [u]and[/u] the Enigmatic Decoder. In addition, you need to finish researching the relevant prerequisite tech:
 [list][*]Dark Matter Deflectors - requires Hyper Shields
 [*]Dark Matter Reactors - requires Zero Point Power
+[*]Dark Matter Thrusters - requires Impulse Thrusters
 [*]Enigmatic Disruption Field - requires Titans[/list]
 
 The Enigmatic Disruption Field is equivalent to a Shield Dampener plus a Quantum Destabilizer, combined into one component.
