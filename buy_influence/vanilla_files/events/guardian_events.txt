@@ -131,7 +131,7 @@ country_event = {
 	}
 }
 
-# Enclave Monthly Border Opinion
+# Enclave Yearly Border Opinion
 event = {
 	id = guardian.10
 	hide_window = yes
@@ -265,6 +265,8 @@ country_event = { # passthrough for story.7
 country_event = {
 	id = guardian.97
 	hide_window = yes
+
+	is_triggered_only = yes
 
 	trigger = {
 		exists = event_target:pc_home
@@ -575,12 +577,7 @@ country_event = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_terminator
-				has_modifier = enclave_mineral_trade_1_xur
-				has_modifier = enclave_mineral_trade_2_xur
-				has_modifier = enclave_mineral_trade_3_xur
-				has_modifier = enclave_energy_trade_1_xur
-				has_modifier = enclave_energy_trade_2_xur
-				has_modifier = enclave_energy_trade_3_xur
+				has_active_xuracorp_trade = yes
 			}
 		}
 		hidden_effect = {
@@ -596,16 +593,27 @@ country_event = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_terminator
-				has_modifier = enclave_mineral_trade_1_xur
-				has_modifier = enclave_mineral_trade_2_xur
-				has_modifier = enclave_mineral_trade_3_xur
-				has_modifier = enclave_energy_trade_1_xur
-				has_modifier = enclave_energy_trade_2_xur
-				has_modifier = enclave_energy_trade_3_xur
+				has_active_xuracorp_trade = yes
 			}
 		}
 		hidden_effect = {
 			country_event = { id = guardian.120 }
+		}
+	}
+
+	option = { # Food
+		name = guardian.105.f
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+				has_active_xuracorp_trade = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = guardian.125 }
 		}
 	}
 
@@ -643,23 +651,11 @@ country_event = {
 		name = guardian.105.e
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			OR = {
-				has_modifier = enclave_mineral_trade_1_xur
-				has_modifier = enclave_mineral_trade_2_xur
-				has_modifier = enclave_mineral_trade_3_xur
-				has_modifier = enclave_energy_trade_1_xur
-				has_modifier = enclave_energy_trade_2_xur
-				has_modifier = enclave_energy_trade_3_xur
-			}
+			has_active_xuracorp_trade = yes
 		}
 		custom_tooltip = end_trade_1
 		hidden_effect = {
-			remove_modifier = enclave_mineral_trade_1_xur
-			remove_modifier = enclave_mineral_trade_2_xur
-			remove_modifier = enclave_mineral_trade_3_xur
-			remove_modifier = enclave_energy_trade_1_xur
-			remove_modifier = enclave_energy_trade_2_xur
-			remove_modifier = enclave_energy_trade_3_xur
+			remove_xuracorp_trades = yes
 		}
 		is_dialog_only = yes
 		response_text = guardian.105.e.response
@@ -755,12 +751,7 @@ country_event = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_terminator
-				has_modifier = enclave_mineral_trade_1_rig
-				has_modifier = enclave_mineral_trade_2_rig
-				has_modifier = enclave_mineral_trade_3_rig
-				has_modifier = enclave_energy_trade_1_rig
-				has_modifier = enclave_energy_trade_2_rig
-				has_modifier = enclave_energy_trade_3_rig
+				has_active_riggan_trade = yes
 			}
 		}
 		hidden_effect = {
@@ -776,16 +767,27 @@ country_event = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_terminator
-				has_modifier = enclave_mineral_trade_1_rig
-				has_modifier = enclave_mineral_trade_2_rig
-				has_modifier = enclave_mineral_trade_3_rig
-				has_modifier = enclave_energy_trade_1_rig
-				has_modifier = enclave_energy_trade_2_rig
-				has_modifier = enclave_energy_trade_3_rig
+				has_active_riggan_trade = yes
 			}
 		}
 		hidden_effect = {
 			country_event = { id = guardian.120 }
+		}
+	}
+
+	option = { # Food
+		name = guardian.105.f
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+				has_active_riggan_trade = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = guardian.125 }
 		}
 	}
 
@@ -823,23 +825,11 @@ country_event = {
 		name = guardian.105.e
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			OR = {
-				has_modifier = enclave_mineral_trade_1_rig
-				has_modifier = enclave_mineral_trade_2_rig
-				has_modifier = enclave_mineral_trade_3_rig
-				has_modifier = enclave_energy_trade_1_rig
-				has_modifier = enclave_energy_trade_2_rig
-				has_modifier = enclave_energy_trade_3_rig
-			}
+			has_active_riggan_trade = yes
 		}
 		custom_tooltip = end_trade_2
 		hidden_effect = {
-			remove_modifier = enclave_mineral_trade_1_rig
-			remove_modifier = enclave_mineral_trade_2_rig
-			remove_modifier = enclave_mineral_trade_3_rig
-			remove_modifier = enclave_energy_trade_1_rig
-			remove_modifier = enclave_energy_trade_2_rig
-			remove_modifier = enclave_energy_trade_3_rig
+			remove_riggan_trades = yes
 		}
 		is_dialog_only = yes
 		response_text = guardian.105.e.response
@@ -932,12 +922,7 @@ country_event = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_terminator
-				has_modifier = enclave_mineral_trade_1_mut
-				has_modifier = enclave_mineral_trade_2_mut
-				has_modifier = enclave_mineral_trade_3_mut
-				has_modifier = enclave_energy_trade_1_mut
-				has_modifier = enclave_energy_trade_2_mut
-				has_modifier = enclave_energy_trade_3_mut
+				has_active_muutagan_trade = yes
 			}
 		}
 		hidden_effect = {
@@ -953,16 +938,27 @@ country_event = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_terminator
-				has_modifier = enclave_mineral_trade_1_mut
-				has_modifier = enclave_mineral_trade_2_mut
-				has_modifier = enclave_mineral_trade_3_mut
-				has_modifier = enclave_energy_trade_1_mut
-				has_modifier = enclave_energy_trade_2_mut
-				has_modifier = enclave_energy_trade_3_mut
+				has_active_muutagan_trade = yes
 			}
 		}
 		hidden_effect = {
 			country_event = { id = guardian.120 }
+		}
+	}
+
+	option = { # Food
+		name = guardian.105.f
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator
+				has_active_muutagan_trade = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = guardian.125 }
 		}
 	}
 
@@ -1000,23 +996,11 @@ country_event = {
 		name = guardian.105.e
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			OR = {
-				has_modifier = enclave_mineral_trade_1_mut
-				has_modifier = enclave_mineral_trade_2_mut
-				has_modifier = enclave_mineral_trade_3_mut
-				has_modifier = enclave_energy_trade_1_mut
-				has_modifier = enclave_energy_trade_2_mut
-				has_modifier = enclave_energy_trade_3_mut
-			}
+			has_active_muutagan_trade = yes
 		}
 		custom_tooltip = end_trade_3
 		hidden_effect = {
-			remove_modifier = enclave_mineral_trade_1_mut
-			remove_modifier = enclave_mineral_trade_2_mut
-			remove_modifier = enclave_mineral_trade_3_mut
-			remove_modifier = enclave_energy_trade_1_mut
-			remove_modifier = enclave_energy_trade_2_mut
-			remove_modifier = enclave_energy_trade_3_mut
+			remove_muutagan_trades = yes
 		}
 		is_dialog_only = yes
 		response_text = guardian.105.e.response
@@ -1070,14 +1054,7 @@ country_event = {
 		name = guardian.105.a
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_modifier = enclave_mineral_trade_1_xur
-				has_modifier = enclave_mineral_trade_2_xur
-				has_modifier = enclave_mineral_trade_3_xur
-				has_modifier = enclave_energy_trade_1_xur
-				has_modifier = enclave_energy_trade_2_xur
-				has_modifier = enclave_energy_trade_3_xur
-			}
+			has_active_xuracorp_trade = no
 		}
 		hidden_effect = {
 			country_event = { id = guardian.110 }
@@ -1088,17 +1065,21 @@ country_event = {
 		name = guardian.105.b
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_modifier = enclave_mineral_trade_1_xur
-				has_modifier = enclave_mineral_trade_2_xur
-				has_modifier = enclave_mineral_trade_3_xur
-				has_modifier = enclave_energy_trade_1_xur
-				has_modifier = enclave_energy_trade_2_xur
-				has_modifier = enclave_energy_trade_3_xur
-			}
+			has_active_xuracorp_trade = no
 		}
 		hidden_effect = {
 			country_event = { id = guardian.120 }
+		}
+	}
+
+	option = { # Food
+		name = guardian.105.f
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			has_active_xuracorp_trade = no
+		}
+		hidden_effect = {
+			country_event = { id = guardian.125 }
 		}
 	}
 
@@ -1129,23 +1110,11 @@ country_event = {
 		name = guardian.105.e
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			OR = {
-				has_modifier = enclave_mineral_trade_1_xur
-				has_modifier = enclave_mineral_trade_2_xur
-				has_modifier = enclave_mineral_trade_3_xur
-				has_modifier = enclave_energy_trade_1_xur
-				has_modifier = enclave_energy_trade_2_xur
-				has_modifier = enclave_energy_trade_3_xur
-			}
+			has_active_xuracorp_trade = yes
 		}
 		custom_tooltip = end_trade_1
 		hidden_effect = {
-			remove_modifier = enclave_mineral_trade_1_xur
-			remove_modifier = enclave_mineral_trade_2_xur
-			remove_modifier = enclave_mineral_trade_3_xur
-			remove_modifier = enclave_energy_trade_1_xur
-			remove_modifier = enclave_energy_trade_2_xur
-			remove_modifier = enclave_energy_trade_3_xur
+			remove_xuracorp_trades = yes
 		}
 		is_dialog_only = yes
 		response_text = guardian.105.e.response
@@ -1195,14 +1164,7 @@ country_event = {
 		name = guardian.105.a
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_modifier = enclave_mineral_trade_1_rig
-				has_modifier = enclave_mineral_trade_2_rig
-				has_modifier = enclave_mineral_trade_3_rig
-				has_modifier = enclave_energy_trade_1_rig
-				has_modifier = enclave_energy_trade_2_rig
-				has_modifier = enclave_energy_trade_3_rig
-			}
+			has_active_riggan_trade = no
 		}
 		hidden_effect = {
 			country_event = { id = guardian.110 }
@@ -1213,17 +1175,21 @@ country_event = {
 		name = guardian.105.b
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_modifier = enclave_mineral_trade_1_rig
-				has_modifier = enclave_mineral_trade_2_rig
-				has_modifier = enclave_mineral_trade_3_rig
-				has_modifier = enclave_energy_trade_1_rig
-				has_modifier = enclave_energy_trade_2_rig
-				has_modifier = enclave_energy_trade_3_rig
-			}
+			has_active_riggan_trade = no
 		}
 		hidden_effect = {
 			country_event = { id = guardian.120 }
+		}
+	}
+
+	option = { # Food
+		name = guardian.105.f
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			has_active_riggan_trade = no
+		}
+		hidden_effect = {
+			country_event = { id = guardian.125 }
 		}
 	}
 
@@ -1254,23 +1220,11 @@ country_event = {
 		name = guardian.105.e
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			OR = {
-				has_modifier = enclave_mineral_trade_1_rig
-				has_modifier = enclave_mineral_trade_2_rig
-				has_modifier = enclave_mineral_trade_3_rig
-				has_modifier = enclave_energy_trade_1_rig
-				has_modifier = enclave_energy_trade_2_rig
-				has_modifier = enclave_energy_trade_3_rig
-			}
+			has_active_riggan_trade = yes
 		}
 		custom_tooltip = end_trade_2
 		hidden_effect = {
-			remove_modifier = enclave_mineral_trade_1_rig
-			remove_modifier = enclave_mineral_trade_2_rig
-			remove_modifier = enclave_mineral_trade_3_rig
-			remove_modifier = enclave_energy_trade_1_rig
-			remove_modifier = enclave_energy_trade_2_rig
-			remove_modifier = enclave_energy_trade_3_rig
+			remove_riggan_trades = yes
 		}
 		is_dialog_only = yes
 		response_text = guardian.105.e.response
@@ -1320,14 +1274,7 @@ country_event = {
 		name = guardian.105.a
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_modifier = enclave_mineral_trade_1_mut
-				has_modifier = enclave_mineral_trade_2_mut
-				has_modifier = enclave_mineral_trade_3_mut
-				has_modifier = enclave_energy_trade_1_mut
-				has_modifier = enclave_energy_trade_2_mut
-				has_modifier = enclave_energy_trade_3_mut
-			}
+			has_active_muutagan_trade = no
 		}
 		hidden_effect = {
 			country_event = { id = guardian.110 }
@@ -1338,17 +1285,21 @@ country_event = {
 		name = guardian.105.b
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_modifier = enclave_mineral_trade_1_mut
-				has_modifier = enclave_mineral_trade_2_mut
-				has_modifier = enclave_mineral_trade_3_mut
-				has_modifier = enclave_energy_trade_1_mut
-				has_modifier = enclave_energy_trade_2_mut
-				has_modifier = enclave_energy_trade_3_mut
-			}
+			has_active_muutagan_trade = no
 		}
 		hidden_effect = {
 			country_event = { id = guardian.120 }
+		}
+	}
+
+	option = { # Food
+		name = guardian.105.f
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			has_active_muutagan_trade = no
+		}
+		hidden_effect = {
+			country_event = { id = guardian.125 }
 		}
 	}
 
@@ -1379,23 +1330,11 @@ country_event = {
 		name = guardian.105.e
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			OR = {
-				has_modifier = enclave_mineral_trade_1_mut
-				has_modifier = enclave_mineral_trade_2_mut
-				has_modifier = enclave_mineral_trade_3_mut
-				has_modifier = enclave_energy_trade_1_mut
-				has_modifier = enclave_energy_trade_2_mut
-				has_modifier = enclave_energy_trade_3_mut
-			}
+			has_active_muutagan_trade = yes
 		}
 		custom_tooltip = end_trade_3
 		hidden_effect = {
-			remove_modifier = enclave_mineral_trade_1_mut
-			remove_modifier = enclave_mineral_trade_2_mut
-			remove_modifier = enclave_mineral_trade_3_mut
-			remove_modifier = enclave_energy_trade_1_mut
-			remove_modifier = enclave_energy_trade_2_mut
-			remove_modifier = enclave_energy_trade_3_mut
+			remove_muutagan_trades = yes
 		}
 		is_dialog_only = yes
 		response_text = guardian.105.e.response
@@ -1482,12 +1421,6 @@ country_event = {
 		}
 		custom_tooltip = monthly_opinion1
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 1
-				}
-			}
 			country_event = { id = guardian.111 } 
 			country_event = { id = guardian.122 days = 30 }
 		}
@@ -1538,12 +1471,6 @@ country_event = {
 		}
 		custom_tooltip = monthly_opinion2
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 2
-				}
-			}
 			country_event = { id = guardian.111 } 
 			country_event = { id = guardian.122 days = 30 }
 		}
@@ -1594,12 +1521,156 @@ country_event = {
 		}
 		custom_tooltip = monthly_opinion3
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 3
+			country_event = { id = guardian.111 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.110.food.a
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			food > 20 
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}			
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_1_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_1_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_1_mut"
+				days = -1
+			}
+		}
+		custom_tooltip = monthly_opinion1
+		hidden_effect = {
+			country_event = { id = guardian.111 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.110.food.b
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			food > 50
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
 				}
 			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_2_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_2_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_2_mut"
+				days = -1
+			}
+		}
+		custom_tooltip = monthly_opinion2
+		hidden_effect = {
+			country_event = { id = guardian.111 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.110.food.c
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			food > 100
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_3_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_3_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_mineral_food_trade_3_mut"
+				days = -1
+			}
+		}
+		custom_tooltip = monthly_opinion3
+		hidden_effect = {
 			country_event = { id = guardian.111 } 
 			country_event = { id = guardian.122 days = 30 }
 		}
@@ -1644,15 +1715,24 @@ country_event = {
 			OR = {
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					has_modifier = enclave_mineral_trade_1_xur
+					OR = {
+						has_modifier = enclave_mineral_trade_1_xur
+						has_modifier = enclave_mineral_food_trade_1_xur
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					has_modifier = enclave_mineral_trade_1_rig
+					OR = {
+						has_modifier = enclave_mineral_trade_1_rig
+						has_modifier = enclave_mineral_food_trade_1_rig
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					has_modifier = enclave_mineral_trade_1_mut
+					OR = {
+						has_modifier = enclave_mineral_trade_1_mut
+						has_modifier = enclave_mineral_food_trade_1_mut
+					}
 				}
 			}
 		}
@@ -1663,15 +1743,24 @@ country_event = {
 			OR = {
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					has_modifier = enclave_mineral_trade_2_xur
+					OR = {
+						has_modifier = enclave_mineral_trade_2_xur
+						has_modifier = enclave_mineral_food_trade_2_xur
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					has_modifier = enclave_mineral_trade_2_rig
+					OR = {
+						has_modifier = enclave_mineral_trade_2_rig
+						has_modifier = enclave_mineral_food_trade_2_rig
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					has_modifier = enclave_mineral_trade_2_mut
+					OR = {
+						has_modifier = enclave_mineral_trade_2_mut
+						has_modifier = enclave_mineral_food_trade_2_mut
+					}
 				}
 			}
 		}
@@ -1682,15 +1771,24 @@ country_event = {
 			OR = {
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					has_modifier = enclave_mineral_trade_3_xur
+					OR = {
+						has_modifier = enclave_mineral_trade_3_xur
+						has_modifier = enclave_mineral_food_trade_3_xur
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					has_modifier = enclave_mineral_trade_3_rig
+					OR = {
+						has_modifier = enclave_mineral_trade_3_rig
+						has_modifier = enclave_mineral_food_trade_3_rig
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					has_modifier = enclave_mineral_trade_3_mut
+					OR = {
+						has_modifier = enclave_mineral_trade_3_mut
+						has_modifier = enclave_mineral_food_trade_3_mut
+					}
 				}
 			}
 		}
@@ -1817,12 +1915,6 @@ country_event = {
 
 		custom_tooltip = monthly_opinion1
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 1
-				}
-			}
 			country_event = { id = guardian.121 } 
 			country_event = { id = guardian.122 days = 30 }
 		}
@@ -1874,12 +1966,6 @@ country_event = {
 
 		custom_tooltip = monthly_opinion2
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 2
-				}
-			}
 			country_event = { id = guardian.121 } 
 			country_event = { id = guardian.122 days = 30 }
 		}
@@ -1931,12 +2017,159 @@ country_event = {
 
 		custom_tooltip = monthly_opinion3
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 3
+			country_event = { id = guardian.121 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.120.food.a
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			food > 20
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
 				}
 			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_1_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_1_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_1_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion1
+		hidden_effect = {
+			country_event = { id = guardian.121 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.120.food.b
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			food > 50 
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_2_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_2_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_2_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion2
+		hidden_effect = {
+			country_event = { id = guardian.121 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.120.food.c
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			food > 100
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_3_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_3_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_energy_food_trade_3_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion3
+		hidden_effect = {
 			country_event = { id = guardian.121 } 
 			country_event = { id = guardian.122 days = 30 }
 		}
@@ -1981,15 +2214,24 @@ country_event = {
 			OR = {
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					has_modifier = enclave_energy_trade_1_xur
+					OR = {
+						has_modifier = enclave_energy_trade_1_xur
+						has_modifier = enclave_energy_food_trade_1_xur
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					has_modifier = enclave_energy_trade_1_rig
+					OR = {
+						has_modifier = enclave_energy_trade_1_rig
+						has_modifier = enclave_energy_food_trade_1_rig
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					has_modifier = enclave_energy_trade_1_mut
+					OR = {
+						has_modifier = enclave_energy_trade_1_mut
+						has_modifier = enclave_energy_food_trade_1_mut
+					}
 				}
 			}
 		}
@@ -2000,15 +2242,24 @@ country_event = {
 			OR = {
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					has_modifier = enclave_energy_trade_2_xur
+					OR = {
+						has_modifier = enclave_energy_trade_2_xur
+						has_modifier = enclave_energy_food_trade_2_xur
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					has_modifier = enclave_energy_trade_2_rig
+					OR = {
+						has_modifier = enclave_energy_trade_2_rig
+						has_modifier = enclave_energy_food_trade_2_rig
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					has_modifier = enclave_energy_trade_2_mut
+					OR = {
+						has_modifier = enclave_energy_trade_2_mut
+						has_modifier = enclave_energy_food_trade_2_mut
+					}
 				}
 			}
 		}
@@ -2019,15 +2270,523 @@ country_event = {
 			OR = {
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					has_modifier = enclave_energy_trade_3_xur
+					OR = {
+						has_modifier = enclave_energy_trade_3_xur
+						has_modifier = enclave_energy_food_trade_3_xur
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					has_modifier = enclave_energy_trade_3_rig
+					OR = {
+						has_modifier = enclave_energy_trade_3_rig
+						has_modifier = enclave_energy_food_trade_3_rig
+					}
 				}
 				AND = {
 					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					has_modifier = enclave_energy_trade_3_mut
+					OR = {
+						has_modifier = enclave_energy_trade_3_mut
+						has_modifier = enclave_energy_food_trade_3_mut
+					}
+				}
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_trader_window"
+	force_open = yes
+
+	picture_event_data = {
+		portrait = event_target:traders
+		room = enclave_trader_room
+	}
+
+	immediate = {
+		set_country_flag = trader_enclave_diplomacy_engaged
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = guardian.110.d
+		custom_gui = "enclave_trader_option"
+		hidden_effect = {
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+				country_event = { id = guardian.105 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+				country_event = { id = guardian.106 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+				country_event = { id = guardian.107 }
+			}
+		}
+	}
+
+	option = {
+		name = guardian.111.e
+		custom_gui = "enclave_trader_option"
+		default_hide_option = yes
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+		}
+	}
+}
+
+# Food
+country_event = {
+	id = guardian.125
+	title = guardian.125.name
+	desc = guardian.125.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_trader_window"
+	force_open = yes
+
+	picture_event_data = {
+		portrait = event_target:traders
+		room = enclave_trader_room
+	}
+
+	immediate = {
+		set_country_flag = trader_enclave_diplomacy_engaged
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+		}
+	}
+
+	option = {
+		name = guardian.125.minerals.a
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			minerals > 20
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_1_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_1_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_1_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion1
+		hidden_effect = {
+			country_event = { id = guardian.126 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.125.minerals.b
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			minerals > 50 
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_2_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_2_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_2_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion2
+		hidden_effect = {
+			country_event = { id = guardian.126 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.125.minerals.c
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			minerals > 100
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_3_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_3_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_food_minerals_trade_3_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion3
+		hidden_effect = {
+			country_event = { id = guardian.126 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.125.energy.a
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			energy > 20
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_1_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_1_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_1_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion1
+		hidden_effect = {
+			country_event = { id = guardian.126 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.125.energy.b
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			energy > 50 
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_2_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_2_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_2_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion2
+		hidden_effect = {
+			country_event = { id = guardian.126 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.125.energy.c
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			energy > 100
+			hidden_trigger = {
+				NOT = {
+					AND = {
+						has_country_flag = attacked_xuracorp
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					}
+					AND = {
+						has_country_flag = attacked_riggans
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					}
+					AND = {
+						has_country_flag = attacked_muutagans
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_3_xur"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_3_rig"
+				days = -1
+			}
+		}
+		if = {
+			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+			add_modifier = {
+				modifier = "enclave_food_energy_trade_3_mut"
+				days = -1
+			}
+		}
+
+		custom_tooltip = monthly_opinion3
+		hidden_effect = {
+			country_event = { id = guardian.126 } 
+			country_event = { id = guardian.122 days = 30 }
+		}
+	}
+
+	option = {
+		name = guardian.110.d
+		custom_gui = "enclave_trader_option"
+		hidden_effect = {
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+				country_event = { id = guardian.105 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+				country_event = { id = guardian.106 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+				country_event = { id = guardian.107 }
+			}
+		}
+	}
+
+	option = {
+		name = guardian.110.e
+		custom_gui = "enclave_trader_option"
+		default_hide_option = yes
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+		}
+	}
+}
+
+# Food Deal Struck
+country_event = {
+	id = guardian.126
+	title = guardian.125.name
+	desc = {
+		text = guardian.125.a.reply
+		trigger = { 
+			OR = {
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_1_xur
+						has_modifier = enclave_food_energy_trade_1_xur
+					}
+				}
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_1_rig
+						has_modifier = enclave_food_energy_trade_1_rig
+					}
+				}
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_1_mut
+						has_modifier = enclave_food_energy_trade_1_mut
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = guardian.125.b.reply
+		trigger = { 
+			OR = {
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_2_xur
+						has_modifier = enclave_food_energy_trade_2_xur
+					}
+				}
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_2_rig
+						has_modifier = enclave_food_energy_trade_2_rig
+					}
+				}
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_1_mut
+						has_modifier = enclave_food_energy_trade_1_mut
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = guardian.125.c.reply
+		trigger = { 
+			OR = {
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_1 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_3_xur
+						has_modifier = enclave_food_energy_trade_3_xur
+					}
+				}
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_2 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_3_rig
+						has_modifier = enclave_food_energy_trade_3_rig
+					}
+				}
+				AND = {
+					event_target:traders = { has_country_flag = trader_enclave_country_3 }
+					OR = {
+						has_modifier = enclave_food_minerals_trade_3_mut
+						has_modifier = enclave_food_energy_trade_3_mut
+					}
 				}
 			}
 		}
@@ -2094,36 +2853,15 @@ country_event = {
 		OR = {
 			AND = {
 				event_target:traders = { has_country_flag = trader_enclave_country_1 }
-				OR = {
-					has_modifier = enclave_mineral_trade_1_xur
-					has_modifier = enclave_energy_trade_1_xur
-					has_modifier = enclave_mineral_trade_2_xur
-					has_modifier = enclave_energy_trade_2_xur
-					has_modifier = enclave_mineral_trade_3_xur
-					has_modifier = enclave_energy_trade_3_xur
-				}
+				has_active_xuracorp_trade = yes
 			}
 			AND = {
 				event_target:traders = { has_country_flag = trader_enclave_country_2 }
-				OR = {
-					has_modifier = enclave_mineral_trade_1_rig
-					has_modifier = enclave_energy_trade_1_rig
-					has_modifier = enclave_mineral_trade_2_rig
-					has_modifier = enclave_energy_trade_2_rig
-					has_modifier = enclave_mineral_trade_3_rig
-					has_modifier = enclave_energy_trade_3_rig
-				}
+				has_active_riggan_trade = yes
 			}
 			AND = {
 				event_target:traders = { has_country_flag = trader_enclave_country_3 }
-				OR = {
-					has_modifier = enclave_mineral_trade_1_mut
-					has_modifier = enclave_energy_trade_1_mut
-					has_modifier = enclave_mineral_trade_2_mut
-					has_modifier = enclave_energy_trade_2_mut
-					has_modifier = enclave_mineral_trade_3_mut
-					has_modifier = enclave_energy_trade_3_mut
-				}
+				has_active_muutagan_trade = yes
 			}
 		}
 	}
@@ -2137,6 +2875,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_1_xur
 							has_modifier = enclave_energy_trade_1_xur
+							has_modifier = enclave_mineral_food_trade_1_xur
+							has_modifier = enclave_energy_food_trade_1_xur
+							has_modifier = enclave_food_minerals_trade_1_xur
+							has_modifier = enclave_food_energy_trade_1_xur
 						}
 					}
 					AND = {
@@ -2144,6 +2886,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_1_rig
 							has_modifier = enclave_energy_trade_1_rig
+							has_modifier = enclave_mineral_food_trade_1_rig
+							has_modifier = enclave_energy_food_trade_1_rig
+							has_modifier = enclave_food_minerals_trade_1_rig
+							has_modifier = enclave_food_energy_trade_1_rig
 						}
 					}
 					AND = {
@@ -2151,6 +2897,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_1_mut
 							has_modifier = enclave_energy_trade_1_mut
+							has_modifier = enclave_mineral_food_trade_1_mut
+							has_modifier = enclave_energy_food_trade_1_mut
+							has_modifier = enclave_food_minerals_trade_1_mut
+							has_modifier = enclave_food_energy_trade_1_mut
 						}
 					}
 				}
@@ -2172,6 +2922,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_2_xur
 							has_modifier = enclave_energy_trade_2_xur
+							has_modifier = enclave_mineral_food_trade_2_xur
+							has_modifier = enclave_energy_food_trade_2_xur
+							has_modifier = enclave_food_minerals_trade_2_xur
+							has_modifier = enclave_food_energy_trade_2_xur
 						}
 					}
 					AND = {
@@ -2179,6 +2933,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_2_rig
 							has_modifier = enclave_energy_trade_2_rig
+							has_modifier = enclave_mineral_food_trade_2_rig
+							has_modifier = enclave_energy_food_trade_2_rig
+							has_modifier = enclave_food_minerals_trade_2_rig
+							has_modifier = enclave_food_energy_trade_2_rig
 						}
 					}
 					AND = {
@@ -2186,6 +2944,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_2_mut
 							has_modifier = enclave_energy_trade_2_mut
+							has_modifier = enclave_mineral_food_trade_2_mut
+							has_modifier = enclave_energy_food_trade_2_mut
+							has_modifier = enclave_food_minerals_trade_2_mut
+							has_modifier = enclave_food_energy_trade_2_mut
 						}
 					}
 				}
@@ -2207,6 +2969,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_3_xur
 							has_modifier = enclave_energy_trade_3_xur
+							has_modifier = enclave_mineral_food_trade_3_xur
+							has_modifier = enclave_energy_food_trade_3_xur
+							has_modifier = enclave_food_minerals_trade_3_xur
+							has_modifier = enclave_food_energy_trade_3_xur
 						}
 					}
 					AND = {
@@ -2214,6 +2980,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_3_rig
 							has_modifier = enclave_energy_trade_3_rig
+							has_modifier = enclave_mineral_food_trade_3_rig
+							has_modifier = enclave_energy_food_trade_3_rig
+							has_modifier = enclave_food_minerals_trade_3_rig
+							has_modifier = enclave_food_energy_trade_3_rig
 						}
 					}
 					AND = {
@@ -2221,6 +2991,10 @@ country_event = {
 						OR = {
 							has_modifier = enclave_mineral_trade_3_mut
 							has_modifier = enclave_energy_trade_3_mut
+							has_modifier = enclave_mineral_food_trade_3_mut
+							has_modifier = enclave_energy_food_trade_3_mut
+							has_modifier = enclave_food_minerals_trade_3_mut
+							has_modifier = enclave_food_energy_trade_3_mut
 						}
 					}
 				}
@@ -2786,12 +3560,7 @@ country_event = {
 		if = {
 			limit = { FROM = { has_country_flag = trader_enclave_country_1 } }
 			remove_modifier = "enclave_traders_sr2"
-			remove_modifier = enclave_mineral_trade_1_xur
-			remove_modifier = enclave_mineral_trade_2_xur
-			remove_modifier = enclave_mineral_trade_3_xur
-			remove_modifier = enclave_energy_trade_1_xur
-			remove_modifier = enclave_energy_trade_2_xur
-			remove_modifier = enclave_energy_trade_3_xur
+			remove_xuracorp_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = xuracorp_trade 
@@ -2801,12 +3570,7 @@ country_event = {
 		if = {
 			limit = { FROM = { has_country_flag = trader_enclave_country_2 } }
 			remove_modifier = "enclave_traders_sr1"
-			remove_modifier = enclave_mineral_trade_1_rig
-			remove_modifier = enclave_mineral_trade_2_rig
-			remove_modifier = enclave_mineral_trade_3_rig
-			remove_modifier = enclave_energy_trade_1_rig
-			remove_modifier = enclave_energy_trade_2_rig
-			remove_modifier = enclave_energy_trade_3_rig
+			remove_riggan_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = riggan_trade 
@@ -2816,12 +3580,7 @@ country_event = {
 		if = {
 			limit = { FROM = { has_country_flag = trader_enclave_country_3 } }
 			remove_modifier = "enclave_traders_sr3"
-			remove_modifier = enclave_mineral_trade_1_mut
-			remove_modifier = enclave_mineral_trade_2_mut
-			remove_modifier = enclave_mineral_trade_3_mut
-			remove_modifier = enclave_energy_trade_1_mut
-			remove_modifier = enclave_energy_trade_2_mut
-			remove_modifier = enclave_energy_trade_3_mut
+			remove_muutagan_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = muutagan_trade 
@@ -2893,12 +3652,7 @@ country_event = {
 	immediate = {
 		set_global_flag = xuracorp_destroyed
 		remove_modifier = "enclave_traders_sr2"
-		remove_modifier = enclave_mineral_trade_1_xur
-		remove_modifier = enclave_mineral_trade_2_xur
-		remove_modifier = enclave_mineral_trade_3_xur
-		remove_modifier = enclave_energy_trade_1_xur
-		remove_modifier = enclave_energy_trade_2_xur
-		remove_modifier = enclave_energy_trade_3_xur
+		remove_xuracorp_trades = yes
 		remove_relation_flag = {
 			who = FROM
 			flag = xuracorp_trade 
@@ -2967,12 +3721,7 @@ country_event = {
 	immediate = {
 		set_global_flag = riggans_destroyed
 		remove_modifier = "enclave_traders_sr1"
-		remove_modifier = enclave_mineral_trade_1_rig
-		remove_modifier = enclave_mineral_trade_2_rig
-		remove_modifier = enclave_mineral_trade_3_rig
-		remove_modifier = enclave_energy_trade_1_rig
-		remove_modifier = enclave_energy_trade_2_rig
-		remove_modifier = enclave_energy_trade_3_rig
+		remove_riggan_trades = yes
 		remove_relation_flag = {
 			who = FROM
 			flag = riggan_trade 
@@ -3041,12 +3790,7 @@ country_event = {
 	immediate = {
 		set_global_flag = muutagans_destroyed
 		remove_modifier = "enclave_traders_sr3"
-		remove_modifier = enclave_mineral_trade_1_mut
-		remove_modifier = enclave_mineral_trade_2_mut
-		remove_modifier = enclave_mineral_trade_3_mut
-		remove_modifier = enclave_energy_trade_1_mut
-		remove_modifier = enclave_energy_trade_2_mut
-		remove_modifier = enclave_energy_trade_3_mut
+		remove_muutagan_trades = yes
 		remove_relation_flag = {
 			who = FROM
 			flag = muutagan_trade 
@@ -3265,21 +4009,11 @@ country_event = {
 			limit = { 
 				OR = {
 					has_modifier = enclave_traders_sr2 
-					has_modifier = enclave_mineral_trade_1_xur
-					has_modifier = enclave_mineral_trade_2_xur
-					has_modifier = enclave_mineral_trade_3_xur
-					has_modifier = enclave_energy_trade_1_xur
-					has_modifier = enclave_energy_trade_2_xur
-					has_modifier = enclave_energy_trade_3_xur
+					has_active_xuracorp_trade = yes
 				}
 			}
 			remove_modifier = enclave_traders_sr1
-			remove_modifier = enclave_mineral_trade_1_xur
-			remove_modifier = enclave_mineral_trade_2_xur
-			remove_modifier = enclave_mineral_trade_3_xur
-			remove_modifier = enclave_energy_trade_1_xur
-			remove_modifier = enclave_energy_trade_2_xur
-			remove_modifier = enclave_energy_trade_3_xur
+			remove_xuracorp_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = xuracorp_trade
@@ -3410,21 +4144,11 @@ country_event = {
 			limit = { 
 				OR = {
 					has_modifier = enclave_traders_sr1 
-					has_modifier = enclave_mineral_trade_1_rig
-					has_modifier = enclave_mineral_trade_2_rig
-					has_modifier = enclave_mineral_trade_3_rig
-					has_modifier = enclave_energy_trade_1_rig
-					has_modifier = enclave_energy_trade_2_rig
-					has_modifier = enclave_energy_trade_3_rig
+					has_active_riggan_trade = yes
 				}
 			}
 			remove_modifier = enclave_traders_sr1
-			remove_modifier = enclave_mineral_trade_1_rig
-			remove_modifier = enclave_mineral_trade_2_rig
-			remove_modifier = enclave_mineral_trade_3_rig
-			remove_modifier = enclave_energy_trade_1_xur
-			remove_modifier = enclave_energy_trade_2_xur
-			remove_modifier = enclave_energy_trade_3_xur
+			remove_riggan_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = riggan_trade
@@ -3555,21 +4279,11 @@ country_event = {
 			limit = { 
 				OR = {
 					has_modifier = enclave_traders_sr3
-					has_modifier = enclave_mineral_trade_1_mut
-					has_modifier = enclave_mineral_trade_2_mut
-					has_modifier = enclave_mineral_trade_3_mut
-					has_modifier = enclave_energy_trade_1_mut
-					has_modifier = enclave_energy_trade_2_mut
-					has_modifier = enclave_energy_trade_3_mut
+					has_active_muutagan_trade = yes
 				}
 			}
 			remove_modifier = enclave_traders_sr3
-			remove_modifier = enclave_mineral_trade_1_mut
-			remove_modifier = enclave_mineral_trade_2_mut
-			remove_modifier = enclave_mineral_trade_3_mut
-			remove_modifier = enclave_energy_trade_1_mut
-			remove_modifier = enclave_energy_trade_2_mut
-			remove_modifier = enclave_energy_trade_3_mut
+			remove_muutagan_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = muutagan_trade
@@ -3670,7 +4384,7 @@ country_event = {
 	}
 }
 
-# Mineral Trade Cancelled
+# No More Energy - Trades Cancelled
 event = {
 	id = guardian.170
 	hide_window = yes
@@ -3685,12 +4399,21 @@ event = {
 				has_modifier = enclave_mineral_trade_1_xur
 				has_modifier = enclave_mineral_trade_2_xur
 				has_modifier = enclave_mineral_trade_3_xur
+				has_modifier = enclave_food_energy_trade_1_xur
+				has_modifier = enclave_food_energy_trade_2_xur
+				has_modifier = enclave_food_energy_trade_3_xur
 				has_modifier = enclave_mineral_trade_1_rig
 				has_modifier = enclave_mineral_trade_2_rig
 				has_modifier = enclave_mineral_trade_3_rig
+				has_modifier = enclave_food_energy_trade_1_rig
+				has_modifier = enclave_food_energy_trade_2_rig
+				has_modifier = enclave_food_energy_trade_3_rig
 				has_modifier = enclave_mineral_trade_1_mut
 				has_modifier = enclave_mineral_trade_2_mut
 				has_modifier = enclave_mineral_trade_3_mut
+				has_modifier = enclave_food_energy_trade_1_mut
+				has_modifier = enclave_food_energy_trade_2_mut
+				has_modifier = enclave_food_energy_trade_3_mut
 			}
 		}
 	}
@@ -3704,12 +4427,21 @@ event = {
 					has_modifier = enclave_mineral_trade_1_xur
 					has_modifier = enclave_mineral_trade_2_xur
 					has_modifier = enclave_mineral_trade_3_xur
+					has_modifier = enclave_food_energy_trade_1_xur
+					has_modifier = enclave_food_energy_trade_2_xur
+					has_modifier = enclave_food_energy_trade_3_xur
 					has_modifier = enclave_mineral_trade_1_rig
 					has_modifier = enclave_mineral_trade_2_rig
 					has_modifier = enclave_mineral_trade_3_rig
+					has_modifier = enclave_food_energy_trade_1_rig
+					has_modifier = enclave_food_energy_trade_2_rig
+					has_modifier = enclave_food_energy_trade_3_rig
 					has_modifier = enclave_mineral_trade_1_mut
 					has_modifier = enclave_mineral_trade_2_mut
 					has_modifier = enclave_mineral_trade_3_mut
+					has_modifier = enclave_food_energy_trade_1_mut
+					has_modifier = enclave_food_energy_trade_2_mut
+					has_modifier = enclave_food_energy_trade_3_mut
 				}
 			}
 			country_event = { id = guardian.171 }
@@ -3717,7 +4449,7 @@ event = {
 	}
 }
 
-# Mineral Trade Cancelled Notification
+# No More Energy - Trades Cancelled Notification
 country_event = {
 	id = guardian.171
 	title = "guardian.171.name"
@@ -3737,6 +4469,15 @@ country_event = {
 		remove_modifier = enclave_mineral_trade_1_mut
 		remove_modifier = enclave_mineral_trade_2_mut
 		remove_modifier = enclave_mineral_trade_3_mut
+		remove_modifier = enclave_food_energy_trade_1_xur
+		remove_modifier = enclave_food_energy_trade_2_xur
+		remove_modifier = enclave_food_energy_trade_3_xur
+		remove_modifier = enclave_food_energy_trade_1_rig
+		remove_modifier = enclave_food_energy_trade_2_rig
+		remove_modifier = enclave_food_energy_trade_3_rig
+		remove_modifier = enclave_food_energy_trade_1_mut
+		remove_modifier = enclave_food_energy_trade_2_mut
+		remove_modifier = enclave_food_energy_trade_3_mut
 	}
 
 	option = {
@@ -3745,7 +4486,7 @@ country_event = {
 	}
 }
 
-# Energy Trade Cancelled
+# No More Minerals - Trades Cancelled
 event = {
 	id = guardian.172
 	hide_window = yes
@@ -3766,6 +4507,15 @@ event = {
 				has_modifier = enclave_energy_trade_1_mut
 				has_modifier = enclave_energy_trade_2_mut
 				has_modifier = enclave_energy_trade_3_mut
+				has_modifier = enclave_food_minerals_trade_1_xur
+				has_modifier = enclave_food_minerals_trade_2_xur
+				has_modifier = enclave_food_minerals_trade_3_xur
+				has_modifier = enclave_food_minerals_trade_1_rig
+				has_modifier = enclave_food_minerals_trade_2_rig
+				has_modifier = enclave_food_minerals_trade_3_rig
+				has_modifier = enclave_food_minerals_trade_1_mut
+				has_modifier = enclave_food_minerals_trade_2_mut
+				has_modifier = enclave_food_minerals_trade_3_mut
 			}
 		}
 	}
@@ -3785,6 +4535,15 @@ event = {
 					has_modifier = enclave_energy_trade_1_mut
 					has_modifier = enclave_energy_trade_2_mut
 					has_modifier = enclave_energy_trade_3_mut
+					has_modifier = enclave_food_minerals_trade_1_xur
+					has_modifier = enclave_food_minerals_trade_2_xur
+					has_modifier = enclave_food_minerals_trade_3_xur
+					has_modifier = enclave_food_minerals_trade_1_rig
+					has_modifier = enclave_food_minerals_trade_2_rig
+					has_modifier = enclave_food_minerals_trade_3_rig
+					has_modifier = enclave_food_minerals_trade_1_mut
+					has_modifier = enclave_food_minerals_trade_2_mut
+					has_modifier = enclave_food_minerals_trade_3_mut
 				}
 			}
 			country_event = { id = guardian.173 }
@@ -3792,7 +4551,7 @@ event = {
 	}
 }
 
-# Energy Trade Cancelled Notification
+# No More Minerals - Trades Cancelled Notification
 country_event = {
 	id = guardian.173
 	title = "guardian.173.name"
@@ -3812,11 +4571,122 @@ country_event = {
 		remove_modifier = enclave_energy_trade_1_mut
 		remove_modifier = enclave_energy_trade_2_mut
 		remove_modifier = enclave_energy_trade_3_mut
+		remove_modifier = enclave_food_minerals_trade_1_xur
+		remove_modifier = enclave_food_minerals_trade_2_xur
+		remove_modifier = enclave_food_minerals_trade_3_xur
+		remove_modifier = enclave_food_minerals_trade_1_rig
+		remove_modifier = enclave_food_minerals_trade_2_rig
+		remove_modifier = enclave_food_minerals_trade_3_rig
+		remove_modifier = enclave_food_minerals_trade_1_mut
+		remove_modifier = enclave_food_minerals_trade_2_mut
+		remove_modifier = enclave_food_minerals_trade_3_mut
 	}
 
 	option = {
 		name = guardian.171.a
 		custom_tooltip = enclave_energy_trade_ended
+	}
+}
+
+# No More Food - Trades Cancelled
+event = {
+	id = guardian.174
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			is_country_type = default
+			food <= 0
+			OR = {
+				has_modifier = enclave_mineral_food_trade_1_xur
+				has_modifier = enclave_mineral_food_trade_2_xur
+				has_modifier = enclave_mineral_food_trade_3_xur
+				has_modifier = enclave_energy_food_trade_1_xur
+				has_modifier = enclave_energy_food_trade_2_xur
+				has_modifier = enclave_energy_food_trade_3_xur
+				has_modifier = enclave_mineral_food_trade_1_rig
+				has_modifier = enclave_mineral_food_trade_2_rig
+				has_modifier = enclave_mineral_food_trade_3_rig
+				has_modifier = enclave_energy_food_trade_1_rig
+				has_modifier = enclave_energy_food_trade_2_rig
+				has_modifier = enclave_energy_food_trade_3_rig
+				has_modifier = enclave_mineral_food_trade_1_mut
+				has_modifier = enclave_mineral_food_trade_2_mut
+				has_modifier = enclave_mineral_food_trade_3_mut
+				has_modifier = enclave_energy_food_trade_1_mut
+				has_modifier = enclave_energy_food_trade_2_mut
+				has_modifier = enclave_energy_food_trade_3_mut
+			}
+		}
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				is_country_type = default
+				food <= 0
+				OR = {
+					has_modifier = enclave_mineral_food_trade_1_xur
+					has_modifier = enclave_mineral_food_trade_2_xur
+					has_modifier = enclave_mineral_food_trade_3_xur
+					has_modifier = enclave_energy_food_trade_1_xur
+					has_modifier = enclave_energy_food_trade_2_xur
+					has_modifier = enclave_energy_food_trade_3_xur
+					has_modifier = enclave_mineral_food_trade_1_rig
+					has_modifier = enclave_mineral_food_trade_2_rig
+					has_modifier = enclave_mineral_food_trade_3_rig
+					has_modifier = enclave_energy_food_trade_1_rig
+					has_modifier = enclave_energy_food_trade_2_rig
+					has_modifier = enclave_energy_food_trade_3_rig
+					has_modifier = enclave_mineral_food_trade_1_mut
+					has_modifier = enclave_mineral_food_trade_2_mut
+					has_modifier = enclave_mineral_food_trade_3_mut
+					has_modifier = enclave_energy_food_trade_1_mut
+					has_modifier = enclave_energy_food_trade_2_mut
+					has_modifier = enclave_energy_food_trade_3_mut
+				}
+			}
+			country_event = { id = guardian.175 }
+		}
+	}
+}
+
+# No More Food - Trades Cancelled Notification
+country_event = {
+	id = guardian.175
+	title = "guardian.175.name"
+	desc = "guardian.175.desc"
+	picture = GFX_evt_mining_operations
+	show_sound = event_radio_chatter
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_modifier = enclave_mineral_food_trade_1_xur
+		remove_modifier = enclave_mineral_food_trade_2_xur
+		remove_modifier = enclave_mineral_food_trade_3_xur
+		remove_modifier = enclave_energy_food_trade_1_xur
+		remove_modifier = enclave_energy_food_trade_2_xur
+		remove_modifier = enclave_energy_food_trade_3_xur
+		remove_modifier = enclave_mineral_food_trade_1_rig
+		remove_modifier = enclave_mineral_food_trade_2_rig
+		remove_modifier = enclave_mineral_food_trade_3_rig
+		remove_modifier = enclave_energy_food_trade_1_rig
+		remove_modifier = enclave_energy_food_trade_2_rig
+		remove_modifier = enclave_energy_food_trade_3_rig
+		remove_modifier = enclave_mineral_food_trade_1_mut
+		remove_modifier = enclave_mineral_food_trade_2_mut
+		remove_modifier = enclave_mineral_food_trade_3_mut
+		remove_modifier = enclave_energy_food_trade_1_mut
+		remove_modifier = enclave_energy_food_trade_2_mut
+		remove_modifier = enclave_energy_food_trade_3_mut
+	}
+
+	option = {
+		name = guardian.171.a
+		custom_tooltip = enclave_food_trade_ended
 	}
 }
 
@@ -8036,7 +8906,7 @@ country_event = {
 	}
 	option = {
 		name = guardian.545.c
-		response_text = guardian.545.b.reply
+		response_text = guardian.545.c.reply
 		trigger = {
 			NOT = { has_country_flag = bought_wraith_info_2 }
 		}
@@ -9666,7 +10536,13 @@ planet_event = {
 	immediate = {
 		create_fleet = {
 			name = "NAME_Ether_Hatchling"
-			settings = { spawn_debris = no }
+			settings = { 
+				can_upgrade = no 
+				can_change_composition = no 
+				can_change_leader = no 
+				uses_naval_capacity = no
+				spawn_debris = no
+			}				
 			effect = {
 				set_owner = root.owner
 				create_ship_design = {
@@ -9678,10 +10554,6 @@ planet_event = {
 					prefix = no
 					upgradable = no
 				}
-				#add_modifier = {
-				#	modifier = immature_dragon
-				#	days = -1
-				#}
 				set_location = root
 			}
 		}
@@ -12232,6 +13104,25 @@ country_event = {
 
 #############################################################
 
+# wraith won't be discovered past the midgame
+event = {
+	id = guardian.20101
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_planet = { has_planet_flag = guardians_wraith_pulsar }
+	}
+
+	immediate = {
+		random_planet = {
+			limit = { has_planet_flag = guardians_wraith_pulsar }
+			remove_planet_flag = guardians_wraith_pulsar
+		}
+	}
+}
+
 ### WRAITH ###
 # First scan of the neutron star, sets Wraith spawn timer
 ship_event = {
@@ -12271,117 +13162,120 @@ ship_event = {
 	option = {
 		name = guardian.2010.a
 		custom_tooltip = guardian.2010.c
-		hidden_effect = {
-			from = {
-				planet_event = { id = guardian.2011 days = 14400 } # 40 Years
-			}
-		}
 	}
 }
 
 # Wraith is born
-planet_event = {
+event = {
 	id = guardian.2011
 	hide_window = yes
 
 	is_triggered_only = yes
 
+	trigger = {
+		any_planet = { has_modifier = germinating_wraith }
+	}
+
 	immediate = {
-		remove_modifier = germinating_wraith
-		create_country = {
-			name = "NAME_Wraith"
-			type = guardian_wraith
-			flag = {
-				icon = {
-					category = "zoological"
-					file = "flag_zoological_5.dds"
-				}
-				background= {
-					category = "backgrounds"
-					file = "00_solid.dds"
-				}
-				colors={
-					"red"
-					"red"
-					"null"
-					"null"
+		random_planet = {
+			limit = { has_modifier = germinating_wraith }
+			save_event_target_as = wraith_star
+			remove_modifier = germinating_wraith
+			create_country = {
+				name = "NAME_Wraith"
+				type = guardian_wraith
+				flag = {
+					icon = {
+						category = "zoological"
+						file = "flag_zoological_5.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "00_solid.dds"
+					}
+					colors={
+						"red"
+						"red"
+						"null"
+						"null"
+					}
 				}
 			}
-		}
-		last_created_country = {
-			set_country_flag = wraith_country
-			guardian_difficulty = yes
-			save_global_event_target_as = wraith_country
-			create_fleet = {
-				name = "NAME_Specter"
-				settings = {
-					spawn_debris = no
-					is_boss = yes
-				}
-				effect = {
-					set_owner = event_target:wraith_country
-					random_list = {
-						33 = {
-							create_ship = {
-								name = "NAME_Wraith_650THz"
-								design = "NAME_Spectral_Wraith_650THz"
-								effect = {
-									set_ship_flag = wraith_ship
-									set_ship_flag = wraith_freq_blue
-								}
-							}
-						}
-						33 = {
-							create_ship = {
-								name = "NAME_Wraith_450THz"
-								design = "NAME_Spectral_Wraith_450THz"
-								effect = {
-									set_ship_flag = wraith_ship
-									set_ship_flag = wraith_freq_red
-								}
-							}
-						}
-						33 = {
-							create_ship = {
-								name = "NAME_Wraith_520THz"
-								design = "NAME_Spectral_Wraith_520THz"
-								effect = {
-									set_ship_flag = wraith_ship
-									set_ship_flag = wraith_freq_yellow
-								}
-							}
-						}
+			last_created_country = {
+				set_country_flag = wraith_country
+				guardian_difficulty = yes
+				save_global_event_target_as = wraith_country
+				create_fleet = {
+					name = "NAME_Specter"
+					settings = {
+						spawn_debris = no
+						is_boss = yes
 					}
-					save_global_event_target_as = wraith_fleet
-					set_location = root
-					set_fleet_stance = aggressive
-					set_aggro_range_measure_from = self
-					set_aggro_range = 20
-					queue_actions = {
-						repeat = {
-							find_closest_system = {
-								trigger = {
-									id = wraith.1.trigger.1
-									NOT = {
-										exists = space_owner
-										any_ship_in_system = {
-											fleet = { is_same_value = event_target:wraith_fleet }
-										}
-										has_star_flag = guardians_wraith_visited
+					effect = {
+						set_owner = event_target:wraith_country
+						random_list = {
+							33 = {
+								create_ship = {
+									name = "NAME_Wraith_650THz"
+									design = "NAME_Spectral_Wraith_650THz"
+									effect = {
+										set_ship_flag = wraith_ship
+										set_ship_flag = wraith_freq_blue
 									}
 								}
-								found_system = {
-									move_to = this
-									find_closest_planet = {
-										trigger = {
-											id = wraith.1.trigger.2
-											is_star = yes
+							}
+							33 = {
+								create_ship = {
+									name = "NAME_Wraith_450THz"
+									design = "NAME_Spectral_Wraith_450THz"
+									effect = {
+										set_ship_flag = wraith_ship
+										set_ship_flag = wraith_freq_red
+									}
+								}
+							}
+							33 = {
+								create_ship = {
+									name = "NAME_Wraith_520THz"
+									design = "NAME_Spectral_Wraith_520THz"
+									effect = {
+										set_ship_flag = wraith_ship
+										set_ship_flag = wraith_freq_yellow
+									}
+								}
+							}
+						}
+						save_global_event_target_as = wraith_fleet
+						set_location = event_target:wraith_star
+						set_fleet_stance = aggressive
+						set_aggro_range_measure_from = self
+						set_aggro_range = 20
+						queue_actions = {
+							repeat = {
+								find_closest_system = {
+									trigger = {
+										id = wraith.1.trigger.1
+										NOT = {
+											exists = space_owner
+											any_ship_in_system = {
+												fleet = { is_same_value = event_target:wraith_fleet }
+											}
+											has_star_flag = guardians_wraith_visited
 										}
-										found_planet = {
-											move_to = this
-											#orbit_planet = this
-											wait = {
-												duration = 10
+									}
+									found_system = {
+										move_to = this
+										find_closest_planet = {
+											trigger = {
+												id = wraith.1.trigger.2
+												is_star = yes
+											}
+											found_planet = {
+												move_to = this
+												#orbit_planet = this
+												wait = {
+													duration = 10
+												}
 											}
 										}
 									}
@@ -12391,11 +13285,11 @@ planet_event = {
 					}
 				}
 			}
-		}
-		if = {
-			limit = { exists = space_owner }
-			space_owner = {
-				country_event = { id = guardian.2012 }
+			if = {
+				limit = { exists = space_owner }
+				space_owner = {
+					country_event = { id = guardian.2012 }
+				}
 			}
 		}
 	}
@@ -12787,11 +13681,11 @@ country_event = {
 				NOT = { has_communications = event_target:fortress_country }
 			}
 			establish_communications_no_message = event_target:fortress_country
-			event_target:fortress_country = {
-				random_owned_ship = {
-					limit = { has_ship_flag = fortress_vault }
-					save_global_event_target_as = disabled_enigmatic_fortress
-				}
+		}
+		event_target:fortress_country = {
+			random_owned_ship = {
+				limit = { has_ship_flag = fortress_vault }
+				save_global_event_target_as = disabled_enigmatic_fortress
 			}
 		}
 	}
@@ -14282,6 +15176,9 @@ country_event = {
 		last_created_country = {
 			save_global_event_target_as = hive_country
 			set_country_flag = hive_country
+		}
+		every_playable_country = {
+			establish_communications_no_message = event_target:hive_country
 		}
 		create_fleet = {
 			name = "NAME_Hiver_Nest"
