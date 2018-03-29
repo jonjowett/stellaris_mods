@@ -20,7 +20,7 @@ ring_world_1 = {
 	}
 
 	potential = {
-		has_ascension_perk = ap_the_circle_of_life
+		has_ascension_perk = ap_galactic_wonders
 	}
 	
 	possible = {
@@ -119,7 +119,7 @@ ring_world_2_intermediate = {
 	construction_blocks_others = no
 
 	possible = {
-		from = { has_ascension_perk = ap_the_circle_of_life }
+		from = { has_ascension_perk = ap_galactic_wonders }
 	}
 	
 	on_build_start = {}
@@ -203,7 +203,7 @@ ring_world_3_intermediate = {
 	construction_blocks_others = no
 
 	possible = {
-		from = { has_ascension_perk = ap_the_circle_of_life }
+		from = { has_ascension_perk = ap_galactic_wonders }
 	}
 
 	on_build_complete = {
