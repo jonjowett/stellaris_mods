@@ -181,7 +181,6 @@ country_edict = {
 		NOT = { has_modifier = endgame_unity_megastructure_5 } 
 		OR = {
 			has_technology = tech_mega_engineering
-			has_ascension_perk = ap_the_circle_of_life
 			has_ascension_perk = ap_galactic_wonders
 			has_ascension_perk = ap_voidborn
 		}
