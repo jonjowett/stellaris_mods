@@ -20,7 +20,9 @@ weapon_component_template = {
 	prerequisites = { "tech_titans" "tech_arc_emitter_titanic" }
 	component_set = "TITANIC_ARC_EMITTER_SET"
 	projectile_gfx = "arc_emitter"
-	size_restriction = { titan }
+	
+	# Remove size restriction, for compatibility with other mods that add T-sized slots.
+	# size_restriction = { titan }
 	
 	tags = { weapon_type_energy }
 	ai_weight = { factor = 0 } #AI almost certainly shouldn't use this
