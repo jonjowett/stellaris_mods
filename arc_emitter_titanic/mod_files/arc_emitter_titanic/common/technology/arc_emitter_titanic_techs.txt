@@ -1,5 +1,5 @@
 #Constants from 00_phys_weapon_tech
-@tier5cost1 = 14000
+@tier5cost1 = 15000
 @tier5weight1 = 30
 
 tech_arc_emitter_titanic = {
