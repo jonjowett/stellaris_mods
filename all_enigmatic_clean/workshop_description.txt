@@ -8,8 +8,13 @@ In order to unlock these techs, you need to finish researching [u]both[/u] the E
 The Enigmatic Disruption Field is equivalent to a Shield Dampener plus a Quantum Destabilizer, combined into one component.
 
 [h1]Inspiration:[/h1]
-[list][*]This mod was inspired by the original [url=http://steamcommunity.com/sharedfiles/filedetails/?id=922899798]All Enigmatic Technologies[/url] mod by Sam: 
+[list][*]This mod was inspired by the original [url=http://steamcommunity.com/sharedfiles/filedetails/?id=922899798]All Enigmatic Technologies[/url] mod by Sam.
 [*]Unfortunately, that mod edits the technologies themselves, which means that it's not 100% compatible with other mods (and it also requires updates every time Paradox changes the vanilla technologies).[/list]
+
+[h1]FAQ:[/h1]
+[list][*][u]Is this mod save-game compatible?[/u]
+Yes.
+You can safely add this mod to a save game that was already in progress (but you may need to wait awhile for the event to appear - see below). You can also remove this mod without harming your save (because the mod only adds events and country-level flags).[/list]
 
 [h1]Technical info / compatibility:[/h1]
 [list][*]This mod is CLEAN - no vanilla files are altered. Hence, it should be compatible with all other mods.
