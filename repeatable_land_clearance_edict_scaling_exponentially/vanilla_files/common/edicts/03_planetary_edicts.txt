@@ -129,7 +129,7 @@ planet_edict = {
 	
 	potential = {
 		owner = {
-			has_authority = auth_machine_intelligence
+			has_ethic = ethic_gestalt_consciousness
 		}
 		has_orbital_bombardment = no
 	}
