@@ -4,23 +4,23 @@
 #If you change any of these, use replace in files so the values are the same across all files
 
 @tier1cost1 = 500
-@tier1cost2 = 640
-@tier1cost3 = 780
+@tier1cost2 = 750
+@tier1cost3 = 1000
 
-@tier2cost1 = 1000
-@tier2cost2 = 1500
-@tier2cost3 = 2000
+@tier2cost1 = 1500
+@tier2cost2 = 2000
+@tier2cost3 = 2500
 
-@tier3cost1 = 3000
-@tier3cost2 = 4000
-@tier3cost3 = 5000
+@tier3cost1 = 4000
+@tier3cost2 = 5000
+@tier3cost3 = 6000
 
-@tier4cost1 = 6000
-@tier4cost2 = 8000
-@tier4cost3 = 10000
+@tier4cost1 = 8000
+@tier4cost2 = 10000
+@tier4cost3 = 12000
 
-@tier5cost1 = 14000
-@tier5cost2 = 17000
+@tier5cost1 = 15000
+@tier5cost2 = 17500
 @tier5cost3 = 20000
 
 ####################
@@ -1707,10 +1707,6 @@ tech_ecological_adaptation = {
 				has_trait = "leader_trait_expertise_new_worlds"
 			}
 		}
-		modifier = {
-			factor = 3
-			has_ascension_perk = ap_world_shaper
-		}
 	}
 	
 	ai_weight = {
@@ -1757,10 +1753,6 @@ tech_climate_restoration = {
 				area = society
 				has_trait = "leader_trait_expertise_new_worlds"
 			}
-		}
-		modifier = {
-			factor = 3
-			has_ascension_perk = ap_world_shaper
 		}
 	}
 	
@@ -3258,6 +3250,10 @@ tech_centralized_command = {
 	
 	# unlocks military academy
 	
+	modifier = { 
+		country_occupation_armies_add = 2
+	}
+	
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
@@ -3931,6 +3927,7 @@ tech_interstellar_campaigns = {
 	
 	modifier = {
 		country_claim_influence_cost_mult = -0.1
+		country_war_exhaustion_mult = -0.1
 	}
 	
 	weight_modifier = {
@@ -3996,6 +3993,7 @@ tech_galactic_campaigns = {
 	
 	modifier = {
 		country_claim_influence_cost_mult = -0.1
+		country_war_exhaustion_mult = -0.1
 	}
 	
 	weight_modifier = {
@@ -4830,11 +4828,11 @@ tech_neural_implants = {
 
 #Artificial Moral Codes
 tech_artificial_moral_codes = {
-	cost = @tier3cost1
+	cost = @tier2cost3
 	area = society
 	tier = 2
 	category = { statecraft }
-	weight = @tier3weight1
+	weight = @tier2weight3
 	
 	modifier = {
 		edict_cost = -0.15
@@ -4846,6 +4844,7 @@ tech_artificial_moral_codes = {
 	}
 	
 	weight_modifier = {
+		factor = 1.5
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -4885,6 +4884,7 @@ tech_synthetic_thought_patterns = {
 	}
 	
 	weight_modifier = {
+		factor = 1.5
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -4892,16 +4892,89 @@ tech_synthetic_thought_patterns = {
 				has_trait = "leader_trait_expertise_statecraft"
 			}
 		}
+	}
+	
+	ai_weight = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_spark_of_genius"
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+# Collective Production Methods
+tech_collective_production_methods = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { statecraft }
+	weight = @tier3weight1
+	
+	modifier = {
+		pop_resource_output = 0.10
+	}
+	
+	potential = {
+		OR = {
+			has_authority = auth_hive_mind
+			has_civic = civic_machine_assimilator
+		}		
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
 			}
 		}
 	}
 	
 	ai_weight = {
+		weight = 2
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+# Resource Processing Algorithms
+tech_resource_processing_algorithms = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { statecraft }
+	weight = @tier3weight1
+	
+	modifier = {
+		pop_robot_production_output = 0.10
+	}
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+		NOT = { has_civic = civic_machine_assimilator }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 2
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -5179,16 +5252,13 @@ tech_ascension_theory = {
 	
 	potential = {
 		NOT = { 
-			host_has_dlc = "Apocalypse"			
+			host_has_dlc = "Apocalypse"
 			has_technology = "tech_ascension_theory_apoc"
 		}
 	}
 	
 	weight_modifier = {
 		factor = 0.5
-		modifier = {
-			factor = 0
-		}
 		modifier = {
 			factor = 0.20
 			NOR = {
@@ -5200,7 +5270,7 @@ tech_ascension_theory = {
 				research_leader = {
 					area = physics
 					has_trait = "leader_trait_expertise_computing"
-				}			
+				}
 			}
 		}
 	}
@@ -5267,6 +5337,7 @@ tech_psionic_shield = {
 	is_rare = yes
 	prerequisites = { "tech_psionic_theory" }
 	weight = 0
+	is_reverse_engineerable = no
 	
 	weight_modifier = {
 		factor = 0
