@@ -1,7 +1,3 @@
-# Constants copied from 00_guardian_tech
-@guardiantechcost = 15000
-@guardiantechtier = 5
-
 #Constants copied from 00_fallen_empire_tech
 @fallentechcost = 25000
 @fallentechtier = 5

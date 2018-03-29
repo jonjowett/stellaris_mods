@@ -44,6 +44,10 @@ country_event = {
 						has_technology = tech_all_enigmatic_clean_enigmatic_disruption_field
 						has_tech_option = tech_all_enigmatic_clean_enigmatic_disruption_field
 					}
+					OR = {
+						has_technology = tech_dark_matter_propulsion
+						has_tech_option = tech_dark_matter_propulsion
+					}
 				}
 			}
 			set_country_flag = all_enigmatic_clean_tech_granted
@@ -74,7 +78,7 @@ country_event = {
 	picture = GFX_evt_physics_research
 	show_sound = event_radio_chatter
 	is_triggered_only = yes
-	immediate = { set_country_flag = all_enigmatic_clean_initial_message_shown }
+	immediate = { set_country_flag = all_enigmatic_clean_initial_message_shown } # Setting the flag in "immediate" prevents multiple dialogs from appearing (eg. following a "research_technologies" console command)
 	option = {
 		name = INTERESTING
 		hidden_effect = { country_event = { id = all_enigmatic_clean.200 } }
@@ -122,6 +126,15 @@ country_event = {
 						OR = {
 							has_technology = tech_all_enigmatic_clean_enigmatic_disruption_field
 							has_tech_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+						}
+					}
+				}
+				AND = {
+					has_technology = tech_thrusters_4
+					NOT = {
+						OR = {
+							has_technology = tech_dark_matter_propulsion
+							has_tech_option = tech_dark_matter_propulsion
 						}
 					}
 				}
@@ -175,6 +188,20 @@ country_event = {
 				}
 			}
 			add_research_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+		}
+		if = {
+			limit = {
+				AND = {
+					has_technology = tech_thrusters_4
+					NOT = {
+						OR = {
+							has_technology = tech_dark_matter_propulsion
+							has_tech_option = tech_dark_matter_propulsion
+						}
+					}
+				}
+			}
+			add_research_option = tech_dark_matter_propulsion
 		}
 	}
 	
@@ -386,6 +413,7 @@ country_event = {
 		give_technology = { tech = tech_titans message = yes }
 		give_technology = { tech = tech_enigmatic_encoder message = yes }
 		give_technology = { tech = tech_enigmatic_decoder message = yes }
+		give_technology = { tech = tech_thrusters_4 message = yes }
 	}
 }
 
@@ -434,6 +462,15 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = all_enigmatic_clean.926
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_thrusters_4 message = yes }
+	}
+}
+
 
 
 
@@ -449,6 +486,7 @@ country_event = {
 		add_research_option = tech_dark_matter_power_core
 		add_research_option = tech_dark_matter_deflector
 		add_research_option = tech_all_enigmatic_clean_enigmatic_disruption_field
+		add_research_option = tech_dark_matter_propulsion
 	}
 }
 
@@ -479,6 +517,15 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = all_enigmatic_clean.934
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_research_option = tech_dark_matter_propulsion
+	}
+}
+
 
 
 
@@ -494,6 +541,7 @@ country_event = {
 		give_technology = { tech = tech_dark_matter_power_core message = yes }
 		give_technology = { tech = tech_dark_matter_deflector message = yes }
 		give_technology = { tech = tech_all_enigmatic_clean_enigmatic_disruption_field message = yes }
+		give_technology = { tech = tech_dark_matter_propulsion message = yes }
 	}
 }
 
@@ -521,5 +569,14 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		give_technology = { tech = tech_all_enigmatic_clean_enigmatic_disruption_field message = yes }
+	}
+}
+
+country_event = {
+	id = all_enigmatic_clean.944
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		give_technology = { tech = tech_dark_matter_propulsion message = yes }
 	}
 }
