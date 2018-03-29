@@ -4,23 +4,23 @@
 #If you change any of these, use replace in files so the values are the same across all files
 
 @tier1cost1 = 500
-@tier1cost2 = 640
-@tier1cost3 = 780
+@tier1cost2 = 750
+@tier1cost3 = 1000
 
-@tier2cost1 = 1000
-@tier2cost2 = 1500
-@tier2cost3 = 2000
+@tier2cost1 = 1500
+@tier2cost2 = 2000
+@tier2cost3 = 2500
 
-@tier3cost1 = 3000
-@tier3cost2 = 4000
-@tier3cost3 = 5000
+@tier3cost1 = 4000
+@tier3cost2 = 5000
+@tier3cost3 = 6000
 
-@tier4cost1 = 6000
-@tier4cost2 = 8000
-@tier4cost3 = 10000
+@tier4cost1 = 8000
+@tier4cost2 = 10000
+@tier4cost3 = 12000
 
-@tier5cost1 = 14000
-@tier5cost2 = 17000
+@tier5cost1 = 15000
+@tier5cost2 = 17500
 @tier5cost3 = 20000
 
 ####################
@@ -55,72 +55,17 @@
 
 tech_databank_uplinks = {
 	area = physics
-	cost = @tier1cost1
+	cost = 0
 	tier = 1
 	category = { computing }
-	weight = @tier1weight1
+	weight = 0
+	
+	potential = { always = no }
 	
 	# allows Science Ships to boost the research-output of a planet
+	# unlocked by tradition
 	
 	feature_flags = { assist_research }
-	
-	weight_modifier = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
-	}
-	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
-	}
-}
-
-tech_improved_databank_uplinks = {
-	area = physics
-	cost = @tier2cost2
-	tier = 2
-	category = { computing }
-	prerequisites = { "tech_databank_uplinks" }
-	weight = @tier2weight2
-	
-	# unlocks uplink-component, assist research-action is twice as effective
-	
-	weight_modifier = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
-	}
-	
-	prereqfor_desc = {
-		ship = {
-			title = "TECH_UNLOCK_IMPROVED_UPLINKS_FORMS_TITLE"
-			desc = "TECH_UNLOCK_IMPROVED_UPLINKS_FORMS_DESC"
-		}
-	}
-	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
-	}
 }
 
 # ##################
@@ -661,7 +606,44 @@ tech_sapient_ai = {
 	}
 	
 	potential = {
-		NOT = { has_authority = auth_machine_intelligence }
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+	
+	weight_modifier = {	
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}
+
+tech_positronic_implants = {
+	area = physics
+	tier = 4
+	cost = @tier4cost1
+	category = { computing }
+	prerequisites = { "tech_self_aware_logic" }
+	weight = @tier4weight1
+	
+	modifier = {
+		all_technology_research_speed = 0.05
+	}
+	
+	potential = {
+		has_ethic = ethic_gestalt_consciousness
 	}
 	
 	weight_modifier = {	
@@ -955,13 +937,13 @@ tech_auxiliary_fire_control = {
 
 tech_synchronized_defences = {
 	area = physics
-	tier = 3
-	cost = @tier3cost3
+	tier = 4
+	cost = @tier4cost2
 	category = { computing }
 	ai_update_type = military		
 	prerequisites = { "tech_self_aware_logic" }
 	is_rare = yes
-	weight = @tier3weight3
+	weight = @tier4weight2
 	
 	# unlocks starbase building - defense-grid supercomputer
 	
@@ -1982,7 +1964,14 @@ tech_wormhole_stabilization = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { has_seen_any_bypass = wormhole }
+			NOR = { 
+				has_seen_any_bypass = wormhole 
+				any_relation = {
+					is_country_type = default
+					has_communications = ROOT
+					has_technology = tech_wormhole_stabilization
+				}				
+			}
 		}
 		modifier = {
 			factor = 4
@@ -2050,7 +2039,14 @@ tech_gateway_activation = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { has_seen_any_bypass = gateway }
+			NOR = { 
+				has_seen_any_bypass = gateway
+				any_relation = {
+					is_country_type = default
+					has_communications = ROOT
+					has_technology = tech_gateway_activation
+				}
+			}
 		}
 		modifier = {
 			factor = 4

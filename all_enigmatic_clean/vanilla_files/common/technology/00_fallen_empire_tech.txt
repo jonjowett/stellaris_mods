@@ -59,3 +59,32 @@ tech_dark_matter_power_core = {
 		}
 	}
 }
+
+# Dark Matter Thrusters
+tech_dark_matter_propulsion = {
+	cost = @fallentechcost
+	area = engineering
+	tier = @fallentechtier
+	category = { propulsion }
+	ai_update_type = all
+	weight = 1
+	is_rare = yes
+	
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_DARK_MATTER_PROPULSION_TITLE"
+			desc = "TECH_UNLOCK_DARK_MATTER_PROPULSION_DESC"
+		}
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOR = { 
+				is_country_type = fallen_empire 
+				is_country_type = awakened_fallen_empire 
+			}
+		}
+	}
+}
