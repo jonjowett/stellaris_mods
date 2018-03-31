@@ -1,0 +1,46 @@
+#my_casus_belli = {
+#	potential = { ... }		# trigger to make some CBs invalid for certain types of countries; this = attacker (CB owner); default: { always = yes }
+#	is_valid = { ... }		# trigger, evaluated daily to check if CB should be created or destroyed automatically, does not affect CBs granted via script;
+#								# this = attacker (CB owner), from = defender (target country); default: { always = yes }
+#	destroy_if = { ... }	# trigger, evaluated daily to destroy CBs that have been granted via script ahead of expiration date;
+#								# this = attacker (CB owner), from = defender (target country); default: { always = no }
+#	show_notification = no/yes	# optional (default = yes), flag to control whether this CB will generate a notification (to avoid duplicate 
+# 								# notification when a claim CB is generated)
+#}
+
+cb_subjugation = {
+	show_in_diplomacy = yes
+	show_notification = yes
+	
+	potential = {
+		OR = {
+			is_country_type = default
+			is_country_type = awakened_fallen_empire
+		}
+		is_subject = no
+	}
+	
+	is_valid = {
+		#If this section evaluates to TRUE then the empire is automatically immediately granted the CB (see above)
+		#If this section later evaluates to FALSE then the empire has the CB removed
+		
+		OR = {
+			
+			#Original is_valid condition
+			AND = {
+				is_country_type = awakened_fallen_empire 
+				NOT = { has_authority = auth_machine_intelligence }
+			}
+			
+			#Mod added is_valid condition for inward perfection empires under attack
+			#Not perfect: will erroneously grant subj cb against non-war-leader empires attacking an IP empire
+			#      if the non-war-leader empire is simultaneously war leader in a separate (unrelated) war.
+			AND = {
+				is_country_type = default
+				has_valid_civic = civic_inwards_perfection
+				is_at_war_with = FROM
+				is_war_leader = yes
+				FROM = { is_war_leader = yes }
+			}
+	}	
+}
