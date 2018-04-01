@@ -17,6 +17,27 @@ endgame_unity_influence_5 = {
 
 
 
+#Trust cap is increased by 50 by one of the domination traditions (tr_domination_star_lords).
+#That same tradition also gives you an opinion boost with your subjects, and also reduces their integration cost. (And, based on a comment in the text file, it might also increases subjects' opinions of you?)
+#So, it seems reasonable to give 40 per level here - even if +200 trust cap is pretty high.
+endgame_unity_subjects_1 = {
+	country_subject_trust_cap_add = 40
+}
+endgame_unity_subjects_2 = {
+	country_subject_trust_cap_add = 80
+}
+endgame_unity_subjects_3 = {
+	country_subject_trust_cap_add = 120
+}
+endgame_unity_subjects_4 = {
+	country_subject_trust_cap_add = 160
+}
+endgame_unity_subjects_5 = {
+	country_subject_trust_cap_add = 200
+}
+
+
+
 #The discovery tradition finisher is +10% - but you get the finisher for "free" after unlocking all traditions, so it's not worth the same as a normal tradition.
 #However, the unity ambition is +20% and +1 alternative for a limited time - and we need to ensure that this permanent buff isn't significantly better than the temporary unity ambition.
 #So: +10% per level.

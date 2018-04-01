@@ -6,6 +6,9 @@ This gives you the ability to use unity to permanently improve your late-game em
 [list][*] [b][u]Unified Diplomats[/u][/b]:
 [list][*] +1 influence per level[/list]
 
+[*] [b][u]Unified Subjects[/u][/b]:
+[list][*] +40 subject trust cap per level[/list]
+
 [*] [b][u]Unified Researchers[/u][/b]:
 [list][*] +10% research speed per level[/list]
 

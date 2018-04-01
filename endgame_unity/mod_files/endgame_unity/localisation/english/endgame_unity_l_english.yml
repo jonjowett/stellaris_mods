@@ -1,6 +1,7 @@
 ﻿l_english:
  
  edict_endgame_unity_choose_influence:0 "Endgame Unity: Unify our Diplomats"
+ edict_endgame_unity_choose_subjects:0 "Endgame Unity: Unify our Subjects"
  edict_endgame_unity_choose_research:0 "Endgame Unity: Unify our Researchers"
  edict_endgame_unity_choose_fleetcap:0 "Endgame Unity: Unify our Logistics Corps"
  edict_endgame_unity_choose_terraforming:0 "Endgame Unity: Unify our Terraformers"
@@ -13,6 +14,7 @@
  edict_endgame_unity_choose_roboticists_m:0 "$endgame_unity_choose_roboticists$"
  
  edict_endgame_unity_choose_influence_desc:0 "We should focus on presenting a single face to the rest of the galaxy."
+ edict_endgame_unity_choose_subjects_desc:0 "We should focus on presenting a single face to our subjects."
  edict_endgame_unity_choose_research_desc:0 "We should focus on improving the efficiency of our researchers."
  edict_endgame_unity_choose_fleetcap_desc:0 "We should focus on improving the efficiency of our logistics corps."
  edict_endgame_unity_choose_megastructure_desc:0 "We should focus on improving the efficiency of our terraforming engineers."
@@ -43,6 +45,19 @@
  endgame_unity_influence_4_desc:0 "$endgame_unity_modifier_desc_prefix$ $endgame_unity_influence_desc_suffix$"
  endgame_unity_influence_5:0 "$endgame_unity_influence_basename$ $endgame_unity_modifier5_desc$"
  endgame_unity_influence_5_desc:0 "$endgame_unity_modifier_desc_prefix$ $endgame_unity_influence_desc_suffix$"
+ 
+ endgame_unity_subjects_basename:0 "Unified Subjects"
+ endgame_unity_subjects_desc_suffix:0 "and our subjects appreciate this."
+ endgame_unity_subjects_1:0 "$endgame_unity_subjects_basename$ $endgame_unity_modifier1_desc$"
+ endgame_unity_subjects_1_desc:0 "$endgame_unity_modifier_desc_prefix$ $endgame_unity_subjects_desc_suffix$"
+ endgame_unity_subjects_2:0 "$endgame_unity_subjects_basename$ $endgame_unity_modifier2_desc$"
+ endgame_unity_subjects_2_desc:0 "$endgame_unity_modifier_desc_prefix$ $endgame_unity_subjects_desc_suffix$"
+ endgame_unity_subjects_3:0 "$endgame_unity_subjects_basename$ $endgame_unity_modifier3_desc$"
+ endgame_unity_subjects_3_desc:0 "$endgame_unity_modifier_desc_prefix$ $endgame_unity_subjects_desc_suffix$"
+ endgame_unity_subjects_4:0 "$endgame_unity_subjects_basename$ $endgame_unity_modifier4_desc$"
+ endgame_unity_subjects_4_desc:0 "$endgame_unity_modifier_desc_prefix$ $endgame_unity_subjects_desc_suffix$"
+ endgame_unity_subjects_5:0 "$endgame_unity_subjects_basename$ $endgame_unity_modifier5_desc$"
+ endgame_unity_subjects_5_desc:0 "$endgame_unity_modifier_desc_prefix$ $endgame_unity_subjects_desc_suffix$"
  
  endgame_unity_research_basename:0 "Unified Researchers"
  endgame_unity_research_desc_suffix:0 "which allows our researchers to be much more efficient."
