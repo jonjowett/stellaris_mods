@@ -1,0 +1,37 @@
+This mod allows Inward Perfection empires to obtain tributary subjects - either by demanding tribute or by being attacked.
+
+Specifically:
+
+[list][*] If you are IP and the war leader in a war, you are automatically granted the subjugation casus belli on the opposing war leader.
+[list][*] For example, if you are attacked, you will be given the subjugation CB a day or two later, which means you can pick the "tributary" war goal.[/list]
+
+[*] If you are IP and all other relevant conditions are met, you can demand tribute from other empires. If they say "no", you are granted the subjugation CB against them (as per the base game).
+[list][*] NB: Unlike other empires, you do not have to have unlocked domination traditions to take this action.[/list][/list]
+
+[h1]Known Issues:[/h1]
+
+[u]Cosmetic Isues:[/u]
+
+[list][*] If you are at war; and one of your wars has secondary participants; and one of those secondary participants becomes war leader of a separate/unrelated war; then you will gain the subjugation CB on that secondary participant. This is in addition to the subjugation CB that you already gained on the war leader. This is only a cosmetic problem because you can't attack the secondary participant while the current war is ongoing, and you will lose the subjugation CB at the end of the war.
+[list][*] For example: empires A and B are in a defensive pact. Empire A refuses your demand for tribute, so you attack them with the subjugation CB. Empire B is pulled into the war as a secondary participant. Later, empire C attacks empire B. You will be immediately granted the subjugation CB on empire B.[/list]
+
+[*] If you gain the subjugation CB against an empire by demanding tribute, and then go to war with that empire, you will be granted an indefinite subjugation CB after the timed subjugation CB runs out. This is only a cosmetic problem because the indefinite subjugation CB will be taken away again after the war ends.
+[list][*] For example: you demand tribute from empire A and are given 360 days of subjugation CB. You go to war with empire A, using any war goal (but most likely to make them a tributary). 360 days later, the timed subjugation CB expires and you are immediately granted an indefinite subjugation CB.[/list][/list]
+
+[h1]Technical info & compatibility:[/h1]
+
+[list][*] This mod alters two components of the base game, and will be incompatible with any mod that alters the same components:
+[list][*] The "Demand Tribute" button in diplomacy view (action_demand_tributary in /common/diplomatic_actions/00_actions.txt)
+[*] The "Subjugation" casus belli (cb_subjugation in /common/casus_belli/00_casus_belli.txt)[/list]
+
+[*] This mod should be fully save-game compatible. In other words, you should be able to add or remove it from a game that's already in progress.
+[list][*] It is possible that an indefinite subjugation CB might get "left over" and retained indefinitely if an IP empire is war leader when the mod is removed. But I don't think this is a major problem.[/list][/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
+
+[h1]TLDR:[/h1]
+[list][*] Tested version: 2.0.2
+[*] Required DLC: Apocalypse (to enable Unity Ambitions)
+[*] Ironman compatible: Yes
+[*] Achievement compatible: No[/list]
