@@ -5,4 +5,5 @@ tags={
 	"Gameplay"
 	"Military"
 }
+remote_file_id="1350686987"
 supported_version="2.0.*"
