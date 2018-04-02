@@ -1,0 +1,21 @@
+This mod allows you to build a megastructure (the Hyperlane Isolator) that removes [u]all[/u] hyperlanes that link to a system.
+
+This is an addon for the existing [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod by Khadgar. If you want to use this mod, you [b][u]must[/u][/b] also subscribe to that one!
+
+The cost of each stage of the Hyperlane Isolator is 6 times that of the equivalent stage of an individual receptor/emitter, and it takes twice as long to build. (In other words, it costs as much as removing 3 hyperlanes using the base mod, but takes slightly less time.)
+
+[h1]Technical info & compatibility:[/h1]
+[list][*] This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.
+[*] As noted above, you [b][u]must[/u][/b] also subscribe to the [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod by Khadgar.
+[*] If a system has more than 10 hyperlanes (!), only 10 randomly-chosen hyperlanes will be removed.
+[*] It is safe to add this mod to a game that's already in progress.
+[*] Before removing this mod from a game, you should ensure that there are no part-completed Hyperlane Isolators anywhere in the galaxy. (If you don't the game probably won't break, but you might have some weird effects.)[/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
+
+[h1]TLDR:[/h1]
+[list][*] Tested version: 2.0.2
+[*] Required DLC: Apocalypse (to enable Unity Ambitions)
+[*] Ironman compatible: Yes
+[*] Achievement compatible: No[/list]

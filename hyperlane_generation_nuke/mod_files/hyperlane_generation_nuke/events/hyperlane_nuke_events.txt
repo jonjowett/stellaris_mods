@@ -1,0 +1,214 @@
+namespace = hyperlane_nuke
+
+
+
+
+
+# Main event that actually removes all hyperlanes after completion & firing of hyperlane nuke
+
+country_event = {
+	id = hyperlane_nuke.1
+	title = "hyperlane_nuke.1.name"
+	desc = "hyperlane_nuke.1.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_drifting_gateway
+	show_sound = event_radio_chatter
+	
+	immediate = {
+		
+		random_system_within_border = {
+			limit = { any_system_megastructure = { is_megastructure_type = hyperlane_nuke_2 } }
+			save_event_target_as = hyperlane_nuke_system
+		}
+		
+		# It would be nice if there was an every_system scope... but I guess we'll just have to assume that no system has more than 10 hyperlanes
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		random_system = {
+			limit = { has_hyperlane_to = event_target:hyperlane_nuke_system }
+			remove_hyperlane = {
+				from = event_target:hyperlane_nuke_system
+				to = THIS
+			}
+		}
+		
+		root = { country_event = { id = hyperlane_nuke.2 days = 1 }}
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+
+
+
+
+
+
+
+# Dismantle the hyperlane nuke (after firing)
+
+country_event = {
+	id = hyperlane_nuke.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_megastructure = {
+			limit = { is_megastructure_type = hyperlane_nuke_2 }
+			remove_megastructure = this
+		}
+	}
+}
+
+
+
+
+
+
+
+
+# Popup on completion of construction site
+
+country_event = {
+	id = hyperlane_nuke.100
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_nuke_0
+				}
+			}
+			save_event_target_as = hyperlane_nuke_0_megastructure
+		}
+		root = { country_event = { id = hyperlane_nuke.101 }}
+	}
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_nuke_0 }
+	}
+	
+}
+
+country_event = {
+	id = hyperlane_nuke.101
+	title = "hyperlane_nuke.101.name"
+	desc = "hyperlane_nuke.101.desc"
+	picture = GFX_evt_drifting_gateway
+	location = event_target:hyperlane_nuke_0_megastructure
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+
+
+
+
+
+# Popup on completion of hyperlane nuke (before activation)
+
+country_event = {
+	id = hyperlane_nuke.200
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_nuke_1
+				}
+			}
+			save_event_target_as = hyperlane_nuke_1_megastructure
+		}
+		root = { country_event = { id = hyperlane_nuke.201 }}
+	}
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_nuke_1 }
+	}
+	
+}
+
+country_event = {
+	id = hyperlane_nuke.201
+	title = "hyperlane_nuke.201.name"
+	desc = "hyperlane_nuke.201.desc"
+	picture = GFX_evt_drifting_gateway
+	location = event_target:hyperlane_nuke_1_megastructure
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}

@@ -1,0 +1,7 @@
+on_megastructure_built = {
+	events = { hyperlane_nuke.100 }
+}
+
+on_megastructure_upgraded = {
+	events = { hyperlane_nuke.200 }
+}
