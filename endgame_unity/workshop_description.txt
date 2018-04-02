@@ -60,7 +60,7 @@ This gives you the ability to use unity to permanently improve your late-game em
 [list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
 
 [h1]TLDR:[/h1]
-[list][*] Tested version: 2.0.1
+[list][*] Tested version: 2.0.2
 [*] Required DLC: Apocalypse (to enable Unity Ambitions)
 [*] Ironman compatible: Yes
 [*] Achievement compatible: No[/list]
