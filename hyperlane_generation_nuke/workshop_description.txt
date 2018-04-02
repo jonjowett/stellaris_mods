@@ -16,6 +16,6 @@ The cost of each stage of the Hyperlane Isolator is 6 times that of the equivale
 
 [h1]TLDR:[/h1]
 [list][*] Tested version: 2.0.2
-[*] Required DLC: Apocalypse (to enable Unity Ambitions)
+[*] Required DLC: None
 [*] Ironman compatible: Yes
 [*] Achievement compatible: No[/list]
