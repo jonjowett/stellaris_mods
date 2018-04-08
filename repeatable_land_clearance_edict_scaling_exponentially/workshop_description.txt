@@ -22,11 +22,11 @@ I made my own version because I felt that that mod's costs were too small (it wa
 
 [h1]FAQ:[/h1]
 
-Q: Influence is capped at 1000, so why have you created edicts 4 & 5 which require more than 1000 influence?
-A: Edict cost can be reduced significantly, even in vanilla (and other mods might add more sources of edict cost reduction). I believe edict #4 would be possible without requiring other mods. Edict #5 is included in case your other mods allow you to reach a 69% edict cost reduction.
+[u]Influence is capped at 1000, so why do edicts 4 & 5 require more than 1000 influence?[/u]
+Edict cost can be reduced significantly, even in vanilla (and other mods might add more sources of edict cost reduction). Similarly the influence cap can be increased. Edict #4 is possible (but rather expensive) without requiring other mods. Edict #5 is included for completeness, in case it becomes possible in conjunction with other mods.
 
-Q: Do I have to take the World Shaper ascension perk to be able to use this repeatable edict?
-A: Yes.
+[u]Do I have to take the World Shaper ascension perk to be able to use this repeatable edict?[/u]
+Yes.
 
 [h1]Technical Info / Compatibility[/h1]
 [list][*]No vanilla files are altered, so this mod should be fully compatible with every other mod.
