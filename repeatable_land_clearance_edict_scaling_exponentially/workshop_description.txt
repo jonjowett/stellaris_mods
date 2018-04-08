@@ -1,4 +1,4 @@
-This micro-mod adds a repeatable land clearance edict.
+This micro-mod changes the "Land Clearance" planetary edict (granted by the "World Shaper" ascension perk) into a repeatable edict.
 
 The cost for this repeatable edict scales exponentially, to model the increasing difficulty of clearing more land for development:
 [list][*]Land Clearance: 100 influence + 500 energy (base game; requires "World Shaper")
@@ -24,6 +24,9 @@ I made my own version because I felt that that mod's costs were too small (it wa
 
 Q: Influence is capped at 1000, so why have you created edicts 4 & 5 which require more than 1000 influence?
 A: Edict cost can be reduced significantly, even in vanilla (and other mods might add more sources of edict cost reduction). I believe edict #4 would be possible without requiring other mods. Edict #5 is included in case your other mods allow you to reach a 69% edict cost reduction.
+
+Q: Do I have to take the World Shaper ascension perk to be able to use this repeatable edict?
+A: Yes.
 
 [h1]Technical Info / Compatibility[/h1]
 [list][*]No vanilla files are altered, so this mod should be fully compatible with every other mod.
