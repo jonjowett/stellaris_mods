@@ -4,6 +4,10 @@ This is an addon for the existing [url=http://steamcommunity.com/sharedfiles/fil
 
 The cost of each stage of the Hyperlane Isolator is 6 times that of the equivalent stage of an individual receptor/emitter, and it takes twice as long to build. (In other words, it costs as much as removing 3 hyperlanes using the base mod, but takes slightly less time.)
 
+[h1]Suggested Companion Mods:[/h1]
+
+[list][*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1310625695]More Hyperlane Chokepoints[/url] - As per the mod name, this alters the galaxy generation script to create more chokepoints. (This is better than simply turning down the number of hyperlanes in the new game screen.)[/list]
+
 [h1]Technical info & compatibility:[/h1]
 [list][*] This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.
 [*] As noted above, you [b][u]must[/u][/b] also subscribe to the [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod by Khadgar.
