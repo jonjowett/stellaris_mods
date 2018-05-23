@@ -57,6 +57,14 @@ ring_world_1 = {
 			#NOT = { has_any_megastructure = yes }
 			has_no_non_gate_megastructure = yes
 		}
+		
+		#Compatibility with Risa's 2.0 fixes
+		custom_tooltip = {	# prevent construction in Contingency's hideouts.
+			fail_text = "mysterious_interference"
+			NOT = {
+				has_star_flag = AI_hub
+			}
+		}
 	}
 	
 	placement_rules = {
