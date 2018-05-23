@@ -6,4 +6,4 @@ tags={
 }
 picture="all_enigmatic_clean_icon.jpg"
 remote_file_id="1196859854"
-supported_version="2.0.*"
+supported_version="2.1.*"
