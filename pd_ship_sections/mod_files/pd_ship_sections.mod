@@ -6,4 +6,4 @@ tags={
 }
 picture="pd_ship_sections_icon.jpg"
 remote_file_id="1196765161"
-supported_version="2.0.*"
+supported_version="2.1.*"
