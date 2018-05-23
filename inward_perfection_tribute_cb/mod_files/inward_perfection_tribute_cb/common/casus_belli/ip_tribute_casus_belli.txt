@@ -28,6 +28,7 @@ cb_subjugation = {
 			
 			#Original is_valid condition
 			AND = {
+				NOT = { is_overlord_to = FROM }
 				is_country_type = awakened_fallen_empire 
 				NOT = { has_authority = auth_machine_intelligence }
 			}
