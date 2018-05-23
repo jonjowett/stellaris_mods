@@ -1,11 +1,3 @@
-##################
-### TECH COSTS ###
-##################
-#If you change any of these, use replace in files so the values are the same across all files
-
-@fallentechcost = 25000
-@fallentechtier = 5
-
 ####################
 ### TECH WEIGHTS ###
 ####################
@@ -19,6 +11,8 @@ tech_dark_matter_deflector = {
 	ai_update_type = all
 	weight = 1
 	is_rare = yes
+	
+	prerequisites = { "tech_shields_5" }
 	
 	weight_modifier = {	
 		modifier = {
@@ -40,6 +34,8 @@ tech_dark_matter_power_core = {
 	ai_update_type = all
 	weight = 1
 	is_rare = yes
+	
+	prerequisites = { "tech_zero_point_power" }
 	
 	prereqfor_desc = {
 		hide_prereq_for_desc = component
@@ -69,6 +65,8 @@ tech_dark_matter_propulsion = {
 	ai_update_type = all
 	weight = 1
 	is_rare = yes
+	
+	prerequisites = { "tech_thrusters_4" }
 	
 	prereqfor_desc = {
 		hide_prereq_for_desc = component
