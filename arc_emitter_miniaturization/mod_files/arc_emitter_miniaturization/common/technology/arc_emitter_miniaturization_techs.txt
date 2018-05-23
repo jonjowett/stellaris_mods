@@ -1,9 +1,3 @@
-#Constants from 00_phys_weapon_tech
-@tier4cost2 = 10000
-@tier4cost3 = 12000
-@tier4weight2 = 40
-@tier4weight3 = 35
-
 tech_miniaturized_arc_emitter_1 = {
 	area = physics
 	cost = @tier4cost2
