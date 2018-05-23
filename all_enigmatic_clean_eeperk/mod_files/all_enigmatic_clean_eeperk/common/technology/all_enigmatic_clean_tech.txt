@@ -1,6 +1,4 @@
-#Constants copied from 00_fallen_empire_tech
-@fallentechcost = 25000
-@fallentechtier = 5
+#Use vanilla constants
 
 #Enigmatic Disruption Field
 tech_all_enigmatic_clean_enigmatic_disruption_field = {
