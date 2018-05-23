@@ -1,8 +1,8 @@
 ﻿l_english:
- guardian.300.buy_influence:0 "We want you to run a propaganda campaign."
- guardian.300.buy_influence_cancel:0 "We want to cancel our propaganda campaign."
- guardian.300.buy_influence_cancel.response:0 "Disappointing, but understandable."
- guardian.300.buy_influence_cancel.tooltip:0 "This will cancel the Artisan Enclave's current propaganda campaign."
+ leviathans.300.buy_influence:0 "We want you to run a propaganda campaign."
+ leviathans.300.buy_influence_cancel:0 "We want to cancel our propaganda campaign."
+ leviathans.300.buy_influence_cancel.response:0 "Disappointing, but understandable."
+ leviathans.300.buy_influence_cancel.tooltip:0 "This will cancel the Artisan Enclave's current propaganda campaign."
  
  buy_influence.100.desc:0 "How very mundane of you!\n\nNormally, we prefer to concentrate our creative energies on works that are more... creative. But we would be willing to help you if you could make a small donation to prevent our artists from starving.\n\nWhat kind of campaign would you like us to run?"
  buy_influence.100.a:0 "Leafletting"
