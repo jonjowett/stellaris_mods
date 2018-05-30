@@ -51,7 +51,9 @@ country_event = {
 				}
 			}
 			set_country_flag = all_enigmatic_clean_tech_granted
-			else = { country_event = { id = all_enigmatic_clean.3 } }
+		}
+		else = {
+			country_event = { id = all_enigmatic_clean.3 }
 		}
 	}
 }
@@ -65,7 +67,9 @@ country_event = {
 		if = {
 			limit = { NOT = { has_country_flag = all_enigmatic_clean_initial_message_shown } }
 			country_event = { id = all_enigmatic_clean.100 }
-			else = { country_event = { id = all_enigmatic_clean.200 } }
+		}
+		else = {
+			country_event = { id = all_enigmatic_clean.200 }
 		}
 	}
 }

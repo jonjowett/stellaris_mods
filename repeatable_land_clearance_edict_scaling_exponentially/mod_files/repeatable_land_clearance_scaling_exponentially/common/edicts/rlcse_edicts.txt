@@ -37,18 +37,16 @@ planet_edict = {
 		if = {
 			limit = { planet_size <= 12 }
 			custom_tooltip = land_clearance_increase_size_3
-			hidden_effect = { change_planet_size = 3 }						
-			else = {
-				if = {
-					limit = { planet_size <= 15 }
-					custom_tooltip = land_clearance_increase_size_2
-					hidden_effect = { change_planet_size = 2 }			
-					else = {	
-						custom_tooltip = land_clearance_increase_size_1
-						hidden_effect = { change_planet_size = 1 }
-					}
-				}			
-			}
+			hidden_effect = { change_planet_size = 3 }
+		}
+		else_if = {
+			limit = { planet_size <= 15 }
+			custom_tooltip = land_clearance_increase_size_2
+			hidden_effect = { change_planet_size = 2 }
+		}
+		else = {
+			custom_tooltip = land_clearance_increase_size_1
+			hidden_effect = { change_planet_size = 1 }
 		}
 		hidden_effect = { set_planet_flag = rlcse_1_happened }
 	}
@@ -87,18 +85,16 @@ planet_edict = {
 		if = {
 			limit = { planet_size <= 12 }
 			custom_tooltip = land_clearance_increase_size_3
-			hidden_effect = { change_planet_size = 3 }						
-			else = {
-				if = {
-					limit = { planet_size <= 15 }
-					custom_tooltip = land_clearance_increase_size_2
-					hidden_effect = { change_planet_size = 2 }			
-					else = {	
-						custom_tooltip = land_clearance_increase_size_1
-						hidden_effect = { change_planet_size = 1 }
-					}
-				}			
-			}
+			hidden_effect = { change_planet_size = 3 }
+		}
+		else_if = {
+			limit = { planet_size <= 15 }
+			custom_tooltip = land_clearance_increase_size_2
+			hidden_effect = { change_planet_size = 2 }
+		}
+		else = {
+			custom_tooltip = land_clearance_increase_size_1
+			hidden_effect = { change_planet_size = 1 }
 		}
 		hidden_effect = { set_planet_flag = rlcse_2_happened }
 	}
@@ -137,18 +133,16 @@ planet_edict = {
 		if = {
 			limit = { planet_size <= 12 }
 			custom_tooltip = land_clearance_increase_size_3
-			hidden_effect = { change_planet_size = 3 }						
-			else = {
-				if = {
-					limit = { planet_size <= 15 }
-					custom_tooltip = land_clearance_increase_size_2
-					hidden_effect = { change_planet_size = 2 }			
-					else = {	
-						custom_tooltip = land_clearance_increase_size_1
-						hidden_effect = { change_planet_size = 1 }
-					}
-				}			
-			}
+			hidden_effect = { change_planet_size = 3 }
+		}
+		else_if = {
+			limit = { planet_size <= 15 }
+			custom_tooltip = land_clearance_increase_size_2
+			hidden_effect = { change_planet_size = 2 }
+		}
+		else = {
+			custom_tooltip = land_clearance_increase_size_1
+			hidden_effect = { change_planet_size = 1 }
 		}
 		hidden_effect = { set_planet_flag = rlcse_3_happened }
 	}
@@ -187,18 +181,16 @@ planet_edict = {
 		if = {
 			limit = { planet_size <= 12 }
 			custom_tooltip = land_clearance_increase_size_3
-			hidden_effect = { change_planet_size = 3 }						
-			else = {
-				if = {
-					limit = { planet_size <= 15 }
-					custom_tooltip = land_clearance_increase_size_2
-					hidden_effect = { change_planet_size = 2 }			
-					else = {	
-						custom_tooltip = land_clearance_increase_size_1
-						hidden_effect = { change_planet_size = 1 }
-					}
-				}			
-			}
+			hidden_effect = { change_planet_size = 3 }
+		}
+		else_if = {
+			limit = { planet_size <= 15 }
+			custom_tooltip = land_clearance_increase_size_2
+			hidden_effect = { change_planet_size = 2 }
+		}
+		else = {
+			custom_tooltip = land_clearance_increase_size_1
+			hidden_effect = { change_planet_size = 1 }
 		}
 		hidden_effect = { set_planet_flag = rlcse_4_happened }
 	}
@@ -237,18 +229,16 @@ planet_edict = {
 		if = {
 			limit = { planet_size <= 12 }
 			custom_tooltip = land_clearance_increase_size_3
-			hidden_effect = { change_planet_size = 3 }						
-			else = {
-				if = {
-					limit = { planet_size <= 15 }
-					custom_tooltip = land_clearance_increase_size_2
-					hidden_effect = { change_planet_size = 2 }			
-					else = {	
-						custom_tooltip = land_clearance_increase_size_1
-						hidden_effect = { change_planet_size = 1 }
-					}
-				}			
-			}
+			hidden_effect = { change_planet_size = 3 }
+		}
+		else_if = {
+			limit = { planet_size <= 15 }
+			custom_tooltip = land_clearance_increase_size_2
+			hidden_effect = { change_planet_size = 2 }
+		}
+		else = {
+			custom_tooltip = land_clearance_increase_size_1
+			hidden_effect = { change_planet_size = 1 }
 		}
 		hidden_effect = { set_planet_flag = rlcse_5_happened }
 	}
