@@ -270,13 +270,13 @@ country_event = {
 				min = @tier1influencecontactmin
 				max = @tier1influencecontactmax
 			}
-			else = {
-				add_monthly_resource_mult = {
-					resource = influence
-					value = @tier1influencecontact
-					min = @tier1influencecontactmin
-					max = @tier1influencecontactmax
-				}
+		}
+		else = {
+			add_monthly_resource_mult = {
+				resource = influence
+				value = @tier1influencecontact
+				min = @tier1influencecontactmin
+				max = @tier1influencecontactmax
 			}
 		}
 		hidden_effect = {
@@ -359,13 +359,13 @@ country_event = {
 				min = @tier2influencecontactmin
 				max = @tier2influencecontactmax
 			}
-			else = {
-				add_monthly_resource_mult = {
-					resource = influence
-					value = @tier2influencecontact
-					min = @tier2influencecontactmin
-					max = @tier2influencecontactmax
-				}
+		}
+		else = {
+			add_monthly_resource_mult = {
+				resource = influence
+				value = @tier2influencecontact
+				min = @tier2influencecontactmin
+				max = @tier2influencecontactmax
 			}
 		}
 		hidden_effect = {
@@ -577,7 +577,7 @@ country_event = {
 				event_target:traders = {
 					trust = {
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}	
 			}
@@ -751,7 +751,7 @@ country_event = {
 				event_target:traders = {
 					trust = {
 						who = root
-						value > 49
+						value >= 50
 					}
 				}
 			}
@@ -922,7 +922,7 @@ country_event = {
 				event_target:traders = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}	
 			}
@@ -1036,7 +1036,7 @@ country_event = {
 				event_target:traders = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}	
 			}
@@ -1146,7 +1146,7 @@ country_event = {
 				event_target:traders = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}	
 			}
@@ -1256,7 +1256,7 @@ country_event = {
 				event_target:traders = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}	
 			}
@@ -1320,9 +1320,9 @@ country_event = {
 		name = leviathans.110.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 20 
+			energy >= 20 
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1370,9 +1370,9 @@ country_event = {
 		name = leviathans.110.b
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 50
+			energy >= 50
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1420,9 +1420,9 @@ country_event = {
 		name = leviathans.110.c
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 100
+			energy >= 100
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1470,9 +1470,9 @@ country_event = {
 		name = leviathans.110.food.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			food > 20 
+			food >= 20 
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1520,9 +1520,9 @@ country_event = {
 		name = leviathans.110.food.b
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			food > 50
+			food >= 50
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1570,9 +1570,9 @@ country_event = {
 		name = leviathans.110.food.c
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			food > 100
+			food >= 100
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1813,9 +1813,9 @@ country_event = {
 		name = leviathans.120.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			minerals > 20
+			minerals >= 20
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1864,9 +1864,9 @@ country_event = {
 		name = leviathans.120.b
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			minerals > 50 
+			minerals >= 50 
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1915,9 +1915,9 @@ country_event = {
 		name = leviathans.120.c
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			minerals > 100
+			minerals >= 100
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -1966,9 +1966,9 @@ country_event = {
 		name = leviathans.120.food.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			food > 20
+			food >= 20
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2017,9 +2017,9 @@ country_event = {
 		name = leviathans.120.food.b
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			food > 50 
+			food >= 50 
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2068,9 +2068,9 @@ country_event = {
 		name = leviathans.120.food.c
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			food > 100
+			food >= 100
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2312,9 +2312,9 @@ country_event = {
 		name = leviathans.125.minerals.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			minerals > 20
+			minerals >= 20
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2363,9 +2363,9 @@ country_event = {
 		name = leviathans.125.minerals.b
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			minerals > 50 
+			minerals >= 50 
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2414,9 +2414,9 @@ country_event = {
 		name = leviathans.125.minerals.c
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			minerals > 100
+			minerals >= 100
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2465,9 +2465,9 @@ country_event = {
 		name = leviathans.125.energy.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 20
+			energy >= 20
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2516,9 +2516,9 @@ country_event = {
 		name = leviathans.125.energy.b
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 50 
+			energy >= 50 
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2567,9 +2567,9 @@ country_event = {
 		name = leviathans.125.energy.c
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 100
+			energy >= 100
 			hidden_trigger = {
-				NOT = {
+				NOR = {
 					AND = {
 						has_country_flag = attacked_xuracorp
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
@@ -2980,7 +2980,7 @@ country_event = {
 		name = leviathans.130.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 3000 
+			energy >= 3000 
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_riggans }
 			}
@@ -3066,7 +3066,7 @@ country_event = {
 		name = leviathans.131.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 3000 
+			energy >= 3000 
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_xuracorp }
 			}
@@ -3152,7 +3152,7 @@ country_event = {
 		name = leviathans.132.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 3000 
+			energy >= 3000 
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_muutagans }
 			}
@@ -3762,7 +3762,7 @@ country_event = {
 		event_target:traders = {
 			trust = { 
 				who = root
-				value > 49 
+				value >= 50
 			}
 		}
 	}
@@ -3771,7 +3771,7 @@ country_event = {
 		name = leviathans.150.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 3000 
+			energy >= 3000 
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_xuracorp }
 			}
@@ -3799,7 +3799,7 @@ country_event = {
 	option = {
 		name = leviathans.150.b
 		custom_gui = "enclave_trader_option"
-		trigger = { energy > 3000 }
+		trigger = { energy >= 3000 }
 	}
 	option = {
 		name = leviathans.150.c
@@ -3828,7 +3828,7 @@ country_event = {
 		event_target:traders = {
 			trust = { 
 				who = root
-				value > 49 
+				value >= 50
 			}
 		}	
 	}
@@ -3837,7 +3837,7 @@ country_event = {
 		name = leviathans.151.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy > 3000 
+			energy >= 3000 
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_riggans }
 			}
@@ -3865,7 +3865,7 @@ country_event = {
 	option = {
 		name = leviathans.151.b
 		custom_gui = "enclave_trader_option"
-		trigger = { energy > 3000 }
+		trigger = { energy >= 3000 }
 	}
 	option = {
 		name = leviathans.150.c
@@ -3894,7 +3894,7 @@ country_event = {
 		event_target:traders = {
 			trust = { 
 				who = root
-				value > 49 
+				value >= 50
 			}
 		}	
 	}
@@ -3902,7 +3902,7 @@ country_event = {
 	option = {
 		name = leviathans.152.a
 		custom_gui = "enclave_trader_option"
-		allow = { energy > 3000 }
+		allow = { energy >= 3000 }
 		add_energy = -3000
 		add_modifier = {
 			modifier = "enclave_traders_sr3"
@@ -3926,7 +3926,7 @@ country_event = {
 	option = {
 		name = leviathans.152.b
 		custom_gui = "enclave_trader_option"
-		trigger = { energy > 3000 }
+		trigger = { energy >= 3000 }
 	}
 	option = {
 		name = leviathans.150.c
@@ -4756,7 +4756,7 @@ country_event = {
 	option = {
 		name = leviathans.300.c
 		trigger = {
-			NOT = {
+			NOR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_terminator
@@ -4773,7 +4773,7 @@ country_event = {
 				event_target:artist_enclave_country = {
 					trust = {
 						who = root
-						value > 49
+						value >= 50
 					}
 				}
 			}
@@ -4791,7 +4791,7 @@ country_event = {
 		name = leviathans.300.c
 		trigger = {
 			has_country_flag = artist_festival_purchased
-			NOT = { 
+			NOR = { 
 				has_valid_civic = civic_fanatic_purifiers
 				has_authority = auth_hive_mind
 			}
@@ -4834,7 +4834,7 @@ country_event = {
 			exists = event_target:artist_enclave_country
 			has_modifier = enclave_artist_patron
 			has_country_flag = artist_patron
-			NOT = {
+			NOR = {
 				has_country_flag = enclave_stopped_patronage
 				has_country_flag = enclave_artist_ignores
 				#has_country_flag = artist_building_patron
@@ -4869,7 +4869,7 @@ country_event = {
 				event_target:artist_enclave_country = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}
 			}
@@ -4954,9 +4954,9 @@ country_event = {
 					NOT = { has_country_flag = enclave_artist_ignores }
 				}
 				country_event = { id = leviathans.315 }
-				else = {
-					country_event = { id = leviathans.313 }
-				}
+			}
+			else = {
+				country_event = { id = leviathans.313 }
 			}
 		}
 	}
@@ -5035,7 +5035,7 @@ country_event = {
 		custom_tooltip = opinion10
 		custom_tooltip = leviathans.302.a.tooltip
 		allow = {
-			energy > 3000
+			energy >= 3000
 		}
 		hidden_effect = {
 			event_target:artist_enclave = {
@@ -5054,16 +5054,14 @@ country_event = {
 					which = artist_monument_purchased
 					value = 1
 				}
-				else = {
-					if = {
-						limit = {
-							has_country_flag = artist_monument_collector
-						}
-						change_variable = {
-							which = artist_monument_purchased
-							value = 1
-						}
-					}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = artist_monument_collector
+				}
+				change_variable = {
+					which = artist_monument_purchased
+					value = 1
 				}
 			}
 		}
@@ -5128,7 +5126,7 @@ country_event = {
 		custom_tooltip = leviathans.322.a.tooltip
 		#response_text = leviathans.302.a.reply
 		allow = {
-			energy > 5000
+			energy >= 5000
 		}
 		add_energy = -5000
 		hidden_effect = {
@@ -5182,7 +5180,7 @@ country_event = {
 		event_target:artist_enclave = {
 			trust = {
 				who = root
-				value > 50
+				value >= 50
 			}
 		}
 	}
@@ -5264,16 +5262,16 @@ country_event = {
 	#		custom_tooltip = {
 	#			text = guardian.deal.tooltip
 	#			OR = {
-	#				has_monthly_income = { resource = energy value > 24.99 }
-	#				energy > 24.99
+	#				has_monthly_income = { resource = energy value >= 24.99 }
+	#				energy >= 24.99
 	#			}
 	#			OR = {
-	#				has_monthly_income = { resource = minerals value > 24.99 }
-	#				minerals > 24.99
+	#				has_monthly_income = { resource = minerals value >= 24.99 }
+	#				minerals >= 24.99
 	#			}
 	#			OR = {
-	#				has_monthly_income = { resource = influence value > 0.99 }
-	#				influence > 0.99
+	#				has_monthly_income = { resource = influence value >= 0.99 }
+	#				influence >= 0.99
 	#			}
 	#		}
 	#	}
@@ -5299,7 +5297,7 @@ country_event = {
 			num_pops < 61
 		}		
 		allow = {
-			energy > 1000
+			energy >= 1000
 			NOT = { has_modifier = enclave_artist_patron }
 		}
 		add_energy = -1000
@@ -5338,7 +5336,7 @@ country_event = {
 			num_pops < 121
 		}
 		allow = {
-			energy > 2000
+			energy >= 2000
 			NOT = { has_modifier = enclave_artist_patron }
 		}
 		add_energy = -2000
@@ -5377,7 +5375,7 @@ country_event = {
 			num_pops < 181
 		}
 		allow = {
-			energy > 3000
+			energy >= 3000
 			NOT = { has_modifier = enclave_artist_patron }
 		}
 		add_energy = -3000
@@ -5416,7 +5414,7 @@ country_event = {
 			num_pops < 241
 		}
 		allow = {
-			energy > 4000
+			energy >= 4000
 			NOT = { has_modifier = enclave_artist_patron }
 		}
 		add_energy = -4000
@@ -5452,7 +5450,7 @@ country_event = {
 		#custom_tooltip = leviathans.304.a.tooltip
 		trigger = { num_pops > 240 }
 		allow = {
-			energy > 5000
+			energy >= 5000
 			NOT = { has_modifier = enclave_artist_patron }
 		}
 		add_energy = -5000
@@ -5535,16 +5533,16 @@ planet_event = {
 #		#if = {
 #		#	limit = {
 #		#		OR = {
-#		#			has_monthly_income = { resource = energy value > 24.99 }
-#		#			energy > 24.99
+#		#			has_monthly_income = { resource = energy value >= 24.99 }
+#		#			energy >= 24.99
 #		#		}
 #		#		OR = {
-#		#			has_monthly_income = { resource = minerals value > 24.99 }
-#		#			minerals > 24.99
+#		#			has_monthly_income = { resource = minerals value >= 24.99 }
+#		#			minerals >= 24.99
 #		#		}
 #		#		OR = {
-#		#			has_monthly_income = { resource = influence value > 0.99 }
-#		#			influence > 0.99
+#		#			has_monthly_income = { resource = influence value >= 0.99 }
+#		#			influence >= 0.99
 #		#		}
 #		#	}
 #			event_target:artist_enclave_country = {
@@ -5609,9 +5607,8 @@ country_event = {
 				}
 			}
 			set_country_flag = 10yr_patronage
-			break = yes
 		}
-		if = {
+		else_if = {
 			limit = {
 				NOT = { has_modifier = enclave_artist_patron }
 			}
@@ -5619,9 +5616,8 @@ country_event = {
 				which = patronage_duration
 				value = 0
 			}
-			break = yes
 		}
-		if = {
+		else_if = {
 			limit = { has_modifier = enclave_artist_patron }
 			if = {
 				limit = { check_variable = { which = patronage_duration value < 1 } }
@@ -5629,11 +5625,11 @@ country_event = {
 					which = patronage_duration
 					value = 1
 				}
-				else = {
-					change_variable = {
-						which = patronage_duration
-						value = 1
-					}
+			}
+			else = {
+				change_variable = {
+					which = patronage_duration
+					value = 1
 				}
 			}
 			country_event = { id = leviathans.308 days = 360 }
@@ -5742,7 +5738,7 @@ country_event = {
 	
 	trigger = {
 		has_modifier = enclave_artist_festival
-		NOT = { 
+		NOR = { 
 			has_country_flag = enclave_artist_ignores
 			has_authority = auth_hive_mind
 		}
@@ -5949,50 +5945,14 @@ country_event = {
 		room = enclave_artist_room
 	}
 
-	#option = {
-	#	name = DEAL
-	#	custom_tooltip = leviathans.304.a.tooltip
-	#	add_modifier = {
-	#		modifier = enclave_artist_patron
-	#		days = 3600
-	#	}
-	#	allow = {
-	#		custom_tooltip = {
-	#			text = guardian.deal.tooltip
-	#			OR = {
-	#				has_monthly_income = { resource = energy value > 24.99 }
-	#				energy > 24.99
-	#			}
-	#			OR = {
-	#				has_monthly_income = { resource = minerals value > 24.99 }
-	#				minerals > 24.99
-	#			}
-	#			OR = {
-	#				has_monthly_income = { resource = influence value > 0.99 }
-	#				influence > 0.99
-	#			}
-	#		}
-	#	}
-	#	hidden_effect = {
-	#		if = {
-	#			limit = {
-	#				has_country_flag = enclave_stopped_patronage
-	#			}
-	#			remove_country_flag = enclave_stopped_patronage
-	#		}
-	#		set_country_flag = artist_patron
-	#		set_country_flag = recently_purchased_patron
-	#		country_event = { id = leviathans.306 days = 30 } #check if still patron in a month
-	#		country_event = { id = leviathans.320 } #trigger patron followup events
-	#		country_event = { id = leviathans.308 days = 359 }
-	#	}
-	#}
-
 	option = {
 		name = DEAL
+		trigger = {
+			num_pops < 61
+		}		
 		#custom_tooltip = leviathans.304.a.tooltip
 		allow = {
-			energy > 1000
+			energy >= 1000
 			NOT = { has_modifier = enclave_artist_patron }
 		}
 		add_energy = -1000
@@ -6030,7 +5990,195 @@ country_event = {
 			}
 		}
 	}
+	
+	option = {
+		name = DEAL
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}		
+		#custom_tooltip = leviathans.304.a.tooltip
+		allow = {
+			energy >= 2000
+			NOT = { has_modifier = enclave_artist_patron }
+		}
+		add_energy = -2000
+		add_modifier = {
+			modifier = enclave_artist_patron
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 20
+			}
+		}
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = enclave_stopped_patronage
+					}
+					remove_country_flag = enclave_stopped_patronage
+				}
+				set_country_flag = artist_patron
+				set_country_flag = recently_purchased_patron
+				#country_event = { id = leviathans.306 days = 30 } #check if still patron in a month
+				country_event = { id = leviathans.320 } #trigger patron followup events
+				country_event = { id = leviathans.308 days = 359 }
+				country_event = { id = leviathans.319 days = 3600 } #patronage renewal
+			}
+		}
+	}
 
+	option = {
+		name = DEAL
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}		
+		#custom_tooltip = leviathans.304.a.tooltip
+		allow = {
+			energy >= 3000
+			NOT = { has_modifier = enclave_artist_patron }
+		}
+		add_energy = -3000
+		add_modifier = {
+			modifier = enclave_artist_patron
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 20
+			}
+		}
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = enclave_stopped_patronage
+					}
+					remove_country_flag = enclave_stopped_patronage
+				}
+				set_country_flag = artist_patron
+				set_country_flag = recently_purchased_patron
+				#country_event = { id = leviathans.306 days = 30 } #check if still patron in a month
+				country_event = { id = leviathans.320 } #trigger patron followup events
+				country_event = { id = leviathans.308 days = 359 }
+				country_event = { id = leviathans.319 days = 3600 } #patronage renewal
+			}
+		}
+	}
+
+	option = {
+		name = DEAL
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}		
+		#custom_tooltip = leviathans.304.a.tooltip
+		allow = {
+			energy >= 4000
+			NOT = { has_modifier = enclave_artist_patron }
+		}
+		add_energy = -4000
+		add_modifier = {
+			modifier = enclave_artist_patron
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 20
+			}
+		}
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = enclave_stopped_patronage
+					}
+					remove_country_flag = enclave_stopped_patronage
+				}
+				set_country_flag = artist_patron
+				set_country_flag = recently_purchased_patron
+				#country_event = { id = leviathans.306 days = 30 } #check if still patron in a month
+				country_event = { id = leviathans.320 } #trigger patron followup events
+				country_event = { id = leviathans.308 days = 359 }
+				country_event = { id = leviathans.319 days = 3600 } #patronage renewal
+			}
+		}
+	}
+
+	option = {
+		name = DEAL
+		trigger = {
+			num_pops > 240
+		}		
+		#custom_tooltip = leviathans.304.a.tooltip
+		allow = {
+			energy >= 5000
+			NOT = { has_modifier = enclave_artist_patron }
+		}
+		add_energy = -5000
+		add_modifier = {
+			modifier = enclave_artist_patron
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 20
+			}
+		}
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = enclave_stopped_patronage
+					}
+					remove_country_flag = enclave_stopped_patronage
+				}
+				set_country_flag = artist_patron
+				set_country_flag = recently_purchased_patron
+				#country_event = { id = leviathans.306 days = 30 } #check if still patron in a month
+				country_event = { id = leviathans.320 } #trigger patron followup events
+				country_event = { id = leviathans.308 days = 359 }
+				country_event = { id = leviathans.319 days = 3600 } #patronage renewal
+			}
+		}
+	}
+
+	
 	option = {
 		name = NODEAL
 		default_hide_option = yes
@@ -6047,7 +6195,7 @@ country_event = {
 		exists = event_target:artist_enclave_country
 		has_modifier = enclave_artist_patron
 		has_country_flag = artist_patron
-		NOT = {
+		NOR = {
 			has_country_flag = enclave_stopped_patronage
 			has_country_flag = enclave_artist_ignores
 		}
@@ -6184,7 +6332,7 @@ country_event = {
 		exists = event_target:artist_enclave_country
 		has_modifier = enclave_artist_patron
 		has_country_flag = artist_patron
-		NOT = {
+		NOR = {
 			has_country_flag = enclave_stopped_patronage
 			has_country_flag = enclave_artist_ignores
 		}
@@ -6207,11 +6355,11 @@ country_event = {
 				which = artist_newsletter
 				value = 1
 			}
-			else = {
-				change_variable = {
-					which = artist_newsletter
-					value = 1
-				}
+		}
+		else = {
+			change_variable = {
+				which = artist_newsletter
+				value = 1
 			}
 		}
 		random_system = {
@@ -6236,7 +6384,7 @@ country_event = {
 		add_energy = -500
 		add_influence = 50
 		allow = {
-			energy > 500
+			energy >= 500
 		}
 	}
 	option = {
@@ -6280,7 +6428,7 @@ country_event = {
 		exists = event_target:artist_enclave_country
 		has_modifier = enclave_artist_patron
 		has_country_flag = artist_patron
-		NOT = {
+		NOR = {
 			has_country_flag = enclave_stopped_patronage
 			has_country_flag = enclave_artist_ignores
 			has_country_flag = artist_building_patron
@@ -6356,7 +6504,7 @@ country_event = {
 		exists = event_target:artist_enclave_country
 		has_modifier = enclave_artist_patron
 		has_country_flag = artist_patron
-		NOT = {
+		NOR = {
 			has_country_flag = enclave_stopped_patronage
 			has_country_flag = enclave_artist_ignores
 		}
@@ -6430,7 +6578,7 @@ country_event = {
 		exists = event_target:artist_enclave_country
 		has_modifier = enclave_artist_patron
 		has_country_flag = artist_patron
-		NOT = {
+		NOR = {
 			has_country_flag = enclave_stopped_patronage
 			has_country_flag = enclave_artist_ignores
 		}
@@ -6544,9 +6692,9 @@ country_event = {
 					}
 				}
 				country_event = { id = leviathans.332 }
-				else = {
-					country_event = { id = leviathans.333 }
-				}
+			}
+			else = {
+				country_event = { id = leviathans.333 }
 			}
 		}
 	}
@@ -6822,7 +6970,7 @@ country_event = {
 				event_target:curators = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}
 			}
@@ -6862,7 +7010,7 @@ country_event = {
 				event_target:curators = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}
 			}
@@ -6902,6 +7050,7 @@ country_event = {
 		trigger = {
 			has_event_chain = l_cluster_chain
 			NOR = {
+				is_homicidal = yes
 				has_global_flag = l_cluster_opened
 				has_completed_event_chain_counter = {
 					event_chain = l_cluster_chain
@@ -7103,7 +7252,7 @@ country_event = {
 				event_target:curators = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}
 			}
@@ -7139,7 +7288,7 @@ country_event = {
 				event_target:curators = {
 					trust = { 
 						who = root
-						value > 49 
+						value >= 50
 					}
 				}
 			}
@@ -7177,6 +7326,7 @@ country_event = {
 		trigger = {
 			has_event_chain = l_cluster_chain
 			NOR = {
+				is_homicidal = yes
 				has_global_flag = l_cluster_opened
 				has_completed_event_chain_counter = {
 					event_chain = l_cluster_chain
@@ -7227,7 +7377,7 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops < 61 }
 		allow = {
-			energy > 1000
+			energy >= 1000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -7262,7 +7412,7 @@ country_event = {
 			num_pops < 121
 		}
 		allow = {
-			energy > 2000
+			energy >= 2000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -7297,7 +7447,7 @@ country_event = {
 			num_pops < 181
 		}
 		allow = {
-			energy > 3000
+			energy >= 3000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -7332,7 +7482,7 @@ country_event = {
 			num_pops < 241
 		}
 		allow = {
-			energy > 4000
+			energy >= 4000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -7364,7 +7514,7 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops > 240 }
 		allow = {
-			energy > 5000
+			energy >= 5000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -7515,7 +7665,7 @@ country_event = {
 			}
 		}
 		allow = {
-			energy > 300
+			energy >= 300
 		}
 		add_energy = -300
 		hidden_effect = {
@@ -8114,7 +8264,7 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops < 61 }
 		allow = {
-			energy > 1000
+			energy >= 1000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -8149,7 +8299,7 @@ country_event = {
 			num_pops < 121
 		}
 		allow = {
-			energy > 2000
+			energy >= 2000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -8184,7 +8334,7 @@ country_event = {
 			num_pops < 181
 		}
 		allow = {
-			energy > 3000
+			energy >= 3000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -8219,7 +8369,7 @@ country_event = {
 			num_pops < 241
 		}
 		allow = {
-			energy > 4000
+			energy >= 4000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -8251,7 +8401,7 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops > 240 }
 		allow = {
-			energy > 5000
+			energy >= 5000
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
@@ -8324,7 +8474,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 5000
+			energy >= 5000
 		}
 		add_energy = -5000
 		add_modifier = {
@@ -8478,7 +8628,7 @@ country_event = {
 			NOT = { has_country_flag = bought_fortress_info_1 }
 		}
 		allow = {
-			energy > 1000
+			energy >= 1000
 		}
 		hidden_effect = { set_country_flag = bought_fortress_info_1 }
 		add_energy = -1000
@@ -8491,7 +8641,7 @@ country_event = {
 			NOT = { has_country_flag = bought_fortress_info_2 }
 		}
 		allow = {
-			energy > 1000
+			energy >= 1000
 		}
 		hidden_effect = { set_country_flag = bought_fortress_info_2 }
 		add_energy = -1000
@@ -8504,7 +8654,7 @@ country_event = {
 			NOT = { has_country_flag = bought_fortress_info_3 }
 		}
 		allow = {
-			energy > 1000
+			energy >= 1000
 		}
 		hidden_effect = { set_country_flag = bought_fortress_info_3 }
 		add_energy = -1000
@@ -8617,7 +8767,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 5000
+			energy >= 5000
 		}
 		add_energy = -5000
 		add_modifier = {
@@ -8718,7 +8868,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 5000
+			energy >= 5000
 		}
 		add_energy = -5000
 		add_modifier = {
@@ -8819,7 +8969,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 2000
+			energy >= 2000
 		}
 		add_energy = -2000
 		add_modifier = {
@@ -8921,7 +9071,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 3000
+			energy >= 3000
 		}
 		add_energy = -3000
 		add_modifier = {
@@ -9022,7 +9172,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 5000
+			energy >= 5000
 		}
 		add_energy = -5000
 		add_modifier = {
@@ -9123,7 +9273,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 1000
+			energy >= 1000
 		}
 		hidden_effect = { set_country_flag = bought_wraith_info_1 }
 		add_energy = -1000
@@ -9136,7 +9286,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 1000
+			energy >= 1000
 		}
 		hidden_effect = { set_country_flag = bought_wraith_info_2 }
 		add_energy = -1000
@@ -9149,7 +9299,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 1000
+			energy >= 1000
 		}
 		hidden_effect = { set_country_flag = bought_wraith_info_3 }
 		add_energy = -1000
@@ -9256,7 +9406,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 5000
+			energy >= 5000
 		}
 		add_energy = -5000
 		add_modifier = {
@@ -9370,7 +9520,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 5000
+			energy >= 5000
 		}
 		add_energy = -5000
 		add_modifier = {
@@ -9502,7 +9652,7 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy > 2500
+			energy >= 2500
 		}
 		add_energy = -2500
 		add_modifier = {
@@ -9614,7 +9764,7 @@ country_event = {
 		response_text = leviathans.590.a.reply
 		custom_gui = "enclave_curator_option"
 		allow = { 
-			energy > 5000
+			energy >= 5000
 			free_leader_slots > 0 
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
@@ -12412,23 +12562,21 @@ ship_event = {
 						set_planet_flag = stellarite_terraformed
 						reroll_planet = yes
 						solar_system = { set_star_flag = gaia_planet_gained }
-						else = {
-							if = {
-								limit = {
-									is_planet_class = pc_frozen
-									NOT = { has_planet_flag = stellarite_terraformed }
-									solar_system = {
-										has_star_flag = gaia_planet_gained
-									}
-								}
-								increase_planet_temperature = yes
-								set_planet_flag = stellarite_terraformed
-								else = {
-									increase_planet_temperature = yes
-									set_planet_flag = stellarite_terraformed
-								}
+					}
+					else_if = {
+						limit = {
+							is_planet_class = pc_frozen
+							NOT = { has_planet_flag = stellarite_terraformed }
+							solar_system = {
+								has_star_flag = gaia_planet_gained
 							}
 						}
+						increase_planet_temperature = yes
+						set_planet_flag = stellarite_terraformed
+					}
+					else = {
+						increase_planet_temperature = yes
+						set_planet_flag = stellarite_terraformed
 					}
 				}
 			}
@@ -12469,25 +12617,23 @@ ship_event = {
 						change_pc = pc_tundra
 						set_planet_flag = stellarite_terraformed
 						reroll_planet = yes
-						else = {
-							if = {
-								limit = {
-									is_planet_class = pc_frozen
-									NOT = { has_planet_flag = stellarite_terraformed }
-									solar_system = {
-										has_star_flag = gaia_planet_gained
-									}
-								}
-								increase_planet_temperature = yes
-								set_planet_flag = stellarite_terraformed
-								reroll_planet = yes
-								else = {
-									increase_planet_temperature = yes
-									set_planet_flag = stellarite_terraformed
-									reroll_planet = yes
-								}
+					}
+					else_if = {
+						limit = {
+							is_planet_class = pc_frozen
+							NOT = { has_planet_flag = stellarite_terraformed }
+							solar_system = {
+								has_star_flag = gaia_planet_gained
 							}
 						}
+						increase_planet_temperature = yes
+						set_planet_flag = stellarite_terraformed
+						reroll_planet = yes
+					}
+					else = {
+						increase_planet_temperature = yes
+						set_planet_flag = stellarite_terraformed
+						reroll_planet = yes
 					}
 				}
 			}
@@ -12862,7 +13008,7 @@ country_event = {
 	option = {
 		name = leviathans.1040.c
 		trigger = {
-			NOT = {
+			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_technology = tech_robotic_workers
 				has_technology = tech_droid_workers
@@ -12880,7 +13026,7 @@ country_event = {
 		name = leviathans.1040.c
 		trigger = {
 			has_technology = tech_robotic_workers
-			NOT = {
+			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_technology = tech_droid_workers
 				has_technology = tech_synthetic_workers
@@ -12898,7 +13044,7 @@ country_event = {
 		trigger = {
 			has_technology = tech_robotic_workers
 			has_technology = tech_droid_workers
-			NOT = {
+			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_technology = tech_synthetic_workers
 				has_technology = tech_synthetic_leaders
@@ -12916,7 +13062,7 @@ country_event = {
 			has_technology = tech_robotic_workers
 			has_technology = tech_droid_workers
 			has_technology = tech_synthetic_workers
-			NOT = {
+			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_technology = tech_synthetic_leaders
 			}
@@ -12957,7 +13103,7 @@ country_event = {
 	option = {
 		name = TERRIBLE
 		trigger = {
-			NOT = {
+			NOR = {
 				has_ethic = ethic_fanatic_militarist
 				has_ethic = ethic_militarist
 				has_ethic = ethic_fanatic_materialist
@@ -13003,7 +13149,7 @@ country_event = {
 				}
 			}
 		}
-		NOT = {
+		NOR = {
 			has_country_flag = worm_events_available
 			event_target:guardian_technosphere_country = {
 				is_hostile = root
@@ -13513,9 +13659,9 @@ country_event = {
 												}
 												remove_country_flag = technosphere_special
 												country_event = { id = leviathans.1065 }
-												else = {
-													country_event = { id = leviathans.1063 }
-												}
+											}
+											else = {
+												country_event = { id = leviathans.1063 }
 											}
 										}
 									}
@@ -13553,17 +13699,15 @@ country_event = {
 				}
 			}
 			give_technology = { tech = tech_sapient_ai }
-			else = {
-				if = {
-					limit = {
-						NOT = { has_technology = tech_zero_point_power }
-					}
-					give_technology = { tech = tech_zero_point_power }
-					else = {
-						add_influence = 150
-					}
-				}
+		}
+		else_if = {
+			limit = {
+				NOT = { has_technology = tech_zero_point_power }
 			}
+			give_technology = { tech = tech_zero_point_power }
+		}
+		else = {
+			add_influence = 150
 		}
 		hidden_effect = {
 			event_target:technosphere_ship = {
@@ -13850,7 +13994,7 @@ event = {
 								find_closest_system = {
 									trigger = {
 										id = wraith.1.trigger.1
-										NOT = {
+										NOR = {
 											exists = space_owner
 											any_ship_in_system = {
 												fleet = { is_same_value = event_target:wraith_fleet }
@@ -14406,7 +14550,7 @@ ship_event = {
 	
 	option = {
 		name = "leviathans.2113.a"
-		trigger = { owner = { energy > 500 } }
+		trigger = { owner = { energy >= 500 } }
 		owner = {
 			add_energy = -500
 			hidden_effect = { country_event = { id = leviathans.2114 } }
@@ -15303,7 +15447,7 @@ ship_event = {
 		text = "leviathans.3004a.desc"
 		trigger = {
 			owner = {
-				NOT = { 
+				NOR = { 
 					has_technology = tech_jump_drive_1
 					has_technology = tech_psi_jump_drive_1
 				}
@@ -15335,7 +15479,7 @@ ship_event = {
 		name = "EXCELLENT"
 		trigger = {
 			owner = {
-				NOT = { 
+				NOR = { 
 					has_technology = tech_jump_drive_1
 					has_technology = tech_psi_jump_drive_1
 				}

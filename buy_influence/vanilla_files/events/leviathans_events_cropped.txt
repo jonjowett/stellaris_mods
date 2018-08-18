@@ -1,5 +1,3 @@
-namespace = leviathans
-
 # Artists
 country_event = {
 	id = leviathans.300
@@ -63,12 +61,7 @@ country_event = {
 				which = artist_monument_purchased
 				value < 5
 			}
-			#MOD EDIT - Prettified
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
 		}
 		hidden_effect = {
 			country_event = { id = leviathans.302 }
@@ -83,24 +76,14 @@ country_event = {
 				which = artist_monument_purchased
 				value = 5
 			}
-			#MOD EDIT - Prettified
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
 		}
 	}
 	option = {
 		name = leviathans.300.b
 		trigger = {
 			NOT = { has_modifier = enclave_artist_patron }
-			#MOD EDIT - Prettified
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
 		}
 		hidden_effect = {
 			country_event = { id = leviathans.304 }
@@ -166,13 +149,9 @@ country_event = {
 		name = leviathans.300.c
 		trigger = {
 			has_country_flag = artist_festival_purchased
-			#MOD EDIT - Replaced the abbreviated NOT condition with a NOR that matches the one above.
-			#           NB: Not an exact copy, because the artist_festival_purchased flag is tested above.
-			NOR = {
+			NOR = { 
 				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_ethic = ethic_gestalt_consciousness
+				has_authority = auth_hive_mind
 			}
 		}
 		allow = {
@@ -194,14 +173,7 @@ country_event = {
 	}
 	option = {
 		name = leviathans.300.d
-		#MOD EDIT - Prettified
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
-		}
+		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
 		is_dialog_only = yes
 		response_text = leviathans.300.d.reply
 	}
@@ -233,12 +205,7 @@ country_event = {
 	option = { # Art College
 		name = leviathans.300.g
 		trigger = {
-			#MOD EDIT - Prettified
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
 			NOT = {
 				event_target:artist_enclave_country = {
 					has_country_flag = art_college@root
@@ -269,55 +236,6 @@ country_event = {
 			country_event = { id = leviathans.340 }
 		}
 	}
-	
-	#MOD INSERTION - Buy influence
-	option = {
-		name = leviathans.300.buy_influence
-		trigger = {
-			NOR = { 
-				has_valid_civic = civic_fanatic_purifiers 
-				has_valid_civic = civic_hive_devouring_swarm 
-				has_valid_civic = civic_machine_terminator
-			}
-			NOR = {
-				has_modifier = buy_influence_0point5
-				has_modifier = buy_influence_1point0
-				has_modifier = buy_influence_1point5
-				has_modifier = buy_influence_2point0
-			}
-		}
-		hidden_effect = {
-			country_event = { id = buy_influence.100 }
-		}
-	}
-	
-	#MOD INSERTION - Buy influence
-	option = {
-		name = leviathans.300.buy_influence_cancel
-		trigger = {
-			NOR = { 
-				has_valid_civic = civic_fanatic_purifiers 
-				has_valid_civic = civic_hive_devouring_swarm 
-				has_valid_civic = civic_machine_terminator
-			}
-			OR = {
-				has_modifier = buy_influence_0point5
-				has_modifier = buy_influence_1point0
-				has_modifier = buy_influence_1point5
-				has_modifier = buy_influence_2point0
-			}
-		}
-		custom_tooltip = leviathans.300.buy_influence_cancel.tooltip
-		hidden_effect = {
-			remove_modifier = buy_influence_0point5
-			remove_modifier = buy_influence_1point0
-			remove_modifier = buy_influence_1point5
-			remove_modifier = buy_influence_2point0
-		}
-		is_dialog_only = yes
-		response_text = leviathans.300.buy_influence_cancel.response
-	}
-	
 	option = {
 		name = GOODBYE
 		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
@@ -412,23 +330,6 @@ country_event = {
 			remove_modifier = enclave_artist_festival
 			remove_country_flag = artist_festival_purchased
 		}
-		
-		#MOD ADDED - Remove empire modifiers if artists are destroyed
-		if = {
-			limit = {
-				OR = {
-					has_modifier = buy_influence_0point5
-					has_modifier = buy_influence_1point0
-					has_modifier = buy_influence_1point5
-					has_modifier = buy_influence_2point0
-				}
-			}
-			remove_modifier = buy_influence_0point5
-			remove_modifier = buy_influence_1point0
-			remove_modifier = buy_influence_1point5
-			remove_modifier = buy_influence_2point0
-		}
-		
 	}
 
 	option = {
@@ -469,23 +370,6 @@ country_event = {
 			remove_modifier = enclave_artist_patron
 			remove_country_flag = artist_patron
 		}
-		
-		#MOD ADDED - Remove empire modifiers if you annoyed the artists
-		if = {
-			limit = {
-				OR = {
-					has_modifier = buy_influence_0point5
-					has_modifier = buy_influence_1point0
-					has_modifier = buy_influence_1point5
-					has_modifier = buy_influence_2point0
-				}
-			}
-			remove_modifier = buy_influence_0point5
-			remove_modifier = buy_influence_1point0
-			remove_modifier = buy_influence_1point5
-			remove_modifier = buy_influence_2point0
-		}
-		
 		if = {
 			limit = {
 				NOT = { has_country_flag = enclave_artist_ignores }
