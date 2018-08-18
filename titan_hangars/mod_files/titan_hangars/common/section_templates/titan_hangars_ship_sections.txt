@@ -2,6 +2,7 @@ ship_section_template = {
 	key = "TITAN_HANGARS_BOW_4H"
 	ship_size = titan
 	fits_on_slot = bow
+	should_draw_components = yes
 	entity = "titan_bow_entity"
 	icon = "GFX_ship_part_core_bow"
 	
@@ -74,6 +75,7 @@ ship_section_template = {
 	key = "TITAN_HANGARS_MID_3H4PD"
 	ship_size = titan
 	fits_on_slot = mid
+	should_draw_components = yes
 	entity = "titan_mid_entity"
 	icon = "GFX_ship_part_core_mid"
 	
@@ -170,6 +172,7 @@ ship_section_template = {
 	key = "TITAN_HANGARS_STERN_2H2PD"
 	ship_size = titan
 	fits_on_slot = stern
+	should_draw_components = yes
 	entity = "titan_stern_entity"
 	icon = "GFX_ship_part_core_stern"
 	
