@@ -2,6 +2,7 @@ ship_section_template = {
 	key = "PD_SHIP_SECTIONS_BATTLESHIP_STERN_PD4"
 	ship_size = battleship
 	fits_on_slot = stern
+	should_draw_components = yes
 	entity = "battleship_stern_S4_entity"
 	icon = "GFX_ship_part_core_stern"
 	
@@ -42,6 +43,7 @@ ship_section_template = {
 	key = "PD_SHIP_SECTIONS_CRUISER_STERN_PD2"
 	ship_size = cruiser
 	fits_on_slot = stern
+	should_draw_components = yes
 	entity = "cruiser_stern_S2_entity"
 	icon = "GFX_ship_part_core_stern"
 
