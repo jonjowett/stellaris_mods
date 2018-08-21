@@ -1,0 +1,87 @@
+#Buy Influence from Artist Enclave
+
+namespace = buy_influence
+
+country_event = {
+	id = buy_influence.100
+	title = guardian.300.name
+	desc = buy_influence.100.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave
+		room = enclave_artist_room
+	}
+	
+	trigger = {
+		has_country_flag = artist_enclave_diplomacy_engaged
+	}
+
+	option = {
+		name = buy_influence.100.a
+		response_text = buy_influence.100.a.reply
+		add_modifier = {
+			modifier = "buy_influence_0point5"
+			days = -1
+		}
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
+	}
+
+	option = {
+		name = buy_influence.100.b
+		response_text = buy_influence.100.b.reply
+		add_modifier = {
+			modifier = "buy_influence_1point0"
+			days = -1
+		}
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
+	}
+
+	option = {
+		name = buy_influence.100.c
+		response_text = buy_influence.100.c.reply
+		add_modifier = {
+			modifier = "buy_influence_1point5"
+			days = -1
+		}
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
+	}
+
+	option = {
+		name = buy_influence.100.d
+		response_text = buy_influence.100.d.reply
+		add_modifier = {
+			modifier = "buy_influence_2point0"
+			days = -1
+		}
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
+	}
+	
+	option = {
+		name = NODEAL
+		default_hide_option = yes
+		response_text = buy_influence.100.nodeal.reply
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = { id = guardian.300 }
+		}
+	}
+	
+}
