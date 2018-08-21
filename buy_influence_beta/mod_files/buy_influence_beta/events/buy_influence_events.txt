@@ -4,7 +4,7 @@ namespace = buy_influence
 
 country_event = {
 	id = buy_influence.100
-	title = guardian.300.name
+	title = leviathans.300.name
 	desc = buy_influence.100.desc
 
 	is_triggered_only = yes
@@ -80,7 +80,7 @@ country_event = {
 	
 	after = {
 		hidden_effect = {
-			country_event = { id = guardian.300 }
+			country_event = { id = leviathans.300 }
 		}
 	}
 	
