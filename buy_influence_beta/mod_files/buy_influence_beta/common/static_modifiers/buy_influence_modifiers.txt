@@ -1,24 +1,360 @@
 buy_influence_0point5 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	static_resource_influence_add = 0.5
-	static_resource_minerals_add = -10
-	static_resource_energy_add = -10
 }
 buy_influence_1point0 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	static_resource_influence_add = 1.0
-	static_resource_minerals_add = -20
-	static_resource_energy_add = -20
 }
 buy_influence_1point5 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	static_resource_influence_add = 1.5
-	static_resource_minerals_add = -30
-	static_resource_energy_add = -30
 }
 buy_influence_2point0 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	static_resource_influence_add = 2.0
-	static_resource_minerals_add = -40
-	static_resource_energy_add = -40
 }
+
+
+buy_influence_drain_0010 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -10
+    static_resource_energy_add = -10
+}
+buy_influence_drain_0012 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -12
+    static_resource_energy_add = -12
+}
+buy_influence_drain_0014 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -14
+    static_resource_energy_add = -14
+}
+buy_influence_drain_0016 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -16
+    static_resource_energy_add = -16
+}
+buy_influence_drain_0018 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -18
+    static_resource_energy_add = -18
+}
+buy_influence_drain_0020 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -20
+    static_resource_energy_add = -20
+}
+buy_influence_drain_0024 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -24
+    static_resource_energy_add = -24
+}
+buy_influence_drain_0025 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -25
+    static_resource_energy_add = -25
+}
+buy_influence_drain_0028 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -28
+    static_resource_energy_add = -28
+}
+buy_influence_drain_0030 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -30
+    static_resource_energy_add = -30
+}
+buy_influence_drain_0032 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -32
+    static_resource_energy_add = -32
+}
+buy_influence_drain_0035 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -35
+    static_resource_energy_add = -35
+}
+buy_influence_drain_0036 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -36
+    static_resource_energy_add = -36
+}
+buy_influence_drain_0040 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -40
+    static_resource_energy_add = -40
+}
+buy_influence_drain_0042 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -42
+    static_resource_energy_add = -42
+}
+buy_influence_drain_0045 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -45
+    static_resource_energy_add = -45
+}
+buy_influence_drain_0048 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -48
+    static_resource_energy_add = -48
+}
+buy_influence_drain_0050 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -50
+    static_resource_energy_add = -50
+}
+buy_influence_drain_0054 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -54
+    static_resource_energy_add = -54
+}
+buy_influence_drain_0056 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -56
+    static_resource_energy_add = -56
+}
+buy_influence_drain_0060 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -60
+    static_resource_energy_add = -60
+}
+buy_influence_drain_0064 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -64
+    static_resource_energy_add = -64
+}
+buy_influence_drain_0070 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -70
+    static_resource_energy_add = -70
+}
+buy_influence_drain_0072 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -72
+    static_resource_energy_add = -72
+}
+buy_influence_drain_0075 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -75
+    static_resource_energy_add = -75
+}
+buy_influence_drain_0080 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -80
+    static_resource_energy_add = -80
+}
+buy_influence_drain_0090 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -90
+    static_resource_energy_add = -90
+}
+buy_influence_drain_0100 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -100
+    static_resource_energy_add = -100
+}
+buy_influence_drain_0105 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -105
+    static_resource_energy_add = -105
+}
+buy_influence_drain_0120 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -120
+    static_resource_energy_add = -120
+}
+buy_influence_drain_0135 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -135
+    static_resource_energy_add = -135
+}
+buy_influence_drain_0140 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -140
+    static_resource_energy_add = -140
+}
+buy_influence_drain_0150 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -150
+    static_resource_energy_add = -150
+}
+buy_influence_drain_0160 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -160
+    static_resource_energy_add = -160
+}
+buy_influence_drain_0180 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -180
+    static_resource_energy_add = -180
+}
+buy_influence_drain_0200 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -200
+    static_resource_energy_add = -200
+}
+buy_influence_drain_0210 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -210
+    static_resource_energy_add = -210
+}
+buy_influence_drain_0240 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -240
+    static_resource_energy_add = -240
+}
+buy_influence_drain_0250 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -250
+    static_resource_energy_add = -250
+}
+buy_influence_drain_0270 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -270
+    static_resource_energy_add = -270
+}
+buy_influence_drain_0280 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -280
+    static_resource_energy_add = -280
+}
+buy_influence_drain_0300 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -300
+    static_resource_energy_add = -300
+}
+buy_influence_drain_0320 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -320
+    static_resource_energy_add = -320
+}
+buy_influence_drain_0350 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -350
+    static_resource_energy_add = -350
+}
+buy_influence_drain_0360 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -360
+    static_resource_energy_add = -360
+}
+buy_influence_drain_0400 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -400
+    static_resource_energy_add = -400
+}
+buy_influence_drain_0420 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -420
+    static_resource_energy_add = -420
+}
+buy_influence_drain_0450 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -450
+    static_resource_energy_add = -450
+}
+buy_influence_drain_0480 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -480
+    static_resource_energy_add = -480
+}
+buy_influence_drain_0500 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -500
+    static_resource_energy_add = -500
+}
+buy_influence_drain_0540 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -540
+    static_resource_energy_add = -540
+}
+buy_influence_drain_0560 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -560
+    static_resource_energy_add = -560
+}
+buy_influence_drain_0600 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -600
+    static_resource_energy_add = -600
+}
+buy_influence_drain_0640 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -640
+    static_resource_energy_add = -640
+}
+buy_influence_drain_0700 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -700
+    static_resource_energy_add = -700
+}
+buy_influence_drain_0720 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -720
+    static_resource_energy_add = -720
+}
+buy_influence_drain_0750 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -750
+    static_resource_energy_add = -750
+}
+buy_influence_drain_0800 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -800
+    static_resource_energy_add = -800
+}
+buy_influence_drain_0900 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -900
+    static_resource_energy_add = -900
+}
+buy_influence_drain_1000 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1000
+    static_resource_energy_add = -1000
+}
+buy_influence_drain_1050 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1050
+    static_resource_energy_add = -1050
+}
+buy_influence_drain_1200 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1200
+    static_resource_energy_add = -1200
+}
+buy_influence_drain_1350 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1350
+    static_resource_energy_add = -1350
+}
+buy_influence_drain_1400 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1400
+    static_resource_energy_add = -1400
+}
+buy_influence_drain_1500 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1500
+    static_resource_energy_add = -1500
+}
+buy_influence_drain_1600 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1600
+    static_resource_energy_add = -1600
+}
+buy_influence_drain_1800 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -1800
+    static_resource_energy_add = -1800
+}
+buy_influence_drain_2000 = {
+    icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
+    static_resource_minerals_add = -2000
+    static_resource_energy_add = -2000
+}
+
+

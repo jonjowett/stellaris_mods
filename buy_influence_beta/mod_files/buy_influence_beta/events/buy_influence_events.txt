@@ -17,55 +17,115 @@ country_event = {
 		room = enclave_artist_room
 	}
 	
-	trigger = {
-		has_country_flag = artist_enclave_diplomacy_engaged
+	#Clear out all pre-existing buffs (there shouldn't be any, but you never know...)
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+		remove_modifier = buy_influence_drain_0010
+		remove_modifier = buy_influence_drain_0012
+		remove_modifier = buy_influence_drain_0014
+		remove_modifier = buy_influence_drain_0016
+		remove_modifier = buy_influence_drain_0018
+		remove_modifier = buy_influence_drain_0020
+		remove_modifier = buy_influence_drain_0024
+		remove_modifier = buy_influence_drain_0025
+		remove_modifier = buy_influence_drain_0028
+		remove_modifier = buy_influence_drain_0030
+		remove_modifier = buy_influence_drain_0032
+		remove_modifier = buy_influence_drain_0035
+		remove_modifier = buy_influence_drain_0036
+		remove_modifier = buy_influence_drain_0040
+		remove_modifier = buy_influence_drain_0042
+		remove_modifier = buy_influence_drain_0045
+		remove_modifier = buy_influence_drain_0048
+		remove_modifier = buy_influence_drain_0050
+		remove_modifier = buy_influence_drain_0054
+		remove_modifier = buy_influence_drain_0056
+		remove_modifier = buy_influence_drain_0060
+		remove_modifier = buy_influence_drain_0064
+		remove_modifier = buy_influence_drain_0070
+		remove_modifier = buy_influence_drain_0072
+		remove_modifier = buy_influence_drain_0075
+		remove_modifier = buy_influence_drain_0080
+		remove_modifier = buy_influence_drain_0090
+		remove_modifier = buy_influence_drain_0100
+		remove_modifier = buy_influence_drain_0105
+		remove_modifier = buy_influence_drain_0120
+		remove_modifier = buy_influence_drain_0135
+		remove_modifier = buy_influence_drain_0140
+		remove_modifier = buy_influence_drain_0150
+		remove_modifier = buy_influence_drain_0160
+		remove_modifier = buy_influence_drain_0180
+		remove_modifier = buy_influence_drain_0200
+		remove_modifier = buy_influence_drain_0210
+		remove_modifier = buy_influence_drain_0240
+		remove_modifier = buy_influence_drain_0250
+		remove_modifier = buy_influence_drain_0270
+		remove_modifier = buy_influence_drain_0280
+		remove_modifier = buy_influence_drain_0300
+		remove_modifier = buy_influence_drain_0320
+		remove_modifier = buy_influence_drain_0350
+		remove_modifier = buy_influence_drain_0360
+		remove_modifier = buy_influence_drain_0400
+		remove_modifier = buy_influence_drain_0420
+		remove_modifier = buy_influence_drain_0450
+		remove_modifier = buy_influence_drain_0480
+		remove_modifier = buy_influence_drain_0500
+		remove_modifier = buy_influence_drain_0540
+		remove_modifier = buy_influence_drain_0560
+		remove_modifier = buy_influence_drain_0600
+		remove_modifier = buy_influence_drain_0640
+		remove_modifier = buy_influence_drain_0700
+		remove_modifier = buy_influence_drain_0720
+		remove_modifier = buy_influence_drain_0750
+		remove_modifier = buy_influence_drain_0800
+		remove_modifier = buy_influence_drain_0900
+		remove_modifier = buy_influence_drain_1000
+		remove_modifier = buy_influence_drain_1050
+		remove_modifier = buy_influence_drain_1200
+		remove_modifier = buy_influence_drain_1350
+		remove_modifier = buy_influence_drain_1400
+		remove_modifier = buy_influence_drain_1500
+		remove_modifier = buy_influence_drain_1600
+		remove_modifier = buy_influence_drain_1800
+		remove_modifier = buy_influence_drain_2000
 	}
 
 	option = {
 		name = buy_influence.100.a
 		response_text = buy_influence.100.a.reply
-		add_modifier = {
-			modifier = "buy_influence_0point5"
-			days = -1
-		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = buy_influence.205 }
 		}
 	}
 
 	option = {
 		name = buy_influence.100.b
 		response_text = buy_influence.100.b.reply
-		add_modifier = {
-			modifier = "buy_influence_1point0"
-			days = -1
-		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = buy_influence.210 }
 		}
 	}
 
 	option = {
 		name = buy_influence.100.c
 		response_text = buy_influence.100.c.reply
-		add_modifier = {
-			modifier = "buy_influence_1point5"
-			days = -1
-		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = buy_influence.215 }
 		}
 	}
 
 	option = {
 		name = buy_influence.100.d
 		response_text = buy_influence.100.d.reply
-		add_modifier = {
-			modifier = "buy_influence_2point0"
-			days = -1
-		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = buy_influence.220 }
 		}
 	}
 	
@@ -75,13 +135,1621 @@ country_event = {
 		response_text = buy_influence.100.nodeal.reply
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
-		}
-	}
-	
-	after = {
-		hidden_effect = {
 			country_event = { id = leviathans.300 }
 		}
 	}
 	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Monthly background evaluation - is the current drain rate correct for the selected level of influence gain?
+
+country_event = {
+	id = buy_influence.200
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+	
+######################################################## BEGIN AUTO-GENERATED CODE ########################################################
+
+
+		if = {
+			limit = { has_modifier = buy_influence_0point5 }
+			if = {
+				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0010 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0012 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0014 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0016 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0018 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0020 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0025 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0030 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0035 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0040 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0045 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0050 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0060 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0070 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0080 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0090 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0100 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0120 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0140 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0160 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0180 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0200 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_0250 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_0300 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_0350 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_0400 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_0450 } } }
+				country_event = { id = buy_influence.205 }
+			}
+			else_if = {
+				limit = { NOT = { has_modifier = buy_influence_drain_0500 } }
+				country_event = { id = buy_influence.205 }
+			}
+			else = {
+				#Do nothing because the empire has the correct drain rate
+			}
+		}
+		else_if = {
+			limit = { has_modifier = buy_influence_1point0 }
+			if = {
+				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0020 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0024 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0028 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0032 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0036 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0040 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0050 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0060 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0070 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0080 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0090 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0100 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0120 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0140 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0160 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0180 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0200 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0240 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0280 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0320 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0360 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0400 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_0500 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_0600 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_0700 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_0800 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_0900 } } }
+				country_event = { id = buy_influence.210 }
+			}
+			else_if = {
+				limit = { NOT = { has_modifier = buy_influence_drain_1000 } }
+				country_event = { id = buy_influence.210 }
+			}
+			else = {
+				#Do nothing because the empire has the correct drain rate
+			}
+		}
+		else_if = {
+			limit = { has_modifier = buy_influence_1point5 }
+			if = {
+				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0030 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0036 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0042 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0048 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0054 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0060 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0075 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0090 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0105 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0120 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0135 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0150 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0180 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0210 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0240 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0270 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0300 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0360 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0420 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0480 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0540 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0600 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_0750 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_0900 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_1050 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_1200 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_1350 } } }
+				country_event = { id = buy_influence.215 }
+			}
+			else_if = {
+				limit = { NOT = { has_modifier = buy_influence_drain_1500 } }
+				country_event = { id = buy_influence.215 }
+			}
+			else = {
+				#Do nothing because the empire has the correct drain rate
+			}
+		}
+		else_if = {
+			limit = { has_modifier = buy_influence_2point0 }
+			if = {
+				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0040 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0048 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0056 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0064 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0072 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0080 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0100 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0120 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0140 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0160 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0180 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0200 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0240 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0280 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0320 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0360 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0400 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0480 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0560 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0640 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0720 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0800 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_1000 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_1200 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_1400 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_1600 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_1800 } } }
+				country_event = { id = buy_influence.220 }
+			}
+			else_if = {
+				limit = { NOT = { has_modifier = buy_influence_drain_2000 } }
+				country_event = { id = buy_influence.220 }
+			}
+			else = {
+				#Do nothing because the empire has the correct drain rate
+			}
+		}
+
+		
+		
+
+######################################################## END AUTO-GENERATED CODE ########################################################
+	
+	
+		else = {
+			#Do nothing because the empire doesn't have an influence-gain modifier from this mod
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Give the user the option to purchase the propaganda campaign at the calculated drain rate
+
+
+
+country_event = {
+	id = buy_influence.205
+	title = leviathans.300.name
+	desc = buy_influence.205.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave
+		room = enclave_artist_room
+	}
+	
+	#Clear out all pre-existing buffs (there shouldn't be any, but you never know...)
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+		remove_modifier = buy_influence_drain_0010
+		remove_modifier = buy_influence_drain_0012
+		remove_modifier = buy_influence_drain_0014
+		remove_modifier = buy_influence_drain_0016
+		remove_modifier = buy_influence_drain_0018
+		remove_modifier = buy_influence_drain_0020
+		remove_modifier = buy_influence_drain_0024
+		remove_modifier = buy_influence_drain_0025
+		remove_modifier = buy_influence_drain_0028
+		remove_modifier = buy_influence_drain_0030
+		remove_modifier = buy_influence_drain_0032
+		remove_modifier = buy_influence_drain_0035
+		remove_modifier = buy_influence_drain_0036
+		remove_modifier = buy_influence_drain_0040
+		remove_modifier = buy_influence_drain_0042
+		remove_modifier = buy_influence_drain_0045
+		remove_modifier = buy_influence_drain_0048
+		remove_modifier = buy_influence_drain_0050
+		remove_modifier = buy_influence_drain_0054
+		remove_modifier = buy_influence_drain_0056
+		remove_modifier = buy_influence_drain_0060
+		remove_modifier = buy_influence_drain_0064
+		remove_modifier = buy_influence_drain_0070
+		remove_modifier = buy_influence_drain_0072
+		remove_modifier = buy_influence_drain_0075
+		remove_modifier = buy_influence_drain_0080
+		remove_modifier = buy_influence_drain_0090
+		remove_modifier = buy_influence_drain_0100
+		remove_modifier = buy_influence_drain_0105
+		remove_modifier = buy_influence_drain_0120
+		remove_modifier = buy_influence_drain_0135
+		remove_modifier = buy_influence_drain_0140
+		remove_modifier = buy_influence_drain_0150
+		remove_modifier = buy_influence_drain_0160
+		remove_modifier = buy_influence_drain_0180
+		remove_modifier = buy_influence_drain_0200
+		remove_modifier = buy_influence_drain_0210
+		remove_modifier = buy_influence_drain_0240
+		remove_modifier = buy_influence_drain_0250
+		remove_modifier = buy_influence_drain_0270
+		remove_modifier = buy_influence_drain_0280
+		remove_modifier = buy_influence_drain_0300
+		remove_modifier = buy_influence_drain_0320
+		remove_modifier = buy_influence_drain_0350
+		remove_modifier = buy_influence_drain_0360
+		remove_modifier = buy_influence_drain_0400
+		remove_modifier = buy_influence_drain_0420
+		remove_modifier = buy_influence_drain_0450
+		remove_modifier = buy_influence_drain_0480
+		remove_modifier = buy_influence_drain_0500
+		remove_modifier = buy_influence_drain_0540
+		remove_modifier = buy_influence_drain_0560
+		remove_modifier = buy_influence_drain_0600
+		remove_modifier = buy_influence_drain_0640
+		remove_modifier = buy_influence_drain_0700
+		remove_modifier = buy_influence_drain_0720
+		remove_modifier = buy_influence_drain_0750
+		remove_modifier = buy_influence_drain_0800
+		remove_modifier = buy_influence_drain_0900
+		remove_modifier = buy_influence_drain_1000
+		remove_modifier = buy_influence_drain_1050
+		remove_modifier = buy_influence_drain_1200
+		remove_modifier = buy_influence_drain_1350
+		remove_modifier = buy_influence_drain_1400
+		remove_modifier = buy_influence_drain_1500
+		remove_modifier = buy_influence_drain_1600
+		remove_modifier = buy_influence_drain_1800
+		remove_modifier = buy_influence_drain_2000
+	}
+	
+
+######################################################## BEGIN AUTO-GENERATED CODE ########################################################
+
+	option = {
+		name = buy_influence.205.deal
+		response_text = buy_influence.205.deal.reply
+		add_modifier = {
+			modifier = "buy_influence_0point5"
+			days = -1
+		}
+		if = {
+			limit = { num_pops < 42 }
+			add_modifier = { modifier = "buy_influence_drain_0010" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 54 }
+			add_modifier = { modifier = "buy_influence_drain_0012" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 66 }
+			add_modifier = { modifier = "buy_influence_drain_0014" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 78 }
+			add_modifier = { modifier = "buy_influence_drain_0016" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 90 }
+			add_modifier = { modifier = "buy_influence_drain_0018" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 120 }
+			add_modifier = { modifier = "buy_influence_drain_0020" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 150 }
+			add_modifier = { modifier = "buy_influence_drain_0025" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 180 }
+			add_modifier = { modifier = "buy_influence_drain_0030" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 210 }
+			add_modifier = { modifier = "buy_influence_drain_0035" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 240 }
+			add_modifier = { modifier = "buy_influence_drain_0040" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 270 }
+			add_modifier = { modifier = "buy_influence_drain_0045" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 330 }
+			add_modifier = { modifier = "buy_influence_drain_0050" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 390 }
+			add_modifier = { modifier = "buy_influence_drain_0060" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 450 }
+			add_modifier = { modifier = "buy_influence_drain_0070" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 510 }
+			add_modifier = { modifier = "buy_influence_drain_0080" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 570 }
+			add_modifier = { modifier = "buy_influence_drain_0090" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 690 }
+			add_modifier = { modifier = "buy_influence_drain_0100" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 810 }
+			add_modifier = { modifier = "buy_influence_drain_0120" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 930 }
+			add_modifier = { modifier = "buy_influence_drain_0140" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1050 }
+			add_modifier = { modifier = "buy_influence_drain_0160" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1170 }
+			add_modifier = { modifier = "buy_influence_drain_0180" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1470 }
+			add_modifier = { modifier = "buy_influence_drain_0200" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1770 }
+			add_modifier = { modifier = "buy_influence_drain_0250" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2070 }
+			add_modifier = { modifier = "buy_influence_drain_0300" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2370 }
+			add_modifier = { modifier = "buy_influence_drain_0350" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2670 }
+			add_modifier = { modifier = "buy_influence_drain_0400" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2970 }
+			add_modifier = { modifier = "buy_influence_drain_0450" days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = "buy_influence_drain_0500" days = -1 }
+		}
+	}
+	
+	option = {
+		name = NODEAL
+		default_hide_option = yes
+		response_text = buy_influence.205.nodeal.reply
+		hidden_effect = {
+			country_event = { id = buy_influence.100 }
+		}
+	}
+
+######################################################## END AUTO-GENERATED CODE ########################################################
+
+
+}
+
+
+country_event = {
+	id = buy_influence.210
+	title = leviathans.300.name
+	desc = buy_influence.210.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave
+		room = enclave_artist_room
+	}
+	
+	#Clear out all pre-existing buffs (there shouldn't be any, but you never know...)
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+		remove_modifier = buy_influence_drain_0010
+		remove_modifier = buy_influence_drain_0012
+		remove_modifier = buy_influence_drain_0014
+		remove_modifier = buy_influence_drain_0016
+		remove_modifier = buy_influence_drain_0018
+		remove_modifier = buy_influence_drain_0020
+		remove_modifier = buy_influence_drain_0024
+		remove_modifier = buy_influence_drain_0025
+		remove_modifier = buy_influence_drain_0028
+		remove_modifier = buy_influence_drain_0030
+		remove_modifier = buy_influence_drain_0032
+		remove_modifier = buy_influence_drain_0035
+		remove_modifier = buy_influence_drain_0036
+		remove_modifier = buy_influence_drain_0040
+		remove_modifier = buy_influence_drain_0042
+		remove_modifier = buy_influence_drain_0045
+		remove_modifier = buy_influence_drain_0048
+		remove_modifier = buy_influence_drain_0050
+		remove_modifier = buy_influence_drain_0054
+		remove_modifier = buy_influence_drain_0056
+		remove_modifier = buy_influence_drain_0060
+		remove_modifier = buy_influence_drain_0064
+		remove_modifier = buy_influence_drain_0070
+		remove_modifier = buy_influence_drain_0072
+		remove_modifier = buy_influence_drain_0075
+		remove_modifier = buy_influence_drain_0080
+		remove_modifier = buy_influence_drain_0090
+		remove_modifier = buy_influence_drain_0100
+		remove_modifier = buy_influence_drain_0105
+		remove_modifier = buy_influence_drain_0120
+		remove_modifier = buy_influence_drain_0135
+		remove_modifier = buy_influence_drain_0140
+		remove_modifier = buy_influence_drain_0150
+		remove_modifier = buy_influence_drain_0160
+		remove_modifier = buy_influence_drain_0180
+		remove_modifier = buy_influence_drain_0200
+		remove_modifier = buy_influence_drain_0210
+		remove_modifier = buy_influence_drain_0240
+		remove_modifier = buy_influence_drain_0250
+		remove_modifier = buy_influence_drain_0270
+		remove_modifier = buy_influence_drain_0280
+		remove_modifier = buy_influence_drain_0300
+		remove_modifier = buy_influence_drain_0320
+		remove_modifier = buy_influence_drain_0350
+		remove_modifier = buy_influence_drain_0360
+		remove_modifier = buy_influence_drain_0400
+		remove_modifier = buy_influence_drain_0420
+		remove_modifier = buy_influence_drain_0450
+		remove_modifier = buy_influence_drain_0480
+		remove_modifier = buy_influence_drain_0500
+		remove_modifier = buy_influence_drain_0540
+		remove_modifier = buy_influence_drain_0560
+		remove_modifier = buy_influence_drain_0600
+		remove_modifier = buy_influence_drain_0640
+		remove_modifier = buy_influence_drain_0700
+		remove_modifier = buy_influence_drain_0720
+		remove_modifier = buy_influence_drain_0750
+		remove_modifier = buy_influence_drain_0800
+		remove_modifier = buy_influence_drain_0900
+		remove_modifier = buy_influence_drain_1000
+		remove_modifier = buy_influence_drain_1050
+		remove_modifier = buy_influence_drain_1200
+		remove_modifier = buy_influence_drain_1350
+		remove_modifier = buy_influence_drain_1400
+		remove_modifier = buy_influence_drain_1500
+		remove_modifier = buy_influence_drain_1600
+		remove_modifier = buy_influence_drain_1800
+		remove_modifier = buy_influence_drain_2000
+	}
+	
+
+######################################################## BEGIN AUTO-GENERATED CODE ########################################################
+
+	option = {
+		name = buy_influence.210.deal
+		response_text = buy_influence.210.deal.reply
+		add_modifier = {
+			modifier = "buy_influence_1point0"
+			days = -1
+		}
+		if = {
+			limit = { num_pops < 42 }
+			add_modifier = { modifier = "buy_influence_drain_0020" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 54 }
+			add_modifier = { modifier = "buy_influence_drain_0024" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 66 }
+			add_modifier = { modifier = "buy_influence_drain_0028" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 78 }
+			add_modifier = { modifier = "buy_influence_drain_0032" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 90 }
+			add_modifier = { modifier = "buy_influence_drain_0036" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 120 }
+			add_modifier = { modifier = "buy_influence_drain_0040" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 150 }
+			add_modifier = { modifier = "buy_influence_drain_0050" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 180 }
+			add_modifier = { modifier = "buy_influence_drain_0060" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 210 }
+			add_modifier = { modifier = "buy_influence_drain_0070" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 240 }
+			add_modifier = { modifier = "buy_influence_drain_0080" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 270 }
+			add_modifier = { modifier = "buy_influence_drain_0090" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 330 }
+			add_modifier = { modifier = "buy_influence_drain_0100" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 390 }
+			add_modifier = { modifier = "buy_influence_drain_0120" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 450 }
+			add_modifier = { modifier = "buy_influence_drain_0140" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 510 }
+			add_modifier = { modifier = "buy_influence_drain_0160" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 570 }
+			add_modifier = { modifier = "buy_influence_drain_0180" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 690 }
+			add_modifier = { modifier = "buy_influence_drain_0200" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 810 }
+			add_modifier = { modifier = "buy_influence_drain_0240" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 930 }
+			add_modifier = { modifier = "buy_influence_drain_0280" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1050 }
+			add_modifier = { modifier = "buy_influence_drain_0320" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1170 }
+			add_modifier = { modifier = "buy_influence_drain_0360" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1470 }
+			add_modifier = { modifier = "buy_influence_drain_0400" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1770 }
+			add_modifier = { modifier = "buy_influence_drain_0500" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2070 }
+			add_modifier = { modifier = "buy_influence_drain_0600" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2370 }
+			add_modifier = { modifier = "buy_influence_drain_0700" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2670 }
+			add_modifier = { modifier = "buy_influence_drain_0800" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2970 }
+			add_modifier = { modifier = "buy_influence_drain_0900" days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = "buy_influence_drain_1000" days = -1 }
+		}
+	}
+	
+	option = {
+		name = NODEAL
+		default_hide_option = yes
+		response_text = buy_influence.210.nodeal.reply
+		hidden_effect = {
+			country_event = { id = buy_influence.100 }
+		}
+	}
+
+
+######################################################## END AUTO-GENERATED CODE ########################################################
+
+
+}
+
+
+country_event = {
+	id = buy_influence.215
+	title = leviathans.300.name
+	desc = buy_influence.215.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave
+		room = enclave_artist_room
+	}
+	
+	#Clear out all pre-existing buffs (there shouldn't be any, but you never know...)
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+		remove_modifier = buy_influence_drain_0010
+		remove_modifier = buy_influence_drain_0012
+		remove_modifier = buy_influence_drain_0014
+		remove_modifier = buy_influence_drain_0016
+		remove_modifier = buy_influence_drain_0018
+		remove_modifier = buy_influence_drain_0020
+		remove_modifier = buy_influence_drain_0024
+		remove_modifier = buy_influence_drain_0025
+		remove_modifier = buy_influence_drain_0028
+		remove_modifier = buy_influence_drain_0030
+		remove_modifier = buy_influence_drain_0032
+		remove_modifier = buy_influence_drain_0035
+		remove_modifier = buy_influence_drain_0036
+		remove_modifier = buy_influence_drain_0040
+		remove_modifier = buy_influence_drain_0042
+		remove_modifier = buy_influence_drain_0045
+		remove_modifier = buy_influence_drain_0048
+		remove_modifier = buy_influence_drain_0050
+		remove_modifier = buy_influence_drain_0054
+		remove_modifier = buy_influence_drain_0056
+		remove_modifier = buy_influence_drain_0060
+		remove_modifier = buy_influence_drain_0064
+		remove_modifier = buy_influence_drain_0070
+		remove_modifier = buy_influence_drain_0072
+		remove_modifier = buy_influence_drain_0075
+		remove_modifier = buy_influence_drain_0080
+		remove_modifier = buy_influence_drain_0090
+		remove_modifier = buy_influence_drain_0100
+		remove_modifier = buy_influence_drain_0105
+		remove_modifier = buy_influence_drain_0120
+		remove_modifier = buy_influence_drain_0135
+		remove_modifier = buy_influence_drain_0140
+		remove_modifier = buy_influence_drain_0150
+		remove_modifier = buy_influence_drain_0160
+		remove_modifier = buy_influence_drain_0180
+		remove_modifier = buy_influence_drain_0200
+		remove_modifier = buy_influence_drain_0210
+		remove_modifier = buy_influence_drain_0240
+		remove_modifier = buy_influence_drain_0250
+		remove_modifier = buy_influence_drain_0270
+		remove_modifier = buy_influence_drain_0280
+		remove_modifier = buy_influence_drain_0300
+		remove_modifier = buy_influence_drain_0320
+		remove_modifier = buy_influence_drain_0350
+		remove_modifier = buy_influence_drain_0360
+		remove_modifier = buy_influence_drain_0400
+		remove_modifier = buy_influence_drain_0420
+		remove_modifier = buy_influence_drain_0450
+		remove_modifier = buy_influence_drain_0480
+		remove_modifier = buy_influence_drain_0500
+		remove_modifier = buy_influence_drain_0540
+		remove_modifier = buy_influence_drain_0560
+		remove_modifier = buy_influence_drain_0600
+		remove_modifier = buy_influence_drain_0640
+		remove_modifier = buy_influence_drain_0700
+		remove_modifier = buy_influence_drain_0720
+		remove_modifier = buy_influence_drain_0750
+		remove_modifier = buy_influence_drain_0800
+		remove_modifier = buy_influence_drain_0900
+		remove_modifier = buy_influence_drain_1000
+		remove_modifier = buy_influence_drain_1050
+		remove_modifier = buy_influence_drain_1200
+		remove_modifier = buy_influence_drain_1350
+		remove_modifier = buy_influence_drain_1400
+		remove_modifier = buy_influence_drain_1500
+		remove_modifier = buy_influence_drain_1600
+		remove_modifier = buy_influence_drain_1800
+		remove_modifier = buy_influence_drain_2000
+	}
+	
+
+######################################################## BEGIN AUTO-GENERATED CODE ########################################################
+
+	option = {
+		name = buy_influence.215.deal
+		response_text = buy_influence.215.deal.reply
+		add_modifier = {
+			modifier = "buy_influence_1point5"
+			days = -1
+		}
+		if = {
+			limit = { num_pops < 42 }
+			add_modifier = { modifier = "buy_influence_drain_0030" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 54 }
+			add_modifier = { modifier = "buy_influence_drain_0036" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 66 }
+			add_modifier = { modifier = "buy_influence_drain_0042" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 78 }
+			add_modifier = { modifier = "buy_influence_drain_0048" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 90 }
+			add_modifier = { modifier = "buy_influence_drain_0054" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 120 }
+			add_modifier = { modifier = "buy_influence_drain_0060" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 150 }
+			add_modifier = { modifier = "buy_influence_drain_0075" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 180 }
+			add_modifier = { modifier = "buy_influence_drain_0090" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 210 }
+			add_modifier = { modifier = "buy_influence_drain_0105" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 240 }
+			add_modifier = { modifier = "buy_influence_drain_0120" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 270 }
+			add_modifier = { modifier = "buy_influence_drain_0135" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 330 }
+			add_modifier = { modifier = "buy_influence_drain_0150" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 390 }
+			add_modifier = { modifier = "buy_influence_drain_0180" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 450 }
+			add_modifier = { modifier = "buy_influence_drain_0210" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 510 }
+			add_modifier = { modifier = "buy_influence_drain_0240" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 570 }
+			add_modifier = { modifier = "buy_influence_drain_0270" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 690 }
+			add_modifier = { modifier = "buy_influence_drain_0300" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 810 }
+			add_modifier = { modifier = "buy_influence_drain_0360" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 930 }
+			add_modifier = { modifier = "buy_influence_drain_0420" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1050 }
+			add_modifier = { modifier = "buy_influence_drain_0480" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1170 }
+			add_modifier = { modifier = "buy_influence_drain_0540" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1470 }
+			add_modifier = { modifier = "buy_influence_drain_0600" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1770 }
+			add_modifier = { modifier = "buy_influence_drain_0750" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2070 }
+			add_modifier = { modifier = "buy_influence_drain_0900" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2370 }
+			add_modifier = { modifier = "buy_influence_drain_1050" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2670 }
+			add_modifier = { modifier = "buy_influence_drain_1200" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2970 }
+			add_modifier = { modifier = "buy_influence_drain_1350" days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = "buy_influence_drain_1500" days = -1 }
+		}
+	}
+	
+	option = {
+		name = NODEAL
+		default_hide_option = yes
+		response_text = buy_influence.215.nodeal.reply
+		hidden_effect = {
+			country_event = { id = buy_influence.100 }
+		}
+	}
+
+
+######################################################## END AUTO-GENERATED CODE ########################################################
+
+
+}
+
+
+country_event = {
+	id = buy_influence.220
+	title = leviathans.300.name
+	desc = buy_influence.220.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave
+		room = enclave_artist_room
+	}
+	
+	#Clear out all pre-existing buffs (there shouldn't be any, but you never know...)
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+		remove_modifier = buy_influence_drain_0010
+		remove_modifier = buy_influence_drain_0012
+		remove_modifier = buy_influence_drain_0014
+		remove_modifier = buy_influence_drain_0016
+		remove_modifier = buy_influence_drain_0018
+		remove_modifier = buy_influence_drain_0020
+		remove_modifier = buy_influence_drain_0024
+		remove_modifier = buy_influence_drain_0025
+		remove_modifier = buy_influence_drain_0028
+		remove_modifier = buy_influence_drain_0030
+		remove_modifier = buy_influence_drain_0032
+		remove_modifier = buy_influence_drain_0035
+		remove_modifier = buy_influence_drain_0036
+		remove_modifier = buy_influence_drain_0040
+		remove_modifier = buy_influence_drain_0042
+		remove_modifier = buy_influence_drain_0045
+		remove_modifier = buy_influence_drain_0048
+		remove_modifier = buy_influence_drain_0050
+		remove_modifier = buy_influence_drain_0054
+		remove_modifier = buy_influence_drain_0056
+		remove_modifier = buy_influence_drain_0060
+		remove_modifier = buy_influence_drain_0064
+		remove_modifier = buy_influence_drain_0070
+		remove_modifier = buy_influence_drain_0072
+		remove_modifier = buy_influence_drain_0075
+		remove_modifier = buy_influence_drain_0080
+		remove_modifier = buy_influence_drain_0090
+		remove_modifier = buy_influence_drain_0100
+		remove_modifier = buy_influence_drain_0105
+		remove_modifier = buy_influence_drain_0120
+		remove_modifier = buy_influence_drain_0135
+		remove_modifier = buy_influence_drain_0140
+		remove_modifier = buy_influence_drain_0150
+		remove_modifier = buy_influence_drain_0160
+		remove_modifier = buy_influence_drain_0180
+		remove_modifier = buy_influence_drain_0200
+		remove_modifier = buy_influence_drain_0210
+		remove_modifier = buy_influence_drain_0240
+		remove_modifier = buy_influence_drain_0250
+		remove_modifier = buy_influence_drain_0270
+		remove_modifier = buy_influence_drain_0280
+		remove_modifier = buy_influence_drain_0300
+		remove_modifier = buy_influence_drain_0320
+		remove_modifier = buy_influence_drain_0350
+		remove_modifier = buy_influence_drain_0360
+		remove_modifier = buy_influence_drain_0400
+		remove_modifier = buy_influence_drain_0420
+		remove_modifier = buy_influence_drain_0450
+		remove_modifier = buy_influence_drain_0480
+		remove_modifier = buy_influence_drain_0500
+		remove_modifier = buy_influence_drain_0540
+		remove_modifier = buy_influence_drain_0560
+		remove_modifier = buy_influence_drain_0600
+		remove_modifier = buy_influence_drain_0640
+		remove_modifier = buy_influence_drain_0700
+		remove_modifier = buy_influence_drain_0720
+		remove_modifier = buy_influence_drain_0750
+		remove_modifier = buy_influence_drain_0800
+		remove_modifier = buy_influence_drain_0900
+		remove_modifier = buy_influence_drain_1000
+		remove_modifier = buy_influence_drain_1050
+		remove_modifier = buy_influence_drain_1200
+		remove_modifier = buy_influence_drain_1350
+		remove_modifier = buy_influence_drain_1400
+		remove_modifier = buy_influence_drain_1500
+		remove_modifier = buy_influence_drain_1600
+		remove_modifier = buy_influence_drain_1800
+		remove_modifier = buy_influence_drain_2000
+	}
+	
+
+######################################################## BEGIN AUTO-GENERATED CODE ########################################################
+
+	option = {
+		name = buy_influence.220.deal
+		response_text = buy_influence.220.deal.reply
+		add_modifier = {
+			modifier = "buy_influence_2point0"
+			days = -1
+		}
+		if = {
+			limit = { num_pops < 42 }
+			add_modifier = { modifier = "buy_influence_drain_0040" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 54 }
+			add_modifier = { modifier = "buy_influence_drain_0048" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 66 }
+			add_modifier = { modifier = "buy_influence_drain_0056" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 78 }
+			add_modifier = { modifier = "buy_influence_drain_0064" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 90 }
+			add_modifier = { modifier = "buy_influence_drain_0072" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 120 }
+			add_modifier = { modifier = "buy_influence_drain_0080" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 150 }
+			add_modifier = { modifier = "buy_influence_drain_0100" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 180 }
+			add_modifier = { modifier = "buy_influence_drain_0120" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 210 }
+			add_modifier = { modifier = "buy_influence_drain_0140" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 240 }
+			add_modifier = { modifier = "buy_influence_drain_0160" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 270 }
+			add_modifier = { modifier = "buy_influence_drain_0180" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 330 }
+			add_modifier = { modifier = "buy_influence_drain_0200" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 390 }
+			add_modifier = { modifier = "buy_influence_drain_0240" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 450 }
+			add_modifier = { modifier = "buy_influence_drain_0280" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 510 }
+			add_modifier = { modifier = "buy_influence_drain_0320" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 570 }
+			add_modifier = { modifier = "buy_influence_drain_0360" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 690 }
+			add_modifier = { modifier = "buy_influence_drain_0400" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 810 }
+			add_modifier = { modifier = "buy_influence_drain_0480" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 930 }
+			add_modifier = { modifier = "buy_influence_drain_0560" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1050 }
+			add_modifier = { modifier = "buy_influence_drain_0640" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1170 }
+			add_modifier = { modifier = "buy_influence_drain_0720" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1470 }
+			add_modifier = { modifier = "buy_influence_drain_0800" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 1770 }
+			add_modifier = { modifier = "buy_influence_drain_1000" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2070 }
+			add_modifier = { modifier = "buy_influence_drain_1200" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2370 }
+			add_modifier = { modifier = "buy_influence_drain_1400" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2670 }
+			add_modifier = { modifier = "buy_influence_drain_1600" days = -1 }
+		}
+		else_if = {
+			limit = { num_pops < 2970 }
+			add_modifier = { modifier = "buy_influence_drain_1800" days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = "buy_influence_drain_2000" days = -1 }
+		}
+	}
+	
+	option = {
+		name = NODEAL
+		default_hide_option = yes
+		response_text = buy_influence.220.nodeal.reply
+		hidden_effect = {
+			country_event = { id = buy_influence.100 }
+		}
+	}
+
+
+######################################################## END AUTO-GENERATED CODE ########################################################
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Testing
+
+
+country_event = {
+	id = buy_influence.900
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+		remove_modifier = buy_influence_drain_0010
+		remove_modifier = buy_influence_drain_0012
+		remove_modifier = buy_influence_drain_0014
+		remove_modifier = buy_influence_drain_0016
+		remove_modifier = buy_influence_drain_0018
+		remove_modifier = buy_influence_drain_0020
+		remove_modifier = buy_influence_drain_0024
+		remove_modifier = buy_influence_drain_0025
+		remove_modifier = buy_influence_drain_0028
+		remove_modifier = buy_influence_drain_0030
+		remove_modifier = buy_influence_drain_0032
+		remove_modifier = buy_influence_drain_0035
+		remove_modifier = buy_influence_drain_0036
+		remove_modifier = buy_influence_drain_0040
+		remove_modifier = buy_influence_drain_0042
+		remove_modifier = buy_influence_drain_0045
+		remove_modifier = buy_influence_drain_0048
+		remove_modifier = buy_influence_drain_0050
+		remove_modifier = buy_influence_drain_0054
+		remove_modifier = buy_influence_drain_0056
+		remove_modifier = buy_influence_drain_0060
+		remove_modifier = buy_influence_drain_0064
+		remove_modifier = buy_influence_drain_0070
+		remove_modifier = buy_influence_drain_0072
+		remove_modifier = buy_influence_drain_0075
+		remove_modifier = buy_influence_drain_0080
+		remove_modifier = buy_influence_drain_0090
+		remove_modifier = buy_influence_drain_0100
+		remove_modifier = buy_influence_drain_0105
+		remove_modifier = buy_influence_drain_0120
+		remove_modifier = buy_influence_drain_0135
+		remove_modifier = buy_influence_drain_0140
+		remove_modifier = buy_influence_drain_0150
+		remove_modifier = buy_influence_drain_0160
+		remove_modifier = buy_influence_drain_0180
+		remove_modifier = buy_influence_drain_0200
+		remove_modifier = buy_influence_drain_0210
+		remove_modifier = buy_influence_drain_0240
+		remove_modifier = buy_influence_drain_0250
+		remove_modifier = buy_influence_drain_0270
+		remove_modifier = buy_influence_drain_0280
+		remove_modifier = buy_influence_drain_0300
+		remove_modifier = buy_influence_drain_0320
+		remove_modifier = buy_influence_drain_0350
+		remove_modifier = buy_influence_drain_0360
+		remove_modifier = buy_influence_drain_0400
+		remove_modifier = buy_influence_drain_0420
+		remove_modifier = buy_influence_drain_0450
+		remove_modifier = buy_influence_drain_0480
+		remove_modifier = buy_influence_drain_0500
+		remove_modifier = buy_influence_drain_0540
+		remove_modifier = buy_influence_drain_0560
+		remove_modifier = buy_influence_drain_0600
+		remove_modifier = buy_influence_drain_0640
+		remove_modifier = buy_influence_drain_0700
+		remove_modifier = buy_influence_drain_0720
+		remove_modifier = buy_influence_drain_0750
+		remove_modifier = buy_influence_drain_0800
+		remove_modifier = buy_influence_drain_0900
+		remove_modifier = buy_influence_drain_1000
+		remove_modifier = buy_influence_drain_1050
+		remove_modifier = buy_influence_drain_1200
+		remove_modifier = buy_influence_drain_1350
+		remove_modifier = buy_influence_drain_1400
+		remove_modifier = buy_influence_drain_1500
+		remove_modifier = buy_influence_drain_1600
+		remove_modifier = buy_influence_drain_1800
+		remove_modifier = buy_influence_drain_2000
+	}
+}
+
+
+country_event = {
+	id = buy_influence.905
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_modifier = { modifier = "buy_influence_0point5" days = -1 }
+	}
+}
+country_event = {
+	id = buy_influence.910
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_modifier = { modifier = "buy_influence_1point0" days = -1 }
+	}
+}
+country_event = {
+	id = buy_influence.915
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_modifier = { modifier = "buy_influence_1point5" days = -1 }
+	}
+}
+country_event = {
+	id = buy_influence.920
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		add_modifier = { modifier = "buy_influence_2point0" days = -1 }
+	}
 }
