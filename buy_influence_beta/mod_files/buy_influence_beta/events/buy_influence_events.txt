@@ -19,6 +19,20 @@ country_event = {
 	
 	#Clear out all pre-existing buffs (there shouldn't be any, but you never know...)
 	immediate = {
+		
+		#TODO - May not be required
+		set_country_flag = artist_enclave_diplomacy_continued
+		
+		set_country_flag = buy_influence_from_main_menu
+		remove_country_flag = buy_influence_from_evaluation
+		remove_country_flag = buy_influence_cancelled
+		remove_country_flag = buy_influence_rejected_main_menu
+		remove_country_flag = buy_influence_rejected_upgrade
+		remove_country_flag = buy_influence_started_0point5
+		remove_country_flag = buy_influence_started_1point0
+		remove_country_flag = buy_influence_started_1point5
+		remove_country_flag = buy_influence_started_2point0
+		
 		remove_modifier = buy_influence_0point5
 		remove_modifier = buy_influence_1point0
 		remove_modifier = buy_influence_1point5
@@ -95,46 +109,28 @@ country_event = {
 
 	option = {
 		name = buy_influence.100.a
-		response_text = buy_influence.100.a.reply
-		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
-			country_event = { id = buy_influence.205 }
-		}
+		hidden_effect = { country_event = { id = buy_influence.205 } }
 	}
 
 	option = {
 		name = buy_influence.100.b
-		response_text = buy_influence.100.b.reply
-		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
-			country_event = { id = buy_influence.210 }
-		}
+		hidden_effect = { country_event = { id = buy_influence.210 } }
 	}
 
 	option = {
 		name = buy_influence.100.c
-		response_text = buy_influence.100.c.reply
-		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
-			country_event = { id = buy_influence.215 }
-		}
+		hidden_effect = { country_event = { id = buy_influence.215 } }
 	}
 
 	option = {
 		name = buy_influence.100.d
-		response_text = buy_influence.100.d.reply
-		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
-			country_event = { id = buy_influence.220 }
-		}
+		hidden_effect = { country_event = { id = buy_influence.220 } }
 	}
 	
 	option = {
 		name = NODEAL
-		default_hide_option = yes
-		response_text = buy_influence.100.nodeal.reply
 		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
+			set_country_flag = buy_influence_rejected
 			country_event = { id = leviathans.300 }
 		}
 	}
@@ -172,118 +168,128 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-	
+		
+		remove_country_flag = buy_influence_from_main_menu
+		set_country_flag = buy_influence_from_evaluation
+		remove_country_flag = buy_influence_cancelled
+		remove_country_flag = buy_influence_rejected_main_menu
+		remove_country_flag = buy_influence_rejected_upgrade
+		remove_country_flag = buy_influence_started_0point5
+		remove_country_flag = buy_influence_started_1point0
+		remove_country_flag = buy_influence_started_1point5
+		remove_country_flag = buy_influence_started_2point0
+		
 ######################################################## BEGIN AUTO-GENERATED CODE ########################################################
 
 
 		if = {
 			limit = { has_modifier = buy_influence_0point5 }
 			if = {
-				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0010 } } }
+				limit = { NOT = { AND = { num_pops > 0 num_pops < 42 has_modifier = buy_influence_drain_0010 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0012 } } }
+				limit = { NOT = { AND = { num_pops > 41 num_pops < 54 has_modifier = buy_influence_drain_0012 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0014 } } }
+				limit = { NOT = { AND = { num_pops > 53 num_pops < 66 has_modifier = buy_influence_drain_0014 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0016 } } }
+				limit = { NOT = { AND = { num_pops > 65 num_pops < 78 has_modifier = buy_influence_drain_0016 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0018 } } }
+				limit = { NOT = { AND = { num_pops > 77 num_pops < 90 has_modifier = buy_influence_drain_0018 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0020 } } }
+				limit = { NOT = { AND = { num_pops > 89 num_pops < 120 has_modifier = buy_influence_drain_0020 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0025 } } }
+				limit = { NOT = { AND = { num_pops > 119 num_pops < 150 has_modifier = buy_influence_drain_0025 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0030 } } }
+				limit = { NOT = { AND = { num_pops > 149 num_pops < 180 has_modifier = buy_influence_drain_0030 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0035 } } }
+				limit = { NOT = { AND = { num_pops > 179 num_pops < 210 has_modifier = buy_influence_drain_0035 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0040 } } }
+				limit = { NOT = { AND = { num_pops > 209 num_pops < 240 has_modifier = buy_influence_drain_0040 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0045 } } }
+				limit = { NOT = { AND = { num_pops > 239 num_pops < 270 has_modifier = buy_influence_drain_0045 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0050 } } }
+				limit = { NOT = { AND = { num_pops > 269 num_pops < 330 has_modifier = buy_influence_drain_0050 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0060 } } }
+				limit = { NOT = { AND = { num_pops > 329 num_pops < 390 has_modifier = buy_influence_drain_0060 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0070 } } }
+				limit = { NOT = { AND = { num_pops > 389 num_pops < 450 has_modifier = buy_influence_drain_0070 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0080 } } }
+				limit = { NOT = { AND = { num_pops > 449 num_pops < 510 has_modifier = buy_influence_drain_0080 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0090 } } }
+				limit = { NOT = { AND = { num_pops > 509 num_pops < 570 has_modifier = buy_influence_drain_0090 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0100 } } }
+				limit = { NOT = { AND = { num_pops > 569 num_pops < 690 has_modifier = buy_influence_drain_0100 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0120 } } }
+				limit = { NOT = { AND = { num_pops > 689 num_pops < 810 has_modifier = buy_influence_drain_0120 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0140 } } }
+				limit = { NOT = { AND = { num_pops > 809 num_pops < 930 has_modifier = buy_influence_drain_0140 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0160 } } }
+				limit = { NOT = { AND = { num_pops > 929 num_pops < 1050 has_modifier = buy_influence_drain_0160 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0180 } } }
+				limit = { NOT = { AND = { num_pops > 1049 num_pops < 1170 has_modifier = buy_influence_drain_0180 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0200 } } }
+				limit = { NOT = { AND = { num_pops > 1169 num_pops < 1470 has_modifier = buy_influence_drain_0200 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_0250 } } }
+				limit = { NOT = { AND = { num_pops > 1469 num_pops < 1770 has_modifier = buy_influence_drain_0250 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_0300 } } }
+				limit = { NOT = { AND = { num_pops > 1769 num_pops < 2070 has_modifier = buy_influence_drain_0300 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_0350 } } }
+				limit = { NOT = { AND = { num_pops > 2069 num_pops < 2370 has_modifier = buy_influence_drain_0350 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_0400 } } }
+				limit = { NOT = { AND = { num_pops > 2369 num_pops < 2670 has_modifier = buy_influence_drain_0400 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_0450 } } }
+				limit = { NOT = { AND = { num_pops > 2669 num_pops < 2970 has_modifier = buy_influence_drain_0450 } } }
 				country_event = { id = buy_influence.205 }
 			}
 			else_if = {
@@ -297,111 +303,111 @@ country_event = {
 		else_if = {
 			limit = { has_modifier = buy_influence_1point0 }
 			if = {
-				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0020 } } }
+				limit = { NOT = { AND = { num_pops > 0 num_pops < 42 has_modifier = buy_influence_drain_0020 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0024 } } }
+				limit = { NOT = { AND = { num_pops > 41 num_pops < 54 has_modifier = buy_influence_drain_0024 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0028 } } }
+				limit = { NOT = { AND = { num_pops > 53 num_pops < 66 has_modifier = buy_influence_drain_0028 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0032 } } }
+				limit = { NOT = { AND = { num_pops > 65 num_pops < 78 has_modifier = buy_influence_drain_0032 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0036 } } }
+				limit = { NOT = { AND = { num_pops > 77 num_pops < 90 has_modifier = buy_influence_drain_0036 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0040 } } }
+				limit = { NOT = { AND = { num_pops > 89 num_pops < 120 has_modifier = buy_influence_drain_0040 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0050 } } }
+				limit = { NOT = { AND = { num_pops > 119 num_pops < 150 has_modifier = buy_influence_drain_0050 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0060 } } }
+				limit = { NOT = { AND = { num_pops > 149 num_pops < 180 has_modifier = buy_influence_drain_0060 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0070 } } }
+				limit = { NOT = { AND = { num_pops > 179 num_pops < 210 has_modifier = buy_influence_drain_0070 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0080 } } }
+				limit = { NOT = { AND = { num_pops > 209 num_pops < 240 has_modifier = buy_influence_drain_0080 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0090 } } }
+				limit = { NOT = { AND = { num_pops > 239 num_pops < 270 has_modifier = buy_influence_drain_0090 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0100 } } }
+				limit = { NOT = { AND = { num_pops > 269 num_pops < 330 has_modifier = buy_influence_drain_0100 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0120 } } }
+				limit = { NOT = { AND = { num_pops > 329 num_pops < 390 has_modifier = buy_influence_drain_0120 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0140 } } }
+				limit = { NOT = { AND = { num_pops > 389 num_pops < 450 has_modifier = buy_influence_drain_0140 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0160 } } }
+				limit = { NOT = { AND = { num_pops > 449 num_pops < 510 has_modifier = buy_influence_drain_0160 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0180 } } }
+				limit = { NOT = { AND = { num_pops > 509 num_pops < 570 has_modifier = buy_influence_drain_0180 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0200 } } }
+				limit = { NOT = { AND = { num_pops > 569 num_pops < 690 has_modifier = buy_influence_drain_0200 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0240 } } }
+				limit = { NOT = { AND = { num_pops > 689 num_pops < 810 has_modifier = buy_influence_drain_0240 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0280 } } }
+				limit = { NOT = { AND = { num_pops > 809 num_pops < 930 has_modifier = buy_influence_drain_0280 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0320 } } }
+				limit = { NOT = { AND = { num_pops > 929 num_pops < 1050 has_modifier = buy_influence_drain_0320 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0360 } } }
+				limit = { NOT = { AND = { num_pops > 1049 num_pops < 1170 has_modifier = buy_influence_drain_0360 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0400 } } }
+				limit = { NOT = { AND = { num_pops > 1169 num_pops < 1470 has_modifier = buy_influence_drain_0400 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_0500 } } }
+				limit = { NOT = { AND = { num_pops > 1469 num_pops < 1770 has_modifier = buy_influence_drain_0500 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_0600 } } }
+				limit = { NOT = { AND = { num_pops > 1769 num_pops < 2070 has_modifier = buy_influence_drain_0600 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_0700 } } }
+				limit = { NOT = { AND = { num_pops > 2069 num_pops < 2370 has_modifier = buy_influence_drain_0700 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_0800 } } }
+				limit = { NOT = { AND = { num_pops > 2369 num_pops < 2670 has_modifier = buy_influence_drain_0800 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_0900 } } }
+				limit = { NOT = { AND = { num_pops > 2669 num_pops < 2970 has_modifier = buy_influence_drain_0900 } } }
 				country_event = { id = buy_influence.210 }
 			}
 			else_if = {
@@ -415,111 +421,111 @@ country_event = {
 		else_if = {
 			limit = { has_modifier = buy_influence_1point5 }
 			if = {
-				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0030 } } }
+				limit = { NOT = { AND = { num_pops > 0 num_pops < 42 has_modifier = buy_influence_drain_0030 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0036 } } }
+				limit = { NOT = { AND = { num_pops > 41 num_pops < 54 has_modifier = buy_influence_drain_0036 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0042 } } }
+				limit = { NOT = { AND = { num_pops > 53 num_pops < 66 has_modifier = buy_influence_drain_0042 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0048 } } }
+				limit = { NOT = { AND = { num_pops > 65 num_pops < 78 has_modifier = buy_influence_drain_0048 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0054 } } }
+				limit = { NOT = { AND = { num_pops > 77 num_pops < 90 has_modifier = buy_influence_drain_0054 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0060 } } }
+				limit = { NOT = { AND = { num_pops > 89 num_pops < 120 has_modifier = buy_influence_drain_0060 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0075 } } }
+				limit = { NOT = { AND = { num_pops > 119 num_pops < 150 has_modifier = buy_influence_drain_0075 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0090 } } }
+				limit = { NOT = { AND = { num_pops > 149 num_pops < 180 has_modifier = buy_influence_drain_0090 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0105 } } }
+				limit = { NOT = { AND = { num_pops > 179 num_pops < 210 has_modifier = buy_influence_drain_0105 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0120 } } }
+				limit = { NOT = { AND = { num_pops > 209 num_pops < 240 has_modifier = buy_influence_drain_0120 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0135 } } }
+				limit = { NOT = { AND = { num_pops > 239 num_pops < 270 has_modifier = buy_influence_drain_0135 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0150 } } }
+				limit = { NOT = { AND = { num_pops > 269 num_pops < 330 has_modifier = buy_influence_drain_0150 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0180 } } }
+				limit = { NOT = { AND = { num_pops > 329 num_pops < 390 has_modifier = buy_influence_drain_0180 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0210 } } }
+				limit = { NOT = { AND = { num_pops > 389 num_pops < 450 has_modifier = buy_influence_drain_0210 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0240 } } }
+				limit = { NOT = { AND = { num_pops > 449 num_pops < 510 has_modifier = buy_influence_drain_0240 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0270 } } }
+				limit = { NOT = { AND = { num_pops > 509 num_pops < 570 has_modifier = buy_influence_drain_0270 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0300 } } }
+				limit = { NOT = { AND = { num_pops > 569 num_pops < 690 has_modifier = buy_influence_drain_0300 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0360 } } }
+				limit = { NOT = { AND = { num_pops > 689 num_pops < 810 has_modifier = buy_influence_drain_0360 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0420 } } }
+				limit = { NOT = { AND = { num_pops > 809 num_pops < 930 has_modifier = buy_influence_drain_0420 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0480 } } }
+				limit = { NOT = { AND = { num_pops > 929 num_pops < 1050 has_modifier = buy_influence_drain_0480 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0540 } } }
+				limit = { NOT = { AND = { num_pops > 1049 num_pops < 1170 has_modifier = buy_influence_drain_0540 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0600 } } }
+				limit = { NOT = { AND = { num_pops > 1169 num_pops < 1470 has_modifier = buy_influence_drain_0600 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_0750 } } }
+				limit = { NOT = { AND = { num_pops > 1469 num_pops < 1770 has_modifier = buy_influence_drain_0750 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_0900 } } }
+				limit = { NOT = { AND = { num_pops > 1769 num_pops < 2070 has_modifier = buy_influence_drain_0900 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_1050 } } }
+				limit = { NOT = { AND = { num_pops > 2069 num_pops < 2370 has_modifier = buy_influence_drain_1050 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_1200 } } }
+				limit = { NOT = { AND = { num_pops > 2369 num_pops < 2670 has_modifier = buy_influence_drain_1200 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_1350 } } }
+				limit = { NOT = { AND = { num_pops > 2669 num_pops < 2970 has_modifier = buy_influence_drain_1350 } } }
 				country_event = { id = buy_influence.215 }
 			}
 			else_if = {
@@ -533,111 +539,111 @@ country_event = {
 		else_if = {
 			limit = { has_modifier = buy_influence_2point0 }
 			if = {
-				limit = { NOT = { AND = { num_pops < 42 has_modifier = buy_influence_drain_0040 } } }
+				limit = { NOT = { AND = { num_pops > 0 num_pops < 42 has_modifier = buy_influence_drain_0040 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 54 has_modifier = buy_influence_drain_0048 } } }
+				limit = { NOT = { AND = { num_pops > 41 num_pops < 54 has_modifier = buy_influence_drain_0048 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 66 has_modifier = buy_influence_drain_0056 } } }
+				limit = { NOT = { AND = { num_pops > 53 num_pops < 66 has_modifier = buy_influence_drain_0056 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 78 has_modifier = buy_influence_drain_0064 } } }
+				limit = { NOT = { AND = { num_pops > 65 num_pops < 78 has_modifier = buy_influence_drain_0064 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 90 has_modifier = buy_influence_drain_0072 } } }
+				limit = { NOT = { AND = { num_pops > 77 num_pops < 90 has_modifier = buy_influence_drain_0072 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 120 has_modifier = buy_influence_drain_0080 } } }
+				limit = { NOT = { AND = { num_pops > 89 num_pops < 120 has_modifier = buy_influence_drain_0080 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 150 has_modifier = buy_influence_drain_0100 } } }
+				limit = { NOT = { AND = { num_pops > 119 num_pops < 150 has_modifier = buy_influence_drain_0100 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 180 has_modifier = buy_influence_drain_0120 } } }
+				limit = { NOT = { AND = { num_pops > 149 num_pops < 180 has_modifier = buy_influence_drain_0120 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 210 has_modifier = buy_influence_drain_0140 } } }
+				limit = { NOT = { AND = { num_pops > 179 num_pops < 210 has_modifier = buy_influence_drain_0140 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 240 has_modifier = buy_influence_drain_0160 } } }
+				limit = { NOT = { AND = { num_pops > 209 num_pops < 240 has_modifier = buy_influence_drain_0160 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 270 has_modifier = buy_influence_drain_0180 } } }
+				limit = { NOT = { AND = { num_pops > 239 num_pops < 270 has_modifier = buy_influence_drain_0180 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 330 has_modifier = buy_influence_drain_0200 } } }
+				limit = { NOT = { AND = { num_pops > 269 num_pops < 330 has_modifier = buy_influence_drain_0200 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 390 has_modifier = buy_influence_drain_0240 } } }
+				limit = { NOT = { AND = { num_pops > 329 num_pops < 390 has_modifier = buy_influence_drain_0240 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 450 has_modifier = buy_influence_drain_0280 } } }
+				limit = { NOT = { AND = { num_pops > 389 num_pops < 450 has_modifier = buy_influence_drain_0280 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 510 has_modifier = buy_influence_drain_0320 } } }
+				limit = { NOT = { AND = { num_pops > 449 num_pops < 510 has_modifier = buy_influence_drain_0320 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 570 has_modifier = buy_influence_drain_0360 } } }
+				limit = { NOT = { AND = { num_pops > 509 num_pops < 570 has_modifier = buy_influence_drain_0360 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 690 has_modifier = buy_influence_drain_0400 } } }
+				limit = { NOT = { AND = { num_pops > 569 num_pops < 690 has_modifier = buy_influence_drain_0400 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 810 has_modifier = buy_influence_drain_0480 } } }
+				limit = { NOT = { AND = { num_pops > 689 num_pops < 810 has_modifier = buy_influence_drain_0480 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 930 has_modifier = buy_influence_drain_0560 } } }
+				limit = { NOT = { AND = { num_pops > 809 num_pops < 930 has_modifier = buy_influence_drain_0560 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1050 has_modifier = buy_influence_drain_0640 } } }
+				limit = { NOT = { AND = { num_pops > 929 num_pops < 1050 has_modifier = buy_influence_drain_0640 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1170 has_modifier = buy_influence_drain_0720 } } }
+				limit = { NOT = { AND = { num_pops > 1049 num_pops < 1170 has_modifier = buy_influence_drain_0720 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1470 has_modifier = buy_influence_drain_0800 } } }
+				limit = { NOT = { AND = { num_pops > 1169 num_pops < 1470 has_modifier = buy_influence_drain_0800 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 1770 has_modifier = buy_influence_drain_1000 } } }
+				limit = { NOT = { AND = { num_pops > 1469 num_pops < 1770 has_modifier = buy_influence_drain_1000 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2070 has_modifier = buy_influence_drain_1200 } } }
+				limit = { NOT = { AND = { num_pops > 1769 num_pops < 2070 has_modifier = buy_influence_drain_1200 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2370 has_modifier = buy_influence_drain_1400 } } }
+				limit = { NOT = { AND = { num_pops > 2069 num_pops < 2370 has_modifier = buy_influence_drain_1400 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2670 has_modifier = buy_influence_drain_1600 } } }
+				limit = { NOT = { AND = { num_pops > 2369 num_pops < 2670 has_modifier = buy_influence_drain_1600 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
-				limit = { NOT = { AND = { num_pops < 2970 has_modifier = buy_influence_drain_1800 } } }
+				limit = { NOT = { AND = { num_pops > 2669 num_pops < 2970 has_modifier = buy_influence_drain_1800 } } }
 				country_event = { id = buy_influence.220 }
 			}
 			else_if = {
@@ -649,8 +655,6 @@ country_event = {
 			}
 		}
 
-		
-		
 
 ######################################################## END AUTO-GENERATED CODE ########################################################
 	
@@ -658,6 +662,10 @@ country_event = {
 		else = {
 			#Do nothing because the empire doesn't have an influence-gain modifier from this mod
 		}
+	}
+	
+	after = {
+		hidden_effect = { remove_country_flag = buy_influence_from_evaluation }
 	}
 	
 }
@@ -684,9 +692,18 @@ country_event = {
 
 
 country_event = {
-	id = buy_influence.205
+	id = buy_influence.300
 	title = leviathans.300.name
-	desc = buy_influence.205.desc
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_country_flag
+				buy_influence_from_evaluation = { text = buy_influence.300.desc.evaluation }
+				buy_influence_from_main_menu = { text = buy_influence.300.desc.main_menu }
+				default = { text = buy_influence.300.desc.default }
+			}
+		}
+	}
 
 	is_triggered_only = yes
 	diplomatic = yes
@@ -698,8 +715,17 @@ country_event = {
 		room = enclave_artist_room
 	}
 	
-	#Clear out all pre-existing buffs (there shouldn't be any, but you never know...)
+	#Clear out all pre-existing buffs and relevant flags (there shouldn't be any, but you never know...)
 	immediate = {
+		
+		remove_country_flag = buy_influence_cancelled
+		remove_country_flag = buy_influence_rejected_main_menu
+		remove_country_flag = buy_influence_rejected_upgrade
+		remove_country_flag = buy_influence_started_0point5
+		remove_country_flag = buy_influence_started_1point0
+		remove_country_flag = buy_influence_started_1point5
+		remove_country_flag = buy_influence_started_2point0
+		
 		remove_modifier = buy_influence_0point5
 		remove_modifier = buy_influence_1point0
 		remove_modifier = buy_influence_1point5
@@ -779,11 +805,8 @@ country_event = {
 
 	option = {
 		name = buy_influence.205.deal
-		response_text = buy_influence.205.deal.reply
-		add_modifier = {
-			modifier = "buy_influence_0point5"
-			days = -1
-		}
+		hidden_effect = { set_country_flag = buy_influence_started_0point5 }
+		add_modifier = { modifier = "buy_influence_0point5" days = -1 }
 		if = {
 			limit = { num_pops < 42 }
 			add_modifier = { modifier = "buy_influence_drain_0010" days = -1 }
@@ -899,12 +922,23 @@ country_event = {
 	
 	option = {
 		name = NODEAL
-		default_hide_option = yes
-		response_text = buy_influence.205.nodeal.reply
 		hidden_effect = {
-			country_event = { id = buy_influence.100 }
+			if = {
+				limit = { has_country_flag = buy_influence_from_evaluation }
+				set_country_flag = buy_influence_rejected_upgrade
+				country_event = { id = buy_influence.101 }
+			}
+			else_if = {
+				limit = { has_country_flag = buy_influence_from_main_menu }
+				set_country_flag = buy_influence_rejected_main_menu
+				country_event = { id = buy_influence.100 }
+			}
+			else = {
+				country_event = { id = buy_influence.100 }
+			}
 		}
 	}
+
 
 ######################################################## END AUTO-GENERATED CODE ########################################################
 
@@ -1008,11 +1042,8 @@ country_event = {
 
 	option = {
 		name = buy_influence.210.deal
-		response_text = buy_influence.210.deal.reply
-		add_modifier = {
-			modifier = "buy_influence_1point0"
-			days = -1
-		}
+		hidden_effect = { set_country_flag = buy_influence_started_1point0 }
+		add_modifier = { modifier = "buy_influence_1point0" days = -1 }
 		if = {
 			limit = { num_pops < 42 }
 			add_modifier = { modifier = "buy_influence_drain_0020" days = -1 }
@@ -1128,10 +1159,20 @@ country_event = {
 	
 	option = {
 		name = NODEAL
-		default_hide_option = yes
-		response_text = buy_influence.210.nodeal.reply
 		hidden_effect = {
-			country_event = { id = buy_influence.100 }
+			if = {
+				limit = { has_country_flag = buy_influence_from_evaluation }
+				set_country_flag = buy_influence_rejected_upgrade
+				country_event = { id = buy_influence.101 }
+			}
+			else_if = {
+				limit = { has_country_flag = buy_influence_from_main_menu }
+				set_country_flag = buy_influence_rejected_main_menu
+				country_event = { id = buy_influence.100 }
+			}
+			else = {
+				country_event = { id = buy_influence.100 }
+			}
 		}
 	}
 
@@ -1238,11 +1279,8 @@ country_event = {
 
 	option = {
 		name = buy_influence.215.deal
-		response_text = buy_influence.215.deal.reply
-		add_modifier = {
-			modifier = "buy_influence_1point5"
-			days = -1
-		}
+		hidden_effect = { set_country_flag = buy_influence_started_1point5 }
+		add_modifier = { modifier = "buy_influence_1point5" days = -1 }
 		if = {
 			limit = { num_pops < 42 }
 			add_modifier = { modifier = "buy_influence_drain_0030" days = -1 }
@@ -1358,10 +1396,20 @@ country_event = {
 	
 	option = {
 		name = NODEAL
-		default_hide_option = yes
-		response_text = buy_influence.215.nodeal.reply
 		hidden_effect = {
-			country_event = { id = buy_influence.100 }
+			if = {
+				limit = { has_country_flag = buy_influence_from_evaluation }
+				set_country_flag = buy_influence_rejected_upgrade
+				country_event = { id = buy_influence.101 }
+			}
+			else_if = {
+				limit = { has_country_flag = buy_influence_from_main_menu }
+				set_country_flag = buy_influence_rejected_main_menu
+				country_event = { id = buy_influence.100 }
+			}
+			else = {
+				country_event = { id = buy_influence.100 }
+			}
 		}
 	}
 
@@ -1468,11 +1516,8 @@ country_event = {
 
 	option = {
 		name = buy_influence.220.deal
-		response_text = buy_influence.220.deal.reply
-		add_modifier = {
-			modifier = "buy_influence_2point0"
-			days = -1
-		}
+		hidden_effect = { set_country_flag = buy_influence_started_2point0 }
+		add_modifier = { modifier = "buy_influence_2point0" days = -1 }
 		if = {
 			limit = { num_pops < 42 }
 			add_modifier = { modifier = "buy_influence_drain_0040" days = -1 }
@@ -1588,12 +1633,23 @@ country_event = {
 	
 	option = {
 		name = NODEAL
-		default_hide_option = yes
-		response_text = buy_influence.220.nodeal.reply
 		hidden_effect = {
-			country_event = { id = buy_influence.100 }
+			if = {
+				limit = { has_country_flag = buy_influence_from_evaluation }
+				set_country_flag = buy_influence_rejected_upgrade
+				country_event = { id = buy_influence.101 }
+			}
+			else_if = {
+				limit = { has_country_flag = buy_influence_from_main_menu }
+				set_country_flag = buy_influence_rejected_main_menu
+				country_event = { id = buy_influence.100 }
+			}
+			else = {
+				country_event = { id = buy_influence.100 }
+			}
 		}
 	}
+
 
 
 ######################################################## END AUTO-GENERATED CODE ########################################################
