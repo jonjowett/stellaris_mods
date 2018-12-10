@@ -7,9 +7,12 @@ hyperlane_nuke_0 = {
 															# if this option is active, the placement_rules will be completely ignored
 	show_galactic_map_icon = no
 	build_time = 720 #Same as hyperlane remover 0
-	build_cost = { #6 * hyperlane remover 0
-		minerals = 22500
-		influence = 300
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 300
+		}
 	}
 	construction_blocks_others = no
 
@@ -83,9 +86,12 @@ hyperlane_nuke_1 = {
 		hyperlane_nuke_0
 	}
 	build_time = 720 #Same as hyperlane remover 1
-	build_cost = {   #6 * hyperlane remover 1
-		minerals = 22500
-		energy = 7500
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			energy = 7500
+		}
 	}
 	construction_blocks_others = no
 	on_build_complete = {}
@@ -113,8 +119,11 @@ hyperlane_nuke_2 = {
 		hyperlane_nuke_1
 	}
 	build_time = 360 #Same as hyperlane remover 2
-	build_cost = {   #6 * hyperlane remover 2
-		energy = 30000
+	resources = {
+		category = megastructures
+		cost = {
+			energy = 30000
+		}
 	}
 	construction_blocks_others = no
 	on_build_complete = {
