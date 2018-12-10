@@ -8,6 +8,14 @@ country_event = {
 		trigger = {
 			switch = {
 				trigger = has_country_flag
+				
+				#Mod added - text displayed on re-entering this screen depends on where you cam from in the Buy Influence mod
+				buy_influence_started_0point5    = { text = buy_influence.leviathans.300.desc.0point5  }
+				buy_influence_started_1point0    = { text = buy_influence.leviathans.300.desc.1point0  }
+				buy_influence_started_1point5    = { text = buy_influence.leviathans.300.desc.1point5  }
+				buy_influence_started_2point0    = { text = buy_influence.leviathans.300.desc.2point0  }
+				buy_influence_rejected_main_menu = { text = buy_influence.leviathans.300.desc.rejected }
+				
 				artist_enclave_diplomacy_continued = { text = leviathans.300.desc.continued }
 				recently_purchased_art = { text = leviathans.302.a.reply }
 				recently_purchased_patron = { text = leviathans.304.a.reply }
@@ -54,6 +62,14 @@ country_event = {
 				save_event_target_as = artist_enclave
 			}
 		}
+		
+		#Mod added - clean up starting description flags asap
+		remove_country_flag = buy_influence_started_0point5
+		remove_country_flag = buy_influence_started_1point0
+		remove_country_flag = buy_influence_started_1point5
+		remove_country_flag = buy_influence_started_2point0
+		remove_country_flag = buy_influence_rejected_main_menu
+		
 	}
 
 	option = {
