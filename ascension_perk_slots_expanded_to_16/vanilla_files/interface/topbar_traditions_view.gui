@@ -12,48 +12,56 @@ guiTypes = {
 	################################################################
 	# TRADITION ENTRY POSITIONS
 	################################################################
-
+	
+	#####   #####   #####
+	#61 #   #131#   #201#
+	#####   #####   #####
+	
+		##### 	#####
+		#96 # 	#166#
+	    ##### 	#####
+		
 	positionType = { name = "tr_domination_colonial_viceroys"         	position = { x = 61 y = 55 } }
-	positionType = { name = "tr_domination_protection_racket"         	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_domination_star_lords"                	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_domination_fleet_levies"     	 	  	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_domination_vassal_acculturation"      	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_expansion_colonization_fever"         	position = { x = 96 y = 55 } }
-	positionType = { name = "tr_expansion_galactic_ambition" 		  	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_expansion_a_new_life"                 	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_domination_imperious_architecture"     	position = { x = 131 y = 55 } }
+	positionType = { name = "tr_domination_grand_council"         		position = { x = 96 y = 125 } }
+	positionType = { name = "tr_domination_judgment_corps"     	 		position = { x = 201 y = 55 } }
+	positionType = { name = "tr_domination_workplace_motivators"      	position = { x = 201 y = 125 } }
+	
+	positionType = { name = "tr_expansion_reach_for_the_stars"        	position = { x = 96 y = 55 } }
 	positionType = { name = "tr_expansion_courier_network"            	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_expansion_reach_for_the_stars"        	position = { x = 201 y = 55 } }
+	positionType = { name = "tr_expansion_galactic_ambition" 		  	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_expansion_colonization_fever"         	position = { x = 201 y = 55 } }
+	positionType = { name = "tr_expansion_a_new_life"                 	position = { x = 201 y = 125 } }
+	
 	positionType = { name = "tr_discovery_to_boldly_go"            	  	position = { x = 96 y = 55 } }
-	positionType = { name = "tr_discovery_databank_uplinks"  	  	position = { x = 96 y = 125 } }
+	positionType = { name = "tr_discovery_databank_uplinks"  	  		position = { x = 96 y = 125 } }
 	positionType = { name = "tr_discovery_science_division"        	  	position = { x = 166 y = 55 } }
 	positionType = { name = "tr_discovery_polytechnic_education"   	  	position = { x = 166 y = 125 } }
 	positionType = { name = "tr_discovery_faith_in_science"        	  	position = { x = 166 y = 195 } }
+	
 	positionType = { name = "tr_harmony_the_greater_good"             	position = { x = 201 y = 55 } }
 	positionType = { name = "tr_harmony_kinship"    			      	position = { x = 131 y = 55 } }
 	positionType = { name = "tr_harmony_utopian_dream" 		          	position = { x = 201 y = 125 } }
 	positionType = { name = "tr_harmony_bulwark_of_harmony"           	position = { x = 96 y = 125 } }
 	positionType = { name = "tr_harmony_mind_and_body"                	position = { x = 61 y = 55 } }
-	positionType = { name = "tr_prosperity_sct"                       	position = { x = 96 y = 55 } }
-	positionType = { name = "tr_prosperity_administrative_operations" 	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_prosperity_fleet_logistical_corps"    	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_prosperity_trans_stellar_corporations"	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_prosperity_pursuit_of_profit"         	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_diplomacy_the_federation"			  	position = { x = 96 y = 55 } }
-	positionType = { name = "tr_adaptability_reproductive_augmentation"	position = { x = 96 y = 55 } }
+	
+	positionType = { name = "tr_prosperity_administrative_operations" 	position = { x = 96 y = 55 } }
+	positionType = { name = "tr_prosperity_pursuit_of_profit"         	position = { x = 61 y = 125 } }
+	positionType = { name = "tr_prosperity_interstellar_franchising"	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_prosperity_sct"                       	position = { x = 201 y = 55 } }
+	positionType = { name = "tr_prosperity_public_works"    			position = { x = 201 y = 125 } }
+	
+	positionType = { name = "tr_diplomacy_the_federation"			  	position = { x = 61 y = 55 } }
 	positionType = { name = "tr_diplomacy_entente_coordination"		  	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_diplomacy_survival_fittest"		 	 	position = { x = 61 y = 125 } }
-	positionType = { name = "tr_diplomacy_federal_unity"			  	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_adaptability_environmental_adaptation"	position = { x = 131 y = 125 } }
-	positionType = { name = "tr_diplomacy_dynamic_ecomorphism"		  	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_adaptability_dynamic_ecomorphism"		position = { x = 201 y = 55 } }
-	positionType = { name = "tr_diplomacy_alien_tourism"			  	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_adaptability_hive_mind_synapse"		  	position = { x = 201 y = 125 } }
-	positionType = { name = "tr_adaptability_xenology_center"		  	position = { x = 201 y = 125 } }
+	positionType = { name = "tr_diplomacy_open_markets"				  	position = { x = 166 y = 55 } }
+	positionType = { name = "tr_diplomacy_insider_trading"			  	position = { x = 131 y = 125 } }
+	positionType = { name = "tr_diplomacy_secure_shipping"			  	position = { x = 201 y = 125 } }
+	
 	positionType = { name = "tr_supremacy_master_shipwrights"         	position = { x = 61 y = 55 } }	
 	positionType = { name = "tr_supremacy_war_games"                  	position = { x = 96 y = 125 } }
-	positionType = { name = "tr_supremacy_right_of_conquest"          	position = { x = 131 y = 55 } }
+	positionType = { name = "tr_supremacy_fleet_logistical_corps"      	position = { x = 131 y = 55 } }
 	positionType = { name = "tr_supremacy_overwhelming_force"         	position = { x = 201 y = 55 } }
-	positionType = { name = "tr_supremacy_great_game"                 	position = { x = 166 y = 125 } }
+	positionType = { name = "tr_supremacy_great_game"                 	position = { x = 201 y = 125 } }
 	
 	################################################################
 	# ASCENSION PERKS ENTRY POSITIONS
@@ -125,7 +133,7 @@ guiTypes = {
 		size = { width = 1272 height = 600 } 
 
 		position = { x = -1270 y = 40 }
-		show_position = { x = 4 y = 40 }
+		show_position = { x = 35 y = 40 }
 		hide_position = { x = -1270 y = 40 }
 		animation_time = 200
 		animation_type = decelerated
@@ -295,20 +303,14 @@ guiTypes = {
 
 				iconType = {
 					name = "arrow_1"
-					spriteType = "GFX_arrow_single"
-					position = { x = 77 y = 100 }
+					spriteType = "GFX_arrow_merge"
+					position = { x = 82 y = 100 }
 				}
 
 				iconType = {
 					name = "arrow_2"
 					spriteType = "GFX_arrow_single"
 					position = { x = 217 y = 100 }
-				}				
-				
-				iconType = {
-					name = "arrow_3"
-					spriteType = "GFX_arrow_merge_wide"
-					position = { x = 82 y = 100 }
 				}
 			}
 		}
@@ -802,14 +804,14 @@ guiTypes = {
 
 				iconType = {
 					name = "arrow_1"
-					spriteType = "GFX_arrow_double"
-					position = { x = 76 y = 100 }
+					spriteType = "GFX_arrow_single"
+					position = { x = 77 y = 100 }
 				}
 				
 				iconType = {
 					name = "arrow_2"
-					spriteType = "GFX_arrow_single"
-					position = { x = 217 y = 100 }
+					spriteType = "GFX_arrow_double"
+					position = { x = 147 y = 100 }
 				}
 			}
 		}
@@ -907,8 +909,8 @@ guiTypes = {
 
 				iconType = {
 					name = "arrow_2"
-					spriteType = "GFX_arrow_merge"
-					position = { x = 152 y = 100 }
+					spriteType = "GFX_arrow_single"
+					position = { x = 217 y = 100 }
 				}
 			}
 		}
