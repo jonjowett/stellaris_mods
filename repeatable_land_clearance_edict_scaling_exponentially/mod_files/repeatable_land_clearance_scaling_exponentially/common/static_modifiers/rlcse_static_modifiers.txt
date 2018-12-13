@@ -1,0 +1,33 @@
+#Any single planet should only have ONE of these modifiers.
+
+#mastery_of_nature is a prerequisite for the user to select mastery_of_nature_rlcse_1.
+#However, I have decided NOT to remove the vanilla mastery_of_nature modifier if the user/AI takes one of the decisions added by this mod.
+#(This is so that I can preserve the vanilla mastery_of_nature decision.)
+#Therefore, if a planet has the m_o_n_r_X modifier, then it will also have the m_o_n modifier.
+#This means that the total effect of a planet having m_o_n_r_X is actually 2 greater than the value shown below.
+
+mastery_of_nature_rlcse_1 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_mastery_of_nature.dds"
+	icon_frame = 1
+	planet_max_districts_add = 2
+}
+mastery_of_nature_rlcse_2 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_mastery_of_nature.dds"
+	icon_frame = 1
+	planet_max_districts_add = 4
+}
+mastery_of_nature_rlcse_3 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_mastery_of_nature.dds"
+	icon_frame = 1
+	planet_max_districts_add = 6
+}
+mastery_of_nature_rlcse_4 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_mastery_of_nature.dds"
+	icon_frame = 1
+	planet_max_districts_add = 8
+}
+mastery_of_nature_rlcse_5 = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_mastery_of_nature.dds"
+	icon_frame = 1
+	planet_max_districts_add = 10
+}

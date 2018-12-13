@@ -1,42 +1,43 @@
-This micro-mod changes the "Land Clearance" planetary edict (granted by the "World Shaper" ascension perk) into a repeatable edict.
+This micro-mod allows you to repeat the "Mastery of Nature" planetary decision (granted by the "World Shaper" ascension perk).
 
-The cost for this repeatable edict scales exponentially, to model the increasing difficulty of clearing more land for development:
-[list][*]Land Clearance: 100 influence + 500 energy (base game; requires "World Shaper")
-[*]Repeatable Land Clearance 1: 200 influence + 1000 energy
-[*]Repeatable Land Clearance 2: 400 influence + 2000 energy
-[*]Repeatable Land Clearance 3: 800 influence + 4000 energy
-[*]Repeatable Land Clearance 4: 1600 influence + 8000 energy
-[*]Repeatable Land Clearance 5: 3200 influence + 16000 energy[/list]
+The cost for this repeatable decision scales exponentially, to model the increasing difficulty of clearing more land for development:
+[list][*]Mastery of Nature: 100 influence + 2000 energy (base game; requires "World Shaper")
+[*]Mastery of Nature (Repeated): 200 influence + 4000 energy
+[*]Mastery of Nature (Repeated x2): 400 influence + 8000 energy
+[*]Mastery of Nature (Repeated x3): 800 influence + 16000 energy
+[*]Mastery of Nature (Repeated x4): 1600 influence + 32000 energy
+[*]Mastery of Nature (Repeated x5): 3200 influence + 64000 energy[/list]
 
-In every other way, the repeatable land clearance edict is exactly the same as in the base game. In particular, the number of extra tiles created is the same:
-[list][*]3 tiles created if planet size is <= 12
-[*]2 tiles created if planet size is <= 15 (and > 12)
-[*]1 tile created if planet size is <=24 (and > 15)
-[*]0 tiles created if planet size is 25  (edict is hidden because it cannot be enacted)[/list]
+In every other way, the repeatable Mastery of Nature decision is exactly the same as in the base game. In particular, each additional level adds +2 max districts.
 
 [h1]Inspiration:[/h1]
 
 This mod was inspired by Asteyr's [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1310571069]Repeatable Land Clearance Edict mod[/url].
 
-I made my own version because I felt that that mod's costs were too small (it was far too easy to increase planet size to 25) - and also because that mod gave much more land per edict than in the base game.
+I made my own version because I felt that that mod's costs were too small (it was far too easy to max out the planet size) - and also because that mod gave much more land per edict than in the base game.
 
 [h1]FAQ:[/h1]
 
 [u]Influence is capped at 1000, so why do edicts 4 & 5 require more than 1000 influence?[/u]
-Edict cost can be reduced significantly, even in vanilla (and other mods might add more sources of edict cost reduction). Similarly the influence cap can be increased. Edict #4 is possible (but rather expensive) without requiring other mods. Edict #5 is included for completeness, in case it becomes possible in conjunction with other mods.
+Edict cost can be reduced significantly, even in vanilla (and other mods might add more sources of edict cost reduction). Similarly the influence cap can be increased by mods. Edict #4 is definitely possible (but rather expensive) without requiring other mods. Edict #5 is included for completeness, in case it becomes possible in conjunction with other mods.
 
 [u]Do I have to take the World Shaper ascension perk to be able to use this repeatable edict?[/u]
 Yes.
 
+[u]Can the AI take this decision?[/u]
+In theory, yes. However, I haven't observed this in practice. In any case, I think it is unlikely that the AI will take anything beyond the first one or two decisions, as they are unlikely to save up enough influence.
+
 [h1]Technical Info / Compatibility[/h1]
 [list][*]No vanilla files are altered, so this mod should be fully compatible with every other mod.
-[*]It's probably not a good idea to have more than one land clearance mod running simultaneously![/list]
+[*]It's probably not a good idea to have more than one land clearance mod running simultaneously!
+[*]This mod is safe to add to a game in progress.
+[*]This mod is [u]risky[/u] to remove from a game in progress. (For example, I don't know how the game will handle planets that are suddenly too big.)[/list]
 
 [h1]Earlier versions / Beta versions:[/h1]
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
 [h1]TLDR:[/h1]
-[list][*]Tested version: 2.0.1
+[list][*]Tested version: 2.2.1
 [*]Required DLC: None
 [*]Ironman compatible: Yes
 [*]Achievement compatible: No[/list]

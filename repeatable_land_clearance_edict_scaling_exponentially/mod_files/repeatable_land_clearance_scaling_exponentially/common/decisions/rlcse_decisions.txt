@@ -1,0 +1,211 @@
+# NB: 4 & 5 might be possible, with a big enough discount to edict cost (or an increase to influence cap)
+@rlcse_1_influence = 200
+@rlcse_1_energy = 4000
+@rlcse_2_influence = 400
+@rlcse_2_energy = 8000
+@rlcse_3_influence = 800
+@rlcse_3_energy = 16000
+@rlcse_4_influence = 1600
+@rlcse_4_energy = 32000
+@rlcse_5_influence = 3200
+@rlcse_5_energy = 64000
+
+#Decision structure copied from decision_mastery_of_nature in 02_special_decisions.txt
+decision_mastery_of_nature_rlcse_1 = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = @rlcse_1_influence
+			energy = @rlcse_1_energy
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_modifier = mastery_of_nature
+		NOT = { has_modifier = mastery_of_nature_rlcse_1 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_2 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_3 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_4 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_5 }
+	}
+	
+	effect = {
+		add_modifier = {
+			modifier = mastery_of_nature_rlcse_1
+			days = -1
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+		}
+	}
+}
+
+decision_mastery_of_nature_rlcse_2 = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = @rlcse_2_influence
+			energy = @rlcse_2_energy
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_modifier = mastery_of_nature
+		has_modifier = mastery_of_nature_rlcse_1
+		NOT = { has_modifier = mastery_of_nature_rlcse_2 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_3 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_4 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_5 }
+	}
+	
+	effect = {
+		remove_modifier = mastery_of_nature_rlcse_1
+		add_modifier = {
+			modifier = mastery_of_nature_rlcse_2
+			days = -1
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+		}
+	}
+}
+
+decision_mastery_of_nature_rlcse_3 = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = @rlcse_3_influence
+			energy = @rlcse_3_energy
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_modifier = mastery_of_nature
+		NOT = { has_modifier = mastery_of_nature_rlcse_1 }
+		has_modifier = mastery_of_nature_rlcse_2
+		NOT = { has_modifier = mastery_of_nature_rlcse_3 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_4 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_5 }
+	}
+	
+	effect = {
+		remove_modifier = mastery_of_nature_rlcse_2
+		add_modifier = {
+			modifier = mastery_of_nature_rlcse_3
+			days = -1
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+		}
+	}
+}
+
+decision_mastery_of_nature_rlcse_4 = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = @rlcse_4_influence
+			energy = @rlcse_4_energy
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_modifier = mastery_of_nature
+		NOT = { has_modifier = mastery_of_nature_rlcse_1 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_2 }
+		has_modifier = mastery_of_nature_rlcse_3
+		NOT = { has_modifier = mastery_of_nature_rlcse_4 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_5 }
+	}
+	
+	effect = {
+		remove_modifier = mastery_of_nature_rlcse_3
+		add_modifier = {
+			modifier = mastery_of_nature_rlcse_4
+			days = -1
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+		}
+	}
+}
+
+decision_mastery_of_nature_rlcse_5 = {
+	owned_planets_only = yes
+
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			influence = @rlcse_5_influence
+			energy = @rlcse_5_energy
+		}
+	}
+	
+	potential = {
+		habitable_structure = no
+		owner = { has_ascension_perk = ap_mastery_of_nature }
+		has_modifier = mastery_of_nature
+		NOT = { has_modifier = mastery_of_nature_rlcse_1 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_2 }
+		NOT = { has_modifier = mastery_of_nature_rlcse_3 }
+		has_modifier = mastery_of_nature_rlcse_4
+		NOT = { has_modifier = mastery_of_nature_rlcse_5 }
+	}
+	
+	effect = {
+		remove_modifier = mastery_of_nature_rlcse_4
+		add_modifier = {
+			modifier = mastery_of_nature_rlcse_5
+			days = -1
+		}
+	}
+	
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+		}
+	}
+}
