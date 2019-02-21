@@ -3,7 +3,7 @@
 ### by Maximilian Olbers	  ###
 ### & Niclas Karlsson		  ###
 ### & Rufus Tronde			  ###
-### & Henrik Eklund			  ###
+### & Henrik Thyrwall			  ###
 #################################
 
 namespace = leviathans
@@ -26,7 +26,9 @@ country_event = {
 	immediate = {
 		from = {
 			establish_communications_no_message = root
+			save_event_target_as = leviathan_story_country
 		}
+		country_event = { id = story.8 days = 15 }
 	}
 }
 
@@ -39,11 +41,40 @@ country_event = {
 	trigger = {
 		from = {
 			is_guardian_country = yes
+		}
+	}
+
+	immediate = {
+		fromfromfrom.solar_system = {
+			save_event_target_as = leviathan_destroyed_system
+		}
+		root = {
+			save_event_target_as = leviathan_destroyer_country
+		}
+		from = {
+			save_event_target_as = leviathan_destroyed_country
+		}
+		country_event = { id = leviathans.6 days = 2 }
+	}
+}
+
+# Delay necessary due to fleets not being instantly deleted, therefore num_fleets trigger won't pass otherwise
+country_event = {
+	id = leviathans.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:leviathan_destroyed_system			
+		exists = event_target:leviathan_destroyer_country
+		exists = event_target:leviathan_destroyed_country
+		event_target:leviathan_destroyed_country = {
 			num_fleets < 1
 		}
 	}
 
 	immediate = {
+		observer_event = { id = observer.1 }
 		every_country = {
 			limit = {
 				has_communications = root
@@ -60,7 +91,7 @@ country_event = {
 	title = leviathans.5.name
 	desc = leviathans.5.desc
 	picture = GFX_evt_throne_room
-	location = fromfromfrom
+	location = event_target:leviathan_destroyed_system
 	show_sound = event_mystic_reveal
 
 	is_triggered_only = yes
@@ -509,54 +540,6 @@ country_event = {
 		}
 	}
 
-	option = { # Minerals
-		name = leviathans.105.a
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_xuracorp_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.110 }
-		}
-	}
-
-	option = { # Energy
-		name = leviathans.105.b
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_xuracorp_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.120 }
-		}
-	}
-
-	option = { # Food
-		name = leviathans.105.f
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_xuracorp_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.125 }
-		}
-	}
-
 	option = { # Strategic Resource
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
@@ -570,8 +553,18 @@ country_event = {
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.105.c.sr2
-				NOT = { has_modifier = enclave_traders_sr2 }
+				has_active_xuracorp_trade = no
 			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.131 }
+		}
+	}
+
+	option = { # Hire Governor
+		name = leviathans.105.z
+		custom_gui = "enclave_trader_option"
+		allow = {
 			custom_tooltip = {
 				text = leviathans.105.c.trust
 				event_target:traders = {
@@ -579,11 +572,28 @@ country_event = {
 						who = root
 						value >= 50
 					}
-				}	
+				}
+			}
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
 			}
 		}
 		hidden_effect = {
-			country_event = { id = leviathans.131 }
+			country_event = { id = leviathans.125 }
 		}
 	}
 
@@ -594,8 +604,15 @@ country_event = {
 			has_active_xuracorp_trade = yes
 		}
 		custom_tooltip = end_trade_1
+		custom_tooltip = opinion-5
 		hidden_effect = {
 			remove_xuracorp_trades = yes
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
 		}
 		is_dialog_only = yes
 		response_text = leviathans.105.e.response
@@ -683,54 +700,6 @@ country_event = {
 		}
 	}
 
-	option = { # Minerals
-		name = leviathans.105.a
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_riggan_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.110 }
-		}
-	}
-
-	option = { # Energy
-		name = leviathans.105.b
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_riggan_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.120 }
-		}
-	}
-
-	option = { # Food
-		name = leviathans.105.f
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_riggan_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.125 }
-		}
-	}
-
 	option = { # Strategic Resource
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
@@ -744,8 +713,18 @@ country_event = {
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.105.c.sr1
-				NOT = { has_modifier = enclave_traders_sr1 }
+				has_active_riggan_trade = no
 			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.130 }
+		}
+	}
+
+	option = { # Hire Governor
+		name = leviathans.105.z
+		custom_gui = "enclave_trader_option"
+		allow = {
 			custom_tooltip = {
 				text = leviathans.105.c.trust
 				event_target:traders = {
@@ -755,9 +734,26 @@ country_event = {
 					}
 				}
 			}
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
+			}
 		}
 		hidden_effect = {
-			country_event = { id = leviathans.130 }
+			country_event = { id = leviathans.125 }
 		}
 	}
 
@@ -768,8 +764,15 @@ country_event = {
 			has_active_riggan_trade = yes
 		}
 		custom_tooltip = end_trade_2
+		custom_tooltip = opinion-5
 		hidden_effect = {
 			remove_riggan_trades = yes
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
 		}
 		is_dialog_only = yes
 		response_text = leviathans.105.e.response
@@ -854,54 +857,6 @@ country_event = {
 		}
 	}
 
-	option = { # Minerals
-		name = leviathans.105.a
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_muutagan_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.110 }
-		}
-	}
-
-	option = { # Energy
-		name = leviathans.105.b
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_muutagan_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.120 }
-		}
-	}
-
-	option = { # Food
-		name = leviathans.105.f
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_active_muutagan_trade = yes
-			}
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.125 }
-		}
-	}
-
 	option = { # Strategic Resource
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
@@ -915,16 +870,7 @@ country_event = {
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.105.c.sr3
-				NOT = { has_modifier = enclave_traders_sr3 }
-			}
-			custom_tooltip = {
-				text = leviathans.105.c.trust
-				event_target:traders = {
-					trust = { 
-						who = root
-						value >= 50
-					}
-				}	
+				has_active_muutagan_trade = no
 			}
 		}
 		hidden_effect = {
@@ -939,11 +885,54 @@ country_event = {
 			has_active_muutagan_trade = yes
 		}
 		custom_tooltip = end_trade_3
+		custom_tooltip = opinion-5
 		hidden_effect = {
 			remove_muutagan_trades = yes
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
 		}
 		is_dialog_only = yes
 		response_text = leviathans.105.e.response
+	}
+
+	option = { # Hire Governor
+		name = leviathans.105.z
+		custom_gui = "enclave_trader_option"
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.c.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 50
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.125 }
+		}
 	}
 
 	option = {
@@ -990,59 +979,53 @@ country_event = {
 		}
 	}
 
-	option = { # Minerals
-		name = leviathans.105.a
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_xuracorp_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.110 }
-		}
-	}
-
-	option = { # Energy
-		name = leviathans.105.b
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_xuracorp_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.120 }
-		}
-	}
-
-	option = { # Food
-		name = leviathans.105.f
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_xuracorp_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.125 }
-		}
-	}
-
 	option = { # Strategic Resource
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.105.c.sr2
-				NOT = { has_modifier = enclave_traders_sr2 }
-			}
-			custom_tooltip = {
-				text = leviathans.105.c.trust
-				event_target:traders = {
-					trust = { 
-						who = root
-						value >= 50
-					}
-				}	
+				has_active_xuracorp_trade = no
 			}
 		}
 		hidden_effect = {
 			country_event = { id = leviathans.131 }
+		}
+	}
+
+	option = { # Hire Governor
+		name = leviathans.105.z
+		custom_gui = "enclave_trader_option"
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.c.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 50
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.125 }
 		}
 	}
 
@@ -1053,8 +1036,15 @@ country_event = {
 			has_active_xuracorp_trade = yes
 		}
 		custom_tooltip = end_trade_1
+		custom_tooltip = opinion-5
 		hidden_effect = {
 			remove_xuracorp_trades = yes
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
 		}
 		is_dialog_only = yes
 		response_text = leviathans.105.e.response
@@ -1100,59 +1090,53 @@ country_event = {
 		}
 	}
 
-	option = { # Minerals
-		name = leviathans.105.a
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_riggan_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.110 }
-		}
-	}
-
-	option = { # Energy
-		name = leviathans.105.b
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_riggan_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.120 }
-		}
-	}
-
-	option = { # Food
-		name = leviathans.105.f
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_riggan_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.125 }
-		}
-	}
-
 	option = { # Strategic Resource
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.105.c.sr1
-				NOT = { has_modifier = enclave_traders_sr1 }
-			}
-			custom_tooltip = {
-				text = leviathans.105.c.trust
-				event_target:traders = {
-					trust = { 
-						who = root
-						value >= 50
-					}
-				}	
+				has_active_riggan_trade = no
 			}
 		}
 		hidden_effect = {
 			country_event = { id = leviathans.130 }
+		}
+	}
+
+	option = { # Hire Governor
+		name = leviathans.105.z
+		custom_gui = "enclave_trader_option"
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.c.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 50
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.125 }
 		}
 	}
 
@@ -1163,8 +1147,15 @@ country_event = {
 			has_active_riggan_trade = yes
 		}
 		custom_tooltip = end_trade_2
+		custom_tooltip = opinion-5
 		hidden_effect = {
 			remove_riggan_trades = yes
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
 		}
 		is_dialog_only = yes
 		response_text = leviathans.105.e.response
@@ -1210,59 +1201,53 @@ country_event = {
 		}
 	}
 
-	option = { # Minerals
-		name = leviathans.105.a
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_muutagan_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.110 }
-		}
-	}
-
-	option = { # Energy
-		name = leviathans.105.b
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_muutagan_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.120 }
-		}
-	}
-
-	option = { # Food
-		name = leviathans.105.f
-		custom_gui = "enclave_trader_option"
-		trigger = {
-			has_active_muutagan_trade = no
-		}
-		hidden_effect = {
-			country_event = { id = leviathans.125 }
-		}
-	}
-
 	option = { # Strategic Resource
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.105.c.sr3
-				NOT = { has_modifier = enclave_traders_sr3 }
-			}
-			custom_tooltip = {
-				text = leviathans.105.c.trust
-				event_target:traders = {
-					trust = { 
-						who = root
-						value >= 50
-					}
-				}	
+				has_active_muutagan_trade = no
 			}
 		}
 		hidden_effect = {
 			country_event = { id = leviathans.132 }
+		}
+	}
+
+	option = { # Hire Governor
+		name = leviathans.105.z
+		custom_gui = "enclave_trader_option"
+		allow = {
+			custom_tooltip = {
+				text = leviathans.105.c.trust
+				event_target:traders = {
+					trust = {
+						who = root
+						value >= 50
+					}
+				}
+			}
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = leviathans.125 }
 		}
 	}
 
@@ -1273,8 +1258,15 @@ country_event = {
 			has_active_muutagan_trade = yes
 		}
 		custom_tooltip = end_trade_3
+		custom_tooltip = opinion-5
 		hidden_effect = {
 			remove_muutagan_trades = yes
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = -5
+				}
+			}
 		}
 		is_dialog_only = yes
 		response_text = leviathans.105.e.response
@@ -1284,1497 +1276,6 @@ country_event = {
 		name = leviathans.105.d
 		default_hide_option = yes
 		custom_gui = "enclave_trader_option"
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-}
-
-# Minerals
-country_event = {
-	id = leviathans.110
-	title = leviathans.110.name
-	desc = leviathans.110.desc
-
-	is_triggered_only = yes
-	diplomatic = yes
-	custom_gui = "enclave_trader_window"
-	force_open = yes
-
-	picture_event_data = {
-		portrait = event_target:traders
-		room = enclave_trader_room
-	}
-
-	immediate = {
-		set_country_flag = trader_enclave_diplomacy_engaged
-	}
-
-	after = {
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-
-	option = {
-		name = leviathans.110.a
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 20 
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}			
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_1_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_1_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_1_mut"
-				days = -1
-			}
-		}
-		custom_tooltip = monthly_opinion1
-		hidden_effect = {
-			country_event = { id = leviathans.111 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.b
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 50
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_2_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_2_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_2_mut"
-				days = -1
-			}
-		}
-		custom_tooltip = monthly_opinion2
-		hidden_effect = {
-			country_event = { id = leviathans.111 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.c
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 100
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_3_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_3_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_mineral_trade_3_mut"
-				days = -1
-			}
-		}
-		custom_tooltip = monthly_opinion3
-		hidden_effect = {
-			country_event = { id = leviathans.111 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.food.a
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			food >= 20 
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}			
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_1_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_1_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_1_mut"
-				days = -1
-			}
-		}
-		custom_tooltip = monthly_opinion1
-		hidden_effect = {
-			country_event = { id = leviathans.111 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.food.b
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			food >= 50
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_2_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_2_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_2_mut"
-				days = -1
-			}
-		}
-		custom_tooltip = monthly_opinion2
-		hidden_effect = {
-			country_event = { id = leviathans.111 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.food.c
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			food >= 100
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_3_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_3_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_mineral_food_trade_3_mut"
-				days = -1
-			}
-		}
-		custom_tooltip = monthly_opinion3
-		hidden_effect = {
-			country_event = { id = leviathans.111 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.d
-		custom_gui = "enclave_trader_option"
-		hidden_effect = {
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-				country_event = { id = leviathans.105 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-				country_event = { id = leviathans.106 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-				country_event = { id = leviathans.107 }
-			}
-		}
-	}
-
-	option = {
-		name = leviathans.110.e
-		custom_gui = "enclave_trader_option"
-		default_hide_option = yes
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-}
-
-# Minerals Deal Struck
-country_event = {
-	id = leviathans.111
-	title = leviathans.110.name
-	desc = {
-		text = leviathans.110.a.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_mineral_trade_1_xur
-						has_modifier = enclave_mineral_food_trade_1_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_mineral_trade_1_rig
-						has_modifier = enclave_mineral_food_trade_1_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_mineral_trade_1_mut
-						has_modifier = enclave_mineral_food_trade_1_mut
-					}
-				}
-			}
-		}
-	}
-	desc = {
-		text = leviathans.110.b.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_mineral_trade_2_xur
-						has_modifier = enclave_mineral_food_trade_2_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_mineral_trade_2_rig
-						has_modifier = enclave_mineral_food_trade_2_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_mineral_trade_2_mut
-						has_modifier = enclave_mineral_food_trade_2_mut
-					}
-				}
-			}
-		}
-	}
-	desc = {
-		text = leviathans.110.c.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_mineral_trade_3_xur
-						has_modifier = enclave_mineral_food_trade_3_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_mineral_trade_3_rig
-						has_modifier = enclave_mineral_food_trade_3_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_mineral_trade_3_mut
-						has_modifier = enclave_mineral_food_trade_3_mut
-					}
-				}
-			}
-		}
-	}
-
-	is_triggered_only = yes
-	diplomatic = yes
-	custom_gui = "enclave_trader_window"
-	force_open = yes
-
-	picture_event_data = {
-		portrait = event_target:traders
-		room = enclave_trader_room
-	}
-
-	immediate = {
-		set_country_flag = trader_enclave_diplomacy_engaged
-	}
-
-	after = {
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-
-	option = {
-		name = leviathans.110.d
-		custom_gui = "enclave_trader_option"
-		hidden_effect = {
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-				country_event = { id = leviathans.105 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-				country_event = { id = leviathans.106 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-				country_event = { id = leviathans.107 }
-			}
-		}
-	}
-
-	option = {
-		name = leviathans.111.e
-		custom_gui = "enclave_trader_option"
-		default_hide_option = yes
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-}
-
-# Energy
-country_event = {
-	id = leviathans.120
-	title = leviathans.120.name
-	desc = leviathans.120.desc
-
-	is_triggered_only = yes
-	diplomatic = yes
-	custom_gui = "enclave_trader_window"
-	force_open = yes
-
-	picture_event_data = {
-		portrait = event_target:traders
-		room = enclave_trader_room
-	}
-
-	immediate = {
-		set_country_flag = trader_enclave_diplomacy_engaged
-	}
-
-	after = {
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-
-	option = {
-		name = leviathans.120.a
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			minerals >= 20
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_1_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_1_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_1_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion1
-		hidden_effect = {
-			country_event = { id = leviathans.121 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.120.b
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			minerals >= 50 
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_2_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_2_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_2_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion2
-		hidden_effect = {
-			country_event = { id = leviathans.121 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.120.c
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			minerals >= 100
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_3_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_3_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_energy_trade_3_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion3
-		hidden_effect = {
-			country_event = { id = leviathans.121 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.120.food.a
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			food >= 20
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_1_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_1_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_1_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion1
-		hidden_effect = {
-			country_event = { id = leviathans.121 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.120.food.b
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			food >= 50 
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_2_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_2_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_2_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion2
-		hidden_effect = {
-			country_event = { id = leviathans.121 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.120.food.c
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			food >= 100
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_3_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_3_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_energy_food_trade_3_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion3
-		hidden_effect = {
-			country_event = { id = leviathans.121 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.d
-		custom_gui = "enclave_trader_option"
-		hidden_effect = {
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-				country_event = { id = leviathans.105 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-				country_event = { id = leviathans.106 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-				country_event = { id = leviathans.107 }
-			}
-		}
-	}
-
-	option = {
-		name = leviathans.110.e
-		custom_gui = "enclave_trader_option"
-		default_hide_option = yes
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-}
-
-# Energy Deal Struck
-country_event = {
-	id = leviathans.121
-	title = leviathans.120.name
-	desc = {
-		text = leviathans.120.a.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_energy_trade_1_xur
-						has_modifier = enclave_energy_food_trade_1_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_energy_trade_1_rig
-						has_modifier = enclave_energy_food_trade_1_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_energy_trade_1_mut
-						has_modifier = enclave_energy_food_trade_1_mut
-					}
-				}
-			}
-		}
-	}
-	desc = {
-		text = leviathans.120.b.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_energy_trade_2_xur
-						has_modifier = enclave_energy_food_trade_2_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_energy_trade_2_rig
-						has_modifier = enclave_energy_food_trade_2_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_energy_trade_2_mut
-						has_modifier = enclave_energy_food_trade_2_mut
-					}
-				}
-			}
-		}
-	}
-	desc = {
-		text = leviathans.120.c.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_energy_trade_3_xur
-						has_modifier = enclave_energy_food_trade_3_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_energy_trade_3_rig
-						has_modifier = enclave_energy_food_trade_3_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_energy_trade_3_mut
-						has_modifier = enclave_energy_food_trade_3_mut
-					}
-				}
-			}
-		}
-	}
-
-	is_triggered_only = yes
-	diplomatic = yes
-	custom_gui = "enclave_trader_window"
-	force_open = yes
-
-	picture_event_data = {
-		portrait = event_target:traders
-		room = enclave_trader_room
-	}
-
-	immediate = {
-		set_country_flag = trader_enclave_diplomacy_engaged
-	}
-
-	after = {
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-
-	option = {
-		name = leviathans.110.d
-		custom_gui = "enclave_trader_option"
-		hidden_effect = {
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-				country_event = { id = leviathans.105 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-				country_event = { id = leviathans.106 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-				country_event = { id = leviathans.107 }
-			}
-		}
-	}
-
-	option = {
-		name = leviathans.111.e
-		custom_gui = "enclave_trader_option"
-		default_hide_option = yes
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-}
-
-# Food
-country_event = {
-	id = leviathans.125
-	title = leviathans.125.name
-	desc = leviathans.125.desc
-
-	is_triggered_only = yes
-	diplomatic = yes
-	custom_gui = "enclave_trader_window"
-	force_open = yes
-
-	picture_event_data = {
-		portrait = event_target:traders
-		room = enclave_trader_room
-	}
-
-	immediate = {
-		set_country_flag = trader_enclave_diplomacy_engaged
-	}
-
-	after = {
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-
-	option = {
-		name = leviathans.125.minerals.a
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			minerals >= 20
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_1_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_1_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_1_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion1
-		hidden_effect = {
-			country_event = { id = leviathans.126 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.125.minerals.b
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			minerals >= 50 
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_2_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_2_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_2_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion2
-		hidden_effect = {
-			country_event = { id = leviathans.126 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.125.minerals.c
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			minerals >= 100
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_3_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_3_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_food_minerals_trade_3_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion3
-		hidden_effect = {
-			country_event = { id = leviathans.126 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.125.energy.a
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 20
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_1_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_1_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_1_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion1
-		hidden_effect = {
-			country_event = { id = leviathans.126 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.125.energy.b
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 50 
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_2_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_2_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_2_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion2
-		hidden_effect = {
-			country_event = { id = leviathans.126 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.125.energy.c
-		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 100
-			hidden_trigger = {
-				NOR = {
-					AND = {
-						has_country_flag = attacked_xuracorp
-						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					}
-					AND = {
-						has_country_flag = attacked_riggans
-						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					}
-					AND = {
-						has_country_flag = attacked_muutagans
-						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					}
-				}
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_3_xur"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_3_rig"
-				days = -1
-			}
-		}
-		if = {
-			limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-			add_modifier = {
-				modifier = "enclave_food_energy_trade_3_mut"
-				days = -1
-			}
-		}
-
-		custom_tooltip = monthly_opinion3
-		hidden_effect = {
-			country_event = { id = leviathans.126 } 
-			country_event = { id = leviathans.122 days = 30 }
-		}
-	}
-
-	option = {
-		name = leviathans.110.d
-		custom_gui = "enclave_trader_option"
-		hidden_effect = {
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-				country_event = { id = leviathans.105 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-				country_event = { id = leviathans.106 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-				country_event = { id = leviathans.107 }
-			}
-		}
-	}
-
-	option = {
-		name = leviathans.110.e
-		custom_gui = "enclave_trader_option"
-		default_hide_option = yes
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-}
-
-# Food Deal Struck
-country_event = {
-	id = leviathans.126
-	title = leviathans.125.name
-	desc = {
-		text = leviathans.125.a.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_1_xur
-						has_modifier = enclave_food_energy_trade_1_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_1_rig
-						has_modifier = enclave_food_energy_trade_1_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_1_mut
-						has_modifier = enclave_food_energy_trade_1_mut
-					}
-				}
-			}
-		}
-	}
-	desc = {
-		text = leviathans.125.b.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_2_xur
-						has_modifier = enclave_food_energy_trade_2_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_2_rig
-						has_modifier = enclave_food_energy_trade_2_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_1_mut
-						has_modifier = enclave_food_energy_trade_1_mut
-					}
-				}
-			}
-		}
-	}
-	desc = {
-		text = leviathans.125.c.reply
-		trigger = { 
-			OR = {
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_1 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_3_xur
-						has_modifier = enclave_food_energy_trade_3_xur
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_2 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_3_rig
-						has_modifier = enclave_food_energy_trade_3_rig
-					}
-				}
-				AND = {
-					event_target:traders = { has_country_flag = trader_enclave_country_3 }
-					OR = {
-						has_modifier = enclave_food_minerals_trade_3_mut
-						has_modifier = enclave_food_energy_trade_3_mut
-					}
-				}
-			}
-		}
-	}
-
-	is_triggered_only = yes
-	diplomatic = yes
-	custom_gui = "enclave_trader_window"
-	force_open = yes
-
-	picture_event_data = {
-		portrait = event_target:traders
-		room = enclave_trader_room
-	}
-
-	immediate = {
-		set_country_flag = trader_enclave_diplomacy_engaged
-	}
-
-	after = {
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-
-	option = {
-		name = leviathans.110.d
-		custom_gui = "enclave_trader_option"
-		hidden_effect = {
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
-				country_event = { id = leviathans.105 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
-				country_event = { id = leviathans.106 }
-			}
-			if = {
-				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
-				country_event = { id = leviathans.107 }
-			}
-		}
-	}
-
-	option = {
-		name = leviathans.111.e
-		custom_gui = "enclave_trader_option"
-		default_hide_option = yes
 		hidden_effect = {
 			remove_country_flag = trader_enclave_diplomacy_engaged
 		}
@@ -2813,34 +1314,22 @@ country_event = {
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
 						OR = {
-							has_modifier = enclave_mineral_trade_1_xur
-							has_modifier = enclave_energy_trade_1_xur
-							has_modifier = enclave_mineral_food_trade_1_xur
-							has_modifier = enclave_energy_food_trade_1_xur
-							has_modifier = enclave_food_minerals_trade_1_xur
-							has_modifier = enclave_food_energy_trade_1_xur
+							has_modifier = enclave_trade_1_xur
+							has_modifier = enclave_trade_2_xur
 						}
 					}
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_2 }
 						OR = {
-							has_modifier = enclave_mineral_trade_1_rig
-							has_modifier = enclave_energy_trade_1_rig
-							has_modifier = enclave_mineral_food_trade_1_rig
-							has_modifier = enclave_energy_food_trade_1_rig
-							has_modifier = enclave_food_minerals_trade_1_rig
-							has_modifier = enclave_food_energy_trade_1_rig
+							has_modifier = enclave_trade_1_rig
+							has_modifier = enclave_trade_2_rig
 						}
 					}
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_3 }
 						OR = {
-							has_modifier = enclave_mineral_trade_1_mut
-							has_modifier = enclave_energy_trade_1_mut
-							has_modifier = enclave_mineral_food_trade_1_mut
-							has_modifier = enclave_energy_food_trade_1_mut
-							has_modifier = enclave_food_minerals_trade_1_mut
-							has_modifier = enclave_food_energy_trade_1_mut
+							has_modifier = enclave_trade_1_mut
+							has_modifier = enclave_trade_2_mut
 						}
 					}
 				}
@@ -2852,42 +1341,29 @@ country_event = {
 				}
 			}
 			country_event = { id = leviathans.122 days = 30 }
-			break = yes
 		}
-		if = {
+		else_if = {
 			limit = {
 				OR = {
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
 						OR = {
-							has_modifier = enclave_mineral_trade_2_xur
-							has_modifier = enclave_energy_trade_2_xur
-							has_modifier = enclave_mineral_food_trade_2_xur
-							has_modifier = enclave_energy_food_trade_2_xur
-							has_modifier = enclave_food_minerals_trade_2_xur
-							has_modifier = enclave_food_energy_trade_2_xur
+							has_modifier = enclave_trade_3_xur
+							has_modifier = enclave_trade_4_xur
 						}
 					}
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_2 }
 						OR = {
-							has_modifier = enclave_mineral_trade_2_rig
-							has_modifier = enclave_energy_trade_2_rig
-							has_modifier = enclave_mineral_food_trade_2_rig
-							has_modifier = enclave_energy_food_trade_2_rig
-							has_modifier = enclave_food_minerals_trade_2_rig
-							has_modifier = enclave_food_energy_trade_2_rig
+							has_modifier = enclave_trade_3_rig
+							has_modifier = enclave_trade_4_rig
 						}
 					}
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_3 }
 						OR = {
-							has_modifier = enclave_mineral_trade_2_mut
-							has_modifier = enclave_energy_trade_2_mut
-							has_modifier = enclave_mineral_food_trade_2_mut
-							has_modifier = enclave_energy_food_trade_2_mut
-							has_modifier = enclave_food_minerals_trade_2_mut
-							has_modifier = enclave_food_energy_trade_2_mut
+							has_modifier = enclave_trade_3_mut
+							has_modifier = enclave_trade_4_mut
 						}
 					}
 				}
@@ -2899,43 +1375,21 @@ country_event = {
 				}
 			}
 			country_event = { id = leviathans.122 days = 30 }
-			break = yes
 		}
-		if = {
+		else_if = {
 			limit = {
 				OR = {
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_1 }
-						OR = {
-							has_modifier = enclave_mineral_trade_3_xur
-							has_modifier = enclave_energy_trade_3_xur
-							has_modifier = enclave_mineral_food_trade_3_xur
-							has_modifier = enclave_energy_food_trade_3_xur
-							has_modifier = enclave_food_minerals_trade_3_xur
-							has_modifier = enclave_food_energy_trade_3_xur
-						}
+						has_modifier = enclave_trade_5_xur
 					}
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_2 }
-						OR = {
-							has_modifier = enclave_mineral_trade_3_rig
-							has_modifier = enclave_energy_trade_3_rig
-							has_modifier = enclave_mineral_food_trade_3_rig
-							has_modifier = enclave_energy_food_trade_3_rig
-							has_modifier = enclave_food_minerals_trade_3_rig
-							has_modifier = enclave_food_energy_trade_3_rig
-						}
+						has_modifier = enclave_trade_5_rig
 					}
 					AND = {
 						event_target:traders = { has_country_flag = trader_enclave_country_3 }
-						OR = {
-							has_modifier = enclave_mineral_trade_3_mut
-							has_modifier = enclave_energy_trade_3_mut
-							has_modifier = enclave_mineral_food_trade_3_mut
-							has_modifier = enclave_energy_food_trade_3_mut
-							has_modifier = enclave_food_minerals_trade_3_mut
-							has_modifier = enclave_food_energy_trade_3_mut
-						}
+						has_modifier = enclave_trade_5_mut
 					}
 				}
 			}
@@ -2946,6 +1400,161 @@ country_event = {
 				}
 			}
 			country_event = { id = leviathans.122 days = 30 }
+		}
+	}
+}
+
+# Hire Governor
+country_event = {
+	id = leviathans.125
+	title = leviathans.125.name.z1
+	desc = leviathans.125.desc.z1
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_trader_window"
+
+	picture_event_data = {
+		portrait = event_target:traders
+		room = enclave_trader_room
+	}
+
+	immediate = {
+		set_country_flag = trader_enclave_diplomacy_engaged
+	}
+
+	option = {
+		name = leviathans.125.z1
+		custom_gui = "enclave_trader_option"
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 500 }
+			custom_tooltip = {
+				fail_text = already_hired_trader_governor
+				NOR = {
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_1 }
+						has_country_flag = hired_trader_governor_xur
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_2 }
+						has_country_flag = hired_trader_governor_rig
+					}
+					AND = {
+						event_target:traders = { has_country_flag = trader_enclave_country_3 }
+						has_country_flag = hired_trader_governor_mut
+					}
+				}
+			}
+		}
+		add_resource = { energy = -500 }
+		hidden_effect = {
+			create_leader = {
+				event_leader = yes
+				class = governor
+				species = event_target:traders.leader.species
+				name = random
+				skill = 5
+				traits = {
+					trait = leader_trait_enclave_trader
+				}
+				gender = indeterminable
+				set_age = 100
+				immortal = yes
+				effect = {
+					set_leader_flag = trader_leader
+					root = { set_country_flag = recruited_trader_leader }
+				}
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+				set_country_flag = hired_trader_governor_xur
+			}
+			else_if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+				set_country_flag = hired_trader_governor_rig
+			}
+			else_if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+				set_country_flag = hired_trader_governor_mut
+			}
+			remove_country_flag = trader_enclave_diplomacy_engaged
+			country_event = { id = leviathans.126 }
+		}
+		custom_tooltip = recruit_trader_leader
+	}
+	option = {
+		name = leviathans.110.d
+		custom_gui = "enclave_trader_option"
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+				country_event = { id = leviathans.105 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+				country_event = { id = leviathans.106 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+				country_event = { id = leviathans.107 }
+			}
+		}
+	}
+	option = {
+		name = leviathans.105.d
+		default_hide_option = yes
+		custom_gui = "enclave_trader_option"
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+		}
+	}
+}
+
+# Hire Governor Reply Event
+country_event = {
+	id = leviathans.126
+	title = leviathans.126.name
+	desc = leviathans.126.desc
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_trader_window"
+
+	picture_event_data = {
+		portrait = event_target:traders
+		room = enclave_trader_room
+	}
+
+	immediate = {
+		set_country_flag = trader_enclave_diplomacy_engaged
+	}
+
+	option = {
+		name = leviathans.110.d
+		custom_gui = "enclave_trader_option"
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
+				country_event = { id = leviathans.105 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_2 } }
+				country_event = { id = leviathans.106 }
+			}
+			if = {
+				limit = { event_target:traders = { has_country_flag = trader_enclave_country_3 } }
+				country_event = { id = leviathans.107 }
+			}
+		}
+	}
+	option = {
+		name = GOODBYE
+		custom_gui = "enclave_trader_option"
+		default_hide_option = yes
+		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
 		}
 	}
 }
@@ -2980,24 +1589,167 @@ country_event = {
 		name = leviathans.130.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy >= 3000 
+			resource_stockpile_compare = { resource = energy value >= 500 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_riggans }
 			}
 		}
 		#response_text = leviathans.130.a.reply
-		add_energy = -3000
-		custom_tooltip = opinion20
+		add_resource = { energy = -500 }
+		custom_tooltip = opinion5
 		add_modifier = {
-			modifier = "enclave_traders_sr1"
+			modifier = enclave_trade_1_rig
 			days = 3600
 		}
-		custom_tooltip = riggan_spice_effect
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = riggan_trade
+			}
+			country_event = { id = leviathans.135 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.130.b
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1000 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_riggans }
+			}
+		}
+		#response_text = leviathans.130.a.reply
+		add_resource = { energy = -1000 }
+		custom_tooltip = opinion10
+		add_modifier = {
+			modifier = enclave_trade_2_rig
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = riggan_trade
+			}
+			country_event = { id = leviathans.135 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.130.c
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1500 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_riggans }
+			}
+		}
+		#response_text = leviathans.130.a.reply
+		add_resource = { energy = -1500 }
+		custom_tooltip = opinion15
+		add_modifier = {
+			modifier = enclave_trade_3_rig
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = riggan_trade
+			}
+			country_event = { id = leviathans.135 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.130.d
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOT = { has_country_flag = attacked_riggans }
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 2000 }
+			custom_tooltip = {
+				fail_text = riggan_deal_in_place
+				NOR = {
+					has_modifier = enclave_trade_1_rig
+					has_modifier = enclave_trade_2_rig
+					has_modifier = enclave_trade_3_rig
+					has_modifier = enclave_trade_4_rig
+					has_modifier = enclave_trade_5_rig
+				}
+			}
+		}
+		#response_text = leviathans.130.a.reply
+		add_resource = { energy = -2000 }
+		custom_tooltip = opinion20
+		add_modifier = {
+			modifier = enclave_trade_4_rig
+			days = 3600
+		}
 		hidden_effect = {
 			event_target:traders = {
 				add_trust = {
 					who = root
 					amount = 20
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = riggan_trade
+			}
+			country_event = { id = leviathans.135 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.130.e
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOT = { has_country_flag = attacked_riggans }
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 2500 }
+			custom_tooltip = {
+				fail_text = riggan_deal_in_place
+				NOR = {
+					has_modifier = enclave_trade_1_rig
+					has_modifier = enclave_trade_2_rig
+					has_modifier = enclave_trade_3_rig
+					has_modifier = enclave_trade_4_rig
+					has_modifier = enclave_trade_5_rig
+				}
+			}
+		}
+		#response_text = leviathans.130.a.reply
+		add_resource = { energy = -2500 }
+		custom_tooltip = opinion25
+		add_modifier = {
+			modifier = enclave_trade_5_rig
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 25
 				}
 			}
 			set_relation_flag = {
@@ -3066,24 +1818,167 @@ country_event = {
 		name = leviathans.131.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy >= 3000 
+			resource_stockpile_compare = { resource = energy value >= 500 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_xuracorp }
 			}
 		}
 		#response_text = leviathans.131.a.reply
-		add_energy = -3000
-		custom_tooltip = opinion20
+		add_resource = { energy = -500 }
+		custom_tooltip = opinion5
 		add_modifier = {
-			modifier = "enclave_traders_sr2"
+			modifier = enclave_trade_1_xur
 			days = 3600
 		}
-		custom_tooltip = xuragel_effect
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = xuracorp_trade
+			}
+			country_event = { id = leviathans.136 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.131.b
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1000 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_xuracorp }
+			}
+		}
+		#response_text = leviathans.131.a.reply
+		add_resource = { energy = -1000 }
+		custom_tooltip = opinion10
+		add_modifier = {
+			modifier = enclave_trade_2_xur
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = xuracorp_trade
+			}
+			country_event = { id = leviathans.136 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.131.c
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1500 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_xuracorp }
+			}
+		}
+		#response_text = leviathans.131.a.reply
+		add_resource = { energy = -1500 }
+		custom_tooltip = opinion15
+		add_modifier = {
+			modifier = enclave_trade_3_xur
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = xuracorp_trade
+			}
+			country_event = { id = leviathans.136 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.131.d
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOT = { has_country_flag = attacked_xuracorp }
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 2000 }
+			custom_tooltip = {
+				fail_text = xuracorp_deal_in_place
+				NOR = {
+					has_modifier = enclave_trade_1_xur
+					has_modifier = enclave_trade_2_xur
+					has_modifier = enclave_trade_3_xur
+					has_modifier = enclave_trade_4_xur
+					has_modifier = enclave_trade_5_xur
+				}
+			}
+		}
+		#response_text = leviathans.131.a.reply
+		add_resource = { energy = -2000 }
+		custom_tooltip = opinion20
+		add_modifier = {
+			modifier = enclave_trade_4_xur
+			days = 3600
+		}
 		hidden_effect = {
 			event_target:traders = {
 				add_trust = {
 					who = root
 					amount = 20
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = xuracorp_trade
+			}
+			country_event = { id = leviathans.136 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.131.e
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOT = { has_country_flag = attacked_xuracorp }
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 2500 }
+			custom_tooltip = {
+				fail_text = xuracorp_deal_in_place
+				NOR = {
+					has_modifier = enclave_trade_1_xur
+					has_modifier = enclave_trade_2_xur
+					has_modifier = enclave_trade_3_xur
+					has_modifier = enclave_trade_4_xur
+					has_modifier = enclave_trade_5_xur
+				}
+			}
+		}
+		#response_text = leviathans.131.a.reply
+		add_resource = { energy = -2500 }
+		custom_tooltip = opinion25
+		add_modifier = {
+			modifier = enclave_trade_5_xur
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 25
 				}
 			}
 			set_relation_flag = {
@@ -3152,24 +2047,167 @@ country_event = {
 		name = leviathans.132.a
 		custom_gui = "enclave_trader_option"
 		allow = { 
-			energy >= 3000 
+			resource_stockpile_compare = { resource = energy value >= 500 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_muutagans }
 			}
 		}
 		#response_text = leviathans.132.a.reply
-		add_energy = -3000
-		custom_tooltip = opinion20
+		add_resource = { energy = -500 }
+		custom_tooltip = opinion5
 		add_modifier = {
-			modifier = "enclave_traders_sr3"
+			modifier = enclave_trade_1_mut
 			days = 3600
 		}
-		custom_tooltip = muutagan_crystals_effect
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = muutagan_trade
+			}
+			country_event = { id = leviathans.137 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.132.b
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1000 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_muutagans }
+			}
+		}
+		#response_text = leviathans.132.a.reply
+		add_resource = { energy = -1000 }
+		custom_tooltip = opinion10
+		add_modifier = {
+			modifier = enclave_trade_2_mut
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = muutagan_trade
+			}
+			country_event = { id = leviathans.137 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.132.c
+		custom_gui = "enclave_trader_option"
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 1500 }
+			hidden_trigger = {
+				NOT = { has_country_flag = attacked_muutagans }
+			}
+		}
+		#response_text = leviathans.132.a.reply
+		add_resource = { energy = -1500 }
+		custom_tooltip = opinion15
+		add_modifier = {
+			modifier = enclave_trade_3_mut
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = muutagan_trade
+			}
+			country_event = { id = leviathans.137 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.132.d
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOT = { has_country_flag = attacked_muutagans }
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 2000 }
+			custom_tooltip = {
+				fail_text = muutagan_deal_in_place
+				NOR = {
+					has_modifier = enclave_trade_1_mut
+					has_modifier = enclave_trade_2_mut
+					has_modifier = enclave_trade_3_mut
+					has_modifier = enclave_trade_4_mut
+					has_modifier = enclave_trade_5_mut
+				}
+			}
+		}
+		#response_text = leviathans.132.a.reply
+		add_resource = { energy = -2000 }
+		custom_tooltip = opinion20
+		add_modifier = {
+			modifier = enclave_trade_4_mut
+			days = 3600
+		}
 		hidden_effect = {
 			event_target:traders = {
 				add_trust = {
 					who = root
 					amount = 20
+				}
+			}
+			set_relation_flag = {
+				who = event_target:traders
+				flag = muutagan_trade
+			}
+			country_event = { id = leviathans.137 days = 3600 }
+			country_event = { id = leviathans.133 }
+		}
+	}
+	option = {
+		name = leviathans.132.e
+		custom_gui = "enclave_trader_option"
+		trigger = {
+			NOT = { has_country_flag = attacked_muutagans }
+		}
+		allow = { 
+			resource_stockpile_compare = { resource = energy value >= 2500 }
+			custom_tooltip = {
+				fail_text = muutagan_deal_in_place
+				NOR = {
+					has_modifier = enclave_trade_1_mut
+					has_modifier = enclave_trade_2_mut
+					has_modifier = enclave_trade_3_mut
+					has_modifier = enclave_trade_4_mut
+					has_modifier = enclave_trade_5_mut
+				}
+			}
+		}
+		#response_text = leviathans.132.a.reply
+		add_resource = { energy = -2500 }
+		custom_tooltip = opinion25
+		add_modifier = {
+			modifier = enclave_trade_5_mut
+			days = 3600
+		}
+		hidden_effect = {
+			event_target:traders = {
+				add_trust = {
+					who = root
+					amount = 25
 				}
 			}
 			set_relation_flag = {
@@ -3251,16 +2289,11 @@ country_event = {
 		set_country_flag = trader_enclave_diplomacy_engaged
 	}
 
-	after = {
-		hidden_effect = {
-			remove_country_flag = trader_enclave_diplomacy_engaged
-		}
-	}
-
 	option = {
 		name = leviathans.110.d
 		custom_gui = "enclave_trader_option"
 		hidden_effect = {
+			remove_country_flag = trader_enclave_diplomacy_engaged
 			if = {
 				limit = { event_target:traders = { has_country_flag = trader_enclave_country_1 } }
 				country_event = { id = leviathans.105 }
@@ -3276,7 +2309,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = leviathans.110.e
+		name = GOODBYE
 		custom_gui = "enclave_trader_option"
 		default_hide_option = yes
 		hidden_effect = {
@@ -3301,7 +2334,7 @@ country_event = {
 	}
 }
 
-# Remove XuraCorp Trade Relation Flag (HIDDEN)
+## Remove XuraCorp Trade Relation Flag (HIDDEN)
 country_event = {
 	id = leviathans.136
 	hide_window = yes
@@ -3317,7 +2350,7 @@ country_event = {
 	}
 }
 
-# Remove Muutagan Trade Relation Flag (HIDDEN)
+## Remove Muutagan Trade Relation Flag (HIDDEN)
 country_event = {
 	id = leviathans.137
 	hide_window = yes
@@ -3466,6 +2499,26 @@ country_event = {
 				country_event = { id = leviathans.144 }
 			}
 		}
+		random_playable_country = {
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_1 }
+				}
+				observer_event = { id = observer.8 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_2 }
+				}
+				observer_event = { id = observer.9 }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = trader_enclave_country_3 }
+				}
+				observer_event = { id = observer.10 }
+			}
+		}
 	}
 }
 
@@ -3499,27 +2552,22 @@ country_event = {
 		}
 		if = {
 			limit = { FROM = { has_country_flag = trader_enclave_country_1 } }
-			remove_modifier = "enclave_traders_sr2"
 			remove_xuracorp_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = xuracorp_trade 
 			}
-			break = yes
 		}
-		if = {
+		else_if = {
 			limit = { FROM = { has_country_flag = trader_enclave_country_2 } }
-			remove_modifier = "enclave_traders_sr1"
 			remove_riggan_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = riggan_trade 
 			}
-			break = yes
 		}
-		if = {
+		else_if = {
 			limit = { FROM = { has_country_flag = trader_enclave_country_3 } }
-			remove_modifier = "enclave_traders_sr3"
 			remove_muutagan_trades = yes
 			remove_relation_flag = {
 				who = FROM
@@ -3530,8 +2578,10 @@ country_event = {
 	
 	option = {
 		name = EXCELLENT
-		add_minerals = 2000
-		add_energy = 2000
+		add_resource = {
+			minerals = 2000
+			energy = 2000
+		}
 	}
 }
 
@@ -3591,7 +2641,6 @@ country_event = {
 	
 	immediate = {
 		set_global_flag = xuracorp_destroyed
-		remove_modifier = "enclave_traders_sr2"
 		remove_xuracorp_trades = yes
 		remove_relation_flag = {
 			who = FROM
@@ -3660,7 +2709,6 @@ country_event = {
 	
 	immediate = {
 		set_global_flag = riggans_destroyed
-		remove_modifier = "enclave_traders_sr1"
 		remove_riggan_trades = yes
 		remove_relation_flag = {
 			who = FROM
@@ -3729,7 +2777,6 @@ country_event = {
 	
 	immediate = {
 		set_global_flag = muutagans_destroyed
-		remove_modifier = "enclave_traders_sr3"
 		remove_muutagan_trades = yes
 		remove_relation_flag = {
 			who = FROM
@@ -3758,53 +2805,23 @@ country_event = {
 	}
 	
 	trigger = {
-		NOT = { has_global_flag = xuracorp_destroyed }
-		event_target:traders = {
-			trust = { 
-				who = root
-				value >= 50
-			}
+		NOR = {
+			has_global_flag = xuracorp_destroyed
+			has_country_flag = attacked_xuracorp
 		}
 	}
 
+	
 	option = {
 		name = leviathans.150.a
 		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 3000 
-			hidden_trigger = {
-				NOT = { has_country_flag = attacked_xuracorp }
-			}
-		}
-		add_energy = -3000
-		add_modifier = {
-			modifier = "enclave_traders_sr2"
-			days = 3600
-		}
-		custom_tooltip = xuragel_effect
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-			set_relation_flag = {
-				who = event_target:traders
-				flag = xuracorp_trade
-			}
-			country_event = { id = leviathans.136 days = 3600 }
+			country_event = { id = leviathans.131 }
 		}
 	}
 	option = {
 		name = leviathans.150.b
 		custom_gui = "enclave_trader_option"
-		trigger = { energy >= 3000 }
-	}
-	option = {
-		name = leviathans.150.c
-		custom_gui = "enclave_trader_option"
-		trigger = { energy < 3000 }
 	}
 }
 
@@ -3824,53 +2841,22 @@ country_event = {
 	}
 	
 	trigger = {
-		NOT = { has_global_flag = riggans_destroyed }
-		event_target:traders = {
-			trust = { 
-				who = root
-				value >= 50
-			}
+		NOR = {
+			has_global_flag = riggans_destroyed
+			has_country_flag = attacked_riggans
 		}	
 	}
-
+	
 	option = {
 		name = leviathans.151.a
 		custom_gui = "enclave_trader_option"
-		allow = { 
-			energy >= 3000 
-			hidden_trigger = {
-				NOT = { has_country_flag = attacked_riggans }
-			}
-		}
-		add_energy = -3000
-		add_modifier = {
-			modifier = "enclave_traders_sr1"
-			days = 3600
-		}
-		custom_tooltip = riggan_spice_effect
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-			set_relation_flag = {
-				who = event_target:traders
-				flag = riggan_trade
-			}
-			country_event = { id = leviathans.135 days = 3600 }
+			country_event = { id = leviathans.130 }
 		}
 	}
 	option = {
 		name = leviathans.151.b
 		custom_gui = "enclave_trader_option"
-		trigger = { energy >= 3000 }
-	}
-	option = {
-		name = leviathans.150.c
-		custom_gui = "enclave_trader_option"
-		trigger = { energy < 3000 }
 	}
 }
 
@@ -3890,48 +2876,23 @@ country_event = {
 	}
 	
 	trigger = {
-		NOT = { has_global_flag = muutagans_destroyed }
-		event_target:traders = {
-			trust = { 
-				who = root
-				value >= 50
-			}
-		}	
+		NOR = {
+			has_global_flag = muutagans_destroyed
+			has_country_flag = attacked_muutagans
+		}
 	}
+	
 
 	option = {
 		name = leviathans.152.a
 		custom_gui = "enclave_trader_option"
-		allow = { energy >= 3000 }
-		add_energy = -3000
-		add_modifier = {
-			modifier = "enclave_traders_sr3"
-			days = 3600
-		}
-		custom_tooltip = muutagan_crystals_effect
 		hidden_effect = {
-			event_target:traders = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-			set_relation_flag = {
-				who = event_target:traders
-				flag = muutagan_trade
-			}
-			country_event = { id = leviathans.137 days = 3600 }
+			country_event = { id = leviathans.132 }
 		}
 	}
 	option = {
 		name = leviathans.152.b
 		custom_gui = "enclave_trader_option"
-		trigger = { energy >= 3000 }
-	}
-	option = {
-		name = leviathans.150.c
-		custom_gui = "enclave_trader_option"
-		trigger = { energy < 3000 }
 	}
 }
 
@@ -3957,12 +2918,8 @@ country_event = {
 		set_country_flag = attacked_xuracorp
 		if = {
 			limit = { 
-				OR = {
-					has_modifier = enclave_traders_sr2 
-					has_active_xuracorp_trade = yes
-				}
+				has_active_xuracorp_trade = yes
 			}
-			remove_modifier = enclave_traders_sr1
 			remove_xuracorp_trades = yes
 			remove_relation_flag = {
 				who = FROM
@@ -4091,13 +3048,9 @@ country_event = {
 		}
 		set_country_flag = attacked_riggans
 		if = {
-			limit = { 
-				OR = {
-					has_modifier = enclave_traders_sr1 
-					has_active_riggan_trade = yes
-				}
+			limit = {
+				has_active_riggan_trade = yes
 			}
-			remove_modifier = enclave_traders_sr1
 			remove_riggan_trades = yes
 			remove_relation_flag = {
 				who = FROM
@@ -4227,18 +3180,14 @@ country_event = {
 		set_country_flag = attacked_muutagans
 		if = {
 			limit = { 
-				OR = {
-					has_modifier = enclave_traders_sr3
-					has_active_muutagan_trade = yes
-				}
+				has_active_muutagan_trade = yes
 			}
-			remove_modifier = enclave_traders_sr3
 			remove_muutagan_trades = yes
 			remove_relation_flag = {
 				who = FROM
 				flag = muutagan_trade
 			}
-			country_event = { id = leviathans.162}
+			country_event = { id = leviathans.162 }
 		}
 	}
 }
@@ -4334,7 +3283,7 @@ country_event = {
 	}
 }
 
-# No More Energy - Trades Cancelled
+# No More Energy - Trades Canceled
 event = {
 	id = leviathans.170
 	hide_window = yes
@@ -4344,26 +3293,11 @@ event = {
 	trigger = {
 		any_country = {
 			is_country_type = default
-			energy <= 0
+			resource_stockpile_compare = { resource = energy value <= 0 }
 			OR = {
-				has_modifier = enclave_mineral_trade_1_xur
-				has_modifier = enclave_mineral_trade_2_xur
-				has_modifier = enclave_mineral_trade_3_xur
-				has_modifier = enclave_food_energy_trade_1_xur
-				has_modifier = enclave_food_energy_trade_2_xur
-				has_modifier = enclave_food_energy_trade_3_xur
-				has_modifier = enclave_mineral_trade_1_rig
-				has_modifier = enclave_mineral_trade_2_rig
-				has_modifier = enclave_mineral_trade_3_rig
-				has_modifier = enclave_food_energy_trade_1_rig
-				has_modifier = enclave_food_energy_trade_2_rig
-				has_modifier = enclave_food_energy_trade_3_rig
-				has_modifier = enclave_mineral_trade_1_mut
-				has_modifier = enclave_mineral_trade_2_mut
-				has_modifier = enclave_mineral_trade_3_mut
-				has_modifier = enclave_food_energy_trade_1_mut
-				has_modifier = enclave_food_energy_trade_2_mut
-				has_modifier = enclave_food_energy_trade_3_mut
+				has_active_xuracorp_trade = yes
+				has_active_riggan_trade = yes
+				has_active_muutagan_trade = yes
 			}
 		}
 	}
@@ -4372,26 +3306,11 @@ event = {
 		every_country = {
 			limit = {
 				is_country_type = default
-				energy <= 0
+				resource_stockpile_compare = { resource = energy value <= 0 }
 				OR = {
-					has_modifier = enclave_mineral_trade_1_xur
-					has_modifier = enclave_mineral_trade_2_xur
-					has_modifier = enclave_mineral_trade_3_xur
-					has_modifier = enclave_food_energy_trade_1_xur
-					has_modifier = enclave_food_energy_trade_2_xur
-					has_modifier = enclave_food_energy_trade_3_xur
-					has_modifier = enclave_mineral_trade_1_rig
-					has_modifier = enclave_mineral_trade_2_rig
-					has_modifier = enclave_mineral_trade_3_rig
-					has_modifier = enclave_food_energy_trade_1_rig
-					has_modifier = enclave_food_energy_trade_2_rig
-					has_modifier = enclave_food_energy_trade_3_rig
-					has_modifier = enclave_mineral_trade_1_mut
-					has_modifier = enclave_mineral_trade_2_mut
-					has_modifier = enclave_mineral_trade_3_mut
-					has_modifier = enclave_food_energy_trade_1_mut
-					has_modifier = enclave_food_energy_trade_2_mut
-					has_modifier = enclave_food_energy_trade_3_mut
+					has_active_xuracorp_trade = yes
+					has_active_riggan_trade = yes
+					has_active_muutagan_trade = yes
 				}
 			}
 			country_event = { id = leviathans.171 }
@@ -4399,7 +3318,7 @@ event = {
 	}
 }
 
-# No More Energy - Trades Cancelled Notification
+# No More Energy - Trades Canceled Notification
 country_event = {
 	id = leviathans.171
 	title = "leviathans.171.name"
@@ -4410,233 +3329,116 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		remove_modifier = enclave_mineral_trade_1_xur
-		remove_modifier = enclave_mineral_trade_2_xur
-		remove_modifier = enclave_mineral_trade_3_xur
-		remove_modifier = enclave_mineral_trade_1_rig
-		remove_modifier = enclave_mineral_trade_2_rig
-		remove_modifier = enclave_mineral_trade_3_rig
-		remove_modifier = enclave_mineral_trade_1_mut
-		remove_modifier = enclave_mineral_trade_2_mut
-		remove_modifier = enclave_mineral_trade_3_mut
-		remove_modifier = enclave_food_energy_trade_1_xur
-		remove_modifier = enclave_food_energy_trade_2_xur
-		remove_modifier = enclave_food_energy_trade_3_xur
-		remove_modifier = enclave_food_energy_trade_1_rig
-		remove_modifier = enclave_food_energy_trade_2_rig
-		remove_modifier = enclave_food_energy_trade_3_rig
-		remove_modifier = enclave_food_energy_trade_1_mut
-		remove_modifier = enclave_food_energy_trade_2_mut
-		remove_modifier = enclave_food_energy_trade_3_mut
-	}
-
-	option = {
-		name = leviathans.171.a
-		custom_tooltip = enclave_mineral_trade_ended
-	}
-}
-
-# No More Minerals - Trades Cancelled
-event = {
-	id = leviathans.172
-	hide_window = yes
-
-	is_triggered_only = yes
-
-	trigger = {
-		any_country = {
-			is_country_type = default
-			minerals <= 0
-			OR = {
-				has_modifier = enclave_energy_trade_1_xur
-				has_modifier = enclave_energy_trade_2_xur
-				has_modifier = enclave_energy_trade_3_xur
-				has_modifier = enclave_energy_trade_1_rig
-				has_modifier = enclave_energy_trade_2_rig
-				has_modifier = enclave_energy_trade_3_rig
-				has_modifier = enclave_energy_trade_1_mut
-				has_modifier = enclave_energy_trade_2_mut
-				has_modifier = enclave_energy_trade_3_mut
-				has_modifier = enclave_food_minerals_trade_1_xur
-				has_modifier = enclave_food_minerals_trade_2_xur
-				has_modifier = enclave_food_minerals_trade_3_xur
-				has_modifier = enclave_food_minerals_trade_1_rig
-				has_modifier = enclave_food_minerals_trade_2_rig
-				has_modifier = enclave_food_minerals_trade_3_rig
-				has_modifier = enclave_food_minerals_trade_1_mut
-				has_modifier = enclave_food_minerals_trade_2_mut
-				has_modifier = enclave_food_minerals_trade_3_mut
-			}
-		}
-	}
-
-	immediate = {
-		every_country = {
+		if = {
 			limit = {
-				is_country_type = default
-				minerals <= 0
 				OR = {
-					has_modifier = enclave_energy_trade_1_xur
-					has_modifier = enclave_energy_trade_2_xur
-					has_modifier = enclave_energy_trade_3_xur
-					has_modifier = enclave_energy_trade_1_rig
-					has_modifier = enclave_energy_trade_2_rig
-					has_modifier = enclave_energy_trade_3_rig
-					has_modifier = enclave_energy_trade_1_mut
-					has_modifier = enclave_energy_trade_2_mut
-					has_modifier = enclave_energy_trade_3_mut
-					has_modifier = enclave_food_minerals_trade_1_xur
-					has_modifier = enclave_food_minerals_trade_2_xur
-					has_modifier = enclave_food_minerals_trade_3_xur
-					has_modifier = enclave_food_minerals_trade_1_rig
-					has_modifier = enclave_food_minerals_trade_2_rig
-					has_modifier = enclave_food_minerals_trade_3_rig
-					has_modifier = enclave_food_minerals_trade_1_mut
-					has_modifier = enclave_food_minerals_trade_2_mut
-					has_modifier = enclave_food_minerals_trade_3_mut
+					has_modifier = enclave_trade_1_xur
+					has_modifier = enclave_trade_2_xur
+					has_modifier = enclave_trade_3_xur
+					has_modifier = enclave_trade_4_xur
+					has_modifier = enclave_trade_5_xur
 				}
 			}
-			country_event = { id = leviathans.173 }
+			switch = {
+				trigger = has_modifier
+				enclave_trade_1_xur = { remove_modifier = enclave_trade_1_xur }
+				enclave_trade_2_xur = { remove_modifier = enclave_trade_2_xur }
+				enclave_trade_3_xur = { remove_modifier = enclave_trade_3_xur }
+				enclave_trade_4_xur = { remove_modifier = enclave_trade_4_xur }
+				enclave_trade_5_xur = { remove_modifier = enclave_trade_5_xur }
+			}
+			random_country = {
+				limit = { has_country_flag = trader_enclave_country_1 }
+				add_trust = {
+					who = root
+					amount = -20
+				}
+			}
 		}
-	}
-}
-
-# No More Minerals - Trades Cancelled Notification
-country_event = {
-	id = leviathans.173
-	title = "leviathans.173.name"
-	desc = "leviathans.173.desc"
-	picture = GFX_evt_mining_operations
-	show_sound = event_radio_chatter
-
-	is_triggered_only = yes
-
-	immediate = {
-		remove_modifier = enclave_energy_trade_1_xur
-		remove_modifier = enclave_energy_trade_2_xur
-		remove_modifier = enclave_energy_trade_3_xur
-		remove_modifier = enclave_energy_trade_1_rig
-		remove_modifier = enclave_energy_trade_2_rig
-		remove_modifier = enclave_energy_trade_3_rig
-		remove_modifier = enclave_energy_trade_1_mut
-		remove_modifier = enclave_energy_trade_2_mut
-		remove_modifier = enclave_energy_trade_3_mut
-		remove_modifier = enclave_food_minerals_trade_1_xur
-		remove_modifier = enclave_food_minerals_trade_2_xur
-		remove_modifier = enclave_food_minerals_trade_3_xur
-		remove_modifier = enclave_food_minerals_trade_1_rig
-		remove_modifier = enclave_food_minerals_trade_2_rig
-		remove_modifier = enclave_food_minerals_trade_3_rig
-		remove_modifier = enclave_food_minerals_trade_1_mut
-		remove_modifier = enclave_food_minerals_trade_2_mut
-		remove_modifier = enclave_food_minerals_trade_3_mut
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_trade_1_rig
+					has_modifier = enclave_trade_2_rig
+					has_modifier = enclave_trade_3_rig
+					has_modifier = enclave_trade_4_rig
+					has_modifier = enclave_trade_5_rig
+				}
+			}
+			switch = {
+				trigger = has_modifier
+				enclave_trade_1_rig = { remove_modifier = enclave_trade_1_rig }
+				enclave_trade_2_rig = { remove_modifier = enclave_trade_2_rig }
+				enclave_trade_3_rig = { remove_modifier = enclave_trade_3_rig }
+				enclave_trade_4_rig = { remove_modifier = enclave_trade_4_rig }
+				enclave_trade_5_rig = { remove_modifier = enclave_trade_5_rig }
+			}
+			random_country = {
+				limit = { has_country_flag = trader_enclave_country_2 }
+				add_trust = {
+					who = root
+					amount = -20
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_trade_1_mut
+					has_modifier = enclave_trade_2_mut
+					has_modifier = enclave_trade_3_mut
+					has_modifier = enclave_trade_4_mut
+					has_modifier = enclave_trade_5_mut
+				}
+			}
+			switch = {
+				trigger = has_modifier
+				enclave_trade_1_mut = { remove_modifier = enclave_trade_1_mut }
+				enclave_trade_2_mut = { remove_modifier = enclave_trade_2_mut }
+				enclave_trade_3_mut = { remove_modifier = enclave_trade_3_mut }
+				enclave_trade_4_mut = { remove_modifier = enclave_trade_4_mut }
+				enclave_trade_5_mut = { remove_modifier = enclave_trade_5_mut }
+			}
+			random_country = {
+				limit = { has_country_flag = trader_enclave_country_3 }
+				add_trust = {
+					who = root
+					amount = -20
+				}
+			}
+		}
 	}
 
 	option = {
 		name = leviathans.171.a
 		custom_tooltip = enclave_energy_trade_ended
+		custom_tooltip = opinion-20
 	}
 }
 
-# No More Food - Trades Cancelled
-event = {
-	id = leviathans.174
+# Artists Gatekeeper so the from scope doesn't break or refuse to pass trigger when we keep calling leviathans.300 from both on_custom_diplomacy and leviathans.30x events
+country_event = {
+	id = leviathans.299
 	hide_window = yes
-
 	is_triggered_only = yes
 
 	trigger = {
-		any_country = {
-			is_country_type = default
-			food <= 0
-			OR = {
-				has_modifier = enclave_mineral_food_trade_1_xur
-				has_modifier = enclave_mineral_food_trade_2_xur
-				has_modifier = enclave_mineral_food_trade_3_xur
-				has_modifier = enclave_energy_food_trade_1_xur
-				has_modifier = enclave_energy_food_trade_2_xur
-				has_modifier = enclave_energy_food_trade_3_xur
-				has_modifier = enclave_mineral_food_trade_1_rig
-				has_modifier = enclave_mineral_food_trade_2_rig
-				has_modifier = enclave_mineral_food_trade_3_rig
-				has_modifier = enclave_energy_food_trade_1_rig
-				has_modifier = enclave_energy_food_trade_2_rig
-				has_modifier = enclave_energy_food_trade_3_rig
-				has_modifier = enclave_mineral_food_trade_1_mut
-				has_modifier = enclave_mineral_food_trade_2_mut
-				has_modifier = enclave_mineral_food_trade_3_mut
-				has_modifier = enclave_energy_food_trade_1_mut
-				has_modifier = enclave_energy_food_trade_2_mut
-				has_modifier = enclave_energy_food_trade_3_mut
-			}
+		from = {
+			is_country_type = enclave
+			has_country_flag = artist_enclave_country
 		}
 	}
 
 	immediate = {
-		every_country = {
+		if = {
 			limit = {
-				is_country_type = default
-				food <= 0
-				OR = {
-					has_modifier = enclave_mineral_food_trade_1_xur
-					has_modifier = enclave_mineral_food_trade_2_xur
-					has_modifier = enclave_mineral_food_trade_3_xur
-					has_modifier = enclave_energy_food_trade_1_xur
-					has_modifier = enclave_energy_food_trade_2_xur
-					has_modifier = enclave_energy_food_trade_3_xur
-					has_modifier = enclave_mineral_food_trade_1_rig
-					has_modifier = enclave_mineral_food_trade_2_rig
-					has_modifier = enclave_mineral_food_trade_3_rig
-					has_modifier = enclave_energy_food_trade_1_rig
-					has_modifier = enclave_energy_food_trade_2_rig
-					has_modifier = enclave_energy_food_trade_3_rig
-					has_modifier = enclave_mineral_food_trade_1_mut
-					has_modifier = enclave_mineral_food_trade_2_mut
-					has_modifier = enclave_mineral_food_trade_3_mut
-					has_modifier = enclave_energy_food_trade_1_mut
-					has_modifier = enclave_energy_food_trade_2_mut
-					has_modifier = enclave_energy_food_trade_3_mut
-				}
+				NOT = { exists = event_target:artist_enclave_country }
 			}
-			country_event = { id = leviathans.175 }
+			from = {
+				save_global_event_target_as = artist_enclave_country
+			}
 		}
-	}
-}
-
-# No More Food - Trades Cancelled Notification
-country_event = {
-	id = leviathans.175
-	title = "leviathans.175.name"
-	desc = "leviathans.175.desc"
-	picture = GFX_evt_mining_operations
-	show_sound = event_radio_chatter
-
-	is_triggered_only = yes
-
-	immediate = {
-		remove_modifier = enclave_mineral_food_trade_1_xur
-		remove_modifier = enclave_mineral_food_trade_2_xur
-		remove_modifier = enclave_mineral_food_trade_3_xur
-		remove_modifier = enclave_energy_food_trade_1_xur
-		remove_modifier = enclave_energy_food_trade_2_xur
-		remove_modifier = enclave_energy_food_trade_3_xur
-		remove_modifier = enclave_mineral_food_trade_1_rig
-		remove_modifier = enclave_mineral_food_trade_2_rig
-		remove_modifier = enclave_mineral_food_trade_3_rig
-		remove_modifier = enclave_energy_food_trade_1_rig
-		remove_modifier = enclave_energy_food_trade_2_rig
-		remove_modifier = enclave_energy_food_trade_3_rig
-		remove_modifier = enclave_mineral_food_trade_1_mut
-		remove_modifier = enclave_mineral_food_trade_2_mut
-		remove_modifier = enclave_mineral_food_trade_3_mut
-		remove_modifier = enclave_energy_food_trade_1_mut
-		remove_modifier = enclave_energy_food_trade_2_mut
-		remove_modifier = enclave_energy_food_trade_3_mut
-	}
-
-	option = {
-		name = leviathans.171.a
-		custom_tooltip = enclave_food_trade_ended
+		country_event = { id = leviathans.300 }
 	}
 }
 
@@ -4650,6 +3452,7 @@ country_event = {
 				trigger = has_country_flag
 				artist_enclave_diplomacy_continued = { text = leviathans.300.desc.continued }
 				recently_purchased_art = { text = leviathans.302.a.reply }
+				recently_purchased_ministry = { text = leviathans.316.a.reply }
 				recently_purchased_patron = { text = leviathans.304.a.reply }
 				recently_purchased_festival = { text = leviathans.303.a.reply }
 				default = { text = leviathans.300.desc }
@@ -4662,21 +3465,18 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 	
 	trigger = {
-		from = {
-			is_country_type = enclave
-			has_country_flag = artist_enclave_country
-		}
 		OR = {
 			OR = {
 				has_country_flag = artist_enclave_diplomacy_continued
 				NOT = { has_country_flag = artist_enclave_diplomacy_engaged }
 			}
 			has_country_flag = recently_purchased_art
+			has_country_flag = recently_purchased_ministry
 			has_country_flag = recently_purchased_patron
 			has_country_flag = recently_purchased_festival
 		}
@@ -4686,14 +3486,6 @@ country_event = {
 	immediate = {
 		save_event_target_as = my_country
 		set_country_flag = artist_enclave_diplomacy_engaged
-		if = {
-			limit = {
-				NOT = { exists = event_target:artist_enclave }
-			}
-			from = {
-				save_event_target_as = artist_enclave
-			}
-		}
 	}
 
 	option = {
@@ -4706,9 +3498,15 @@ country_event = {
 			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
 		}
 		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_continued
+			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
+			remove_country_flag = recently_purchased_patron
+			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.302 }
 		}
 	}
+	
 	option = {
 		name = leviathans.300.a
 		response_text = leviathans.300.a.reply
@@ -4782,6 +3580,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.303 }
@@ -4808,6 +3607,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.303 }
@@ -4886,6 +3686,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -4898,6 +3699,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -4910,6 +3712,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -4924,6 +3727,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -4934,13 +3738,12 @@ country_event = {
 	#		remove_country_flag = artist_enclave_diplomacy_engaged
 	#		remove_country_flag = artist_enclave_diplomacy_continued
 	#		remove_country_flag = recently_purchased_art
+	#		remove_country_flag = recently_purchased_ministry
 	#		remove_country_flag = recently_purchased_patron
 	#		remove_country_flag = recently_purchased_festival
 	#	}
 	#}
 }
-
-
 
 # Port
 country_event = {
@@ -4970,7 +3773,7 @@ country_event = {
 	
 	is_triggered_only = yes
 	diplomatic = yes
-	custom_gui = "enclave_trader_window"
+	custom_gui = "enclave_artist_window"
 
 	picture_event_data = {
 		portrait = from
@@ -5021,24 +3824,24 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
-	
+
 	trigger = {
 		has_country_flag = artist_enclave_diplomacy_engaged
 	}
 
 	option = {
 		name = DEAL
-		add_energy = -3000
+		add_resource = { energy = -600 }
 		custom_tooltip = opinion10
 		custom_tooltip = leviathans.302.a.tooltip
 		allow = {
-			energy >= 3000
+			resource_stockpile_compare = { resource = energy value >= 600 }
 		}
 		hidden_effect = {
-			event_target:artist_enclave = {
+			event_target:artist_enclave_country = {
 				add_trust = {
 					who = root
 					amount = 10
@@ -5069,7 +3872,7 @@ country_event = {
 	option = {
 		name = TOOPOOR
 		trigger = {
-			energy < 3000
+			resource_stockpile_compare = { resource = energy value < 600 }
 		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
@@ -5079,15 +3882,15 @@ country_event = {
 		name = NODEAL
 		default_hide_option = yes
 		trigger = {
-			NOT = { energy < 3000 }
+			NOT = { resource_stockpile_compare = { resource = energy value < 600 } }
 		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
 		}
 	}
-
 	after = {
 		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
 			country_event = { id = leviathans.300 }
 		}
 	}
@@ -5123,21 +3926,25 @@ country_event = {
 
 	option = {
 		name = DEAL
-		custom_tooltip = leviathans.322.a.tooltip
-		#response_text = leviathans.302.a.reply
-		allow = {
-			energy >= 5000
+		IF = {
+			limit = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			custom_tooltip = leviathans.322.a.tooltip
 		}
-		add_energy = -5000
+		ELSE = { custom_tooltip = leviathans.322.a.tooltip.gesta }
+		#response_text = leviathans.316.a.reply
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 2000 }
+		}
+		add_resource = { energy = -2000 }
 		hidden_effect = {
 			set_country_flag = artist_building_patron
-			set_country_flag = recently_purchased_art
+			set_country_flag = recently_purchased_ministry
 		}
 	}
 	option = {
 		name = TOOPOOR
 		trigger = {
-			energy < 5000
+			resource_stockpile_compare = { resource = energy value < 2000 }
 		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
@@ -5146,7 +3953,7 @@ country_event = {
 	option = {
 		name = NODEAL
 		trigger = {
-			NOT = { energy < 5000 }
+			NOT = { resource_stockpile_compare = { resource = energy value < 2000 } }
 		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
@@ -5155,6 +3962,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
 			country_event = { id = leviathans.300 }
 		}
 	}
@@ -5171,13 +3979,12 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 	
 	trigger = {
-		#has_country_flag = artist_enclave_diplomacy_engaged
-		event_target:artist_enclave = {
+		event_target:artist_enclave_country = {
 			trust = {
 				who = root
 				value >= 50
@@ -5188,16 +3995,16 @@ country_event = {
 	option = {
 		name = DEAL
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -5000
-		custom_tooltip = opinion5
+		add_resource = { energy = -1000 }
+		custom_tooltip = opinion15
 		add_modifier = {
 			modifier = enclave_artist_festival
 			days = 1800
 		}
 		hidden_effect = {
-			event_target:artist_enclave = {
+			event_target:artist_enclave_country = {
 				add_trust = {
 					who = root
 					amount = 15
@@ -5212,7 +4019,7 @@ country_event = {
 	option = {
 		name = TOOPOOR
 		trigger = {
-			energy < 5000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
@@ -5243,7 +4050,7 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 	
@@ -5262,16 +4069,16 @@ country_event = {
 	#		custom_tooltip = {
 	#			text = guardian.deal.tooltip
 	#			OR = {
-	#				has_monthly_income = { resource = energy value >= 24.99 }
-	#				energy >= 24.99
+	#				has_monthly_income = { resource = energy value >= 25 }
+	#				resource_stockpile_compare = { resource = energy value >= 25 }
 	#			}
 	#			OR = {
-	#				has_monthly_income = { resource = minerals value >= 24.99 }
-	#				minerals >= 24.99
+	#				has_monthly_income = { resource = minerals value >= 25 }
+	#				resource_stockpile_compare = { resource = minerals value >= 25 }
 	#			}
 	#			OR = {
-	#				has_monthly_income = { resource = influence value >= 0.99 }
-	#				influence >= 0.99
+	#				has_monthly_income = { resource = influence value >= 1 }
+	#				resource_stockpile_compare = { resource = influence value >= 1 }
 	#			}
 	#		}
 	#	}
@@ -5297,10 +4104,10 @@ country_event = {
 			num_pops < 61
 		}		
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -5336,10 +4143,10 @@ country_event = {
 			num_pops < 121
 		}
 		allow = {
-			energy >= 2000
+			resource_stockpile_compare = { resource = energy value >= 2000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -2000
+		add_resource = { energy = -2000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -5375,10 +4182,10 @@ country_event = {
 			num_pops < 181
 		}
 		allow = {
-			energy >= 3000
+			resource_stockpile_compare = { resource = energy value >= 3000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -3000
+		add_resource = { energy = -3000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -5414,10 +4221,10 @@ country_event = {
 			num_pops < 241
 		}
 		allow = {
-			energy >= 4000
+			resource_stockpile_compare = { resource = energy value >= 4000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -4000
+		add_resource = { energy = -4000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -5450,10 +4257,10 @@ country_event = {
 		#custom_tooltip = leviathans.304.a.tooltip
 		trigger = { num_pops > 240 }
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 5000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -5000
+		add_resource = { energy = -5000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -5501,11 +4308,10 @@ planet_event = {
 	id = leviathans.305
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
-		from = {
-			has_prev_building = building_artist
-		}
+		last_building_changed = building_artist_patron
+		always = no
 	}
 
 	immediate = {
@@ -5517,6 +4323,7 @@ planet_event = {
 		}
 	}
 }
+
 ##Patron modifier checks
 #country_event = {
 #	id = leviathans.306
@@ -5530,21 +4337,21 @@ planet_event = {
 #	}
 #
 #	immediate = {
-#		#if = {
-#		#	limit = {
-#		#		OR = {
-#		#			has_monthly_income = { resource = energy value >= 24.99 }
-#		#			energy >= 24.99
-#		#		}
-#		#		OR = {
-#		#			has_monthly_income = { resource = minerals value >= 24.99 }
-#		#			minerals >= 24.99
-#		#		}
-#		#		OR = {
-#		#			has_monthly_income = { resource = influence value >= 0.99 }
-#		#			influence >= 0.99
-#		#		}
-#		#	}
+#		if = {
+#			limit = {
+#				OR = {
+#					has_monthly_income = { resource = energy value >= 25 }
+#					resource_stockpile_compare = { resource = energy value >= 25 }
+#				}
+#				OR = {
+#					has_monthly_income = { resource = minerals value >= 25 }
+#					resource_stockpile_compare = { resource = minerals value >= 25 }
+#				}
+#				OR = {
+#					has_monthly_income = { resource = influence value >= 1 }
+#					resource_stockpile_compare = { resource = influence value >= 1 }
+#				}
+#			}
 #			event_target:artist_enclave_country = {
 #				add_trust = {
 #					who = root
@@ -5714,7 +4521,7 @@ country_event = {
 	}
 	option = {
 		name = leviathans.310.b
-		add_influence = -100
+		add_resource = { influence = -100 }
 	}
 
 	after = {
@@ -5746,8 +4553,16 @@ country_event = {
 
 	immediate = {
 		random_owned_planet = {
-			limit = {
-				free_pop_tiles > 2
+			weights = {
+				base = 1
+				modifier = { 
+					add = 5
+					free_housing > 0
+				}
+				modifier = { 
+					add = 10
+					free_housing > 1
+				}
 			}
 			save_event_target_as = this_planet
 		}
@@ -5763,20 +4578,16 @@ country_event = {
 	option = {
 		name = leviathans.311.a
 		event_target:this_planet = {
-			best_tile_for_pop = {
-				create_pop = {
-					species = event_target:artist_species
-					ethos = {
-						ethic = "ethic_xenophile"
-					}
+			create_pop = {
+				species = event_target:artist_species
+				ethos = {
+					ethic = "ethic_xenophile"
 				}
 			}
-			best_tile_for_pop = {
-				create_pop = {
-					species = event_target:artist_species
-					ethos = {
-						ethic = "ethic_xenophile"
-					}
+			create_pop = {
+				species = event_target:artist_species
+				ethos = {
+					ethic = "ethic_xenophile"
 				}
 			}
 			every_owned_pop = {
@@ -5819,7 +4630,7 @@ country_event = {
 	option = {
 		name = leviathans.312.a
 		remove_modifier = enclave_artist_festival
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 		hidden_effect = {
 			remove_country_flag = artist_festival_purchased
 		}
@@ -5941,7 +4752,7 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 
@@ -5952,10 +4763,10 @@ country_event = {
 		}		
 		#custom_tooltip = leviathans.304.a.tooltip
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -5999,10 +4810,10 @@ country_event = {
 		}		
 		#custom_tooltip = leviathans.304.a.tooltip
 		allow = {
-			energy >= 2000
+			resource_stockpile_compare = { resource = energy value >= 2000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -2000
+		add_resource = { energy = -2000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -6046,10 +4857,10 @@ country_event = {
 		}		
 		#custom_tooltip = leviathans.304.a.tooltip
 		allow = {
-			energy >= 3000
+			resource_stockpile_compare = { resource = energy value >= 3000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -3000
+		add_resource = { energy = -3000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -6093,10 +4904,10 @@ country_event = {
 		}		
 		#custom_tooltip = leviathans.304.a.tooltip
 		allow = {
-			energy >= 4000
+			resource_stockpile_compare = { resource = energy value >= 4000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -4000
+		add_resource = { energy = -4000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -6139,10 +4950,10 @@ country_event = {
 		}		
 		#custom_tooltip = leviathans.304.a.tooltip
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 5000 }
 			NOT = { has_modifier = enclave_artist_patron }
 		}
-		add_energy = -5000
+		add_resource = { energy = -5000 }
 		add_modifier = {
 			modifier = enclave_artist_patron
 			days = 3600
@@ -6364,7 +5175,7 @@ country_event = {
 		}
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6381,10 +5192,12 @@ country_event = {
 	option = {
 		name = leviathans.321.a
 		#response_text = leviathans.321.a.reply
-		add_energy = -500
-		add_influence = 50
+		add_resource = {
+			energy = -500
+			influence = 50
+		}
 		allow = {
-			energy >= 500
+			resource_stockpile_compare = { resource = energy value >= 500 }
 		}
 	}
 	option = {
@@ -6440,7 +5253,7 @@ country_event = {
 		set_country_flag = enclave_artist_patron_event_1
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6455,26 +5268,30 @@ country_event = {
 	}
 	option = {
 		name = DEAL
-		custom_tooltip = leviathans.322.a.tooltip
-		#response_text = leviathans.302.a.reply
+		IF = {
+			limit = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			custom_tooltip = leviathans.322.a.tooltip
+		}
+		ELSE = { custom_tooltip = leviathans.322.a.tooltip.gesta }
+		#response_text = leviathans.316.a.reply
 		allow = {
-			NOT = { energy < 5000 }
+			NOT = { resource_stockpile_compare = { resource = energy value < 2000 } }
 		}
 		hidden_effect = {
-			add_energy = -5000
+			add_resource = { energy = -2000 }
 			set_country_flag = artist_building_patron
 		}
 	}
 	option = {
 		name = TOOPOOR
 		trigger = {
-			energy < 5000
+			resource_stockpile_compare = { resource = energy value < 2000 }
 		}
 	}
 	option = {
 		name = NODEAL
 		trigger = {
-			NOT = { energy < 5000 }
+			NOT = { resource_stockpile_compare = { resource = energy value < 2000 } }
 		}
 	}
 
@@ -6515,7 +5332,7 @@ country_event = {
 		set_country_flag = enclave_artist_patron_event_2
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6544,7 +5361,7 @@ country_event = {
 	}
 	option = {
 		name = leviathans.323.b
-		add_energy = 1000
+		add_resource = { energy = 1000 }
 		custom_tooltip = opinion-3
 		remove_modifier = enclave_artist_patron
 		hidden_effect = {
@@ -6589,7 +5406,7 @@ country_event = {
 		set_country_flag = enclave_artist_patron_event_3
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6604,12 +5421,12 @@ country_event = {
 	}
 	option = {
 		name = leviathans.324.a
-		add_minerals = 500
+		add_resource = { minerals = 500 }
 		#response_text = leviathans.324.a.reply
 	}
 	option = {
 		name = leviathans.324.b
-		add_influence = 50
+		add_resource = { influence = 50 }
 		#response_text = leviathans.324.b.reply
 	}
 
@@ -6695,6 +5512,23 @@ country_event = {
 			}
 			else = {
 				country_event = { id = leviathans.333 }
+			}
+		}
+		random_playable_country = {
+			if = {
+				limit = {
+					fromfrom = {
+						owner = {
+							any_owned_fleet = {
+								has_fleet_flag = artist_enclave_station
+							}
+						}
+					}
+				}
+				observer_event = { id = observer.11 }
+			}
+			else = {
+				observer_event = { id = observer.12 }
 			}
 		}
 	}
@@ -6808,8 +5642,10 @@ country_event = {
 
 	option = {
 		name = EXCELLENT
-		add_energy = 2000
-		add_minerals = 2000
+		add_resource = { 
+			energy = 2000
+			minerals = 2000
+		}
 	}
 }
 
@@ -6825,7 +5661,7 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 
@@ -6836,13 +5672,13 @@ country_event = {
 				any_ship_in_system = {
 					exists = owner
 					owner = {
-						is_same_value = event_target:artist_enclave
+						is_same_value = event_target:artist_enclave_country
 					}
 				}
 			}
 			save_event_target_as = artist_system
 		}
-		event_target:artist_enclave = {
+		event_target:artist_enclave_country = {
 			set_country_flag = art_college@root
 		}
 	}
@@ -7377,12 +6213,12 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops < 61 }
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 		custom_tooltip = opinion20
 		add_modifier = {
 			modifier = curator_insight
@@ -7412,12 +6248,12 @@ country_event = {
 			num_pops < 121
 		}
 		allow = {
-			energy >= 2000
+			resource_stockpile_compare = { resource = energy value >= 2000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -2000
+		add_resource = { energy = -2000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -7447,12 +6283,12 @@ country_event = {
 			num_pops < 181
 		}
 		allow = {
-			energy >= 3000
+			resource_stockpile_compare = { resource = energy value >= 3000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -3000
+		add_resource = { energy = -3000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -7482,12 +6318,12 @@ country_event = {
 			num_pops < 241
 		}
 		allow = {
-			energy >= 4000
+			resource_stockpile_compare = { resource = energy value >= 4000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -4000
+		add_resource = { energy = -4000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -7514,12 +6350,12 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops > 240 }
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 5000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -5000
+		add_resource = { energy = -5000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -7665,9 +6501,9 @@ country_event = {
 			}
 		}
 		allow = {
-			energy >= 300
+			resource_stockpile_compare = { resource = energy value >= 300 }
 		}
-		add_energy = -300
+		add_resource = { energy = -300 }
 		hidden_effect = {
 			event_target:curators = {
 				add_trust = {
@@ -8264,12 +7100,12 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops < 61 }
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 		custom_tooltip = opinion20
 		add_modifier = {
 			modifier = curator_insight
@@ -8299,12 +7135,12 @@ country_event = {
 			num_pops < 121
 		}
 		allow = {
-			energy >= 2000
+			resource_stockpile_compare = { resource = energy value >= 2000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -2000
+		add_resource = { energy = -2000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -8334,12 +7170,12 @@ country_event = {
 			num_pops < 181
 		}
 		allow = {
-			energy >= 3000
+			resource_stockpile_compare = { resource = energy value >= 3000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -3000
+		add_resource = { energy = -3000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -8369,12 +7205,12 @@ country_event = {
 			num_pops < 241
 		}
 		allow = {
-			energy >= 4000
+			resource_stockpile_compare = { resource = energy value >= 4000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -4000
+		add_resource = { energy = -4000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -8401,12 +7237,12 @@ country_event = {
 		custom_gui = "enclave_curator_option"
 		trigger = { num_pops > 240 }
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 5000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -5000
+		add_resource = { energy = -5000 }
 		add_modifier = {
 			modifier = curator_insight
 			days = 3600
@@ -8474,9 +7310,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -5000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = draconic_beats
 			days = -1
@@ -8628,10 +7464,10 @@ country_event = {
 			NOT = { has_country_flag = bought_fortress_info_1 }
 		}
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 200 }
 		}
 		hidden_effect = { set_country_flag = bought_fortress_info_1 }
-		add_energy = -1000
+		add_resource = { energy = -200 }
 	}
 	option = {
 		name = leviathans.515.c
@@ -8641,10 +7477,10 @@ country_event = {
 			NOT = { has_country_flag = bought_fortress_info_2 }
 		}
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 200 }
 		}
 		hidden_effect = { set_country_flag = bought_fortress_info_2 }
-		add_energy = -1000
+		add_resource = { energy = -200 }
 	}
 	option = {
 		name = leviathans.515.d
@@ -8654,10 +7490,10 @@ country_event = {
 			NOT = { has_country_flag = bought_fortress_info_3 }
 		}
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 200 }
 		}
 		hidden_effect = { set_country_flag = bought_fortress_info_3 }
-		add_energy = -1000
+		add_resource = { energy = -200 }
 	}
 	option = {
 		name = leviathans.515.bb
@@ -8767,9 +7603,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -5000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = curator_buff_stellarite
 			days = -1
@@ -8868,9 +7704,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -5000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = dimensional_horror_weak_points
 			days = -1
@@ -8969,9 +7805,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 2000
+			resource_stockpile_compare = { resource = energy value >= 2000 }
 		}
-		add_energy = -2000
+		add_resource = { energy = -2000 }
 		add_modifier = {
 			modifier = asteroid_hive_weak_points
 			days = -1
@@ -9071,9 +7907,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 3000
+			resource_stockpile_compare = { resource = energy value >= 600 }
 		}
-		add_energy = -3000
+		add_resource = { energy = -600 }
 		add_modifier = {
 			modifier = curator_buff_sphere
 			days = -1
@@ -9172,9 +8008,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -5000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = automated_dreadnought_weak_points
 			days = -1
@@ -9273,10 +8109,10 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 200 }
 		}
 		hidden_effect = { set_country_flag = bought_wraith_info_1 }
-		add_energy = -1000
+		add_resource = { energy = -200 }
 	}
 	option = {
 		name = leviathans.545.c
@@ -9286,10 +8122,10 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 200 }
 		}
 		hidden_effect = { set_country_flag = bought_wraith_info_2 }
-		add_energy = -1000
+		add_resource = { energy = -200 }
 	}
 	option = {
 		name = leviathans.545.d
@@ -9299,10 +8135,10 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 1000
+			resource_stockpile_compare = { resource = energy value >= 200 }
 		}
 		hidden_effect = { set_country_flag = bought_wraith_info_3 }
-		add_energy = -1000
+		add_resource = { energy = -200 }
 	}
 	option = {
 		name = leviathans.545.b
@@ -9406,9 +8242,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -5000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = curator_buff_hatchling
 			days = -1
@@ -9520,9 +8356,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 5000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -5000
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = scavenger_weak_points
 			days = -1
@@ -9652,9 +8488,9 @@ country_event = {
 		}
 		custom_gui = "enclave_curator_option"
 		allow = {
-			energy >= 2500
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
-		add_energy = -2500
+		add_resource = { energy = -1000 }
 		add_modifier = {
 			modifier = elderly_tiyanki_weak_points
 			days = -1
@@ -9764,13 +8600,12 @@ country_event = {
 		response_text = leviathans.590.a.reply
 		custom_gui = "enclave_curator_option"
 		allow = { 
-			energy >= 5000
-			free_leader_slots > 0 
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 			hidden_trigger = {
 				NOT = { has_country_flag = attacked_curators }
 			}
 		}
-		add_energy = -5000
+		add_resource = { energy = -1000 }
 		custom_tooltip = opinion20
 		hidden_effect = {
 			set_country_flag = curator_scientist_recruited
@@ -9783,7 +8618,7 @@ country_event = {
 			random_list = {
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Professor_Zarg"
 						skill = 5
@@ -9798,7 +8633,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Doctor_Xib"
 						skill = 5
@@ -9813,7 +8648,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_The_Mentat"
 						skill = 5
@@ -9828,7 +8663,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Kix_the_Brilliant"
 						skill = 5
@@ -9843,7 +8678,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Sensei_Borkaz"
 						skill = 5
@@ -10016,6 +8851,7 @@ country_event = {
 			country_event = { id = leviathans.593 }
 			save_event_target_as = curator_destroyer
 		}
+		observer_event = { id = observer.7 }
 		every_country = {
 			limit = {
 				has_communications = ROOT
@@ -10058,9 +8894,11 @@ country_event = {
 	
 	option = {
 		name = EXCELLENT
-		add_physics_research = 1000
-		add_society_research = 1000
-		add_engineering_research = 1000
+		add_resource = {
+			physics_research = 1000
+			society_research = 1000
+			engineering_research = 1000
+		}
 	}
 }
 
@@ -11259,7 +10097,7 @@ country_event = {
 	option = {
 		name = leviathans.661.b
 		custom_tooltip = leviathans.661.b.tooltip
-		add_influence = 300
+		add_resource = { influence = 300 }
 	}
 }
 
@@ -11409,22 +10247,15 @@ country_event = {
 			fromfrom = {
 				exists = leader
 			}
-			OR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_xenophile
-			}
 		}
 		fromfrom = {
 			leader = {
 				add_trait = leader_trait_dragonslayer
 			}
 		}
-		add_influence = 300
-		custom_tooltip = leviathans.670.spiritphile.tooltip
-		hidden_effect = {
-			set_country_flag = dragon_slayer
+		add_resource = { influence = 300 }
+		capital_scope = {
+			add_deposit = d_dragon_monument
 		}
 	}
 
@@ -11436,75 +10267,11 @@ country_event = {
 					exists = leader
 				}
 			}
-			OR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_xenophile
-			}
 		}
-		add_influence = 300
-		custom_tooltip = leviathans.670.spiritphile.tooltip
-		hidden_effect = {
-			set_country_flag = dragon_slayer
+		add_resource = { influence = 300 }
+		capital_scope = {
+			add_deposit = d_dragon_monument
 		}
-	}
-
-	option = {
-		name = leviathans.670.a
-		trigger = {
-			fromfrom = {
-				exists = leader
-			}
-			NOR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_xenophile
-			}
-		}
-		fromfrom = {
-			leader = {
-				add_trait = leader_trait_dragonslayer
-			}
-		}
-		add_influence = 300
-		custom_tooltip = leviathans.670.tooltip
-		hidden_effect = {
-			set_country_flag = dragon_slayer
-		}
-	}
-
-	option = {
-		name = leviathans.670.a
-		trigger = {
-			fromfrom = {
-				NOT = {
-					exists = leader
-				}
-			}
-			NOR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_xenophile
-			}
-		}
-		add_influence = 300
-		custom_tooltip = leviathans.670.tooltip
-		hidden_effect = {
-			set_country_flag = dragon_slayer
-		}
-	}
-}
-
-country_event = {
-	id = leviathans.671
-	hide_window = yes
-	trigger = { always = no }
-
-	immediate = {
-		set_country_flag = dragon_slayer
 	}
 }
 
@@ -11681,6 +10448,7 @@ ship_event = {
 
 	immediate = {
 		fromfrom = {
+			country_event = { id = story.8 days = 15 }
 			set_country_flag = guardians_stellarite_encountered
 			establish_communications_no_message = event_target:stellarite_country
 		}
@@ -11790,7 +10558,7 @@ country_event = {
 							id = leviathans.1009.trigger.2
 							exists = space_owner
 							space_owner = { has_country_flag = stellarite_in_pursuit }
-							any_planet = {
+							any_system_planet = {
 								OR = {
 									has_mining_station = yes
 									has_research_station = yes
@@ -11890,7 +10658,7 @@ fleet_event = {
 							id = leviathans.1010.trigger.2
 							exists = space_owner
 							space_owner = { has_country_flag = stellarite_in_pursuit }
-							any_planet = {
+							any_system_planet = {
 								OR = {
 									has_mining_station = yes
 									has_research_station = yes
@@ -11976,7 +10744,7 @@ fleet_event = {
 						id = leviathans.1011.trigger.2
 						exists = space_owner
 						space_owner = { has_country_flag = stellarite_in_pursuit }
-						any_planet = {
+						any_system_planet = {
 							OR = {
 								has_mining_station = yes
 								has_research_station = yes
@@ -12072,7 +10840,7 @@ country_event = {
 							id = leviathans.1012.trigger.2
 							exists = space_owner
 							space_owner = { has_country_flag = stellarite_in_pursuit }
-							any_planet = {
+							any_system_planet = {
 								OR = {
 									has_mining_station = yes
 									has_research_station = yes
@@ -12369,8 +11137,10 @@ country_event = {
 				has_ethic = ethic_fanatic_xenophobe
 			} 
 		}
-		custom_tooltip = leviathans.1016.b.tooltip
-		add_influence = 500
+		add_resource = { influence = 500 }
+		capital_scope = {
+			add_deposit = d_stellarite_trophy
+		}
 		hidden_effect = {
 			set_country_flag = stellarite_trophy_allowed
 			random_ambient_object = {
@@ -13179,7 +11949,7 @@ country_event = {
 	}
 	option = {
 		name = NOTIME
-		add_influence = 50
+		add_resource = { influence = 50 }
 	}
 }
 
@@ -13461,7 +12231,7 @@ country_event = {
 	option = {
 		name = leviathans.1056.e
 		response_text = leviathans.1056.e.reply
-		add_influence = 100
+		add_resource = { influence = 100 }
 	}
 }
 
@@ -13506,7 +12276,7 @@ country_event = {
 	option = {
 		name = leviathans.1056.e #GOODBYE
 		response_text = leviathans.1056.e.reply
-		add_influence = 100
+		add_resource = { influence = 100 }
 	}
 }
 
@@ -13542,7 +12312,7 @@ country_event = {
 		name = leviathans.1061.a
 		response_text = leviathans.1061.a.reply
 		give_technology = { tech = tech_sapient_ai }
-		add_influence = 150
+		add_resource = { influence = 150 }
 		trigger = {
 			NOT = {
 				has_technology = tech_sapient_ai
@@ -13553,7 +12323,7 @@ country_event = {
 		name = leviathans.1061.a
 		response_text = leviathans.1061.a.reply
 		give_technology = { tech = tech_zero_point_power }
-		add_influence = 150
+		add_resource = { influence = 150 }
 		trigger = {
 			has_technology = tech_sapient_ai
 			NOT = {
@@ -13691,7 +12461,7 @@ country_event = {
 	option = {
 		name = PECULIAR
 		custom_tooltip = leviathans.1063.a.tooltip
-		add_influence = 150
+		add_resource = { influence = 150 }
 		if = {
 			limit = {
 				NOT = {
@@ -13707,18 +12477,16 @@ country_event = {
 			give_technology = { tech = tech_zero_point_power }
 		}
 		else = {
-			add_influence = 150
+			add_resource = { influence = 150 }
 		}
 		hidden_effect = {
 			event_target:technosphere_ship = {
 				solar_system = {
 					random_system_planet = {
 						limit = { is_star = yes }
-						orbital_deposit_tile = {
-							add_deposit =  d_immense_physics_deposit
-							add_deposit =  d_immense_engineering_deposit
-							add_deposit =  d_immense_society_deposit
-						}
+						add_deposit = d_physics_4
+						add_deposit = d_engineering_4
+						add_deposit = d_society_4
 					}
 				}
 			}
@@ -13758,7 +12526,7 @@ country_event = {
 			days = -1
 		}		
 		hidden_effect = {
-			add_influence = 200
+			add_resource = { influence = 200 }
 			event_target:technosphere_ship.solar_system = {
 				random_system_planet = {
 					limit = { is_star = yes }
@@ -13780,30 +12548,26 @@ country_event = {
 						
 						entity_scale_to_size = yes
 						scale = 100
-					}
-					orbital_deposit_tile = {
-						add_deposit =  d_rich_physics_deposit
-						add_deposit =  d_immense_physics_deposit
-						add_deposit =  d_immense_physics_deposit
-						add_deposit =  d_rich_engineering_deposit
-						add_deposit =  d_immense_engineering_deposit
-						add_deposit =  d_immense_engineering_deposit
-						add_deposit =  d_rich_society_deposit
-						add_deposit =  d_immense_society_deposit
-						add_deposit =  d_immense_society_deposit
-					}
+					}	
+					add_deposit = d_physics_2
+					add_deposit = d_physics_4
+					add_deposit = d_physics_4
+					add_deposit = d_engineering_2
+					add_deposit = d_engineering_4
+					add_deposit = d_engineering_4
+					add_deposit = d_society_2
+					add_deposit = d_society_4
+					add_deposit = d_society_4
 					add_modifier = {
 						modifier = black_hole_pantagruel
 						days = -1
 					}
 					if = {
 						limit = {
-							OR = {
-								has_frontier_station = yes
-								has_research_station = yes
-							}
+							exists = space_owner
+							space_owner = { is_same_value = root }
 						}
-						controller = {
+						space_owner = {
 							add_modifier = {
 								modifier = black_hole_pantagruel_research
 								days = -1
@@ -13848,7 +12612,7 @@ event = {
 
 	trigger = {
 		any_system = {
-			any_planet = { has_planet_flag = guardians_wraith_pulsar }
+			any_system_planet = { has_planet_flag = guardians_wraith_pulsar }
 		}
 	}
 
@@ -13911,7 +12675,7 @@ event = {
 
 	trigger = {
 		any_system = {
-			any_planet = { has_modifier = germinating_wraith }
+			any_system_planet = { has_modifier = germinating_wraith }
 		}
 	}
 
@@ -13942,7 +12706,6 @@ event = {
 			}
 			last_created_country = {
 				set_country_flag = wraith_country
-				guardian_difficulty = yes
 				save_global_event_target_as = wraith_country
 				create_fleet = {
 					name = "NAME_Specter"
@@ -14056,6 +12819,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		country_event = { id = story.8 days = 15 }
 		establish_communications_no_message = event_target:wraith_country
 		set_country_flag = guardians_wraith_encountered
 	}
@@ -14081,6 +12845,7 @@ country_event = {
 	}
 
 	immediate = {
+		country_event = { id = story.8 days = 15 }
 		establish_communications_no_message = event_target:wraith_country
 		set_country_flag = guardians_wraith_encountered
 	}
@@ -14152,7 +12917,7 @@ ship_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = { has_ship_flag = wraith_ship } #TODO WRAITH
+	trigger = { has_ship_flag = wraith_ship }
 
 	immediate = {
 		solar_system = {
@@ -14280,6 +13045,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		exists = from
 		exists = event_target:fortress_country
 		from = { is_same_value = event_target:fortress_country }
 		exists = event_target:fortress_vault_core
@@ -14292,6 +13058,7 @@ country_event = {
 	}
 
 	immediate = {
+		country_event = { id = story.8 days = 15 }
 		establish_communications_no_message = event_target:fortress_country
 		#event_target:fortress_country = {
 			event_target:fortress_vault_core = {
@@ -14419,6 +13186,7 @@ country_event = {
 			limit = {
 				NOT = { has_communications = event_target:fortress_country }
 			}
+			country_event = { id = story.8 days = 15 }
 			establish_communications_no_message = event_target:fortress_country
 		}
 		event_target:fortress_country = {
@@ -14550,16 +13318,16 @@ ship_event = {
 	
 	option = {
 		name = "leviathans.2113.a"
-		trigger = { owner = { energy >= 500 } }
+		trigger = { owner = { resource_stockpile_compare = { resource = energy value >= 500 } } }
 		owner = {
-			add_energy = -500
+			add_resource = { energy = -500 }
 			hidden_effect = { country_event = { id = leviathans.2114 } }
 		}
 	}
 	option = {
 		name = "leviathans.2113.b"
 		owner = {
-			add_energy = -50
+			add_resource = { energy = -50 }
 			hidden_effect = { country_event = { id = leviathans.2115 } }
 		}
 	}
@@ -14706,9 +13474,9 @@ country_event = {
 			if = {
 				limit = {
 					ROOT = {
-						has_country_strategic_resource = {
+						has_country_resource = {
 							type = sr_dark_matter
-							amount > 0
+							amount > 10
 						}
 					}
 				}
@@ -14724,6 +13492,7 @@ country_event = {
 				owner = ROOT
 			}
 		}
+		add_resource = { sr_dark_matter = -10 }
 		capital_scope = {
 			closest_system = {
 				limit = {
@@ -15293,7 +14062,6 @@ ship_event = {
 						}
 					}
 					last_created_country = {
-						guardian_difficulty = yes
 						save_global_event_target_as = dimensional_horror_country
 						set_country_flag = dimensional_horror_country
 					}
@@ -15332,6 +14100,7 @@ ship_event = {
 		}
 		solar_system = { save_event_target_as = horror_system }
 		owner = { 
+			country_event = { id = story.8 days = 15 }
 			set_country_flag = encountered_horror
 			establish_communications_no_message = event_target:dimensional_horror_country
 			country_event = { id = leviathans.3001 }
@@ -15569,7 +14338,7 @@ ship_event = {
 	
 	immediate = {
 		FROM = { save_event_target_as = dreadnought_system }
-		owner = { 
+		owner = {
 			set_country_flag = encountered_dreadnought
 		}
 	}		
@@ -15661,8 +14430,10 @@ country_event = {
 	}
 	option = {
 		name = "leviathans.3102.b"
-		add_minerals = 5000
-		add_energy = 5000
+		add_resource = {
+			minerals = 5000
+			energy = 5000
+		}
 		add_monthly_resource_mult = {
 			resource = engineering_research
 			value = 30
@@ -16034,7 +14805,7 @@ ship_event = {
 	
 	immediate = {
 		FROM = { save_event_target_as = hiver_system }
-		owner = { 
+		owner = {
 			set_country_flag = encountered_hivers
 		}
 	}		
@@ -16145,8 +14916,10 @@ ship_event = {
 	option = {
 		name = "EXCELLENT"
 		owner = {
-			add_society_research = 2000
-			add_energy = 500
+			add_resource = {
+				society_research = 2000
+				energy = 500
+			}
 		}
 		hidden_effect = {
 			random_ambient_object = {

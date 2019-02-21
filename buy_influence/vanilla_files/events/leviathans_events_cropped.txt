@@ -8,6 +8,7 @@ country_event = {
 				trigger = has_country_flag
 				artist_enclave_diplomacy_continued = { text = leviathans.300.desc.continued }
 				recently_purchased_art = { text = leviathans.302.a.reply }
+				recently_purchased_ministry = { text = leviathans.316.a.reply }
 				recently_purchased_patron = { text = leviathans.304.a.reply }
 				recently_purchased_festival = { text = leviathans.303.a.reply }
 				default = { text = leviathans.300.desc }
@@ -20,21 +21,18 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 	
 	trigger = {
-		from = {
-			is_country_type = enclave
-			has_country_flag = artist_enclave_country
-		}
 		OR = {
 			OR = {
 				has_country_flag = artist_enclave_diplomacy_continued
 				NOT = { has_country_flag = artist_enclave_diplomacy_engaged }
 			}
 			has_country_flag = recently_purchased_art
+			has_country_flag = recently_purchased_ministry
 			has_country_flag = recently_purchased_patron
 			has_country_flag = recently_purchased_festival
 		}
@@ -44,14 +42,6 @@ country_event = {
 	immediate = {
 		save_event_target_as = my_country
 		set_country_flag = artist_enclave_diplomacy_engaged
-		if = {
-			limit = {
-				NOT = { exists = event_target:artist_enclave }
-			}
-			from = {
-				save_event_target_as = artist_enclave
-			}
-		}
 	}
 
 	option = {
@@ -64,9 +54,15 @@ country_event = {
 			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
 		}
 		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_continued
+			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
+			remove_country_flag = recently_purchased_patron
+			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.302 }
 		}
 	}
+	
 	option = {
 		name = leviathans.300.a
 		response_text = leviathans.300.a.reply
@@ -140,6 +136,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.303 }
@@ -166,6 +163,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.303 }
@@ -244,6 +242,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -256,6 +255,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -268,6 +268,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -282,6 +283,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -292,10 +294,42 @@ country_event = {
 	#		remove_country_flag = artist_enclave_diplomacy_engaged
 	#		remove_country_flag = artist_enclave_diplomacy_continued
 	#		remove_country_flag = recently_purchased_art
+	#		remove_country_flag = recently_purchased_ministry
 	#		remove_country_flag = recently_purchased_patron
 	#		remove_country_flag = recently_purchased_festival
 	#	}
 	#}
+}
+
+country_event = {
+	id = leviathans.330
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		from = {
+			has_country_flag = artist_enclave_country
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_artist_patron
+					has_country_flag = artist_patron
+				}
+			}
+			remove_modifier = enclave_artist_patron
+			remove_country_flag = artist_patron
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = enclave_artist_ignores }
+			}
+			set_country_flag = enclave_artist_ignores
+		}
+	}
 }
 
 # All artist stations have been destroyed
@@ -344,37 +378,6 @@ country_event = {
 		custom_tooltip = leviathans.307.a.tooltip
 		trigger = {
 			has_country_flag = enclave_artist_ignores
-		}
-	}
-}
-
-country_event = {
-	id = leviathans.330
-	hide_window = yes
-	is_triggered_only = yes
-	
-	trigger = {
-		from = {
-			has_country_flag = artist_enclave_country
-		}
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					has_modifier = enclave_artist_patron
-					has_country_flag = artist_patron
-				}
-			}
-			remove_modifier = enclave_artist_patron
-			remove_country_flag = artist_patron
-		}
-		if = {
-			limit = {
-				NOT = { has_country_flag = enclave_artist_ignores }
-			}
-			set_country_flag = enclave_artist_ignores
 		}
 	}
 }
