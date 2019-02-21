@@ -25,17 +25,18 @@ hyperlane_nuke_0 = {
 			fail_text = "requires_inside_border"
 			is_inside_border = from
 		}
-		custom_tooltip = {
-			fail_text = "requires_surveyed_system"
-			NOT = {
-				any_planet = {
-					is_surveyed = {
-						who = prev.from
-						status = no
-					}
-				}
-			}
-		}
+		#Quick edit - commented out as this is apparently causing issues
+		#custom_tooltip = {
+		#	fail_text = "requires_surveyed_system"
+		#	NOT = {
+		#		any_planet = {
+		#			is_surveyed = {
+		#				who = prev.from
+		#				status = no
+		#			}
+		#		}
+		#	}
+		#}
 		custom_tooltip = {
 			fail_text = "requires_no_existing_hyperlane_nuke"
 			from = {
