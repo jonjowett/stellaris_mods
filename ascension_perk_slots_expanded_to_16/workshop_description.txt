@@ -7,7 +7,7 @@ This mod updates the number of available ascension perks to 16, and adds 8 level
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
 [h1]TLDR:[/h1]
-[list][*]Tested version: 2.0.1
+[list][*]Tested version: 2.2.1
 [*]Required DLC: None
 [*]Ironman compatible: Yes
 [*]Achievement compatible: No[/list]
