@@ -8,10 +8,20 @@ country_event = {
 		trigger = {
 			switch = {
 				trigger = has_country_flag
+				
 				artist_enclave_diplomacy_continued = { text = leviathans.300.desc.continued }
 				recently_purchased_art = { text = leviathans.302.a.reply }
+				recently_purchased_ministry = { text = leviathans.316.a.reply }
 				recently_purchased_patron = { text = leviathans.304.a.reply }
 				recently_purchased_festival = { text = leviathans.303.a.reply }
+				
+				#MOD EDIT - Custom intro text if you're coming back from the propaganda campaign purchase screen.
+				recently_purchased_propaganda_campaign_0point5 = { text =  buy_influence.purchase.0point5 }
+				recently_purchased_propaganda_campaign_1point0 = { text =  buy_influence.purchase.1point0 }
+				recently_purchased_propaganda_campaign_1point5 = { text =  buy_influence.purchase.1point5 }
+				recently_purchased_propaganda_campaign_2point0 = { text =  buy_influence.purchase.2point0 }
+				recently_purchased_propaganda_campaign_nopurchase = { text =  buy_influence.nopurchase }
+				
 				default = { text = leviathans.300.desc }
 			}
 		}
@@ -22,21 +32,18 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 	
 	trigger = {
-		from = {
-			is_country_type = enclave
-			has_country_flag = artist_enclave_country
-		}
 		OR = {
 			OR = {
 				has_country_flag = artist_enclave_diplomacy_continued
 				NOT = { has_country_flag = artist_enclave_diplomacy_engaged }
 			}
 			has_country_flag = recently_purchased_art
+			has_country_flag = recently_purchased_ministry
 			has_country_flag = recently_purchased_patron
 			has_country_flag = recently_purchased_festival
 		}
@@ -46,14 +53,14 @@ country_event = {
 	immediate = {
 		save_event_target_as = my_country
 		set_country_flag = artist_enclave_diplomacy_engaged
-		if = {
-			limit = {
-				NOT = { exists = event_target:artist_enclave }
-			}
-			from = {
-				save_event_target_as = artist_enclave
-			}
-		}
+		
+		#MOD EDIT - Clean up flags for propaganda campaign responses
+		remove_country_flag = recently_purchased_propaganda_campaign_0point5
+		remove_country_flag = recently_purchased_propaganda_campaign_1point0
+		remove_country_flag = recently_purchased_propaganda_campaign_1point5
+		remove_country_flag = recently_purchased_propaganda_campaign_2point0
+		remove_country_flag = recently_purchased_propaganda_campaign_nopurchase
+		
 	}
 
 	option = {
@@ -71,9 +78,15 @@ country_event = {
 			}
 		}
 		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_continued
+			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
+			remove_country_flag = recently_purchased_patron
+			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.302 }
 		}
 	}
+	
 	option = {
 		name = leviathans.300.a
 		response_text = leviathans.300.a.reply
@@ -157,6 +170,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.303 }
@@ -166,13 +180,9 @@ country_event = {
 		name = leviathans.300.c
 		trigger = {
 			has_country_flag = artist_festival_purchased
-			#MOD EDIT - Replaced the abbreviated NOT condition with a NOR that matches the one above.
-			#           NB: Not an exact copy, because the artist_festival_purchased flag is tested above.
-			NOR = {
+			NOR = { 
 				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-				has_ethic = ethic_gestalt_consciousness
+				has_authority = auth_hive_mind
 			}
 		}
 		allow = {
@@ -187,6 +197,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 			country_event = { id = leviathans.303 }
@@ -326,6 +337,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -338,6 +350,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -350,6 +363,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -364,6 +378,7 @@ country_event = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
 			remove_country_flag = artist_enclave_diplomacy_continued
 			remove_country_flag = recently_purchased_art
+			remove_country_flag = recently_purchased_ministry
 			remove_country_flag = recently_purchased_patron
 			remove_country_flag = recently_purchased_festival
 		}
@@ -374,77 +389,11 @@ country_event = {
 	#		remove_country_flag = artist_enclave_diplomacy_engaged
 	#		remove_country_flag = artist_enclave_diplomacy_continued
 	#		remove_country_flag = recently_purchased_art
+	#		remove_country_flag = recently_purchased_ministry
 	#		remove_country_flag = recently_purchased_patron
 	#		remove_country_flag = recently_purchased_festival
 	#	}
 	#}
-}
-
-# All artist stations have been destroyed
-country_event = {
-	id = leviathans.333
-	title = leviathans.300.name
-	desc = leviathans.333.desc
-	picture = GFX_evt_exploding_ship
-	show_sound = event_super_explosion
-	location = event_target:destroyed_station_location
-
-	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					has_modifier = enclave_artist_patron
-					has_country_flag = artist_patron
-				}
-			}
-			remove_modifier = enclave_artist_patron
-			remove_country_flag = artist_patron
-		}
-		if = {
-			limit = {
-				OR = {
-					has_modifier = enclave_artist_festival
-					has_country_flag = artist_festival_purchased
-				}
-			}
-			remove_modifier = enclave_artist_festival
-			remove_country_flag = artist_festival_purchased
-		}
-		
-		#MOD ADDED - Remove empire modifiers if artists are destroyed
-		if = {
-			limit = {
-				OR = {
-					has_modifier = buy_influence_0point5
-					has_modifier = buy_influence_1point0
-					has_modifier = buy_influence_1point5
-					has_modifier = buy_influence_2point0
-				}
-			}
-			remove_modifier = buy_influence_0point5
-			remove_modifier = buy_influence_1point0
-			remove_modifier = buy_influence_1point5
-			remove_modifier = buy_influence_2point0
-		}
-		
-	}
-
-	option = {
-		name = TERRIBLE
-		custom_tooltip = leviathans.307.a.tooltip
-		trigger = {
-			NOT = { has_country_flag = enclave_artist_ignores }
-		}
-	}
-	option = {
-		name = OK
-		custom_tooltip = leviathans.307.a.tooltip
-		trigger = {
-			has_country_flag = enclave_artist_ignores
-		}
-	}
 }
 
 country_event = {
@@ -485,12 +434,62 @@ country_event = {
 			remove_modifier = buy_influence_1point5
 			remove_modifier = buy_influence_2point0
 		}
-		
+
 		if = {
 			limit = {
 				NOT = { has_country_flag = enclave_artist_ignores }
 			}
 			set_country_flag = enclave_artist_ignores
+		}
+	}
+}
+
+# All artist stations have been destroyed
+country_event = {
+	id = leviathans.333
+	title = leviathans.300.name
+	desc = leviathans.333.desc
+	picture = GFX_evt_exploding_ship
+	show_sound = event_super_explosion
+	location = event_target:destroyed_station_location
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_artist_patron
+					has_country_flag = artist_patron
+				}
+			}
+			remove_modifier = enclave_artist_patron
+			remove_country_flag = artist_patron
+		}
+		if = {
+			limit = {
+				OR = {
+					has_modifier = enclave_artist_festival
+					has_country_flag = artist_festival_purchased
+				}
+			}
+			remove_modifier = enclave_artist_festival
+			remove_country_flag = artist_festival_purchased
+		}
+	}
+
+	option = {
+		name = TERRIBLE
+		custom_tooltip = leviathans.307.a.tooltip
+		trigger = {
+			NOT = { has_country_flag = enclave_artist_ignores }
+		}
+	}
+	option = {
+		name = OK
+		custom_tooltip = leviathans.307.a.tooltip
+		trigger = {
+			has_country_flag = enclave_artist_ignores
 		}
 	}
 }

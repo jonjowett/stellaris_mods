@@ -13,7 +13,7 @@ country_event = {
 	custom_gui_option = "enclave_artist_option"
 
 	picture_event_data = {
-		portrait = event_target:artist_enclave
+		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
 	}
 	
@@ -23,63 +23,59 @@ country_event = {
 
 	option = {
 		name = buy_influence.100.a
-		response_text = buy_influence.100.a.reply
 		add_modifier = {
 			modifier = "buy_influence_0point5"
 			days = -1
 		}
 		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
+			set_country_flag = recently_purchased_propaganda_campaign_0point5
 		}
 	}
 
 	option = {
 		name = buy_influence.100.b
-		response_text = buy_influence.100.b.reply
 		add_modifier = {
 			modifier = "buy_influence_1point0"
 			days = -1
 		}
 		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
+			set_country_flag = recently_purchased_propaganda_campaign_1point0
 		}
 	}
 
 	option = {
 		name = buy_influence.100.c
-		response_text = buy_influence.100.c.reply
 		add_modifier = {
 			modifier = "buy_influence_1point5"
 			days = -1
 		}
 		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
+			set_country_flag = recently_purchased_propaganda_campaign_1point5
 		}
 	}
 
 	option = {
 		name = buy_influence.100.d
-		response_text = buy_influence.100.d.reply
 		add_modifier = {
 			modifier = "buy_influence_2point0"
 			days = -1
 		}
 		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
+			set_country_flag = recently_purchased_propaganda_campaign_2point0
 		}
 	}
 	
 	option = {
 		name = NODEAL
 		default_hide_option = yes
-		response_text = buy_influence.100.nodeal.reply
 		hidden_effect = {
-			set_country_flag = artist_enclave_diplomacy_continued
+			set_country_flag = recently_purchased_propaganda_campaign_nopurchase
 		}
 	}
 	
 	after = {
 		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
 			country_event = { id = leviathans.300 }
 		}
 	}

@@ -1,24 +1,24 @@
 buy_influence_0point5 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
-	static_resource_influence_add = 0.5
-	static_resource_minerals_add = -10
-	static_resource_energy_add = -10
+	country_base_influence_produces_add = 0.5
+	country_base_minerals_produces_add = -10
+	country_base_energy_produces_add = -10
 }
 buy_influence_1point0 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
-	static_resource_influence_add = 1.0
-	static_resource_minerals_add = -20
-	static_resource_energy_add = -20
+	country_base_influence_produces_add = 1.0
+	country_base_minerals_produces_add = -20
+	country_base_energy_produces_add = -20
 }
 buy_influence_1point5 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
-	static_resource_influence_add = 1.5
-	static_resource_minerals_add = -30
-	static_resource_energy_add = -30
+	country_base_influence_produces_add = 1.5
+	country_base_minerals_produces_add = -30
+	country_base_energy_produces_add = -30
 }
 buy_influence_2point0 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
-	static_resource_influence_add = 2.0
-	static_resource_minerals_add = -40
-	static_resource_energy_add = -40
+	country_base_influence_produces_add = 2.0
+	country_base_minerals_produces_add = -40
+	country_base_energy_produces_add = -40
 }
