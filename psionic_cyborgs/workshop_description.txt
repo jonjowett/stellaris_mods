@@ -1,0 +1,30 @@
+This mod allows you to select multiple ascension paths - ie. you can create genetically-perfected psionic cyborgs. 
+
+In vanilla, you have to choose between the biological (genetic engineering) path, the technological (cyborg/synthetic) path and the spiritual (psychic/psionic) path. However, I don't think that there's any good reason for these paths to be completely mutually exclusive - hence this mod.
+
+For reference, here's the full list of ascension perk lockouts if this mod is running:
+[list][*][b]Engineered Evolution[/b] - Not permitted if you are a machine empire.
+
+[*][b]Evolutionary Mastery[/b] - Not permitted if you are a machine empire.
+
+[*][b]The Flesh Is Weak[/b] - Not permitted if you are a machine empire or a biological hive mind.
+
+[*][b]Synthetic Evolution[/b] - Not permitted if you are a machine empire, or a biological hive mind, or if you have "Mind Over Matter". (The latter is justified because various in-game events make it clear that you lose your soul - and hence all psionic powers - if you become synths.)
+
+[*][b]Mind Over Matter[/b] - Not permitted if you are a machine empire, or a biological hive mind, or if you have "Synthetic Evolution" (see above).
+
+[*][b]Transcendence[/b] - Not permitted if you are a machine empire, or a biological hive mind, or if you have "Synthetic Evolution" (see above).[/list]
+
+[h1]Technical info / compatibility:[/h1]
+[list][*]This mod will not be compatible with any other mod that alters any of the 6 ascension perks listed above.
+
+[*]No other vanilla files are altered, so this mod should be fully compatible with every other mod. (Apart from the exception noted in the previous point.)[/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
+
+[h1]TL;DR[/h1]
+[list][*]Tested version: 2.2.4
+[*]Required DLC: Utopia
+[*]Ironman compatible: Yes
+[*]Achievement compatible: No[/list]

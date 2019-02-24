@@ -4,4 +4,4 @@ tags={
 	"Gameplay"
 	"Species"
 }
-supported_version="2.1.*"
+supported_version="2.2.*"
