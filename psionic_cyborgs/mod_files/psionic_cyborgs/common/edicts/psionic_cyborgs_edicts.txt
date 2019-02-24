@@ -1,0 +1,5 @@
+psionic_cyborgs_fix_leaders = {
+	effect = {
+		hidden_effect = { country_event = { id = psionic_cyborgs.100 } }
+	}
+}

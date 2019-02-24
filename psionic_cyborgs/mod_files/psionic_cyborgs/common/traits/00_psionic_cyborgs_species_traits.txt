@@ -1,0 +1,66 @@
+trait_cybernetic = {
+	cost = 0
+	
+	#MOD EDIT - Enable psionic cyborgs
+	#opposites = { "trait_latent_psionic" "trait_psionic" }
+
+	improves_leaders = yes
+	initial = no
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = {
+		pop_environment_tolerance = 0.20
+		army_damage_mult = 0.1
+		leader_age = 40
+	}
+}
+
+
+trait_latent_psionic = {
+	cost = 0
+	potential_crossbreeding_chance = 0.25
+	icon = "gfx/interface/icons/traits/trait_psionic_species.dds"
+	
+	#MOD EDIT - Enable psionic cyborgs
+	#opposites = { "trait_cybernetic" }
+
+	initial = no
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.05
+		planet_jobs_physics_research_produces_mult = 0.05
+		planet_jobs_society_research_produces_mult = 0.05
+		planet_jobs_energy_produces_mult = 0.05
+	}
+}
+
+trait_psionic = {
+	cost = 0
+	potential_crossbreeding_chance = 0.25
+	icon = "gfx/interface/icons/traits/trait_psionic_species.dds"
+	
+	#MOD EDIT - Enable psionic cyborgs
+	#opposites = { "trait_cybernetic" }
+
+	improves_leaders = yes
+	initial = no
+	randomized = no
+	modification = no
+
+	allowed_archetypes = { BIOLOGICAL }
+	
+	modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.10
+		planet_jobs_physics_research_produces_mult = 0.10
+		planet_jobs_society_research_produces_mult = 0.10
+		planet_jobs_energy_produces_mult = 0.10
+		pop_happiness = 0.05
+	}
+}

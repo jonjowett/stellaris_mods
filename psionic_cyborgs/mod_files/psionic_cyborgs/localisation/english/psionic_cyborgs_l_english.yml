@@ -1,2 +1,4 @@
 ﻿l_english:
  requires_not_ap_synthetic_evolution:1 "$TRIGGER_FAIL$May not have the §Y$ap_synthetic_evolution$§! Ascension Perk."
+ edict_psionic_cyborgs_fix_leaders:0 "(Mod: Psionic Cyborgs) Fix Leader Traits"
+ edict_psionic_cyborgs_fix_leaders_desc:0 "This decision adds the psionic, cyborg and/or erudite leader traits to all relevant leaders. It also cleans up traits of the wrong class, so that leaders who become rulers don't have duplicate traits.\n\nNB1: 'Relevant' means 'the leader's species has the applicable trait'. This does not fix the bug whereby a leader's species may not be updated even though every pop of that species has been.\n\nNB2: Leaders in the leader pool are not fixed - you have to hire them first."
