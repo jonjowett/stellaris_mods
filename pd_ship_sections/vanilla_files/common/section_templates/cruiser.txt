@@ -1,3 +1,5 @@
+@section_cost = 40
+
 #BOW
 
 ship_section_template = {
@@ -17,7 +19,12 @@ ship_section_template = {
 	
 	medium_utility_slots = 4
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -62,7 +69,12 @@ ship_section_template = {
 	
 	medium_utility_slots = 4
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -89,7 +101,12 @@ ship_section_template = {
 	
 	medium_utility_slots = 4
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 #MID
@@ -134,7 +151,12 @@ ship_section_template = {
 	
 	medium_utility_slots = 4
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -160,7 +182,12 @@ ship_section_template = {
 	
 	medium_utility_slots = 4
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -194,7 +221,12 @@ ship_section_template = {
 	
 	medium_utility_slots = 4
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -246,7 +278,12 @@ ship_section_template = {
 	
 	medium_utility_slots = 4
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 #STERN
@@ -268,7 +305,12 @@ ship_section_template = {
 	
 	aux_utility_slots = 2
 		
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -295,5 +337,10 @@ ship_section_template = {
 	
 	aux_utility_slots = 2
 	
-	cost = 100
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }

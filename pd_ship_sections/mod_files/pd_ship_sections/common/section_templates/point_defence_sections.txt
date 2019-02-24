@@ -36,7 +36,60 @@ ship_section_template = {
 	
 	aux_utility_slots = 2
 	
-	cost = 150
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
+	
+}
+
+ship_section_template = {
+	key = "PD_SHIP_SECTIONS_BATTLESHIP_STERN_S2PD2"
+	ship_size = battleship
+	fits_on_slot = stern
+	should_draw_components = yes
+	entity = "battleship_stern_S4_entity"
+	icon = "GFX_ship_part_core_stern"
+	
+	component_slot = {
+		name = "SMALL_GUN_01"
+		slot_size = small
+		slot_type = weapon
+		locatorname = "small_gun_01"
+	}
+	
+	component_slot = {
+		name = "SMALL_GUN_02"
+		slot_size = small
+		slot_type = weapon
+		locatorname = "small_gun_02"
+	}	
+	
+	component_slot = {
+		name = "SMALL_GUN_03"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_03"
+	}
+	
+	component_slot = {
+		name = "SMALL_GUN_04"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "small_gun_04"
+	}
+	
+	aux_utility_slots = 2
+	
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
+	
 }
 
 ship_section_template = {
@@ -62,6 +115,12 @@ ship_section_template = {
 	}
 	
 	aux_utility_slots = 2
+		
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 	
-	cost = 100
 }
