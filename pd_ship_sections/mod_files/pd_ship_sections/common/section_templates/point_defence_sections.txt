@@ -1,3 +1,6 @@
+@pd_ship_sections_battleship_section_cost = 80
+@pd_ship_sections_cruiser_section_cost = 40
+
 ship_section_template = {
 	key = "PD_SHIP_SECTIONS_BATTLESHIP_STERN_PD4"
 	ship_size = battleship
@@ -39,7 +42,7 @@ ship_section_template = {
 	resources = {
 		category = ship_sections
 		cost = {
-			alloys = @section_cost
+			alloys = @pd_ship_sections_battleship_section_cost
 		}
 	}
 	
@@ -86,7 +89,7 @@ ship_section_template = {
 	resources = {
 		category = ship_sections
 		cost = {
-			alloys = @section_cost
+			alloys = @pd_ship_sections_battleship_section_cost
 		}
 	}
 	
@@ -119,7 +122,7 @@ ship_section_template = {
 	resources = {
 		category = ship_sections
 		cost = {
-			alloys = @section_cost
+			alloys = @pd_ship_sections_cruiser_section_cost
 		}
 	}
 	
