@@ -12,6 +12,9 @@
 # Slightly decreased the weight for this tech - it's supposed to be rare!
 @repeatable_ascension_theory_weight = 20
 
+# Replacement for @repeatableTechFactor, which is currently spelled @repatableTechFactor, and might soon change back, breaking everything again
+@repeatable_ascension_theory_tech_factor = 0.5
+
 tech_16aps_repeatable_ascension_theory = {
 	area = society
 	cost = @repeatableTechBaseCost
@@ -29,7 +32,7 @@ tech_16aps_repeatable_ascension_theory = {
 	}
 	
 	weight_modifier = {
-		factor = @repeatableTechFactor
+		factor = @repeatable_ascension_theory_tech_factor
 		
 		# Copied from ascension theory - this will usually make the tech show up even less frequently.
 		# Corrected the block so that it checks the *society* area for *statecraft* expertise (instead of physics & computing)
