@@ -12,7 +12,7 @@ country_event = {
 				if = {
 					limit = { leader_class = ruler}
 					if = {
-						limit = { NOT = { has_trait = leader_trait_ruler_erudite } } }
+						limit = { NOT = { has_trait = leader_trait_ruler_erudite } }
 						add_trait = leader_trait_ruler_erudite
 					}
 					remove_trait = leader_trait_governor_erudite
@@ -43,9 +43,9 @@ country_event = {
 			if = {
 				limit = { species = { has_trait = trait_cybernetic } }
 				if = {
-					limit = { leader_class = ruler}
+					limit = { leader_class = ruler }
 					if = {
-						limit = { NOT = { has_trait = leader_trait_ruler_cyborg } } }
+						limit = { NOT = { has_trait = leader_trait_ruler_cyborg } }
 						add_trait = leader_trait_ruler_cyborg
 					}
 					remove_trait = leader_trait_governor_cyborg
@@ -76,9 +76,9 @@ country_event = {
 			if = {
 				limit = { species = { has_trait = trait_psionic } }
 				if = {
-					limit = { leader_class = ruler}
+					limit = { leader_class = ruler }
 					if = {
-						limit = { NOT = { has_trait = leader_trait_ruler_psionic } } }
+						limit = { NOT = { has_trait = leader_trait_ruler_psionic } }
 						add_trait = leader_trait_ruler_psionic
 					}
 					remove_trait = leader_trait_governor_psionic
@@ -108,9 +108,5 @@ country_event = {
 			}
 		}
 	}
-	
-	ai_weight = {
-		weight = 0
-	}	
 	
 }
