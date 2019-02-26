@@ -1,0 +1,6 @@
+This is a version of Khadgar's [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod that has been updated to v2.2.4.
+
+I have preserved as much functionality as possible from the original mod. The main difference is that I have changed the cost of the hyperlane generator/remover megastructures:
+[list][*]Stage 1 (construction site): 2000 alloys & 50 influence
+[*]Stage 2 (completed): 2000 alloys & 2000 energy
+[*]Stage 3 (activation): 10000 energy[/list]
