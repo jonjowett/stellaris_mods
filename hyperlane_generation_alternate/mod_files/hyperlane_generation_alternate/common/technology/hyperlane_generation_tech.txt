@@ -1,0 +1,69 @@
+tech_hyperlane_generation = {
+	cost = @tier5cost3
+	area = physics
+	tier = 5
+	category = { particles }
+	is_rare = yes
+	is_reverse_engineerable = no
+	weight = @tier5cost3
+	prerequisites = { "tech_gateway_activation" "tech_mega_engineering"}
+	
+	weight_modifier = {
+		factor = 0.5
+		modifier = {
+			factor = 0.1
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_particles"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+		modifier = {
+			factor = 4
+			owns_any_bypass = gateway
+		}
+	}
+	
+	prereqfor_desc = {
+		#hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_HYPERLANE_GENERATION_TITLE"
+			desc = "TECH_UNLOCK_HYPERLANE_GENERATION_DESC"
+		}
+	}
+	
+	ai_weight = {
+		factor = 4 #FTL techs are good
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
