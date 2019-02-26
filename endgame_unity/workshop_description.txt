@@ -48,6 +48,9 @@ This gives you the ability to use unity to permanently improve your late-game em
 [*] 0% to 20% species modification cost reduction
 [*] Research options for additional robomodding points are granted at levels 1 and 3, if you don't already have them[/list][/list]
 
+[h1]Known bugs:[/h1]
+[list][*] Decreased megastructure build cost is no longer present in vanilla, so this aspect may not work properly. It is definitely not correctly localised (ie. the description of the effect is missing), but this is a purely-cosmetic issue. However, I haven't done much testing on this mod as yet, and this effect is the most likely to break in some weird way, so please let me know if you encounter any bugs.[/list]
+
 [h1]Suggested companion mods:[/h1]
 [list][*] [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1326068324]Increase Leader Level Cap to 20[/url] - so that you can get the full benefit of the "Unify Leaders" buff.[/list]
 
