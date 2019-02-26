@@ -1,0 +1,329 @@
+namespace = hyperlane_generation
+
+country_event = {
+	id = hyperlane_generation.1
+	title = "hyperlane_generation.1.name"
+	desc = "hyperlane_generation.1.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_drifting_gateway
+	show_sound = event_radio_chatter
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_creator_emisor_2
+				}
+			}
+			save_event_target_as = hyperlane_creator_emisor
+		}	
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_creator_receptor_1
+				}
+			}
+			save_event_target_as = hyperlane_creator_receptor
+		}	
+		add_hyperlane = {
+			from = event_target:hyperlane_creator_emisor
+			to = event_target:hyperlane_creator_receptor
+		}
+		root = { country_event { id = hyperlane_generation.2 days = 1 }}
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_megastructure = {
+			limit = { is_megastructure_type = hyperlane_creator_emisor_2 }
+			remove_megastructure = this
+		}
+		random_owned_megastructure = {
+			limit = { is_megastructure_type = hyperlane_creator_receptor_1 }
+			remove_megastructure = this
+		}
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.3
+	title = "hyperlane_generation.3.name"
+	desc = "hyperlane_generation.3.desc"
+	is_triggered_only = yes
+	picture = GFX_evt_drifting_gateway
+	show_sound = event_radio_chatter
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_remover_emisor_2
+				}
+			}
+			save_event_target_as = hyperlane_remover_emisor
+		}	
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_remover_receptor_1
+				}
+			}
+			save_event_target_as = hyperlane_remover_receptor
+		}	
+		remove_hyperlane = {
+			from = event_target:hyperlane_remover_emisor
+			to = event_target:hyperlane_remover_receptor
+		}
+		root = { country_event { id = hyperlane_generation.4 days = 1 }}
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_owned_megastructure = {
+			limit = { is_megastructure_type = hyperlane_remover_emisor_2 }
+			remove_megastructure = this
+		}
+		random_owned_megastructure = {
+			limit = { is_megastructure_type = hyperlane_remover_receptor_1 }
+			remove_megastructure = this
+		}
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.5
+	title = "hyperlane_generation.5.name"
+	desc = "hyperlane_generation.5.desc"
+	picture = GFX_evt_drifting_gateway
+	location = event_target:hyperlane_generator_1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.6
+	title = "hyperlane_generation.6.name"
+	desc = "hyperlane_generation.6.desc"
+	picture = GFX_evt_drifting_gateway
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_creator_emisor_1 }
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.7
+	title = "hyperlane_generation.7.name"
+	desc = "hyperlane_generation.7.desc"
+	picture = GFX_evt_drifting_gateway
+	location = event_target:hyperlane_generator_2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.8
+	title = "hyperlane_generation.8.name"
+	desc = "hyperlane_generation.8.desc"
+	picture = GFX_evt_drifting_gateway
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_creator_receptor_1 }
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.9
+	title = "hyperlane_generation.9.name"
+	desc = "hyperlane_generation.9.desc"
+	picture = GFX_evt_drifting_gateway
+	location = event_target:hyperlane_generator_3
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.10
+	title = "hyperlane_generation.10.name"
+	desc = "hyperlane_generation.10.desc"
+	picture = GFX_evt_drifting_gateway
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_remover_emisor_1 }
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.11
+	title = "hyperlane_generation.11.name"
+	desc = "hyperlane_generation.11.desc"
+	picture = GFX_evt_drifting_gateway
+	location = event_target:hyperlane_generator_4
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.12
+	title = "hyperlane_generation.12.name"
+	desc = "hyperlane_generation.12.desc"
+	picture = GFX_evt_drifting_gateway
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_remover_receptor_1 }
+	}
+	
+	option = {
+		name = EXCELLENT
+	}
+}
+
+country_event = {
+	id = hyperlane_generation.13
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_creator_emisor_0
+				}
+			}
+			save_event_target_as = hyperlane_generator_1
+		}
+		root = {country_event = { id = hyperlane_generation.5 }}
+	}
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_creator_emisor_0 }
+	}
+	
+}
+
+country_event = {
+	id = hyperlane_generation.14
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_creator_receptor_0
+				}
+			}
+			save_event_target_as = hyperlane_generator_2
+		}
+		root = {country_event = { id = hyperlane_generation.7 }}
+	}
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_creator_receptor_0 }
+	}
+	
+}
+
+country_event = {
+	id = hyperlane_generation.15
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_remover_emisor_0
+				}
+			}
+			save_event_target_as = hyperlane_generator_3
+		}
+		root = {country_event = { id = hyperlane_generation.9 }}
+	}
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_remover_emisor_0 }
+	}
+	
+}
+
+country_event = {
+	id = hyperlane_generation.16
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_system_megastructure = {
+					is_megastructure_type = hyperlane_remover_receptor_0
+				}
+			}
+			save_event_target_as = hyperlane_generator_4
+		}
+		root = {country_event = { id = hyperlane_generation.11 }}
+	}
+	
+	trigger = {
+		FROM = { is_megastructure_type = hyperlane_remover_receptor_0 }
+	}
+	
+}

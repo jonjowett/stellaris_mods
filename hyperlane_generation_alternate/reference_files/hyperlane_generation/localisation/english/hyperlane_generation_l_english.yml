@@ -1,0 +1,109 @@
+﻿l_english:
+
+ ##############################
+ # Megastructures
+ ##############################
+ 
+ # Creator Emitter
+ 
+ hyperlane_creator_emisor_0:0 "Hyperlane Generator (Emitter) Construction Site"
+ hyperlane_creator_emisor_0_DESC:0 "The initial site will serve as the base for the construction of a future Hyperlane Generator (Emitter)."
+ hyperlane_creator_emisor_0_MEGASTRUCTURE_DETAILS:0 "A station that allows the creation of a new Hyperlane by emiting a tachyonic beam to another station on the receiving system."
+ 
+ hyperlane_creator_emisor_1:0 "Hyperlane Generator (Emitter)"
+ hyperlane_creator_emisor_1_DESC:0 "A station that allows the creation of a new Hyperlane by emiting a tachyonic beam to another station on the receiving system."
+ 
+ hyperlane_creator_emisor_2:0 "Hyperlane Generator (Emitter) - Activation"
+ hyperlane_creator_emisor_2_DESC:0 "Initiate the activation sequence of the tachyonic beam to fire it towards the receiving station to generate the new Hyperlane."
+ 
+ # Creator Receptor
+ 
+ hyperlane_creator_receptor_0:0 "Hyperlane Generator (Receptor) Construction Site"
+ hyperlane_creator_receptor_0_DESC:0 "The initial site will serve as the base for the construction of a future Hyperlane Generator (Receptor)."
+ hyperlane_creator_receptor_0_MEGASTRUCTURE_DETAILS:0 "A station that allows the creation of a new Hyperlane by receiving a tachyonic beam from another station on the emiting system."
+ 
+ hyperlane_creator_receptor_1:0 "Hyperlane Generator (Receptor)"
+ hyperlane_creator_receptor_1_DESC:0 "A station that allows the creation of a new Hyperlane by receiving a tachyonic beam to another station on the emiting system."
+ 
+ # Remover Emitter
+ 
+ hyperlane_remover_emisor_0:0 "Hyperlane Remover (Emitter) Construction Site"
+ hyperlane_remover_emisor_0_DESC:0 "The initial site will serve as the base for the construction of a future Hyperlane Remover (Emitter)."
+ hyperlane_remover_emisor_0_MEGASTRUCTURE_DETAILS:0 "A station that allows the removal of an existing Hyperlane by emiting a tachyonic beam to another station on the receiving system."
+ 
+ hyperlane_remover_emisor_1:0 "Hyperlane Remover (Emitter)"
+ hyperlane_remover_emisor_1_DESC:0 "A station that allows the removal of an existing Hyperlane by emiting a tachyonic beam to another station on the receiving system."
+ 
+ hyperlane_remover_emisor_2:0 "Hyperlane Remover (Emitter) - Activation"
+ hyperlane_remover_emisor_2_DESC:0 "Initiate the activation sequence of the tachyonic beam to fire it towards the receiving station to remove the existing Hyperlane."
+ 
+ # Remover Receptor
+ 
+ hyperlane_remover_receptor_0:0 "Hyperlane Remover (Receptor) Construction Site"
+ hyperlane_remover_receptor_0_DESC:0 "The initial site will serve as the base for the construction of a future Hyperlane Remover (Receptor)."
+ hyperlane_remover_receptor_0_MEGASTRUCTURE_DETAILS:0 "A station that allows the removal of an existing Hyperlane by receiving a tachyonic beam from another station on the emiting system."
+ 
+ hyperlane_remover_receptor_1:0 "Hyperlane Remover (Receptor)"
+ hyperlane_remover_receptor_1_DESC:0 "A station that allows the removal of an existing Hyperlane by receiving a tachyonic beam from another station on the emiting system."
+ 
+ ##############################
+ # Techs
+ ##############################
+ 
+ tech_hyperlane_generation:0 "Hyperlane Generation"
+ tech_hyperlane_generation_desc:0 "Recent developments in both the design of hyperdrives and the activation of derelict Gateways can enable us to develop the way of creating new hyperlanes and removing existing ones, finally allowing us to reshape galactic geography for our needs and purposes."
+ 
+ TECH_UNLOCK_HYPERLANE_GENERATION_TITLE:0 "§HUnlocks Feature:§! Hyperlane Generation"
+ TECH_UNLOCK_HYPERLANE_GENERATION_DESC:0 "§HHyperlane Generation§!\nAllows the creation and removal of hyperlanes."
+ 
+ ##############################
+ # Restrictions
+ ##############################
+ 
+ requires_tech_hyperlane_generation:0 "$TRIGGER_FAIL$Requires technology £physics  §Y$tech_hyperlane_generation$§!."
+ 
+ requires_no_existing_generator_emisor:0 "$TRIGGER_FAIL$Cannot build due to existing §YHyperlane Generator (Emitter)§! in the Empire."
+ requires_existing_generator_receptor:0 "$TRIGGER_FAIL$Requires existing §YHyperlane Generator (Receptor)§! in the Empire."
+ requires_existing_generator_emisor:0 "$TRIGGER_FAIL$Requires existing §YHyperlane Generator (Emitter)§! in the Empire in a system not connected by an hyperlane to §Y[Root.GetName]§!."
+ requires_no_existing_system_generator_emisor:0 "$TRIGGER_FAIL$Cannot build due to existing §YHyperlane Generator (Emitter)§! in the system."
+ requires_no_existing_generator_receptor:0 "$TRIGGER_FAIL$Cannot build due to existing §YHyperlane Generator (Receptor)§! in the Empire."
+ 
+ requires_no_existing_remover_emisor:0 "$TRIGGER_FAIL$Cannot build due to existing §YHyperlane Remover (Emitter)§! in the Empire."
+ requires_existing_remover_receptor:0 "$TRIGGER_FAIL$Requires existing §YHyperlane Remover (Receptor)§! in the Empire."
+ requires_existing_remover_emisor:0 "$TRIGGER_FAIL$Requires existing §YHyperlane Remover (Emitter)§! in the Empire in a system connected by an hyperlane to §Y[Root.GetName]§!."
+ requires_no_existing_system_remover_emisor:0 "$TRIGGER_FAIL$Cannot build due to existing §YHyperlane Remover (Emitter)§! in the system."
+ requires_no_existing_remover_receptor:0 "$TRIGGER_FAIL$Cannot build due to existing §YHyperlane Remover (Receptor)§! in the Empire." 
+
+ ##############################
+ # Events
+ ##############################
+ 
+ hyperlane_generation.1.name:0 "Hyperlane Generated"
+ hyperlane_generation.1.desc:0 "Our efforts in creating a new hyperlane between §Y[hyperlane_creator_emisor.GetName]§! and §Y[hyperlane_creator_receptor.GetName]§! have proved successful."
+ 
+ hyperlane_generation.3.name:0 "Hyperlane Removed"
+ hyperlane_generation.3.desc:0 "Our efforts in removing the existing hyperlane between §Y[hyperlane_remover_emisor.GetName]§! and §Y[hyperlane_remover_receptor.GetName]§! have proved successful."
+ 
+ hyperlane_generation.5.name:0 "Hyperlane Generator (Emitter) Construction"
+ hyperlane_generation.5.desc:0 "We have finished the first stages of construction of our Hyperlane Generator (Emitter) in §Y[hyperlane_generator_1.GetName]§!."
+ 
+ hyperlane_generation.7.name:0 "Hyperlane Generator (Receptor) Construction"
+ hyperlane_generation.7.desc:0 "We have finished the first stages of construction of our Hyperlane Generator (Receptor) in §Y[hyperlane_generator_2.GetName]§!."
+ 
+ hyperlane_generation.9.name:0 "Hyperlane Remover (Emitter) Construction"
+ hyperlane_generation.9.desc:0 "We have finished the first stages of construction of our Hyperlane Remover (Emitter) in §Y[hyperlane_generator_3.GetName]§!."
+ 
+ hyperlane_generation.11.name:0 "Hyperlane Remover (Receptor) Construction"
+ hyperlane_generation.11.desc:0 "We have finished the first stages of construction of our Hyperlane Remover (Receptor) in §Y[hyperlane_generator_4.GetName]§!."
+ 
+ hyperlane_generation.6.name:0 "Hyperlane Generator (Emitter) Completed"
+ hyperlane_generation.6.desc:0 "We have finally finished the last stages of construction of our Hyperlane Generator (Emitter) in §Y[From.From.GetName]§!."
+ 
+ hyperlane_generation.8.name:0 "Hyperlane Generator (Receptor) Completed"
+ hyperlane_generation.8.desc:0 "We have finally finished the last stages of construction of our Hyperlane Generator (Receptor) in §Y[From.From.GetName]§!."
+ 
+ hyperlane_generation.10.name:0 "Hyperlane Remover (Emitter) Completed"
+ hyperlane_generation.10.desc:0 "We have finally finished the last stages of construction of our Hyperlane Remover (Emitter) in §Y[From.From.GetName]§!."
+ 
+ hyperlane_generation.12.name:0 "Hyperlane Remover (Receptor) Completed"
+ hyperlane_generation.12.desc:0 "We have finally finished the last stages of construction of our Hyperlane Remover (Receptor) in §Y[From.From.GetName]§!."
