@@ -10,7 +10,7 @@ hyperlane_nuke_0 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 5000
+			alloys = 12000
 			influence = 300
 		}
 	}
@@ -25,18 +25,17 @@ hyperlane_nuke_0 = {
 			fail_text = "requires_inside_border"
 			is_inside_border = from
 		}
-		#Quick edit - commented out as this is apparently causing issues
-		#custom_tooltip = {
-		#	fail_text = "requires_surveyed_system"
-		#	NOT = {
-		#		any_planet = {
-		#			is_surveyed = {
-		#				who = prev.from
-		#				status = no
-		#			}
-		#		}
-		#	}
-		#}
+		custom_tooltip = {
+			fail_text = "requires_surveyed_system"
+			NOT = {
+				any_system_planet = {
+					is_surveyed = {
+						who = prev.from
+						status = no
+					}
+				}
+			}
+		}
 		custom_tooltip = {
 			fail_text = "requires_no_existing_hyperlane_nuke"
 			from = {
@@ -90,8 +89,8 @@ hyperlane_nuke_1 = {
 	resources = {
 		category = megastructures
 		cost = {
-			alloys = 5000
-			energy = 7500
+			alloys = 12000
+			energy = 12000
 		}
 	}
 	construction_blocks_others = no
