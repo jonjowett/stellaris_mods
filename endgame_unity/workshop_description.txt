@@ -4,7 +4,7 @@ This gives you the ability to use unity to permanently improve your late-game em
 
 [h1]Available buffs:[/h1]
 [list][*] [b][u]Unified Diplomats[/u][/b]:
-[list][*] +1 influence per level[/list]
+[list][*] +2 influence per level[/list]
 
 [*] [b][u]Unified Subjects[/u][/b]:
 [list][*] +40 subject trust cap per level[/list]
@@ -29,7 +29,7 @@ This gives you the ability to use unity to permanently improve your late-game em
 [*] Research options (for increasing hull strength) are granted at levels 1 & 3, if you don't already have them.[/list]
 
 [*] [b][u]Unified Weapons Engineers[/u][/b]:
-[list][*] +5% fire rate and +5% weapons range per level[/list]
+[list][*] +10% fire rate and +10% weapons range per level[/list]
 
 [*] [b][u]Unified Leaders[/u][/b]:
 [list][*] +1 leader level cap and +10% leader experience gain per level[/list]
@@ -60,7 +60,7 @@ This gives you the ability to use unity to permanently improve your late-game em
 [list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
 
 [h1]TLDR:[/h1]
-[list][*] Tested version: 2.0.2
+[list][*] Tested version: 2.2.4
 [*] Required DLC: Apocalypse (to enable Unity Ambitions)
 [*] Ironman compatible: Yes
 [*] Achievement compatible: No[/list]

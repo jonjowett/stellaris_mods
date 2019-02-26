@@ -1,8 +1,7 @@
 @endgame_unity_num_asc_perks = 3 # Require number of ascension perks unlocked to be strictly greater than this, before the edicts are unlocked.
 
 
-country_edict = {
-	name = "endgame_unity_choose_influence"
+endgame_unity_choose_influence = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -35,8 +34,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_subjects"
+endgame_unity_choose_subjects = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -78,8 +76,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_research"
+endgame_unity_choose_research = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -112,8 +109,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_fleetcap"
+endgame_unity_choose_fleetcap = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -146,8 +142,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_terraforming"
+endgame_unity_choose_terraforming = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -191,8 +186,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_megastructure"
+endgame_unity_choose_megastructure = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -200,7 +194,7 @@ country_edict = {
 		NOT = { has_modifier = endgame_unity_megastructure_5 } 
 		OR = {
 			has_technology = tech_mega_engineering
-			has_ascension_perk = ap_galactic_wonders
+			has_galactic_wonders = yes #Vanilla scripted_trigger that checks whether the empire has access to any of the galactic wonders.
 			has_ascension_perk = ap_voidborn
 		}
 	}
@@ -232,8 +226,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_starship_hulls"
+endgame_unity_choose_starship_hulls = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -314,8 +307,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_weapons"
+endgame_unity_choose_weapons = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -348,8 +340,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_leaders"
+endgame_unity_choose_leaders = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -382,8 +373,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_geneticists"
+endgame_unity_choose_geneticists = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -427,8 +417,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_roboticists"
+endgame_unity_choose_roboticists = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
@@ -473,8 +462,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "endgame_unity_choose_roboticists_m"
+endgame_unity_choose_roboticists_m = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
