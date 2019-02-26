@@ -12,7 +12,7 @@ This means that, if you somehow manage to obtain a large number of modifiers to 
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
 [h1]TLDR:[/h1]
-[list][*]Tested version: 2.0.1
+[list][*]Tested version: 2.2.4
 [*]Required DLC: None
 [*]Ironman compatible: Yes
 [*]Achievement compatible: No[/list]
