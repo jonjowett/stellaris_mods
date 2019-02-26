@@ -1,3 +1,7 @@
+[b][u]This mod is not required for the current version of the game (v2.2.4), as the base game already has COMMAND_LIMIT_MAX set to 500.[/u][/b]
+
+---
+
 This micro-mod increases the maximum fleet capacity to 500.
 
 The reason for this is that, in the base game (v2.0.1):
