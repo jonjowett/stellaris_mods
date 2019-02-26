@@ -1,25 +1,30 @@
 This mod allows you to build a megastructure (the Hyperlane Isolator) that removes [u]all[/u] hyperlanes that link to a system.
 
-This is an addon for the existing [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod by Khadgar. If you want to use this mod, you [b][u]must[/u][/b] also subscribe to that one!
+This is an addon for the existing [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod by Khadgar. However, since that mod has not been updated for v2.2.*, I have created my own [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1667726947]alternate version[/url]. If you want to use this mod, you [b][u]must[/u][/b] also subscribe to the base mod!
+
+(This mod only requires the base mod in order to give access to the prerequisite technology. So, for the purpose of this mod in isolation, it doesn't really matter whether you use the original or alternate version of the base mod.)
 
 The cost of each stage of the Hyperlane Isolator is 6 times that of the equivalent stage of an individual receptor/emitter, and it takes twice as long to build. (In other words, it costs as much as removing 3 hyperlanes using the base mod, but takes slightly less time.)
 
 [h1]Suggested Companion Mods:[/h1]
-
 [list][*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1310625695]More Hyperlane Chokepoints[/url] - As per the mod name, this alters the galaxy generation script to create more chokepoints. (This is better than simply turning down the number of hyperlanes in the new game screen.)[/list]
 
 [h1]Technical info & compatibility:[/h1]
 [list][*] This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.
-[*] As noted above, you [b][u]must[/u][/b] also subscribe to the [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod by Khadgar.
+
+[*] As noted above, you [b][u]must[/u][/b] also subscribe to either the [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod by Khadgar or my [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1667726947]alternate version[/url].
+
 [*] If a system has more than 10 hyperlanes (!), only 10 randomly-chosen hyperlanes will be removed.
+
 [*] It is safe to add this mod to a game that's already in progress.
+
 [*] Before removing this mod from a game, you should ensure that there are no part-completed Hyperlane Isolators anywhere in the galaxy. (If you don't the game probably won't break, but you might have some weird effects.)[/list]
 
 [h1]Earlier versions / Beta versions:[/h1]
 [list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
 
 [h1]TLDR:[/h1]
-[list][*] Tested version: 2.0.2
+[list][*] Tested version: 2.2.4
 [*] Required DLC: None
 [*] Ironman compatible: Yes
 [*] Achievement compatible: No[/list]
