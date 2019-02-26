@@ -3,7 +3,7 @@ This micro-mod increases the maximum leader level cap to 20.
 This means that, if you somehow manage to obtain a large number of modifiers to leader level cap (from tech / traditions / traits / etc), your leaders will be able to progress beyond level 10. (But they will not be able to progress beyond level 20.)
 
 [h1]Known Bugs:[/h1]
-[list][*]The icons for levels 11-20 aren't displayed in-game. (I have created them and linked them up, but they aren't showing up for some reason.)[/list]
+[list][*]The icons for levels 11-20 aren't displayed in-game. (Because they don't exist: I made artwork for the old star-based leader icons, but that's now outdated and I haven't got around to producing artwork in the new style.)[/list]
 
 [h1]Technical Info / Compatibility:[/h1]
 [list][*]This mod is compatible with any mod that doesn't alter LEADER_MAX_SKILL_CAP in defines.[/list]
