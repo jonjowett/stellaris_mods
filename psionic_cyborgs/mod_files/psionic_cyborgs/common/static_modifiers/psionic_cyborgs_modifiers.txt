@@ -1,0 +1,16 @@
+psionic_cyborgs_balance_synthage_engevol = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = 0.165
+}
+psionic_cyborgs_balance_synthage_evolmast = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = 0.165
+}
+psionic_cyborgs_balance_synthevol_engevol = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = 0.25
+}
+psionic_cyborgs_balance_synthevol_evolmast = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = 0.25
+}

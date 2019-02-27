@@ -10,6 +10,17 @@ ap_engineered_evolution = {
 		hidden_effect = {
 			country_event = { id = utopia.2700 }
 		}
+		
+		#Balance for species modification cost
+		if = {
+			limit = { has_ascension_perk = ap_synthetic_evolution }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthevol_engevol days = -1 }
+		}
+		if = {
+			limit = { has_ascension_perk = ap_synthetic_age }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthage_engevol days = -1 }
+		}
+		
 	}
 	possible = {
 		#MOD EDIT - Biological ascension is locked-out for machine empires unless you are rogue servitor or driven assimilator
@@ -96,6 +107,17 @@ ap_evolutionary_mastery = {
 		hidden_effect = {
 			country_event = { id = utopia.2703 }
 		}
+		
+		#Balance for species modification cost
+		if = {
+			limit = { has_ascension_perk = ap_synthetic_evolution }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthevol_evolmast days = -1 }
+		}
+		if = {
+			limit = { has_ascension_perk = ap_synthetic_age }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthage_evolmast days = -1 }
+		}
+		
 	}
 	possible = {
 		#MOD EDIT - Biological ascension is locked-out for machine empires unless you are rogue servitor or driven assimilator
@@ -238,6 +260,17 @@ ap_synthetic_evolution = {
 		hidden_effect = {
 			country_event = { id = utopia.2550 }
 		}
+		
+		#Balance for species modification cost
+		if = {
+			limit = { has_ascension_perk = ap_engineered_evolution }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthevol_engevol days = -1 }
+		}
+		if = {
+			limit = { has_ascension_perk = ap_evolutionary_mastery }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthevol_evolmast days = -1 }
+		}
+		
 	}
 	modifier = {
 		planet_jobs_robotic_produces_mult = 0.10
@@ -403,5 +436,51 @@ ap_transcendence = {
 	
 	ai_weight = {
 		factor = 100
+	}
+}
+
+ap_synthetic_age = {
+	
+	#Balance for species modification cost
+	on_enabled = {
+		if = {
+			limit = { has_ascension_perk = ap_engineered_evolution }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthage_engevol days = -1 }
+		}
+		if = {
+			limit = { has_ascension_perk = ap_evolutionary_mastery }
+			add_modifier = { modifier = psionic_cyborgs_balance_synthage_evolmast days = -1 }
+		}
+	}
+	
+	modifier = {
+		MACHINE_species_trait_points_add = 2
+		modify_species_cost_mult = -0.33
+	}
+	
+	potential = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		has_authority = auth_machine_intelligence
+		NOT = {
+			has_ascension_perk = ap_synthetic_age
+		}
+	}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_technology_robomodding"
+			OR = {
+				has_technology = tech_robomodding_m
+				has_technology = tech_robomodding
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_ascension_perks_2"
+			num_ascension_perks > 1
+		}				
+	}
+	
+	ai_weight = {
+		factor = 10
 	}
 }

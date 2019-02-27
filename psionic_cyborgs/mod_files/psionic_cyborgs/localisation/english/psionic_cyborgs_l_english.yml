@@ -2,3 +2,16 @@
  requires_not_ap_synthetic_evolution:1 "$TRIGGER_FAIL$May not have the §Y$ap_synthetic_evolution$§! Ascension Perk."
  edict_psionic_cyborgs_fix_leaders:0 "(Mod: Psionic Cyborgs) Fix Leader Traits"
  edict_psionic_cyborgs_fix_leaders_desc:0 "This decision adds the psionic, cyborg and/or erudite leader traits to all relevant leaders. It also cleans up traits of the wrong class, so that leaders who become rulers don't have duplicate traits.\n\nNB1: 'Relevant' means 'the leader's species has the applicable trait'. This does not fix the bug whereby a leader's species may not be updated even though every pop of that species has been.\n\nNB2: Leaders in the leader pool are not fixed - you have to hire them first."
+ 
+ psionic_cyborgs_balance_generic_prefix:0 "(Mod: Psionic Cyborgs) Balanced species modification cost:"
+ psionic_cyborgs_balance_generic_desc:0 "There is only one species modification cost multiplier in the game - it is not separated into different multipliers for biological, robotic and machine modification.\n\nWith the correct combination of ascension perks, you can easily reduce species modification cost to 0 - which is ludicrous!\n\nTherefore, these modifiers have been added to ensure that you can receive no more than 50% cost reduction from ascension perks."
+ 
+ psionic_cyborgs_balance_synthage_engevol:0 "$psionic_cyborgs_balance_generic_prefix$ §Y$ap_synthetic_age$§! & §Y$ap_engineered_evolution$§!"
+ psionic_cyborgs_balance_synthage_evolmast:0 "$psionic_cyborgs_balance_generic_prefix$ §Y$ap_synthetic_age$§! & §Y$ap_evolutionary_mastery$§!"
+ psionic_cyborgs_balance_synthevol_engevol:0 "$psionic_cyborgs_balance_generic_prefix$ §Y$ap_synthetic_evolution$§! & §Y$ap_engineered_evolution$§!"
+ psionic_cyborgs_balance_synthevol_evolmast:0 "$psionic_cyborgs_balance_generic_prefix$ §Y$ap_synthetic_evolution$§! & §Y$ap_evolutionary_mastery$§!"
+ 
+ psionic_cyborgs_balance_synthage_engevol_desc:0 "$psionic_cyborgs_balance_generic_desc$"
+ psionic_cyborgs_balance_synthage_evolmast_desc:0 "$psionic_cyborgs_balance_generic_desc$"
+ psionic_cyborgs_balance_synthevol_engevol_desc:0 "$psionic_cyborgs_balance_generic_desc$"
+ psionic_cyborgs_balance_synthevol_evolmast_desc:0 "$psionic_cyborgs_balance_generic_desc$"

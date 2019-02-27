@@ -2,7 +2,7 @@ This mod allows you to select multiple ascension paths - ie. you can create gene
 
 In vanilla, you have to choose between the biological (genetic engineering) path, the technological (cyborg/synthetic) path and the spiritual (psychic/psionic) path. However, I don't think that there's any good reason for these paths to be completely mutually exclusive - hence this mod.
 
-For reference, here's the full list of ascension perk lockouts if this mod is running:
+[h1]Full list of ascension perk lockouts:[/h1]
 [list][*][b]Engineered Evolution[/b] - Not permitted for most machine empires. (Permitted for Rogue Servitors and Driven Assimilators.)
 
 [*][b]Evolutionary Mastery[/b] - Not permitted for most machine empires. (Permitted for Rogue Servitors and Driven Assimilators.)
@@ -15,14 +15,31 @@ For reference, here's the full list of ascension perk lockouts if this mod is ru
 
 [*][b]Transcendence[/b] - Not permitted if you are a machine empire, or a biological hive mind, or if you have "Synthetic Evolution" (see above).[/list]
 
-This mod also adds a free edict that fixes your leaders' traits. (Because sometimes they don't get the correct combination of psychic, cyborg and/or erudite.) The AI will not use this edict (because: it's free, so the AI would probably try to use it continuously, which would probably cause performance issues).
+[h1]Additional features:[/h1]
+
+This mod adds a free edict that fixes your leaders' traits. (Because sometimes they don't get the correct combination of psychic, cyborg and/or erudite.) The AI will not use this edict (because: it's free, so the AI would probably try to use it continuously, which would probably cause performance issues).
+
+The maximum possible species modification cost reduction from ascension perks is fixed at 50%. For example:
+[list][*]If you are a machine empire with Synthetic Age and pick Engineered Evolution then you will receive a permanent empire modifier that increases species modification cost by 16.5%. Your overall species modification cost modifier is now -41.5% ( = - 33% - 25% + 16.5% )
+
+[*]If your next pick is Evolutionary Mastery then you will receive another permanent empire modifier that also increases species modification cost by 16.5%. Your overall species modification cost multiplier is now -50% ( = - 33% - 25% + 16.5% - 25% + 16.5% )[/list]
+
+[h1]Recommended Companion Mods:[/h1]
+[list][*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1330072114]16 Ascension Perk Slots[/url] - This gives you a little more freedom to indulge your psionic cyborg desires![/list]
+
+[h1]Known Bugs:[/h1]
+[list][*]The capped species modification cost is only applied at the moment that you pick the relevant ascension perk. If you installed this mod and picked the relevant perks before this update, there is (and will be) no fix. Enjoy your ridiculously-low species modification cost![/list]
 
 [h1]Technical info / compatibility:[/h1]
-[list][*]This mod will not be compatible with any other mod that alters any of the 6 ascension perks listed above.
+[list][*]This mod will not be compatible with any other mod that alters any of the 6 ascension perks listed above. It is also incompatible with any mod that alters the "Synthetic Age" perk.
 
 [*]The psionic, cyborg and erudite [u]species[/u] traits have had their mutual lockouts removed. Therefore, this mod will not be compatible with any mod that alters these traits.
 
-[*]No other vanilla files are altered. So, apart from the exceptions noted above, this mod should be fully compatible with every other mod.[/list]
+[*]No other vanilla files are altered. So, apart from the exceptions noted above, this mod should be fully compatible with every other mod.
+
+[*]It is safe to add this mod to a game that's in progress.
+
+[*]It should be safe to remove this mod from a game that's in progress. There will be cosmetic issues (eg. blank empire modifiers) and incompatible ascension perks will not be removed.[/list]
 
 [h1]Earlier versions / Beta versions:[/h1]
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
