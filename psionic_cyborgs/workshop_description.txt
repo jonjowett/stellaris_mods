@@ -3,9 +3,9 @@ This mod allows you to select multiple ascension paths - ie. you can create gene
 In vanilla, you have to choose between the biological (genetic engineering) path, the technological (cyborg/synthetic) path and the spiritual (psychic/psionic) path. However, I don't think that there's any good reason for these paths to be completely mutually exclusive - hence this mod.
 
 For reference, here's the full list of ascension perk lockouts if this mod is running:
-[list][*][b]Engineered Evolution[/b] - Not permitted if you are a machine empire.
+[list][*][b]Engineered Evolution[/b] - Not permitted for most machine empires. (Permitted for Rogue Servitors and Driven Assimilators.)
 
-[*][b]Evolutionary Mastery[/b] - Not permitted if you are a machine empire.
+[*][b]Evolutionary Mastery[/b] - Not permitted for most machine empires. (Permitted for Rogue Servitors and Driven Assimilators.)
 
 [*][b]The Flesh Is Weak[/b] - Not permitted if you are a machine empire or a biological hive mind.
 

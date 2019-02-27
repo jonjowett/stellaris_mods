@@ -12,10 +12,20 @@ ap_engineered_evolution = {
 		}
 	}
 	possible = {
+		#MOD EDIT - Biological ascension is locked-out for machine empires unless you are rogue servitor or driven assimilator
 		custom_tooltip = {
 			fail_text = "synthetic_empire_biological_ascension"
-			NOT = { has_trait = trait_mechanical }
-		}	
+			OR = {
+				NOT = { has_trait = trait_mechanical }
+				AND = {
+					is_mechanical_empire = yes
+					OR = {
+						has_civic = civic_machine_servitor
+						has_civic = civic_machine_assimilator
+					}
+				}
+			}
+		}
 		custom_tooltip = {
 			fail_text = "requires_ascension_perks_1"
 			num_ascension_perks > 0
@@ -52,7 +62,15 @@ ap_engineered_evolution = {
 		host_has_dlc = "Utopia"
 		NOT = {
 			has_ascension_perk = ap_engineered_evolution
-			has_authority = "auth_machine_intelligence"
+			
+			#MOD EDIT - Biological ascension is only locked-out for machine empires that aren't either rogue servitor or driven assimilator
+			AND = {
+				has_authority = "auth_machine_intelligence"
+				NOR = {
+					has_civic = civic_machine_servitor
+					has_civic = civic_machine_assimilator
+				}
+			}
 		}
 		is_mechanical_empire = no
 		
@@ -80,9 +98,19 @@ ap_evolutionary_mastery = {
 		}
 	}
 	possible = {
+		#MOD EDIT - Biological ascension is locked-out for machine empires unless you are rogue servitor or driven assimilator
 		custom_tooltip = {
 			fail_text = "synthetic_empire_biological_ascension"
-			NOT = { has_trait = trait_mechanical }
+			OR = {
+				NOT = { has_trait = trait_mechanical }
+				AND = {
+					is_mechanical_empire = yes
+					OR = {
+						has_civic = civic_machine_servitor
+						has_civic = civic_machine_assimilator
+					}
+				}
+			}
 		}
 		custom_tooltip = {
 			fail_text = "requires_ascension_perks_3"
@@ -113,9 +141,20 @@ ap_evolutionary_mastery = {
 		host_has_dlc = "Utopia"
 		NOT = {
 			has_ascension_perk = ap_evolutionary_mastery
-			has_authority = "auth_machine_intelligence"
+			
+			#MOD EDIT - Biological ascension is only locked-out for machine empires that aren't either rogue servitor or driven assimilator
+			AND = {
+				has_authority = "auth_machine_intelligence"
+				NOR = {
+					has_civic = civic_machine_servitor
+					has_civic = civic_machine_assimilator
+				}
+			}
+			
 		}
-		is_mechanical_empire = no
+		
+		#Mod deletion - Some mechanical empires can pick genetics if they want
+		#is_mechanical_empire = no
 		
 		#Mod deletion - synths & cyborgs can pick genetics if they want
 		#is_cyborg_empire = no
