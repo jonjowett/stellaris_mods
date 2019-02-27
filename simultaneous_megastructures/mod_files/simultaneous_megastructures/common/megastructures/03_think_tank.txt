@@ -1,7 +1,7 @@
-@stage_1_research_bonus	= 75
-@stage_2_research_bonus	= 150
-@stage_3_research_bonus	= 225
-@stage_4_research_bonus	= 250
+@stage_1_research_bonus	= 100
+@stage_2_research_bonus	= 200
+@stage_3_research_bonus	= 300
+@stage_4_research_bonus	= 350
 @entity_x				= 0
 @entity_y 				= -20
 
@@ -12,24 +12,26 @@ think_tank_0 = {
 	portrait = "GFX_megastructure_construction_background"
 	place_entity_on_planet_plane = no
 
-	place_entity_on_planet_plane = no
 	entity_offset = { x = @entity_x y = @entity_y }
 
 	build_time = 1800
-	build_cost = {
-		minerals = 10000
-		influence = 300
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 300
+		}
+
+		upkeep = {
+			energy = 5
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
-
-	maintenance = {
-		energy = 25
-	}
 	
 	potential = {
-		has_ascension_perk = ap_galactic_wonders
+		has_gw_think_tank = yes
 	}
 	
 	possible = {
@@ -56,7 +58,7 @@ think_tank_0 = {
 				}
 			}
 			
-			#MOD REMOVED - Enables multiple think tanks
+			#MOD REMOVED - Enables multiple think tanks in your empire
 			#custom_tooltip = {
 			#	fail_text = "requires_no_existing_think_tank"
 			#	from = { NOT = { has_country_flag = built_think_tank } }
@@ -105,7 +107,8 @@ think_tank_0 = {
 
 		modifier = {
 			factor = 0.1
-			any_neighbor_system = { 
+			any_neighbor_system = {
+				exists = owner
 				NOT = { 
 					owner = { is_same_value = from } 
 				}
@@ -145,27 +148,34 @@ think_tank_1 = {
 	upgrade_from = {
 		think_tank_0
 	}
-
-	build_time = 2400
-	build_cost = {
-		minerals = 30000
-	}
 	
+	country_modifier = {
+		all_technology_research_speed = 0.05
+	}
+
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 25
+		}
+
+		produces = {
+			society_research = @stage_1_research_bonus
+			engineering_research = @stage_1_research_bonus
+			physics_research = @stage_1_research_bonus
+		}
+	}
+
 	#MOD ADDED
 	construction_blocks_others = no
 	
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
-	}
-
-	monthly_production = {
-		society_research = @stage_1_research_bonus
-		engineering_research = @stage_1_research_bonus
-		physics_research = @stage_1_research_bonus
-	}
-
-	maintenance = {
-		energy = 50
+		from = { has_gw_think_tank = yes }
 	}
 }
 
@@ -180,27 +190,34 @@ think_tank_2 = {
 	upgrade_from = {
 		think_tank_1
 	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.10
+	}
 
-	build_time = 2400
-	build_cost = {
-		minerals = 30000
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 50
+		}
+
+		produces = {
+			society_research = @stage_2_research_bonus
+			engineering_research = @stage_2_research_bonus
+			physics_research = @stage_2_research_bonus
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 	
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
-	}
-	
-	monthly_production = {
-		society_research = @stage_2_research_bonus
-		engineering_research = @stage_2_research_bonus
-		physics_research = @stage_2_research_bonus
-	}
-
-	maintenance = {
-		energy = 75
+		from = { has_gw_think_tank = yes }
 	}
 }
 
@@ -215,30 +232,38 @@ think_tank_3 = {
 	upgrade_from = {
 		think_tank_2
 	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.15
+	}
 
-	build_time = 2400
-	build_cost = {
-		minerals = 30000
+	build_time = 3600
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 75
+		}
+
+		produces = {
+			society_research = @stage_3_research_bonus
+			engineering_research = @stage_3_research_bonus
+			physics_research = @stage_3_research_bonus
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 	
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
-	}
-	
-	monthly_production = {
-		society_research = @stage_3_research_bonus
-		engineering_research = @stage_3_research_bonus
-		physics_research = @stage_3_research_bonus
-	}
-
-	maintenance = {
-		energy = 100
+		from = { has_gw_think_tank = yes }
 	}
 }
 
+#Leader sacrifice boosted
 think_tank_4 = {
 	entity = "thinktank_phase_03_entity"
 	construction_entity = "thinktank_phase_03_entity"
@@ -254,21 +279,28 @@ think_tank_4 = {
 	upgrade_from = {
 		think_tank_3
 	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.15
+	}
 
 	build_time = 20
-	
-	#MOD ADDED
-	construction_blocks_others = no
-	
-	monthly_production = {
-		society_research = @stage_4_research_bonus
-		engineering_research = @stage_4_research_bonus
-		physics_research = @stage_4_research_bonus
-	}
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 100
+		}
 
-	maintenance = {
-		energy = 100
+		produces = {
+			society_research = @stage_4_research_bonus
+			engineering_research = @stage_4_research_bonus
+			physics_research = @stage_4_research_bonus
+		}
 	}
+	
+	#MOD ADDED - May not be strictly necessary
+	construction_blocks_others = no
+
 }
 
 # Ruined Science Nexus
@@ -282,10 +314,6 @@ think_tank_ruined = {
 	potential = {
 		always = no
 	}
-	
-	#MOD ADDED
-	construction_blocks_others = no
-	
 }
 
 # Restored Science Nexus
@@ -300,23 +328,31 @@ think_tank_restored = {
 	upgrade_from = {
 		think_tank_ruined
 	}
+	
+	country_modifier = {
+		all_technology_research_speed = 0.15
+	}
+	
 	build_time = 4800
-	build_cost = {
-		minerals = 30000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 75
+		}
+
+		produces = {
+			society_research = @stage_3_research_bonus
+			engineering_research = @stage_3_research_bonus
+			physics_research = @stage_3_research_bonus
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
-
-	monthly_production = {
-		society_research = @stage_3_research_bonus
-		engineering_research = @stage_3_research_bonus
-		physics_research = @stage_3_research_bonus
-	}
-	
-	maintenance = {
-		energy = 100
-	}
 
 	possible = {
 		from = { has_technology = tech_mega_engineering }	

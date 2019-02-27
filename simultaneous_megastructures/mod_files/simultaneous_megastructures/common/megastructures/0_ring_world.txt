@@ -7,20 +7,23 @@ ring_world_1 = {
 	place_entity_on_planet_plane = no
 	entity_offset = { x = -7 y = -7 }
 	build_time = 1800
-	build_cost = {
-		minerals = 10000
-		influence = 300
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 300
+		}
+
+		upkeep = {
+			energy = 5
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 
-	maintenance = {
-		energy = 5
-	}
-
 	potential = {
-		has_ascension_perk = ap_galactic_wonders
+		has_gw_ring_world = yes
 	}
 	
 	possible = {
@@ -32,7 +35,7 @@ ring_world_1 = {
 		custom_tooltip = {
 			fail_text = "requires_surveyed_system"
 			NOT = {
-				any_planet = {
+				any_system_planet = {
 					is_surveyed = {
 						who = prev.from
 						status = no
@@ -43,7 +46,7 @@ ring_world_1 = {
 		custom_tooltip = {
 			fail_text = "requires_no_habitable_planets"
 			NOT = {
-				any_planet = {
+				any_system_planet = {
 					colonizeable_planet = yes
 				}
 			}
@@ -99,7 +102,7 @@ ring_world_1 = {
 			}
 			custom_tooltip = {
 				fail_text = "requires_planets_for_material"
-				hidden:solar_system = { any_planet = { NOT = { is_star = yes } } }
+				hidden:solar_system = { any_system_planet = { NOT = { is_star = yes } } }
 			}
 		}
 	}
@@ -114,12 +117,13 @@ ring_world_1 = {
 
 		modifier = {
 			factor = 0.1
-			any_neighbor_system = { 
-				NOT = { 
+			any_neighbor_system = {
+				exists = owner
+				NOT = {
 					owner = { is_same_value = from } 
 				}
 			}
-		}
+		}	
 	}
 	
 	on_build_start = {}
@@ -139,15 +143,18 @@ ring_world_2_intermediate = {
 	}
 	
 	build_time = 4800
-	build_cost = {
-		minerals = 20000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_ring_world = yes }
 	}
 	
 	on_build_start = {}
@@ -224,17 +231,19 @@ ring_world_3_intermediate = {
 	upgrade_from = {
 		ring_world_2
 	}
-	
 	build_time = 3600
-	build_cost = {
-		minerals = 20000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_ring_world = yes }
 	}
 
 	on_build_complete = {
@@ -288,15 +297,7 @@ ring_world_3_intermediate = {
 					surveyor = FROM
 				}
 				set_all_comms_surveyed = yes
-				while = {
-					limit = {
-						any_tile = { has_blocker = yes }
-					}
-					random_tile = {
-						limit = { has_blocker = yes }
-						remove_blocker = yes
-					}
-				}
+				clear_blockers = yes
 				save_event_target_as = ring_section
 				trigger_megastructure_icon = yes
 				set_planet_flag = megastructure
@@ -365,10 +366,12 @@ ring_world_restored = {
 	upgrade_from = {
 		ring_world_ruined
 	}
-	
 	build_time = 3600
-	build_cost = {
-		minerals = 20000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
 	}
 	
 	#MOD ADDED
@@ -381,7 +384,7 @@ ring_world_restored = {
 		custom_tooltip = {
 			fail_text = "requires_surveyed_system"
 			NOT = {
-				any_planet = {
+				any_system_planet = {
 					is_surveyed = {
 						who = prev.from
 						status = no
@@ -457,15 +460,7 @@ ring_world_restored = {
 					surveyor = FROM
 				}
 				set_all_comms_surveyed = yes
-				while = {
-					limit = {
-						any_tile = { has_blocker = yes }
-					}
-					random_tile = {
-						limit = { has_blocker = yes }
-						remove_blocker = yes
-					}
-				}
+				clear_blockers = yes
 				save_event_target_as = ring_section
 				trigger_megastructure_icon = yes
 				set_planet_flag = megastructure

@@ -9,21 +9,24 @@ spy_orb_0 = {
 	place_entity_on_planet_plane = no
 	entity_offset = { x = @phase_0_entity_x y = @phase_0_entity_y }
 	build_time = 1800
-	
-	build_cost = {
-		minerals = 10000
-		influence = 300
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 300
+		}
+
+		upkeep = {
+			energy = 20
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 
-	maintenance = {
-		energy = 20
-	}
-
 	potential = {
-		has_ascension_perk = ap_galactic_wonders
+		has_gw_spy_orb = yes
 	}
 	
 	possible = {
@@ -35,7 +38,7 @@ spy_orb_0 = {
 		custom_tooltip = {
 			fail_text = "requires_surveyed_system"
 			NOT = {
-				any_planet = {
+				any_system_planet = {
 					is_surveyed = {
 						who = prev.from
 						status = no
@@ -43,9 +46,23 @@ spy_orb_0 = {
 				}
 			}
 		}
+		#MOD EDIT - You can build a new spy orb if you somehow lose your previous one, and having a ruined/restored one in your borders doesn't count.
 		custom_tooltip = {
 			fail_text = "requires_no_existing_spyorb"
-			from = { NOT = { has_country_flag = built_spyorb } }
+			#from = { NOT = { has_country_flag = built_spyorb } }
+			from = {
+				NOT = {
+					any_owned_megastructure = {
+						OR = {
+							is_megastructure_type = spy_orb_0
+							is_megastructure_type = spy_orb_1
+							is_megastructure_type = spy_orb_2
+							is_megastructure_type = spy_orb_3
+							is_megastructure_type = spy_orb_4
+						}
+					}
+				}
+			}
 		}
 	}
 	
@@ -83,7 +100,7 @@ spy_orb_0 = {
 					has_no_non_gate_megastructure = yes
 					NOR = {
 						#has_any_megastructure = yes
-						any_planet = {
+						any_system_planet = {
 							OR = {
 								is_planet_class = pc_ringworld_habitable
 								is_planet_class = pc_ringworld_habitable_damaged
@@ -146,19 +163,22 @@ spy_orb_1 = {
 		spy_orb_0
 	}
 	build_time = 1800
-	build_cost = {
-		minerals = 20000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		upkeep = {
+			energy = 40
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 
-	maintenance = {
-		energy = 40
-	}
-
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_spy_orb = yes }
 	}
 
 	sensor_range = 20
@@ -175,18 +195,22 @@ spy_orb_2 = {
 		spy_orb_1
 	}
 	build_time = 1800
-	build_cost = {
-		minerals = 20000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		upkeep = {
+			energy = 60
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
-	
-	maintenance = {
-		energy = 60
-	}
+
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_spy_orb = yes }
 	}
 	sensor_range = 40
 	hyperlane_range = 60
@@ -202,19 +226,23 @@ spy_orb_3 = {
 	upgrade_from = {
 		spy_orb_2
 	}
+	build_time = 1800
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		upkeep = {
+			energy = 80
+		}
+	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
 	
-	build_time = 1800
-	build_cost = {
-		minerals = 20000
-	}
-	maintenance = {
-		energy = 80
-	}
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_spy_orb = yes }
 	}
 	sensor_range = 60
 	hyperlane_range = 90
@@ -230,18 +258,22 @@ spy_orb_4 = {
 		spy_orb_3
 	}
 	build_time = 1800
-	build_cost = {
-		minerals = 20000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		upkeep = {
+			energy = 100
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
-	
-	maintenance = {
-		energy = 100
-	}
+
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_spy_orb = yes }
 	}
 
 	# effect implementation in game_rules (has_full_sensor_range)
@@ -275,16 +307,19 @@ spy_orb_restored = {
 		spy_orb_ruined
 	}
 	build_time = 4800
-	build_cost = {
-		minerals = 30000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 100
+		}
 	}
 	
 	#MOD ADDED
 	construction_blocks_others = no
-	
-	maintenance = {
-		energy = 100
-	}
 
 	possible = {
 		from = { 

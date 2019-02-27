@@ -6,17 +6,20 @@ dyson_sphere_0 = {
 	place_entity_on_planet_plane = no
 	entity_offset = { x = -7 y = -7 }
 	build_time = 1800
-	build_cost = {
-		minerals = 10000
-		influence = 300
-	}
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 300
+		}
 
-	maintenance = {
-		energy = 5
+		upkeep = {
+			energy = 5
+		}
 	}
 
 	potential = {
-		has_ascension_perk = ap_galactic_wonders
+		has_gw_dyson_sphere = yes
 	}
 	
 	possible = {
@@ -32,7 +35,7 @@ dyson_sphere_0 = {
 		custom_tooltip = {
 			fail_text = "requires_surveyed_system"
 			NOT = {
-				any_planet = {
+				any_system_planet = {
 					is_surveyed = {
 						who = prev.from
 						status = no
@@ -43,13 +46,9 @@ dyson_sphere_0 = {
 		custom_tooltip = {
 			fail_text = "requires_no_habitable_planets"
 			NOT = {
-				any_planet = {
+				any_system_planet = {
 					AND = {
-						OR = {
-							habitable_planet = yes
-							habitable_structure = yes
-						}
-						NOT = { has_planet_flag = habitat }
+						colonizeable_planet = yes
 					}
 				}
 			}
@@ -117,7 +116,8 @@ dyson_sphere_0 = {
 		
 		modifier = {
 			factor = 0.1
-			any_neighbor_system = { 
+			any_neighbor_system = {
+				exists = owner
 				NOT = { 
 					owner = { is_same_value = from } 
 				}
@@ -142,12 +142,15 @@ dyson_sphere_1 = {
 		dyson_sphere_0
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -160,15 +163,19 @@ dyson_sphere_2 = {
 		dyson_sphere_1
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 250
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 250
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -181,15 +188,19 @@ dyson_sphere_3 = {
 		dyson_sphere_2
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 500
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 500
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -202,15 +213,19 @@ dyson_sphere_4 = {
 		dyson_sphere_3
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 750
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 750
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 }
 
@@ -223,15 +238,19 @@ dyson_sphere_5 = {
 		dyson_sphere_4
 	}
 	build_time = 3600
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 1000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 10000
+		}
+
+		produces = {
+			energy = 1000
+		}
 	}
 
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
+		from = { has_gw_dyson_sphere = yes }
 	}
 
 	on_build_complete = {
@@ -272,11 +291,15 @@ dyson_sphere_restored = {
 		dyson_sphere_ruined
 	}
 	build_time = 7200
-	build_cost = {
-		minerals = 50000
-	}
-	monthly_production = {
-		energy = 1000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 20000
+		}
+
+		produces = {
+			energy = 1000
+		}
 	}
 
 	possible = {
