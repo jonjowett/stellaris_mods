@@ -38,15 +38,17 @@ This gives you the ability to use unity to permanently improve your late-game em
 [list][*] Requires the ability to genemod
 [*] +10% pop growth speed per level
 [*] +1 to +3 biological trait points
-[*] 0% to 20% species modification cost reduction
+[*] 0% to 25% species modification cost reduction (*)
 [*] Research options are granted at levels 1 (Gene Expressions) & 3 (Genetic Resequencing), if you don't already have them[/list]
 
 [*] [b][u]Unified Roboticists[/u][/b]:
 [list][*] Requires the ability to robomod
 [*] +10% robot build speed per level
 [*] +1 to +3 robot/machine trait points
-[*] 0% to 20% species modification cost reduction
+[*] 0% to 25% species modification cost reduction (*)
 [*] Research options for additional robomodding points are granted at levels 1 and 3, if you don't already have them[/list][/list]
+
+(*) Each time you pick either "Geneticists" or "Roboticists", you will receive an additional 5% species modification cost reduction, up to a maximum of 25%. This is because the species modification cost reduction applies to all types of species modification, and a total of 50% cost reduction would be extremely overpowered.
 
 [h1]Known bugs:[/h1]
 [list][*] Decreased megastructure build cost is no longer present in vanilla, so this aspect may not work properly. It is definitely not correctly localised (ie. the description of the effect is missing), but this is a purely-cosmetic issue. However, I haven't done much testing on this mod as yet, and this effect is the most likely to break in some weird way, so please let me know if you encounter any bugs.[/list]
