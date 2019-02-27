@@ -383,6 +383,7 @@ endgame_unity_choose_geneticists = {
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
+		
 		if = {
 			limit = { has_modifier = endgame_unity_geneticists_1 }
 			remove_modifier = endgame_unity_geneticists_1
@@ -414,6 +415,32 @@ endgame_unity_choose_geneticists = {
 				add_research_option = tech_gene_expressions
 			}
 		}
+		
+		#Decrease in species modification cost is granted separately because all types of species modification are controlled by the same variable.
+		if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_1 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_1
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_2 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_2 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_2
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_3 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_3 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_3
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_4 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_4 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_4
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_5 days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_1 days = -1 }
+		}
+		
 	}
 }
 
@@ -428,6 +455,7 @@ endgame_unity_choose_roboticists = {
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
+		
 		if = {
 			limit = { has_modifier = endgame_unity_roboticists_1 }
 			remove_modifier = endgame_unity_roboticists_1
@@ -459,6 +487,32 @@ endgame_unity_choose_roboticists = {
 				add_research_option = tech_robomodding_points_1
 			}
 		}
+		
+		#Decrease in species modification cost is granted separately because all types of species modification are controlled by the same variable.
+		if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_1 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_1
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_2 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_2 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_2
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_3 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_3 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_3
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_4 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_4 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_4
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_5 days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_1 days = -1 }
+		}
+		
 	}
 }
 
@@ -473,6 +527,7 @@ endgame_unity_choose_roboticists_m = {
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
+		
 		if = {
 			limit = { has_modifier = endgame_unity_roboticists_m_1 }
 			remove_modifier = endgame_unity_roboticists_m_1
@@ -504,5 +559,31 @@ endgame_unity_choose_roboticists_m = {
 				add_research_option = tech_binary_motivators
 			}
 		}
+		
+		#Decrease in species modification cost is granted separately because all types of species modification are controlled by the same variable.
+		if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_1 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_1
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_2 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_2 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_2
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_3 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_3 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_3
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_4 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_4 }
+			remove_modifier = endgame_unity_decrease_species_modification_cost_4
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_5 days = -1 }
+		}
+		else = {
+			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_1 days = -1 }
+		}
+		
 	}
 }

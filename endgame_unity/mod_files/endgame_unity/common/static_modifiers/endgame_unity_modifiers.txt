@@ -249,6 +249,7 @@ endgame_unity_leaders_5 = {
 
 # There are traditions that add +1 trait point and decrease modification cost at the same time.
 # But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+# NB: This modifier is granted at the same time as a separate modifier that grants a decrease in species modification cost (see below).
 endgame_unity_geneticists_1 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
 	BIOLOGICAL_species_trait_points_add = 1
@@ -258,31 +259,28 @@ endgame_unity_geneticists_2 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
 	BIOLOGICAL_species_trait_points_add = 1
 	pop_growth_speed = 0.2
-	modify_species_cost_mult = -0.1
 }
 endgame_unity_geneticists_3 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
 	BIOLOGICAL_species_trait_points_add = 2
 	pop_growth_speed = 0.3
-	modify_species_cost_mult = -0.1
 }
 endgame_unity_geneticists_4 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
 	BIOLOGICAL_species_trait_points_add = 2
 	pop_growth_speed = 0.4
-	modify_species_cost_mult = -0.2
 }
 endgame_unity_geneticists_5 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_growth_speed.dds"
 	BIOLOGICAL_species_trait_points_add = 3
 	pop_growth_speed = 0.5
-	modify_species_cost_mult = -0.2
 }
 
 
 
-#There are ascension perks (for machine empires) that add +1 trait point and decrease modification cost at the same time.
-#But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+# There are ascension perks (for machine empires) that add +1 trait point and decrease modification cost at the same time.
+# But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+# NB: This modifier is granted at the same time as a separate modifier that grants a decrease in species modification cost (see below).
 endgame_unity_roboticists_1 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 1
@@ -292,57 +290,74 @@ endgame_unity_roboticists_2 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 1
 	planet_jobs_robotic_produces_mult = 0.2
-	modify_species_cost_mult = -0.1
 }
 endgame_unity_roboticists_3 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 2
 	planet_jobs_robotic_produces_mult = 0.3
-	modify_species_cost_mult = -0.1
 }
 endgame_unity_roboticists_4 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 2
 	planet_jobs_robotic_produces_mult = 0.4
-	modify_species_cost_mult = -0.2
 }
 endgame_unity_roboticists_5 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 3
 	planet_jobs_robotic_produces_mult = 0.5
-	modify_species_cost_mult = -0.2
 }
 
 
 
-#There are ascension perks (for machine empires) that add +1 trait point and decrease modification cost at the same time.
-#But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+# There are ascension perks (for machine empires) that add +1 trait point and decrease modification cost at the same time.
+# But +5 trait points feels highly unbalanced, so I've gone with a hybrid approach.
+# NB: This modifier is granted at the same time as a separate modifier that grants a decrease in species modification cost (see below).
 endgame_unity_roboticists_m_1 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	MACHINE_species_trait_points_add = 1
-	planet_jobs_robotic_produces_mult = 0.1
+	planet_pop_assembly_mult = 0.1
 }
 endgame_unity_roboticists_m_2 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	MACHINE_species_trait_points_add = 1
-	planet_jobs_robotic_produces_mult = 0.2
-	modify_species_cost_mult = -0.1
+	planet_pop_assembly_mult = 0.2
 }
 endgame_unity_roboticists_m_3 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	MACHINE_species_trait_points_add = 2
-	planet_jobs_robotic_produces_mult = 0.3
-	modify_species_cost_mult = -0.1
+	planet_pop_assembly_mult = 0.3
 }
 endgame_unity_roboticists_m_4 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	MACHINE_species_trait_points_add = 2
-	planet_jobs_robotic_produces_mult = 0.4
-	modify_species_cost_mult = -0.2
+	planet_pop_assembly_mult = 0.4
 }
 endgame_unity_roboticists_m_5 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	MACHINE_species_trait_points_add = 3
-	planet_jobs_robotic_produces_mult = 0.5
+	planet_pop_assembly_mult = 0.5
+}
+
+
+
+#To avoid abuse of species modification cost reduction, split the species-modification modifiers from everything else
+endgame_unity_decrease_species_modification_cost_1 = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = -0.05
+}
+endgame_unity_decrease_species_modification_cost_2 = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = -0.1
+}
+endgame_unity_decrease_species_modification_cost_3 = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = -0.15
+}
+endgame_unity_decrease_species_modification_cost_4 = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
 	modify_species_cost_mult = -0.2
+}
+endgame_unity_decrease_species_modification_cost_5 = {
+	icon = "gfx/interface/icons/modifiers/mod_country_modify_species_cost_mult.dds"
+	modify_species_cost_mult = -0.25
 }
