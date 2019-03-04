@@ -2,10 +2,39 @@
 
 namespace = buy_influence
 
+#Hidden event that switches the user between buying a propaganda campaign and manual cancellation, depending on whether they already have a propaganda campaign
 country_event = {
 	id = buy_influence.100
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = { buy_influence_has_any_modifier = yes }
+			set_country_flag = buy_influence_from_main_menu
+			country_event = { id = buy_influence.101 }
+		}
+		else = {
+			country_event = { id = buy_influence.121 }
+		}
+	}
+	
+}
+
+#Purchase propaganda campaign
+country_event = {
+	id = buy_influence.101
 	title = leviathans.300.name
-	desc = buy_influence.100.desc
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_country_flag
+				buy_influence_from_main_menu = { text = buy_influence.101.from_main_menu }
+				buy_influence_renewal = { text = buy_influence.101.renewal }
+				default = { text = buy_influence.101.from_main_menu }
+			}
+		}
+	}
 
 	is_triggered_only = yes
 	diplomatic = yes
@@ -17,67 +46,1546 @@ country_event = {
 		room = enclave_artist_room
 	}
 	
-	trigger = {
-		has_country_flag = artist_enclave_diplomacy_engaged
-	}
+	
+#################################################################
+# Begin generated code: Purchase options
+#################################################################
+
 
 	option = {
-		name = buy_influence.100.a
+		name = buy_influence_0point5_e_name
+		trigger = {
+			num_pops < 61
+		}
 		add_modifier = {
-			modifier = "buy_influence_0point5"
-			days = -1
+			modifier = buy_influence_0point5_e_1
+			days = 3600
+		}
+		custom_tooltip = opinion5
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
 		}
 		hidden_effect = {
-			set_country_flag = recently_purchased_propaganda_campaign_0point5
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_0point5_e_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_0point5_e_2
+			days = 3600
+		}
+		custom_tooltip = opinion5
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_0point5_e_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_0point5_e_3
+			days = 3600
+		}
+		custom_tooltip = opinion5
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_0point5_e_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_0point5_e_4
+			days = 3600
+		}
+		custom_tooltip = opinion5
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_0point5_e_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_0point5_e_5
+			days = 3600
+		}
+		custom_tooltip = opinion5
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 5
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_e_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_e_1
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_e_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_e_2
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_e_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_e_3
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_e_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_e_4
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_e_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_e_5
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_em_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_em_1
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_em_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_em_2
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_em_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_em_3
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_em_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_em_4
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_em_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_em_5
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_em_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_em_1
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_em_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_em_2
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_em_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_em_3
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_em_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_em_4
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_em_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_em_5
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_em_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_em_1
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_em_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_em_2
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_em_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_em_3
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_em_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_em_4
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_em_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_em_5
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_mf_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_mf_1
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_mf_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_mf_2
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_mf_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_mf_3
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_mf_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_mf_4
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point0_mf_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_1point0_mf_5
+			days = 3600
+		}
+		custom_tooltip = opinion10
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 10
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_mf_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_mf_1
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_mf_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_mf_2
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_mf_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_mf_3
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_mf_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_mf_4
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_1point5_mf_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_1point5_mf_5
+			days = 3600
+		}
+		custom_tooltip = opinion15
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 15
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_mf_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_mf_1
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_mf_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_mf_2
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_mf_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_mf_3
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_mf_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_mf_4
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_mf_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_mf_5
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_emc_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_emc_1
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_emc_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_emc_2
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_emc_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_emc_3
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_emc_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_emc_4
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_2point0_emc_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_2point0_emc_5
+			days = 3600
+		}
+		custom_tooltip = opinion20
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 20
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_3point0_emc_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_3point0_emc_1
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_3point0_emc_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_3point0_emc_2
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_3point0_emc_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_3point0_emc_3
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_3point0_emc_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_3point0_emc_4
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_3point0_emc_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_3point0_emc_5
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_4point0_emc_name
+		trigger = {
+			num_pops < 61
+		}
+		add_modifier = {
+			modifier = buy_influence_4point0_emc_1
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_4point0_emc_name
+		trigger = {
+			num_pops > 60
+			num_pops < 121
+		}
+		add_modifier = {
+			modifier = buy_influence_4point0_emc_2
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_4point0_emc_name
+		trigger = {
+			num_pops > 120
+			num_pops < 181
+		}
+		add_modifier = {
+			modifier = buy_influence_4point0_emc_3
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_4point0_emc_name
+		trigger = {
+			num_pops > 180
+			num_pops < 241
+		}
+		add_modifier = {
+			modifier = buy_influence_4point0_emc_4
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
+		}
+	}
+	option = {
+		name = buy_influence_4point0_emc_name
+		trigger = {
+			num_pops > 240
+		}
+		add_modifier = {
+			modifier = buy_influence_4point0_emc_5
+			days = 3600
+		}
+		custom_tooltip = opinion25
+		hidden_effect = {
+			event_target:artist_enclave_country = {
+				add_trust = {
+					who = root
+					amount = 25
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = buy_influence.110
+				days = 3599
+			}
 		}
 	}
 
-	option = {
-		name = buy_influence.100.b
-		add_modifier = {
-			modifier = "buy_influence_1point0"
-			days = -1
-		}
-		hidden_effect = {
-			set_country_flag = recently_purchased_propaganda_campaign_1point0
-		}
-	}
 
-	option = {
-		name = buy_influence.100.c
-		add_modifier = {
-			modifier = "buy_influence_1point5"
-			days = -1
-		}
-		hidden_effect = {
-			set_country_flag = recently_purchased_propaganda_campaign_1point5
-		}
-	}
-
-	option = {
-		name = buy_influence.100.d
-		add_modifier = {
-			modifier = "buy_influence_2point0"
-			days = -1
-		}
-		hidden_effect = {
-			set_country_flag = recently_purchased_propaganda_campaign_2point0
-		}
-	}
+#################################################################
+# End of generated code: Purchase options
+#################################################################
+	
 	
 	option = {
 		name = NODEAL
-		default_hide_option = yes
-		hidden_effect = {
-			set_country_flag = recently_purchased_propaganda_campaign_nopurchase
-		}
+		hidden_effect = { set_country_flag = buy_influence_nodeal }
 	}
 	
 	after = {
 		hidden_effect = {
-			remove_country_flag = artist_enclave_diplomacy_engaged
-			country_event = { id = leviathans.300 }
+			country_event = { id = buy_influence.102 }
 		}
 	}
 	
 }
+
+#Narrative event - response to purchase (or not) of a propaganda campaign
+country_event = {
+	id = buy_influence.102
+	
+}
+
+#Hidden event for renewal of propaganda campaign - only throw the visible renewal event if the user hasn't manually cancelled sometime during the campaign
+#This event MUST be called before the propaganda campaign expires - preferably a day or two before it expires. (Otherwise it can't detect whether the user manually cancelled.)
+country_event = {
+	id = buy_influence.110
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = { buy_influence_has_any_modifier = yes }
+			set_country_flag = buy_influence_renewal
+			country_event = {
+				id = buy_influence.101
+				days = 1
+			}
+		}
+	}
+}
+
+#Manual cancellation of propaganda campaign
+country_event = {
+	id = buy_influence.121
+	title = leviathans.300.name
+	desc = buy_influence.111.desc
+	
+	
+	
+}
+
+
+##################################################
+# 8xx = Admin events
+##################################################
+
+
+
+country_event = {
+	id = buy_influence.800
+	is_triggered_only = yes
+	hide_window = yes
+	
+	#Generated code: Remove all of this mod's modifiers
+	remove_modifier = buy_influence_0point5_e_1
+	remove_modifier = buy_influence_0point5_e_2
+	remove_modifier = buy_influence_0point5_e_3
+	remove_modifier = buy_influence_0point5_e_4
+	remove_modifier = buy_influence_0point5_e_5
+	remove_modifier = buy_influence_1point0_e_1
+	remove_modifier = buy_influence_1point0_e_2
+	remove_modifier = buy_influence_1point0_e_3
+	remove_modifier = buy_influence_1point0_e_4
+	remove_modifier = buy_influence_1point0_e_5
+	remove_modifier = buy_influence_1point0_em_1
+	remove_modifier = buy_influence_1point0_em_2
+	remove_modifier = buy_influence_1point0_em_3
+	remove_modifier = buy_influence_1point0_em_4
+	remove_modifier = buy_influence_1point0_em_5
+	remove_modifier = buy_influence_1point5_em_1
+	remove_modifier = buy_influence_1point5_em_2
+	remove_modifier = buy_influence_1point5_em_3
+	remove_modifier = buy_influence_1point5_em_4
+	remove_modifier = buy_influence_1point5_em_5
+	remove_modifier = buy_influence_2point0_em_1
+	remove_modifier = buy_influence_2point0_em_2
+	remove_modifier = buy_influence_2point0_em_3
+	remove_modifier = buy_influence_2point0_em_4
+	remove_modifier = buy_influence_2point0_em_5
+	remove_modifier = buy_influence_1point0_mf_1
+	remove_modifier = buy_influence_1point0_mf_2
+	remove_modifier = buy_influence_1point0_mf_3
+	remove_modifier = buy_influence_1point0_mf_4
+	remove_modifier = buy_influence_1point0_mf_5
+	remove_modifier = buy_influence_1point5_mf_1
+	remove_modifier = buy_influence_1point5_mf_2
+	remove_modifier = buy_influence_1point5_mf_3
+	remove_modifier = buy_influence_1point5_mf_4
+	remove_modifier = buy_influence_1point5_mf_5
+	remove_modifier = buy_influence_2point0_mf_1
+	remove_modifier = buy_influence_2point0_mf_2
+	remove_modifier = buy_influence_2point0_mf_3
+	remove_modifier = buy_influence_2point0_mf_4
+	remove_modifier = buy_influence_2point0_mf_5
+	remove_modifier = buy_influence_2point0_emc_1
+	remove_modifier = buy_influence_2point0_emc_2
+	remove_modifier = buy_influence_2point0_emc_3
+	remove_modifier = buy_influence_2point0_emc_4
+	remove_modifier = buy_influence_2point0_emc_5
+	remove_modifier = buy_influence_3point0_emc_1
+	remove_modifier = buy_influence_3point0_emc_2
+	remove_modifier = buy_influence_3point0_emc_3
+	remove_modifier = buy_influence_3point0_emc_4
+	remove_modifier = buy_influence_3point0_emc_5
+	remove_modifier = buy_influence_4point0_emc_1
+	remove_modifier = buy_influence_4point0_emc_2
+	remove_modifier = buy_influence_4point0_emc_3
+	remove_modifier = buy_influence_4point0_emc_4
+	remove_modifier = buy_influence_4point0_emc_5
+}
+
+
+
+##################################################
+# 9xx = Testing events
+##################################################
