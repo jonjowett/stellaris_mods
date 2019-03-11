@@ -55,6 +55,7 @@ country_event = {
 				buy_influence_renewal = { text = buy_influence.101.renewal }
 				buy_influence_from_old_buff_cancellation = { text = buy_influence.101.from_old_buff_cancellation }
 				buy_influence_change_campaign = { text = buy_influence.101.change_campaign }
+				buy_influence_reselect_campaign = { text = buy_influence.101.reselect_campaign }
 				default = { text = buy_influence.101.default }
 			}
 		}
@@ -68,13 +69,6 @@ country_event = {
 	picture_event_data = {
 		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
-	}
-	
-	immediate = {
-		remove_country_flag = buy_influence_from_main_menu
-		remove_country_flag = buy_influence_renewal
-		remove_country_flag = buy_influence_from_old_buff_cancellation
-		remove_country_flag = buy_influence_change_campaign
 	}
 	
 	
@@ -1505,6 +1499,10 @@ country_event = {
 	
 	after = {
 		hidden_effect = {
+			remove_country_flag = buy_influence_from_main_menu
+			remove_country_flag = buy_influence_renewal
+			remove_country_flag = buy_influence_from_old_buff_cancellation
+			remove_country_flag = buy_influence_change_campaign
 			country_event = { id = buy_influence.102 }
 		}
 	}
@@ -1679,6 +1677,16 @@ country_event = {
 	picture_event_data = {
 		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
+	}
+	
+	option = {
+		name = buy_influence.105.reselect
+		custom_tooltip = buy_influence.105.reselect.tooltip
+		hidden_effect = {
+			country_event = { id = buy_influence.800 } #Clear all modifiers from campaigns
+			set_country_flag = buy_influence_reselect_campaign
+			country_event = { id = buy_influence.101 }
+		}
 	}
 	
 	option = {
