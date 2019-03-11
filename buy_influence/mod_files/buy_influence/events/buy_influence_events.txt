@@ -55,7 +55,7 @@ country_event = {
 				buy_influence_renewal = { text = buy_influence.101.renewal }
 				buy_influence_from_old_buff_cancellation = { text = buy_influence.101.from_old_buff_cancellation }
 				buy_influence_change_campaign = { text = buy_influence.101.change_campaign }
-				default = { text = buy_influence.101.from_main_menu }
+				default = { text = buy_influence.101.default }
 			}
 		}
 	}
@@ -1553,7 +1553,7 @@ country_event = {
 	}
 	
 	option = {
-		name = buy_influence.103.option.loopback
+		name = buy_influence_loopback
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
 			country_event = { id = leviathans.300 }
@@ -1747,7 +1747,7 @@ country_event = {
 		hidden_effect = {
 			country_event = { id = buy_influence.800 } # Cancel all modifiers
 			set_country_flag = buy_influence_change_campaign
-			country_event = { id = buy_influence.101 }
+			country_event = { id = buy_influence.101 } # Redirect to purchase screen
 		}
 	}
 	
@@ -1756,8 +1756,7 @@ country_event = {
 		custom_tooltip = buy_influence.121.cancel.tooltip # Custom tooltip, rather than writing an exhaustive load of code so that the tooltip can be auto-generated
 		hidden_effect = {
 			country_event = { id = buy_influence.800 } # Cancel all modifiers
-			set_country_flag = artist_enclave_diplomacy_continued
-			country_event = { id = leviathans.300 }
+			country_event = { id = buy_influence.122 } # Reaction to cancellation
 		}
 	}
 	
@@ -1767,6 +1766,36 @@ country_event = {
 			set_country_flag = artist_enclave_diplomacy_continued
 			country_event = { id = leviathans.300 }
 		}
+	}
+	
+}
+
+#Narrative event - reaction to cancellation
+country_event = {
+	id = buy_influence.122
+	title = leviathans.300.name
+	desc = buy_influence.122.desc
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+	
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+	
+	option = {
+		name = buy_influence_loopback
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = leviathans.300 }
+		}
+	}
+	
+	option = {
+		name = GOODBYE
 	}
 	
 }
