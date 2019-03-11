@@ -2,8 +2,14 @@
 
 namespace = buy_influence
 
-@buy_influence_buff_duration = 3600
-@buy_influence_renewal_interval = 3599
+#@buy_influence_buff_duration = 3600
+#@buy_influence_renewal_interval = 3599 #Should always be equal to { @buy_influence_buff_duration - @buy_influence_renewal_event_delay }
+#@buy_influence_renewal_event_delay = 1 #Should always be as small as possible (1 is ideal)
+
+#For testing only: buffs last for significantly less time
+@buy_influence_buff_duration = 30
+@buy_influence_renewal_interval = 29
+@buy_influence_renewal_event_delay = 1
 
 #Hidden event that switches the user between buying a propaganda campaign and manual cancellation, depending on whether they already have a propaganda campaign
 country_event = {
@@ -13,12 +19,25 @@ country_event = {
 	
 	immediate = {
 		if = {
-			limit = { buy_influence_has_any_modifier = yes }
-			set_country_flag = buy_influence_from_main_menu
-			country_event = { id = buy_influence.121 } # Cancel
+			limit = {
+				OR = {
+					has_modifier = buy_influence_0point5
+					has_modifier = buy_influence_1point0
+					has_modifier = buy_influence_1point5
+					has_modifier = buy_influence_2point0
+				}
+			}
+			country_event = { id = buy_influence.131 } # Remove old-style buffs, then loop back
 		}
 		else = {
-			country_event = { id = buy_influence.101 } # Purchase
+			if = {
+				limit = { buy_influence_has_any_modifier = yes }
+				country_event = { id = buy_influence.121 } # Cancel
+			}
+			else = {
+				set_country_flag = buy_influence_from_main_menu
+				country_event = { id = buy_influence.101 } # Purchase
+			}
 		}
 	}
 	
@@ -34,6 +53,8 @@ country_event = {
 				trigger = has_country_flag
 				buy_influence_from_main_menu = { text = buy_influence.101.from_main_menu }
 				buy_influence_renewal = { text = buy_influence.101.renewal }
+				buy_influence_from_old_buff_cancellation = { text = buy_influence.101.from_old_buff_cancellation }
+				buy_influence_change_campaign = { text = buy_influence.101.change_campaign }
 				default = { text = buy_influence.101.from_main_menu }
 			}
 		}
@@ -47,6 +68,13 @@ country_event = {
 	picture_event_data = {
 		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
+	}
+	
+	immediate = {
+		remove_country_flag = buy_influence_from_main_menu
+		remove_country_flag = buy_influence_renewal
+		remove_country_flag = buy_influence_from_old_buff_cancellation
+		remove_country_flag = buy_influence_change_campaign
 	}
 	
 	
@@ -1495,7 +1523,7 @@ country_event = {
 			country_event = { id = buy_influence.103 }
 		}
 		else = {
-			country_event = { id = buy_influence.104 }
+			country_event = { id = buy_influence.105 }
 		}
 	}
 }
@@ -1518,6 +1546,13 @@ country_event = {
 	}
 	
 	option = {
+		name = buy_influence.103.option.unsubscribe
+		hidden_effect = {
+			country_event = { id = buy_influence.104 }
+		}
+	}
+	
+	option = {
 		name = buy_influence.103.option.loopback
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
@@ -1526,14 +1561,43 @@ country_event = {
 	}
 	
 	option = {
-		name = buy_influence.103.option.finish
+		name = GOODBYE
+	}
+	
+}
+country_event = {
+	id = buy_influence.104
+	is_triggered_only = yes
+	title = leviathans.300.name
+	desc = buy_influence.104.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+	
+	option = {
+		name = buy_influence_loopback
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = leviathans.300 }
+		}
+	}
+	
+	option = {
+		name = GOODBYE
 	}
 	
 }
 
 #Narrative event - purchased a propaganda campaign
 country_event = {
-	id = buy_influence.104
+	id = buy_influence.105
 	is_triggered_only = yes
 	title = leviathans.300.name
 	desc = {
@@ -1618,7 +1682,7 @@ country_event = {
 	}
 	
 	option = {
-		name = buy_influence.104.option.loopback
+		name = buy_influence_loopback
 		hidden_effect = {
 			set_country_flag = artist_enclave_diplomacy_continued
 			country_event = { id = leviathans.300 }
@@ -1626,13 +1690,14 @@ country_event = {
 	}
 	
 	option = {
-		name = buy_influence.104.option.finish
+		name = GOODBYE
 	}
 	
 }
 
 #Hidden event for renewal of propaganda campaign - only throw the visible renewal event if the user hasn't manually cancelled sometime during the campaign
 #This event MUST be called before the propaganda campaign expires - preferably a day or two before it expires. (Otherwise it can't detect whether the user manually cancelled.)
+#Also, we want to check that the propaganda campaign has in fact expired (eg. they haven't cancelled then later chosen another campaign) - so we check again after the designated renewal date.
 country_event = {
 	id = buy_influence.110
 	is_triggered_only = yes
@@ -1640,11 +1705,22 @@ country_event = {
 	immediate = {
 		if = {
 			limit = { buy_influence_has_any_modifier = yes }
-			set_country_flag = buy_influence_renewal
 			country_event = {
-				id = buy_influence.101
-				days = 1
+				id = buy_influence.111
+				days = @buy_influence_renewal_event_delay
 			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.111
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = { NOT = { buy_influence_has_any_modifier = yes } }
+			set_country_flag = buy_influence_renewal
+			country_event = { id = buy_influence.101 }
 		}
 	}
 }
@@ -1663,6 +1739,16 @@ country_event = {
 	picture_event_data = {
 		portrait = event_target:artist_enclave_country
 		room = enclave_artist_room
+	}
+	
+	option = {
+		name = buy_influence.121.change_campaign
+		custom_tooltip = buy_influence.121.change_campaign.tooltip # Custom tooltip, rather than writing an exhaustive load of code so that the tooltip can be auto-generated
+		hidden_effect = {
+			country_event = { id = buy_influence.800 } # Cancel all modifiers
+			set_country_flag = buy_influence_change_campaign
+			country_event = { id = buy_influence.101 }
+		}
 	}
 	
 	option = {
@@ -1685,6 +1771,47 @@ country_event = {
 	
 }
 
+# Auto-cancellation of old-style buffs
+country_event = {
+	id = buy_influence.131
+	title = leviathans.300.name
+	desc = buy_influence.131.desc
+	
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+	
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+	
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+		country_event = { id = buy_influence.800 } # You shouldn't have old & new buffs at the same time... but, just in case, strip away any new ones you might have.
+	}
+	
+	option = {
+		name = buy_influence.131.choose_new_campaign
+		add_resource = { influence = 20 }
+		hidden_effect = {
+			set_country_flag = buy_influence_from_old_buff_cancellation
+			country_event = { id = buy_influence.101 }
+		}
+	}
+	
+	option = {
+		name = GOODBYE
+		add_resource = { influence = 20 }
+	}
+	
+}
+	
+	
 
 
 ##################################################
@@ -1766,3 +1893,45 @@ country_event = {
 ##################################################
 # 9xx = Testing events
 ##################################################
+
+# Add/remove permanent old-style buffs
+
+country_event = {
+	id = buy_influence.901
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = { add_modifier = { modifier = buy_influence_0point5 days = -1 } }
+}
+
+country_event = {
+	id = buy_influence.902
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = { add_modifier = { modifier = buy_influence_1point0 days = -1 } }
+}
+
+country_event = {
+	id = buy_influence.903
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = { add_modifier = { modifier = buy_influence_1point5 days = -1 } }
+}
+
+country_event = {
+	id = buy_influence.904
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = { add_modifier = { modifier = buy_influence_2point0 days = -1 } }
+}
+
+country_event = {
+	id = buy_influence.909
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		remove_modifier = buy_influence_0point5
+		remove_modifier = buy_influence_1point0
+		remove_modifier = buy_influence_1point5
+		remove_modifier = buy_influence_2point0
+	}
+}

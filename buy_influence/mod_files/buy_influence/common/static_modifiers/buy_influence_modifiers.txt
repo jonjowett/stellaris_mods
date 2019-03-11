@@ -24,11 +24,13 @@ buy_influence_2point0 = {
 	country_base_energy_produces_add = -40
 }
 
+
+
+
+
 #v2 modifiers
 
 #Generated code: Specification of static modifiers
-
-
 
 buy_influence_0point5_e_1 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"

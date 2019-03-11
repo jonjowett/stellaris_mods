@@ -1,20 +1,7 @@
 ﻿l_english:
- leviathans.300.buy_influence:0 "We want you to run a propaganda campaign."
- leviathans.300.buy_influence_cancel:0 "We want to cancel our propaganda campaign."
- leviathans.300.buy_influence_cancel.response:0 "Disappointing, but understandable."
- leviathans.300.buy_influence_cancel.tooltip:0 "This will cancel the Artisan Enclave's current propaganda campaign."
+ leviathans.300.buy_influence:0 "We want to discuss propaganda campaigns."
  
- buy_influence.100.desc:0 "How very mundane of you!\n\nNormally, we prefer to concentrate our creative energies on works that are more... creative. But we would be willing to help you if you could make a small donation to prevent our artists from starving.\n\nWhat kind of campaign would you like us to run?"
- buy_influence.100.a:0 "Leafletting"
- buy_influence.purchase.0point5:0 "Ah yes, highly cost-effective. We'll get right on it.\n\nIs there anything else we can do for you?"
- buy_influence.100.b:0 "Viral marketing"
- buy_influence.purchase.1point0:0 "An opportunity to infect the hearts and minds of the galaxy with viral memes? Intriguing!\n\nIs there anything else we can do for you?"
- buy_influence.100.c:0 "Conventional"
- buy_influence.purchase.1point5:0 "Well, I'm sure we can find some way to spice it up. Consider it done!\n\nIs there anything else we can do for you?"
- buy_influence.100.d:0 "Saturation"
- buy_influence.purchase.2point0:0 "By the time we're done, everyone in the galaxy will have heard of your empire! Every day! For months!\n\nIs there anything else we can do for you?"
- buy_influence.nopurchase:0 "Disappointing, but understandable."
- 
+ #Old modifiers - retained for backwards compatibility
  buy_influence_modifier_title:0 "Propaganda Campaign"
  buy_influence_modifier_desc:0 "An ongoing propaganda campaign, organised by the artisan enclave."
  buy_influence_0point5:0 "$buy_influence_modifier_title$ ($buy_influence.100.a$)"
@@ -25,3 +12,56 @@
  buy_influence_1point5_desc:0 "$buy_influence_modifier_desc$"
  buy_influence_2point0:0 "$buy_influence_modifier_title$ ($buy_influence.100.d$)"
  buy_influence_2point0_desc:0 "$buy_influence_modifier_desc$"
+
+ #Main screen intro text
+ buy_influence.101.from_main_menu:0 "We offer a wide variety of propaganda campaigns to our valued patrons. I'm sure one of them will suit your needs."
+ buy_influence.101.renewal:0 "Thank you for the confidence you've shown in our enterprise. We would be delighted to renew the campaign for another season - or perhaps you would prefer one of our other offerings?"
+ buy_influence.101.from_old_buff_cancellation:0 "Once again, we are terribly sorry about the confusion. Hopefully, you will find that one of our other campaigns will suit your needs."
+ buy_influence.101.change_campaign:0 "As a proudly Agile(TM) organisation, we can of course pivot our offering to better fulfil our client's requirements. What can we do for you today?"
+ 
+ #Buff names
+ buy_influence_0point5_e_name:0 "Unsolicited Mail"
+ buy_influence_1point0_e_name:0 "Viral Memes"
+ buy_influence_1point0_em_name:0 "Billboards"
+ buy_influence_1point5_em_name:0 "Aggressive Marketing"
+ buy_influence_2point0_em_name:0 "Saturation Advertising"
+ buy_influence_1point0_mf_name:0 "Bread and Circuses"
+ buy_influence_1point5_mf_name:0 "Touring Games"
+ buy_influence_2point0_mf_name:0 "Galactic Olympics"
+ buy_influence_2point0_emc_name:0 "Cultural Masterclasses"
+ buy_influence_3point0_emc_name:0 "Galactic Art Gallery"
+ buy_influence_4point0_emc_name:0 "The Great Exhibition"
+ 
+ #Global localisation texts
+ buy_influence_loopback:0 "We would like to discuss something else with you"
+ 
+ #No-purchase dialogs
+ buy_influence.103.desc:0 "We're so sorry that you've chosen to miss out on our amazing offers. Please do let us know if you change your mind.\n\nWe are required to inform you that you have been added to our mailing list, so you can stay informed about our services."
+ buy_influence.103.option.unsubscribe:0 "Unsubscribe"
+ buy_influence.104.desc:0 "Due to technical difficulties, only customers are currently able to manage their mailing list settings. And, unfortunately, you are not a customer."
+ 
+ #Purchase responses
+ buy_influence_0point5_e_response:0 "Everyone loves unsolicited mail! I'm sure that there will be no complaints. None whatsoever."
+ buy_influence_1point0_e_response:0 "An opportunity to infect the hearts and minds of the galaxy with viral memes? Intriguing! We'll get right on it!"
+ buy_influence_1point0_em_response:0 "{Billboard response}"
+ buy_influence_1point5_em_response:0 "{Aggressive Marketing response}"
+ buy_influence_2point0_em_response:0 "A very wise choice! Soon, everyone in the galaxy will have heard of your greatness. Over and over and over again!"
+ buy_influence_1point0_mf_response:0 "{Bread and Circuses response}"
+ buy_influence_1point5_mf_response:0 "{Touring Games response}"
+ buy_influence_2point0_mf_response:0 "{Galactic Olympics response}"
+ buy_influence_2point0_emc_response:0 "{Cultural Masterclasses response}"
+ buy_influence_3point0_emc_response:0 "{Galactic Art Gallery response}"
+ buy_influence_4point0_emc_response:0 "{The Great Exhibition response}"
+ buy_influence_default_response:0 "(Mod: Buy Influence. You should never see this text in-game. Please report it if you do!)\n\nWe will do our best, as always."
+ 
+ #Cancellation
+ buy_influence.121.desc:0 "We are pleased to inform you that your propaganda campaign has been running very smoothly.\n\nWhat can we do for you?"
+ buy_influence.121.change_campaign:0 "We would like to select a different campaign"
+ buy_influence.121.change_campaign.tooltip:0 "Your current propaganda campaign will be cancelled, and you will be asked to select another."
+ buy_influence.121.cancel:0 "We would like to cancel the campaign"
+ buy_influence.121.cancel.tooltip:0 "Your current propaganda campaign will be cancelled."
+ buy_influence.121.nocancel:0 "Nothing for now"
+ 
+ #Auto-cancellation of old modifiers
+ buy_influence.131.desc:0 "Oh, my! This is terribly embarrassing!\n\nIt seems that someone offered you a propaganda campaign from our old catalog. That colleague has been... disciplined.\n\nAnyway, we are unfortunately unable to continue this campaign at the price you were quoted. Perhaps you would care to peruse our latest catalog?"
+ buy_influence.131.choose_new_campaign:0 "Fine! Show us this new catalog."
