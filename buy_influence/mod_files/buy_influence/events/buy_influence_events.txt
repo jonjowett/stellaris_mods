@@ -2,6 +2,9 @@
 
 namespace = buy_influence
 
+@buy_influence_buff_duration = 3600
+@buy_influence_renewal_interval = 3599
+
 #Hidden event that switches the user between buying a propaganda campaign and manual cancellation, depending on whether they already have a propaganda campaign
 country_event = {
 	id = buy_influence.100
@@ -12,10 +15,10 @@ country_event = {
 		if = {
 			limit = { buy_influence_has_any_modifier = yes }
 			set_country_flag = buy_influence_from_main_menu
-			country_event = { id = buy_influence.101 }
+			country_event = { id = buy_influence.121 } # Cancel
 		}
 		else = {
-			country_event = { id = buy_influence.121 }
+			country_event = { id = buy_influence.101 } # Purchase
 		}
 	}
 	
@@ -59,7 +62,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_0point5_e_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion5
 		hidden_effect = {
@@ -73,7 +76,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -85,7 +88,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_0point5_e_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion5
 		hidden_effect = {
@@ -99,7 +102,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -111,7 +114,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_0point5_e_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion5
 		hidden_effect = {
@@ -125,7 +128,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -137,7 +140,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_0point5_e_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion5
 		hidden_effect = {
@@ -151,7 +154,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -162,7 +165,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_0point5_e_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion5
 		hidden_effect = {
@@ -176,7 +179,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -187,7 +190,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_e_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -201,7 +204,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -213,7 +216,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_e_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -227,7 +230,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -239,7 +242,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_e_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -253,7 +256,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -265,7 +268,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_e_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -279,7 +282,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -290,7 +293,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_e_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -304,7 +307,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -315,7 +318,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_em_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -329,7 +332,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -341,7 +344,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_em_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -355,7 +358,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -367,7 +370,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_em_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -381,7 +384,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -393,7 +396,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_em_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -407,7 +410,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -418,7 +421,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_em_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -432,7 +435,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -443,7 +446,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_em_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -457,7 +460,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -469,7 +472,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_em_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -483,7 +486,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -495,7 +498,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_em_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -509,7 +512,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -521,7 +524,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_em_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -535,7 +538,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -546,7 +549,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_em_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -560,7 +563,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -571,7 +574,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_em_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -585,7 +588,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -597,7 +600,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_em_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -611,7 +614,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -623,7 +626,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_em_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -637,7 +640,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -649,7 +652,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_em_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -663,7 +666,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -674,7 +677,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_em_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -688,7 +691,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -699,7 +702,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_mf_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -713,7 +716,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -725,7 +728,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_mf_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -739,7 +742,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -751,7 +754,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_mf_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -765,7 +768,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -777,7 +780,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_mf_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -791,7 +794,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -802,7 +805,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point0_mf_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion10
 		hidden_effect = {
@@ -816,7 +819,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -827,7 +830,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_mf_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -841,7 +844,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -853,7 +856,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_mf_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -867,7 +870,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -879,7 +882,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_mf_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -893,7 +896,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -905,7 +908,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_mf_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -919,7 +922,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -930,7 +933,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_1point5_mf_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion15
 		hidden_effect = {
@@ -944,7 +947,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -955,7 +958,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_mf_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -969,7 +972,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -981,7 +984,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_mf_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -995,7 +998,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1007,7 +1010,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_mf_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1021,7 +1024,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1033,7 +1036,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_mf_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1047,7 +1050,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1058,7 +1061,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_mf_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1072,7 +1075,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1083,7 +1086,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_emc_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1097,7 +1100,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1109,7 +1112,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_emc_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1123,7 +1126,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1135,7 +1138,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_emc_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1149,7 +1152,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1161,7 +1164,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_emc_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1175,7 +1178,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1186,7 +1189,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_2point0_emc_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion20
 		hidden_effect = {
@@ -1200,7 +1203,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1211,7 +1214,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_3point0_emc_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1225,7 +1228,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1237,7 +1240,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_3point0_emc_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1251,7 +1254,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1263,7 +1266,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_3point0_emc_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1277,7 +1280,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1289,7 +1292,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_3point0_emc_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1303,7 +1306,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1314,7 +1317,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_3point0_emc_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1328,7 +1331,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1339,7 +1342,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_4point0_emc_1
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1353,7 +1356,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1365,7 +1368,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_4point0_emc_2
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1379,7 +1382,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1391,7 +1394,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_4point0_emc_3
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1405,7 +1408,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1417,7 +1420,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_4point0_emc_4
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1431,7 +1434,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1442,7 +1445,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = buy_influence_4point0_emc_5
-			days = 3600
+			days = @buy_influence_buff_duration
 		}
 		custom_tooltip = opinion25
 		hidden_effect = {
@@ -1456,7 +1459,7 @@ country_event = {
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
-				days = 3599
+				days = @buy_influence_renewal_interval
 			}
 		}
 	}
@@ -1480,9 +1483,151 @@ country_event = {
 	
 }
 
-#Narrative event - response to purchase (or not) of a propaganda campaign
+#Splitter for narrative event - response to purchase (or not) of a propaganda campaign
 country_event = {
 	id = buy_influence.102
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = { has_country_flag = buy_influence_nodeal }
+			remove_country_flag = buy_influence_nodeal
+			country_event = { id = buy_influence.103 }
+		}
+		else = {
+			country_event = { id = buy_influence.104 }
+		}
+	}
+}
+
+#Narrative event - declined purchase of a propaganda campaign
+country_event = {
+	id = buy_influence.103
+	is_triggered_only = yes
+	title = leviathans.300.name
+	desc = buy_influence.103.desc
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+	
+	option = {
+		name = buy_influence.103.option.loopback
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = leviathans.300 }
+		}
+	}
+	
+	option = {
+		name = buy_influence.103.option.finish
+	}
+	
+}
+
+#Narrative event - purchased a propaganda campaign
+country_event = {
+	id = buy_influence.104
+	is_triggered_only = yes
+	title = leviathans.300.name
+	desc = {
+		trigger = {
+			switch = {
+				trigger = has_modifier
+				
+				#Generated code: Custom purchase responses
+
+				buy_influence_0point5_e_1 = { text = buy_influence_0point5_e_response }
+				buy_influence_0point5_e_2 = { text = buy_influence_0point5_e_response }
+				buy_influence_0point5_e_3 = { text = buy_influence_0point5_e_response }
+				buy_influence_0point5_e_4 = { text = buy_influence_0point5_e_response }
+				buy_influence_0point5_e_5 = { text = buy_influence_0point5_e_response }
+				buy_influence_1point0_e_1 = { text = buy_influence_1point0_e_response }
+				buy_influence_1point0_e_2 = { text = buy_influence_1point0_e_response }
+				buy_influence_1point0_e_3 = { text = buy_influence_1point0_e_response }
+				buy_influence_1point0_e_4 = { text = buy_influence_1point0_e_response }
+				buy_influence_1point0_e_5 = { text = buy_influence_1point0_e_response }
+				buy_influence_1point0_em_1 = { text = buy_influence_1point0_em_response }
+				buy_influence_1point0_em_2 = { text = buy_influence_1point0_em_response }
+				buy_influence_1point0_em_3 = { text = buy_influence_1point0_em_response }
+				buy_influence_1point0_em_4 = { text = buy_influence_1point0_em_response }
+				buy_influence_1point0_em_5 = { text = buy_influence_1point0_em_response }
+				buy_influence_1point5_em_1 = { text = buy_influence_1point5_em_response }
+				buy_influence_1point5_em_2 = { text = buy_influence_1point5_em_response }
+				buy_influence_1point5_em_3 = { text = buy_influence_1point5_em_response }
+				buy_influence_1point5_em_4 = { text = buy_influence_1point5_em_response }
+				buy_influence_1point5_em_5 = { text = buy_influence_1point5_em_response }
+				buy_influence_2point0_em_1 = { text = buy_influence_2point0_em_response }
+				buy_influence_2point0_em_2 = { text = buy_influence_2point0_em_response }
+				buy_influence_2point0_em_3 = { text = buy_influence_2point0_em_response }
+				buy_influence_2point0_em_4 = { text = buy_influence_2point0_em_response }
+				buy_influence_2point0_em_5 = { text = buy_influence_2point0_em_response }
+				buy_influence_1point0_mf_1 = { text = buy_influence_1point0_mf_response }
+				buy_influence_1point0_mf_2 = { text = buy_influence_1point0_mf_response }
+				buy_influence_1point0_mf_3 = { text = buy_influence_1point0_mf_response }
+				buy_influence_1point0_mf_4 = { text = buy_influence_1point0_mf_response }
+				buy_influence_1point0_mf_5 = { text = buy_influence_1point0_mf_response }
+				buy_influence_1point5_mf_1 = { text = buy_influence_1point5_mf_response }
+				buy_influence_1point5_mf_2 = { text = buy_influence_1point5_mf_response }
+				buy_influence_1point5_mf_3 = { text = buy_influence_1point5_mf_response }
+				buy_influence_1point5_mf_4 = { text = buy_influence_1point5_mf_response }
+				buy_influence_1point5_mf_5 = { text = buy_influence_1point5_mf_response }
+				buy_influence_2point0_mf_1 = { text = buy_influence_2point0_mf_response }
+				buy_influence_2point0_mf_2 = { text = buy_influence_2point0_mf_response }
+				buy_influence_2point0_mf_3 = { text = buy_influence_2point0_mf_response }
+				buy_influence_2point0_mf_4 = { text = buy_influence_2point0_mf_response }
+				buy_influence_2point0_mf_5 = { text = buy_influence_2point0_mf_response }
+				buy_influence_2point0_emc_1 = { text = buy_influence_2point0_emc_response }
+				buy_influence_2point0_emc_2 = { text = buy_influence_2point0_emc_response }
+				buy_influence_2point0_emc_3 = { text = buy_influence_2point0_emc_response }
+				buy_influence_2point0_emc_4 = { text = buy_influence_2point0_emc_response }
+				buy_influence_2point0_emc_5 = { text = buy_influence_2point0_emc_response }
+				buy_influence_3point0_emc_1 = { text = buy_influence_3point0_emc_response }
+				buy_influence_3point0_emc_2 = { text = buy_influence_3point0_emc_response }
+				buy_influence_3point0_emc_3 = { text = buy_influence_3point0_emc_response }
+				buy_influence_3point0_emc_4 = { text = buy_influence_3point0_emc_response }
+				buy_influence_3point0_emc_5 = { text = buy_influence_3point0_emc_response }
+				buy_influence_4point0_emc_1 = { text = buy_influence_4point0_emc_response }
+				buy_influence_4point0_emc_2 = { text = buy_influence_4point0_emc_response }
+				buy_influence_4point0_emc_3 = { text = buy_influence_4point0_emc_response }
+				buy_influence_4point0_emc_4 = { text = buy_influence_4point0_emc_response }
+				buy_influence_4point0_emc_5 = { text = buy_influence_4point0_emc_response }
+
+				#End of generated code
+				
+				default = { text = buy_influence_default_response }
+				
+			}
+		}
+	}
+
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
+
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+	
+	option = {
+		name = buy_influence.104.option.loopback
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = leviathans.300 }
+		}
+	}
+	
+	option = {
+		name = buy_influence.104.option.finish
+	}
 	
 }
 
@@ -1508,11 +1653,38 @@ country_event = {
 country_event = {
 	id = buy_influence.121
 	title = leviathans.300.name
-	desc = buy_influence.111.desc
+	desc = buy_influence.121.desc
 	
+	is_triggered_only = yes
+	diplomatic = yes
+	custom_gui = "enclave_artist_window"
+	custom_gui_option = "enclave_artist_option"
 	
+	picture_event_data = {
+		portrait = event_target:artist_enclave_country
+		room = enclave_artist_room
+	}
+	
+	option = {
+		name = buy_influence.121.cancel
+		custom_tooltip = buy_influence.121.cancel.tooltip # Custom tooltip, rather than writing an exhaustive load of code so that the tooltip can be auto-generated
+		hidden_effect = {
+			country_event = { id = buy_influence.800 } # Cancel all modifiers
+			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = leviathans.300 }
+		}
+	}
+	
+	option = {
+		name = buy_influence.121.nocancel
+		hidden_effect = {
+			set_country_flag = artist_enclave_diplomacy_continued
+			country_event = { id = leviathans.300 }
+		}
+	}
 	
 }
+
 
 
 ##################################################
@@ -1526,64 +1698,69 @@ country_event = {
 	is_triggered_only = yes
 	hide_window = yes
 	
-	#Generated code: Remove all of this mod's modifiers
-	remove_modifier = buy_influence_0point5_e_1
-	remove_modifier = buy_influence_0point5_e_2
-	remove_modifier = buy_influence_0point5_e_3
-	remove_modifier = buy_influence_0point5_e_4
-	remove_modifier = buy_influence_0point5_e_5
-	remove_modifier = buy_influence_1point0_e_1
-	remove_modifier = buy_influence_1point0_e_2
-	remove_modifier = buy_influence_1point0_e_3
-	remove_modifier = buy_influence_1point0_e_4
-	remove_modifier = buy_influence_1point0_e_5
-	remove_modifier = buy_influence_1point0_em_1
-	remove_modifier = buy_influence_1point0_em_2
-	remove_modifier = buy_influence_1point0_em_3
-	remove_modifier = buy_influence_1point0_em_4
-	remove_modifier = buy_influence_1point0_em_5
-	remove_modifier = buy_influence_1point5_em_1
-	remove_modifier = buy_influence_1point5_em_2
-	remove_modifier = buy_influence_1point5_em_3
-	remove_modifier = buy_influence_1point5_em_4
-	remove_modifier = buy_influence_1point5_em_5
-	remove_modifier = buy_influence_2point0_em_1
-	remove_modifier = buy_influence_2point0_em_2
-	remove_modifier = buy_influence_2point0_em_3
-	remove_modifier = buy_influence_2point0_em_4
-	remove_modifier = buy_influence_2point0_em_5
-	remove_modifier = buy_influence_1point0_mf_1
-	remove_modifier = buy_influence_1point0_mf_2
-	remove_modifier = buy_influence_1point0_mf_3
-	remove_modifier = buy_influence_1point0_mf_4
-	remove_modifier = buy_influence_1point0_mf_5
-	remove_modifier = buy_influence_1point5_mf_1
-	remove_modifier = buy_influence_1point5_mf_2
-	remove_modifier = buy_influence_1point5_mf_3
-	remove_modifier = buy_influence_1point5_mf_4
-	remove_modifier = buy_influence_1point5_mf_5
-	remove_modifier = buy_influence_2point0_mf_1
-	remove_modifier = buy_influence_2point0_mf_2
-	remove_modifier = buy_influence_2point0_mf_3
-	remove_modifier = buy_influence_2point0_mf_4
-	remove_modifier = buy_influence_2point0_mf_5
-	remove_modifier = buy_influence_2point0_emc_1
-	remove_modifier = buy_influence_2point0_emc_2
-	remove_modifier = buy_influence_2point0_emc_3
-	remove_modifier = buy_influence_2point0_emc_4
-	remove_modifier = buy_influence_2point0_emc_5
-	remove_modifier = buy_influence_3point0_emc_1
-	remove_modifier = buy_influence_3point0_emc_2
-	remove_modifier = buy_influence_3point0_emc_3
-	remove_modifier = buy_influence_3point0_emc_4
-	remove_modifier = buy_influence_3point0_emc_5
-	remove_modifier = buy_influence_4point0_emc_1
-	remove_modifier = buy_influence_4point0_emc_2
-	remove_modifier = buy_influence_4point0_emc_3
-	remove_modifier = buy_influence_4point0_emc_4
-	remove_modifier = buy_influence_4point0_emc_5
-}
+	immediate = {
+		
+		#Generated code: Remove all of this mod's modifiers
+		
+		remove_modifier = buy_influence_0point5_e_1
+		remove_modifier = buy_influence_0point5_e_2
+		remove_modifier = buy_influence_0point5_e_3
+		remove_modifier = buy_influence_0point5_e_4
+		remove_modifier = buy_influence_0point5_e_5
+		remove_modifier = buy_influence_1point0_e_1
+		remove_modifier = buy_influence_1point0_e_2
+		remove_modifier = buy_influence_1point0_e_3
+		remove_modifier = buy_influence_1point0_e_4
+		remove_modifier = buy_influence_1point0_e_5
+		remove_modifier = buy_influence_1point0_em_1
+		remove_modifier = buy_influence_1point0_em_2
+		remove_modifier = buy_influence_1point0_em_3
+		remove_modifier = buy_influence_1point0_em_4
+		remove_modifier = buy_influence_1point0_em_5
+		remove_modifier = buy_influence_1point5_em_1
+		remove_modifier = buy_influence_1point5_em_2
+		remove_modifier = buy_influence_1point5_em_3
+		remove_modifier = buy_influence_1point5_em_4
+		remove_modifier = buy_influence_1point5_em_5
+		remove_modifier = buy_influence_2point0_em_1
+		remove_modifier = buy_influence_2point0_em_2
+		remove_modifier = buy_influence_2point0_em_3
+		remove_modifier = buy_influence_2point0_em_4
+		remove_modifier = buy_influence_2point0_em_5
+		remove_modifier = buy_influence_1point0_mf_1
+		remove_modifier = buy_influence_1point0_mf_2
+		remove_modifier = buy_influence_1point0_mf_3
+		remove_modifier = buy_influence_1point0_mf_4
+		remove_modifier = buy_influence_1point0_mf_5
+		remove_modifier = buy_influence_1point5_mf_1
+		remove_modifier = buy_influence_1point5_mf_2
+		remove_modifier = buy_influence_1point5_mf_3
+		remove_modifier = buy_influence_1point5_mf_4
+		remove_modifier = buy_influence_1point5_mf_5
+		remove_modifier = buy_influence_2point0_mf_1
+		remove_modifier = buy_influence_2point0_mf_2
+		remove_modifier = buy_influence_2point0_mf_3
+		remove_modifier = buy_influence_2point0_mf_4
+		remove_modifier = buy_influence_2point0_mf_5
+		remove_modifier = buy_influence_2point0_emc_1
+		remove_modifier = buy_influence_2point0_emc_2
+		remove_modifier = buy_influence_2point0_emc_3
+		remove_modifier = buy_influence_2point0_emc_4
+		remove_modifier = buy_influence_2point0_emc_5
+		remove_modifier = buy_influence_3point0_emc_1
+		remove_modifier = buy_influence_3point0_emc_2
+		remove_modifier = buy_influence_3point0_emc_3
+		remove_modifier = buy_influence_3point0_emc_4
+		remove_modifier = buy_influence_3point0_emc_5
+		remove_modifier = buy_influence_4point0_emc_1
+		remove_modifier = buy_influence_4point0_emc_2
+		remove_modifier = buy_influence_4point0_emc_3
+		remove_modifier = buy_influence_4point0_emc_4
+		remove_modifier = buy_influence_4point0_emc_5
 
+	}
+	
+}
 
 
 ##################################################

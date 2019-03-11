@@ -374,7 +374,7 @@ country_event = {
 			limit = {
 				buy_influence_has_any_modifier = yes
 			}
-			country_event = { buy_influence.800 }
+			country_event = { id = buy_influence.800 }
 		}
 
 		if = {
@@ -422,7 +422,7 @@ country_event = {
 			limit = {
 				buy_influence_has_any_modifier = yes
 			}
-			country_event = { buy_influence.800 }
+			country_event = { id = buy_influence.800 }
 		}
 	}
 
