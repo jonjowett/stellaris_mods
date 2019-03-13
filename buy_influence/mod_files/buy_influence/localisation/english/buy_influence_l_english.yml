@@ -18,7 +18,7 @@
  buy_influence.101.renewal:0 "Thank you for the confidence you've shown in our enterprise. We would be delighted to renew the campaign for another season - or perhaps you would prefer one of our other offerings?"
  buy_influence.101.from_old_buff_cancellation:0 "Once again, we are terribly sorry about the confusion. Hopefully, you will find that one of our other campaigns will suit your needs."
  buy_influence.101.change_campaign:0 "As a proudly Agile(TM) organisation, we can of course pivot our offering to better fulfil our client's requirements. What can we do for you today?"
- buy_influence.101.reselect_campaign:0 "We understand that some of our offerings can seem daunting at first glance. Perhaps we can interest you in a different campaign?"
+ buy_influence.101.reselect_campaign:0 "We understand that some of our offerings can seem daunting at first glance. Perhaps one of our other campaigns would better suit your needs?"
  
  #Buff names
  buy_influence_0point5_e_name:0 "Unsolicited Mail"
@@ -33,7 +33,7 @@
  buy_influence_3point0_emc_name:0 "Galactic Art Gallery"
  buy_influence_4point0_emc_name:0 "The Great Exhibition"
  
- #Buff descriptions
+ #Buff descriptions - open for future differentiation if required
  buy_influence_modifier_desc:0 "An ongoing propaganda campaign being run on your behalf by the Artisan Enclave."
  buy_influence_0point5_e_desc:0 "$buy_influence_modifier_desc$"
  buy_influence_1point0_e_desc:0 "$buy_influence_modifier_desc$"
@@ -163,6 +163,7 @@
  
  #Global localisation texts
  buy_influence_loopback:0 "We would like to discuss something else with you"
+ buy_influence_shouldntsee:0 "(Mod: Buy Influence. You should never see this text in-game. Please report it if you do - with as many details as possible.)"
  
  #No-purchase dialogs
  buy_influence.103.desc:0 "We're so sorry that you've chosen to miss out on our amazing offers. Please do let us know if you change your mind.\n\nAs you are one of our most esteemed contacts, we are happy to inform you that you have been added to our mailing list, so you can stay informed about our services."
@@ -172,16 +173,16 @@
  #Purchase responses
  buy_influence_0point5_e_response:0 "Everyone loves unsolicited mail! I'm sure that there will be no complaints. None whatsoever. And even if there were, they would of course be wholly unjustified."
  buy_influence_1point0_e_response:0 "An opportunity to infect the hearts and minds of the galaxy with viral memes? Intriguing! We'll get right on it!"
- buy_influence_1point0_em_response:0 "DEVNOTE: Insert Billboard response"
- buy_influence_1point5_em_response:0 "I believe one of my colleagues over in section 17 was recently diagnosed with sociopathic tendencies. He'll be a great fit for this project - and I'm sure he will be pleased to hear that he can cancel his appointments with the company therapist."
+ buy_influence_1point0_em_response:0 "I will notify our marketing team to begin purchasing advertising space on billboards across the galaxy.\n\nDid you have any thoughts on the specifics of the campaign? No? That's fine, I'm sure we'll think of something!"
+ buy_influence_1point5_em_response:0 "I believe one of my colleagues over in section 17 was recently diagnosed with sociopathic tendencies. He'll be a great fit for this project - and I'm sure he will be pleased to hear that he can cancel his upcoming appointment with the company therapist."
  buy_influence_2point0_em_response:0 "A very wise choice! Soon, everyone in the galaxy will have heard of your greatness. Over and over... and over... and over..."
- buy_influence_1point0_mf_response:0 "DEVNOTE: Insert Bread and Circuses response"
- buy_influence_1point5_mf_response:0 "DEVNOTE: Insert Touring Games response"
- buy_influence_2point0_mf_response:0 "DEVNOTE: Insert Galactic Olympics response"
- buy_influence_2point0_emc_response:0 "DEVNOTE: Insert Cultural Masterclasses response"
- buy_influence_3point0_emc_response:0 "DEVNOTE: Insert Galactic Art Gallery response"
- buy_influence_4point0_emc_response:0 "DEVNOTE: Insert The Great Exhibition response"
- buy_influence_default_response:0 "(Mod: Buy Influence. You should never see this text in-game. Please report it if you do!)\n\nWe will do our best, as always."
+ buy_influence_1point0_mf_response:0 "Ah, yes - the preferred tool of despotic tyrannies everywhere. Not that we're implying anything about your realm, of course."
+ buy_influence_1point5_mf_response:0 "What a coincidence! One of our franchisees is the famous Cirque des Étoiles and, due to their current distressing financial situation, I'm sure they would be willing to divert through your space - for an appropriate fee.\n\nAnyway, please excuse me; I must call my cous- sorry, their tour manager - immediately!"
+ buy_influence_2point0_mf_response:0 "Wonderful! An opportunity for galactic empires to work out their differences in the sports arena, rather than on the battlefield. Perhaps there can truly be peace in our time?"
+ buy_influence_2point0_emc_response:0 "I'm sure that the artists of the galaxy would simply ADORE the opportunity to perfect their craft in a masterclass sponsored by the [Root.GetName]. We'll start sending out invitations immediately."
+ buy_influence_3point0_emc_response:0 "This is glorious! So many of my colleagues have been dying to exhibit their work before a galactic audience - they have just been waiting for an appropriately-prestigious occasion. And I'm sure that the works of provincial- *ahem* galactic artists will inspire us for months - maybe even years!"
+ buy_influence_4point0_emc_response:0 "Wait, what?! Are you sure you can afford this? It would be a great shame if such a prestigious event had to be cancelled partway through.\n\nI'm so sorry, what am I saying?! Of course you can afford this! Everything will be just fine!\n\nI'll start the ball rolling immediately."
+ buy_influence_default_response:0 "$buy_influence_shouldntsee$\n\nWe will do our best, as always."
  
  #Post-purchase options
  buy_influence.105.reselect:0 "Actually, I'd like to choose a different campaign."
@@ -197,5 +198,5 @@
  buy_influence.122.desc:0 "Disappointing, but understandable.\n\nWe hope that you will consider us for all of your future propaganda needs."
  
  #Auto-cancellation of old modifiers
- buy_influence.131.desc:0 "Oh, my! This is terribly embarrassing!\n\nIt seems that someone offered you a propaganda campaign from our old catalog. That colleague has been... disciplined.\n\nAnyway, we are unfortunately unable to continue this campaign at the price you were quoted. Perhaps you would care to peruse our latest catalog?"
+ buy_influence.131.desc:0 "Oh, my! This is terribly embarrassing!\n\nIt seems that someone offered you a propaganda campaign from our old catalog. That colleague has been... disciplined.\n\nUnfortunately, we are unable to continue this campaign at the price you were quoted. Perhaps you would care to peruse our latest catalog?"
  buy_influence.131.choose_new_campaign:0 "Fine! Show us this new catalog."
