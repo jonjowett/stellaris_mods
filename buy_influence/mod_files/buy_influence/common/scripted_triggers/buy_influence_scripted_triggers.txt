@@ -3,61 +3,150 @@ buy_influence_has_any_modifier = {
 	from = { 
 		#Generated code: Does the current (country) scope have any of the modifiers added by this mod?
 		OR = {
-			has_modifier = buy_influence_0point5_e_1
-			has_modifier = buy_influence_0point5_e_2
-			has_modifier = buy_influence_0point5_e_3
-			has_modifier = buy_influence_0point5_e_4
-			has_modifier = buy_influence_0point5_e_5
-			has_modifier = buy_influence_1point0_e_1
-			has_modifier = buy_influence_1point0_e_2
-			has_modifier = buy_influence_1point0_e_3
-			has_modifier = buy_influence_1point0_e_4
-			has_modifier = buy_influence_1point0_e_5
-			has_modifier = buy_influence_1point0_em_1
-			has_modifier = buy_influence_1point0_em_2
-			has_modifier = buy_influence_1point0_em_3
-			has_modifier = buy_influence_1point0_em_4
-			has_modifier = buy_influence_1point0_em_5
-			has_modifier = buy_influence_1point5_em_1
-			has_modifier = buy_influence_1point5_em_2
-			has_modifier = buy_influence_1point5_em_3
-			has_modifier = buy_influence_1point5_em_4
-			has_modifier = buy_influence_1point5_em_5
-			has_modifier = buy_influence_2point0_em_1
-			has_modifier = buy_influence_2point0_em_2
-			has_modifier = buy_influence_2point0_em_3
-			has_modifier = buy_influence_2point0_em_4
-			has_modifier = buy_influence_2point0_em_5
-			has_modifier = buy_influence_1point0_mf_1
-			has_modifier = buy_influence_1point0_mf_2
-			has_modifier = buy_influence_1point0_mf_3
-			has_modifier = buy_influence_1point0_mf_4
-			has_modifier = buy_influence_1point0_mf_5
-			has_modifier = buy_influence_1point5_mf_1
-			has_modifier = buy_influence_1point5_mf_2
-			has_modifier = buy_influence_1point5_mf_3
-			has_modifier = buy_influence_1point5_mf_4
-			has_modifier = buy_influence_1point5_mf_5
-			has_modifier = buy_influence_2point0_mf_1
-			has_modifier = buy_influence_2point0_mf_2
-			has_modifier = buy_influence_2point0_mf_3
-			has_modifier = buy_influence_2point0_mf_4
-			has_modifier = buy_influence_2point0_mf_5
-			has_modifier = buy_influence_2point0_emc_1
-			has_modifier = buy_influence_2point0_emc_2
-			has_modifier = buy_influence_2point0_emc_3
-			has_modifier = buy_influence_2point0_emc_4
-			has_modifier = buy_influence_2point0_emc_5
-			has_modifier = buy_influence_3point0_emc_1
-			has_modifier = buy_influence_3point0_emc_2
-			has_modifier = buy_influence_3point0_emc_3
-			has_modifier = buy_influence_3point0_emc_4
-			has_modifier = buy_influence_3point0_emc_5
-			has_modifier = buy_influence_4point0_emc_1
-			has_modifier = buy_influence_4point0_emc_2
-			has_modifier = buy_influence_4point0_emc_3
-			has_modifier = buy_influence_4point0_emc_4
-			has_modifier = buy_influence_4point0_emc_5
+			buy_influence_has_modifier_0point5_e = yes
+			buy_influence_has_modifier_1point0_e = yes
+			buy_influence_has_modifier_1point0_em = yes
+			buy_influence_has_modifier_1point5_em = yes
+			buy_influence_has_modifier_2point0_em = yes
+			buy_influence_has_modifier_1point0_mf = yes
+			buy_influence_has_modifier_1point5_mf = yes
+			buy_influence_has_modifier_2point0_mf = yes
+			buy_influence_has_modifier_2point0_emc = yes
+			buy_influence_has_modifier_3point0_emc = yes
+			buy_influence_has_modifier_4point0_emc = yes
 		}
 	}
 }
+
+
+
+
+
+#################################################################
+#Begin generated code: Does the current (country) scope have one particular type of modifier added by this mod?
+#################################################################
+
+buy_influence_has_modifier_0point5_e = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_0point5_e_1
+		has_modifier = buy_influence_0point5_e_2
+		has_modifier = buy_influence_0point5_e_3
+		has_modifier = buy_influence_0point5_e_4
+		has_modifier = buy_influence_0point5_e_5
+	}
+}
+
+buy_influence_has_modifier_1point0_e = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_1point0_e_1
+		has_modifier = buy_influence_1point0_e_2
+		has_modifier = buy_influence_1point0_e_3
+		has_modifier = buy_influence_1point0_e_4
+		has_modifier = buy_influence_1point0_e_5
+	}
+}
+
+buy_influence_has_modifier_1point0_em = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_1point0_em_1
+		has_modifier = buy_influence_1point0_em_2
+		has_modifier = buy_influence_1point0_em_3
+		has_modifier = buy_influence_1point0_em_4
+		has_modifier = buy_influence_1point0_em_5
+	}
+}
+
+buy_influence_has_modifier_1point5_em = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_1point5_em_1
+		has_modifier = buy_influence_1point5_em_2
+		has_modifier = buy_influence_1point5_em_3
+		has_modifier = buy_influence_1point5_em_4
+		has_modifier = buy_influence_1point5_em_5
+	}
+}
+
+buy_influence_has_modifier_2point0_em = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_2point0_em_1
+		has_modifier = buy_influence_2point0_em_2
+		has_modifier = buy_influence_2point0_em_3
+		has_modifier = buy_influence_2point0_em_4
+		has_modifier = buy_influence_2point0_em_5
+	}
+}
+
+buy_influence_has_modifier_1point0_mf = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_1point0_mf_1
+		has_modifier = buy_influence_1point0_mf_2
+		has_modifier = buy_influence_1point0_mf_3
+		has_modifier = buy_influence_1point0_mf_4
+		has_modifier = buy_influence_1point0_mf_5
+	}
+}
+
+buy_influence_has_modifier_1point5_mf = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_1point5_mf_1
+		has_modifier = buy_influence_1point5_mf_2
+		has_modifier = buy_influence_1point5_mf_3
+		has_modifier = buy_influence_1point5_mf_4
+		has_modifier = buy_influence_1point5_mf_5
+	}
+}
+
+buy_influence_has_modifier_2point0_mf = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_2point0_mf_1
+		has_modifier = buy_influence_2point0_mf_2
+		has_modifier = buy_influence_2point0_mf_3
+		has_modifier = buy_influence_2point0_mf_4
+		has_modifier = buy_influence_2point0_mf_5
+	}
+}
+
+buy_influence_has_modifier_2point0_emc = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_2point0_emc_1
+		has_modifier = buy_influence_2point0_emc_2
+		has_modifier = buy_influence_2point0_emc_3
+		has_modifier = buy_influence_2point0_emc_4
+		has_modifier = buy_influence_2point0_emc_5
+	}
+}
+
+buy_influence_has_modifier_3point0_emc = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_3point0_emc_1
+		has_modifier = buy_influence_3point0_emc_2
+		has_modifier = buy_influence_3point0_emc_3
+		has_modifier = buy_influence_3point0_emc_4
+		has_modifier = buy_influence_3point0_emc_5
+	}
+}
+
+buy_influence_has_modifier_4point0_emc = {
+	exists = from
+	OR = {
+		has_modifier = buy_influence_4point0_emc_1
+		has_modifier = buy_influence_4point0_emc_2
+		has_modifier = buy_influence_4point0_emc_3
+		has_modifier = buy_influence_4point0_emc_4
+		has_modifier = buy_influence_4point0_emc_5
+	}
+}
+
+#################################################################
+#End generated code
+#################################################################

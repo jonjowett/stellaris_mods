@@ -2,14 +2,40 @@
 
 namespace = buy_influence
 
-#@buy_influence_buff_duration = 3600
-#@buy_influence_renewal_interval = 3599 #Should always be equal to { @buy_influence_buff_duration - @buy_influence_renewal_event_delay }
-#@buy_influence_renewal_event_delay = 1 #Should always be as small as possible (1 is ideal)
+#These are the values that should be active in the production version of the mod!
+@buy_influence_buff_duration = 3600
+@buy_influence_renewal_interval = 3599 #Should always be equal to { @buy_influence_buff_duration - @buy_influence_renewal_event_delay }
+@buy_influence_renewal_event_delay = 1 #Should always be as small as possible (1 is ideal)
 
-#For testing only: buffs last for significantly less time
-@buy_influence_buff_duration = 30
-@buy_influence_renewal_interval = 29
-@buy_influence_renewal_event_delay = 1
+#These values are for testing only - buffs last for significantly less time
+#@buy_influence_buff_duration = 30
+#@buy_influence_renewal_interval = 29
+#@buy_influence_renewal_event_delay = 1
+#@buy_influence_buff_duration = 720
+#@buy_influence_renewal_interval = 719
+#@buy_influence_renewal_event_delay = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################################################
+# 1xx = Events arising directly from the artist enclave diplomacy window
+##################################################
 
 #Hidden event that switches the user between buying a propaganda campaign and manual cancellation, depending on whether they already have a propaganda campaign
 country_event = {
@@ -86,15 +112,7 @@ country_event = {
 			modifier = buy_influence_0point5_e_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion5
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 5
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -112,15 +130,7 @@ country_event = {
 			modifier = buy_influence_0point5_e_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion5
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 5
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -138,15 +148,7 @@ country_event = {
 			modifier = buy_influence_0point5_e_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion5
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 5
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -164,15 +166,7 @@ country_event = {
 			modifier = buy_influence_0point5_e_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion5
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 5
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -189,15 +183,7 @@ country_event = {
 			modifier = buy_influence_0point5_e_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion5
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 5
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -214,15 +200,7 @@ country_event = {
 			modifier = buy_influence_1point0_e_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -240,15 +218,7 @@ country_event = {
 			modifier = buy_influence_1point0_e_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -266,15 +236,7 @@ country_event = {
 			modifier = buy_influence_1point0_e_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -292,15 +254,7 @@ country_event = {
 			modifier = buy_influence_1point0_e_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -317,15 +271,7 @@ country_event = {
 			modifier = buy_influence_1point0_e_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -342,15 +288,7 @@ country_event = {
 			modifier = buy_influence_1point0_em_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -368,15 +306,7 @@ country_event = {
 			modifier = buy_influence_1point0_em_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -394,15 +324,7 @@ country_event = {
 			modifier = buy_influence_1point0_em_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -420,15 +342,7 @@ country_event = {
 			modifier = buy_influence_1point0_em_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -445,15 +359,7 @@ country_event = {
 			modifier = buy_influence_1point0_em_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -470,15 +376,7 @@ country_event = {
 			modifier = buy_influence_1point5_em_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -496,15 +394,7 @@ country_event = {
 			modifier = buy_influence_1point5_em_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -522,15 +412,7 @@ country_event = {
 			modifier = buy_influence_1point5_em_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -548,15 +430,7 @@ country_event = {
 			modifier = buy_influence_1point5_em_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -573,15 +447,7 @@ country_event = {
 			modifier = buy_influence_1point5_em_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -598,15 +464,7 @@ country_event = {
 			modifier = buy_influence_2point0_em_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -624,15 +482,7 @@ country_event = {
 			modifier = buy_influence_2point0_em_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -650,15 +500,7 @@ country_event = {
 			modifier = buy_influence_2point0_em_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -676,15 +518,7 @@ country_event = {
 			modifier = buy_influence_2point0_em_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -701,15 +535,7 @@ country_event = {
 			modifier = buy_influence_2point0_em_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -726,15 +552,7 @@ country_event = {
 			modifier = buy_influence_1point0_mf_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -752,15 +570,7 @@ country_event = {
 			modifier = buy_influence_1point0_mf_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -778,15 +588,7 @@ country_event = {
 			modifier = buy_influence_1point0_mf_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -804,15 +606,7 @@ country_event = {
 			modifier = buy_influence_1point0_mf_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -829,15 +623,7 @@ country_event = {
 			modifier = buy_influence_1point0_mf_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion10
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 10
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -854,15 +640,7 @@ country_event = {
 			modifier = buy_influence_1point5_mf_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -880,15 +658,7 @@ country_event = {
 			modifier = buy_influence_1point5_mf_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -906,15 +676,7 @@ country_event = {
 			modifier = buy_influence_1point5_mf_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -932,15 +694,7 @@ country_event = {
 			modifier = buy_influence_1point5_mf_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -957,15 +711,7 @@ country_event = {
 			modifier = buy_influence_1point5_mf_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion15
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 15
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -982,15 +728,7 @@ country_event = {
 			modifier = buy_influence_2point0_mf_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1008,15 +746,7 @@ country_event = {
 			modifier = buy_influence_2point0_mf_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1034,15 +764,7 @@ country_event = {
 			modifier = buy_influence_2point0_mf_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1060,15 +782,7 @@ country_event = {
 			modifier = buy_influence_2point0_mf_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1085,15 +799,7 @@ country_event = {
 			modifier = buy_influence_2point0_mf_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1110,15 +816,7 @@ country_event = {
 			modifier = buy_influence_2point0_emc_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1136,15 +834,7 @@ country_event = {
 			modifier = buy_influence_2point0_emc_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1162,15 +852,7 @@ country_event = {
 			modifier = buy_influence_2point0_emc_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1188,15 +870,7 @@ country_event = {
 			modifier = buy_influence_2point0_emc_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1213,15 +887,7 @@ country_event = {
 			modifier = buy_influence_2point0_emc_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion20
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 20
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1238,15 +904,7 @@ country_event = {
 			modifier = buy_influence_3point0_emc_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1264,15 +922,7 @@ country_event = {
 			modifier = buy_influence_3point0_emc_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1290,15 +940,7 @@ country_event = {
 			modifier = buy_influence_3point0_emc_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1316,15 +958,7 @@ country_event = {
 			modifier = buy_influence_3point0_emc_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1341,15 +975,7 @@ country_event = {
 			modifier = buy_influence_3point0_emc_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1366,15 +992,7 @@ country_event = {
 			modifier = buy_influence_4point0_emc_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1392,15 +1010,7 @@ country_event = {
 			modifier = buy_influence_4point0_emc_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1418,15 +1028,7 @@ country_event = {
 			modifier = buy_influence_4point0_emc_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1444,15 +1046,7 @@ country_event = {
 			modifier = buy_influence_4point0_emc_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1469,15 +1063,7 @@ country_event = {
 			modifier = buy_influence_4point0_emc_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = opinion25
-		hidden_effect = {
-			event_target:artist_enclave_country = {
-				add_trust = {
-					who = root
-					amount = 25
-				}
-			}
-		}
+		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1560,6 +1146,9 @@ country_event = {
 	
 	option = {
 		name = GOODBYE
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+		}
 	}
 	
 }
@@ -1699,6 +1288,9 @@ country_event = {
 	
 	option = {
 		name = GOODBYE
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+		}
 	}
 	
 }
@@ -1804,6 +1396,9 @@ country_event = {
 	
 	option = {
 		name = GOODBYE
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+		}
 	}
 	
 }
@@ -1844,10 +1439,306 @@ country_event = {
 	option = {
 		name = GOODBYE
 		add_resource = { influence = 20 }
+		hidden_effect = {
+			remove_country_flag = artist_enclave_diplomacy_engaged
+		}
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################################################
+# 2xx & 3xx = Yearly pulse events
+##################################################
+
+# Called by on_actions
+event = {
+	id = buy_influence.200
+	hide_window = yes
+	is_triggered_only = yes
 	
+	trigger = {
+		any_country = {
+			is_country_type = default
+			buy_influence_has_any_modifier = yes
+		}
+	}
+	
+	immediate = {
+		every_country = {
+			limit = {
+				is_country_type = default
+				buy_influence_has_any_modifier = yes
+			}
+			country_event = { id = buy_influence.201 }
+		}
+	}
+	
+}
+
+# Split by current propaganda campaign type
+country_event = {
+	id = buy_influence.201
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		
+		#Generated code: Redirect yearly pulse to campaign-specific event
+		if = {
+			limit = { buy_influence_has_modifier_0point5_e = yes }
+			country_event = { id = buy_influence.210 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point0_e = yes }
+			country_event = { id = buy_influence.220 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point0_em = yes }
+			country_event = { id = buy_influence.230 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point5_em = yes }
+			country_event = { id = buy_influence.240 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_2point0_em = yes }
+			country_event = { id = buy_influence.250 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point0_mf = yes }
+			country_event = { id = buy_influence.260 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point5_mf = yes }
+			country_event = { id = buy_influence.270 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_2point0_mf = yes }
+			country_event = { id = buy_influence.280 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_2point0_emc = yes }
+			country_event = { id = buy_influence.290 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_3point0_emc = yes }
+			country_event = { id = buy_influence.300 }
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_4point0_emc = yes }
+			country_event = { id = buy_influence.310 }
+		}
+		
+		
+
+		else = {
+			#No recognised modifier - do nothing
+		}
+	}
+}
+
+
+
+
+
+#################################################################
+#Begin generated code: Main yearly pulse event for each type of propaganda campaign
+#################################################################
+
+country_event = {
+	id = buy_influence.210
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.220
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.230
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.240
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.250
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.260
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 1
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.270
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.280
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.290
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.300
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 3
+			}
+		}
+	}
+}
+country_event = {
+	id = buy_influence.310
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:artist_enclave_country = {
+			add_trust = {
+				who = root
+				amount = 4
+			}
+		}
+	}
+}
+
+#################################################################
+#End generated code
+#################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 
@@ -1925,6 +1816,24 @@ country_event = {
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ##################################################

@@ -4,13 +4,13 @@
  #Old modifiers - retained for backwards compatibility
  buy_influence_modifier_title:0 "Propaganda Campaign"
  buy_influence_modifier_desc:0 "An ongoing propaganda campaign, organised by the artisan enclave."
- buy_influence_0point5:0 "$buy_influence_modifier_title$ ($buy_influence.100.a$)"
+ buy_influence_0point5:0 "$buy_influence_modifier_title$ (Leafletting)"
  buy_influence_0point5_desc:0 "$buy_influence_modifier_desc$"
- buy_influence_1point0:0 "$buy_influence_modifier_title$ ($buy_influence.100.b$)"
+ buy_influence_1point0:0 "$buy_influence_modifier_title$ (Viral marketing)"
  buy_influence_1point0_desc:0 "$buy_influence_modifier_desc$"
- buy_influence_1point5:0 "$buy_influence_modifier_title$ ($buy_influence.100.c$)"
+ buy_influence_1point5:0 "$buy_influence_modifier_title$ (Conventional)"
  buy_influence_1point5_desc:0 "$buy_influence_modifier_desc$"
- buy_influence_2point0:0 "$buy_influence_modifier_title$ ($buy_influence.100.d$)"
+ buy_influence_2point0:0 "$buy_influence_modifier_title$ (Saturation)"
  buy_influence_2point0_desc:0 "$buy_influence_modifier_desc$"
 
  #Main screen intro text
@@ -46,6 +46,10 @@
  buy_influence_2point0_emc_desc:0 "$buy_influence_modifier_desc$"
  buy_influence_3point0_emc_desc:0 "$buy_influence_modifier_desc$"
  buy_influence_4point0_emc_desc:0 "$buy_influence_modifier_desc$"
+ 
+ #Missing localisation for buff effects
+ mod_country_base_influence_produces_add:0 "Monthly £influence£ Influence"
+ mod_country_base_consumer_goods_produces_add:0 "Monthly £consumer_goods£ Consumer Goods"
  
  #Generated code: Set modifier names equal to the generic (non-pop-dependent) name for each modifier
  buy_influence_0point5_e_1:0 "$buy_influence_0point5_e_name$"
@@ -170,18 +174,24 @@
  buy_influence.103.option.unsubscribe:0 "Unsubscribe"
  buy_influence.104.desc:0 "We regret to inform you that, due to technical difficulties, only customers are able to manage their mailing list settings. And, unfortunately, you are not a customer."
  
+ #Custom tooltips for opinion gain
+ buy_influence_opinion_gain_1:0 "You will gain 1 trust per year with the Artisan Enclave for as long as this propaganda campaign is active."
+ buy_influence_opinion_gain_2:0 "You will gain 2 trust per year with the Artisan Enclave for as long as this propaganda campaign is active."
+ buy_influence_opinion_gain_3:0 "You will gain 3 trust per year with the Artisan Enclave for as long as this propaganda campaign is active."
+ buy_influence_opinion_gain_4:0 "You will gain 4 trust per year with the Artisan Enclave for as long as this propaganda campaign is active."
+ 
  #Purchase responses
- buy_influence_0point5_e_response:0 "Everyone loves unsolicited mail! I'm sure that there will be no complaints. None whatsoever. And even if there were, they would of course be wholly unjustified."
- buy_influence_1point0_e_response:0 "An opportunity to infect the hearts and minds of the galaxy with viral memes? Intriguing! We'll get right on it!"
- buy_influence_1point0_em_response:0 "I will notify our marketing team to begin purchasing advertising space on billboards across the galaxy.\n\nDid you have any thoughts on the specifics of the campaign? No? That's fine, I'm sure we'll think of something!"
- buy_influence_1point5_em_response:0 "I believe one of my colleagues over in section 17 was recently diagnosed with sociopathic tendencies. He'll be a great fit for this project - and I'm sure he will be pleased to hear that he can cancel his upcoming appointment with the company therapist."
- buy_influence_2point0_em_response:0 "A very wise choice! Soon, everyone in the galaxy will have heard of your greatness. Over and over... and over... and over..."
- buy_influence_1point0_mf_response:0 "Ah, yes - the preferred tool of despotic tyrannies everywhere. Not that we're implying anything about your realm, of course."
- buy_influence_1point5_mf_response:0 "What a coincidence! One of our franchisees is the famous Cirque des Étoiles and, due to their current distressing financial situation, I'm sure they would be willing to divert through your space - for an appropriate fee.\n\nAnyway, please excuse me; I must call my cous- sorry, their tour manager - immediately!"
- buy_influence_2point0_mf_response:0 "Wonderful! An opportunity for galactic empires to work out their differences in the sports arena, rather than on the battlefield. Perhaps there can truly be peace in our time?"
- buy_influence_2point0_emc_response:0 "I'm sure that the artists of the galaxy would simply ADORE the opportunity to perfect their craft in a masterclass sponsored by the [Root.GetName]. We'll start sending out invitations immediately."
- buy_influence_3point0_emc_response:0 "This is glorious! So many of my colleagues have been dying to exhibit their work before a galactic audience - they have just been waiting for an appropriately-prestigious occasion. And I'm sure that the works of provincial- *ahem* galactic artists will inspire us for months - maybe even years!"
- buy_influence_4point0_emc_response:0 "Wait, what?! Are you sure you can afford this? It would be a great shame if such a prestigious event had to be cancelled partway through.\n\nI'm so sorry, what am I saying?! Of course you can afford this! Everything will be just fine!\n\nI'll start the ball rolling immediately."
+ buy_influence_0point5_e_response:0 "§Y$buy_influence_0point5_e_name$§!\n\nEveryone loves unsolicited mail! I'm sure that there will be no complaints. None whatsoever. And even if there were, they would of course be wholly unjustified."
+ buy_influence_1point0_e_response:0 "§Y$buy_influence_1point0_e_name$§!\n\nAn opportunity to infect the hearts and minds of the galaxy with viral memes? Intriguing! We'll get right on it!"
+ buy_influence_1point0_em_response:0 "§Y$buy_influence_1point0_em_name$§!\n\nI will notify our marketing team to begin purchasing advertising space on billboards across the galaxy.\n\nDid you have any thoughts on the specifics of the campaign? No? That's fine, I'm sure we'll think of something!"
+ buy_influence_1point5_em_response:0 "§Y$buy_influence_1point5_em_name$§!\n\nI believe one of my colleagues over in section 17 was recently diagnosed with sociopathic tendencies. He'll be a great fit for this project - and I'm sure he will be pleased to hear that he can cancel his upcoming appointment with the company therapist."
+ buy_influence_2point0_em_response:0 "§Y$buy_influence_2point0_em_name$§!\n\nA very wise choice! Soon, everyone in the galaxy will have heard of your greatness. Over and over... and over... and over..."
+ buy_influence_1point0_mf_response:0 "§Y$buy_influence_1point0_mf_name$§!\n\nAh, yes - the preferred tool of despotic tyrannies everywhere. Not that we're implying anything about your realm, of course."
+ buy_influence_1point5_mf_response:0 "§Y$buy_influence_1point5_mf_name$§!\n\nWhat a coincidence! One of our franchisees is the famous Cirque des Étoiles and, due to their current distressing financial situation, I'm sure they would be willing to divert through your space - for an appropriate fee.\n\nAnyway, please excuse me; I must call my cousin- *ahem* their tour manager immediately!"
+ buy_influence_2point0_mf_response:0 "§Y$buy_influence_2point0_mf_name$§!\n\nWonderful! An opportunity for galactic empires to work out their differences in the sports arena, rather than on the battlefield. Perhaps there can truly be peace in our time?"
+ buy_influence_2point0_emc_response:0 "§Y$buy_influence_2point0_emc_name$§!\n\nI'm sure that the artists of the galaxy would simply ADORE the opportunity to perfect their craft in a masterclass sponsored by the [Root.GetName]. We'll start sending out invitations immediately."
+ buy_influence_3point0_emc_response:0 "§Y$buy_influence_3point0_emc_name$§!\n\nThis is glorious! So many of my colleagues have been dying to exhibit their work before a galactic audience - they have just been waiting for an appropriately-prestigious occasion. And I'm sure that the works of provincial- *ahem* galactic artists will inspire us for months - maybe even years!"
+ buy_influence_4point0_emc_response:0 "§Y$buy_influence_4point0_emc_name$§!\n\nWait, what?! Are you sure you can afford this? It would be a great shame if such a prestigious event had to be cancelled partway through.\n\nI'm so sorry, what am I saying?! Of course you can afford this! Everything will be just fine!\n\nI'll start the ball rolling immediately."
  buy_influence_default_response:0 "$buy_influence_shouldntsee$\n\nWe will do our best, as always."
  
  #Post-purchase options
