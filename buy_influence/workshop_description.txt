@@ -1,20 +1,71 @@
 This mod allows you to buy influence from the Artisan Enclave, by running propaganda campaigns.
+[list][*]Each propaganda campaign is an empire-level modifier that gives you influence in exchange for a constant drain on resources.
 
-The propaganda campaigns are implemented in ta similar way to trade companies' trade deals: a constant drain on resources that can be cancelled at any time. The difference is that the trade never ends (unless you cancel it).
+[*]Campaigns last for 10 years, after which time you will be prompted to renew.
 
-The cost of a propaganda campaign is 20 minerals + 20 energy per 1 influence. At the moment (v2.2.4), this feels too cheap - I might eventually change this to scale with empire size.
+[*]Campaigns can be cancelled at any time.
+
+[*]The cost of each campaign is scaled to your empire size (capping-out at 240 pops).
+
+[*]Ongoing campaigns increase the trust between your empire and the Artisan Enclave.[/list]
+
+[h1]Available Campaigns:[/h1]
+
+Because of the variable nature of the costs, it's significantly easier to read these from the in-game dialog. However, for reference, here's a full list of the campaigns and their cost structure. (The key is at the bottom of this section.)
+
+[b][u]Campaigns:[/u][/b]
+[list][*]Unsolicited Mail: +0.5I, +1T, -10E
+[*]Viral Memes: +1I, +1T, -30E
+
+[*]Billboards: +1I, +1T, -20E, -40M
+[*]Aggressive Marketing: +1.5I, +2T, -40E, -80M
+[*]Saturation Advertising: +2I, +2T, -60E, -120M
+
+[*]Bread and Circuses: +1I, +1T, -40M, -20F
+[*]Touring Games: +1.5I, +2T, -80M, -40F
+[*]Galactic Olympics: +2I, +2T, -120M, -60F
+
+[*]Cultural Masterclasses: +2I, +2T, -40E, -80M, -20C
+[*]Galactic Art Gallery: +3I, +3T, -80E, -160M, -40C
+[*]The Great Exhibition: +4I, +4T, -120E, -240M, -60C[/list]
+
+[b][u]Scaling:[/u][/b]
+[list][*]<= 60 pops: as above
+[*]61-120 pops: +100% E, M, F & C
+[*]121-180 pops: +200% E, M, F & C
+[*]181-240 pops: +300% E, M, F & C
+[*]> 240 pops: +400% E, M, F & C[/list]
+
+[b][u]Key:[/u][/b]
+[list][*]I = influence/month
+[*]T = trust between your empire and the artisan enclave per year
+[*]E = energy/month
+[*]M = minerals/month
+[*]F = food/month
+[*]C = consumer goods/month[/list]
+
+[h1]Minor features:[/h1]
+[list][*]Backwards compatibility
+[list][*]If you continue a game where you were using the old version of this mod, everything will be upgraded smoothly the next time you talk to the artists about propaganda campaigns. 
+[*]If you don't want to lose your old and extremely-underpriced propaganda campaign, you have two choices: (1) don't talk to the artists about propaganda campaigns; (2) use the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1682019056]old version of this mod[/url].[/list][/list]
+
+[h1]Upcoming features:[/h1]
+[list][*]Flavour events for each type of campaign. (Ideally, multiple possible events per campaign - both good and bad.)[/list]
+
+[h1]Known Bugs:[/h1]
+[list][*]The screenshots are out of date.[/list]
 
 [h1]Technical info / compatibility:[/h1]
 [list][*]Edited the leviathans.300 event (the "front screen" of the Artisan Enclave), to act as a gateway into this mod.
-[*]Edited the leviathans.330 event, so that the Propaganda Campaign is removed if you annoy the Artisans. (Not tested.)
-[*]Edited the leviathans.333 event, so that the Propaganda Campaign is removed if all of the Artisan Enclaves are destroyed. (Not tested.)
+[*]Edited the leviathans.330 event, so that propaganda campaigns are removed if you annoy the Artisans. (Not tested.)
+[*]Edited the leviathans.333 event, so that propaganda campaigns are removed if all of the Artisan Enclaves are destroyed. (Not tested.)
 [*]No other vanilla files are edited, so this mod should be compatible with anything that doesn't alter the Artisan Enclave.[/list]
 
 [h1]Earlier versions / Beta versions:[/h1]
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
 [h1]TL;DR[/h1]
-[list][*]Tested version: 2.2.4
+[list][*]Tested version: 2.2.5
 [*]Required DLC: Leviathans
 [*]Ironman compatible: Yes
 [*]Achievement compatible: No[/list]

@@ -78,7 +78,21 @@ country_event = {
 			switch = {
 				trigger = has_country_flag
 				buy_influence_from_main_menu = { text = buy_influence.101.from_main_menu }
-				buy_influence_renewal = { text = buy_influence.101.renewal }
+				
+				#Generated code: Different renewal text depending on which buff has expired
+				buy_influence_renewal_0point5_e = { text = buy_influence.101.renewal_0point5_e }
+				buy_influence_renewal_1point0_e = { text = buy_influence.101.renewal_1point0_e }
+				buy_influence_renewal_1point0_em = { text = buy_influence.101.renewal_1point0_em }
+				buy_influence_renewal_1point5_em = { text = buy_influence.101.renewal_1point5_em }
+				buy_influence_renewal_2point0_em = { text = buy_influence.101.renewal_2point0_em }
+				buy_influence_renewal_1point0_mf = { text = buy_influence.101.renewal_1point0_mf }
+				buy_influence_renewal_1point5_mf = { text = buy_influence.101.renewal_1point5_mf }
+				buy_influence_renewal_2point0_mf = { text = buy_influence.101.renewal_2point0_mf }
+				buy_influence_renewal_2point0_emc = { text = buy_influence.101.renewal_2point0_emc }
+				buy_influence_renewal_3point0_emc = { text = buy_influence.101.renewal_3point0_emc }
+				buy_influence_renewal_4point0_emc = { text = buy_influence.101.renewal_4point0_emc }
+				
+				buy_influence_renewal_unknown = { text = buy_influence.101.renewal_unknown }
 				buy_influence_from_old_buff_cancellation = { text = buy_influence.101.from_old_buff_cancellation }
 				buy_influence_change_campaign = { text = buy_influence.101.change_campaign }
 				buy_influence_reselect_campaign = { text = buy_influence.101.reselect_campaign }
@@ -112,7 +126,6 @@ country_event = {
 			modifier = buy_influence_0point5_e_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -130,7 +143,6 @@ country_event = {
 			modifier = buy_influence_0point5_e_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -148,7 +160,6 @@ country_event = {
 			modifier = buy_influence_0point5_e_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -166,7 +177,6 @@ country_event = {
 			modifier = buy_influence_0point5_e_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -183,7 +193,6 @@ country_event = {
 			modifier = buy_influence_0point5_e_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -200,7 +209,6 @@ country_event = {
 			modifier = buy_influence_1point0_e_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -218,7 +226,6 @@ country_event = {
 			modifier = buy_influence_1point0_e_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -236,7 +243,6 @@ country_event = {
 			modifier = buy_influence_1point0_e_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -254,7 +260,6 @@ country_event = {
 			modifier = buy_influence_1point0_e_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -271,7 +276,6 @@ country_event = {
 			modifier = buy_influence_1point0_e_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -288,7 +292,6 @@ country_event = {
 			modifier = buy_influence_1point0_em_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -306,7 +309,6 @@ country_event = {
 			modifier = buy_influence_1point0_em_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -324,7 +326,6 @@ country_event = {
 			modifier = buy_influence_1point0_em_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -342,7 +343,6 @@ country_event = {
 			modifier = buy_influence_1point0_em_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -359,7 +359,6 @@ country_event = {
 			modifier = buy_influence_1point0_em_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -376,7 +375,6 @@ country_event = {
 			modifier = buy_influence_1point5_em_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -394,7 +392,6 @@ country_event = {
 			modifier = buy_influence_1point5_em_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -412,7 +409,6 @@ country_event = {
 			modifier = buy_influence_1point5_em_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -430,7 +426,6 @@ country_event = {
 			modifier = buy_influence_1point5_em_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -447,7 +442,6 @@ country_event = {
 			modifier = buy_influence_1point5_em_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -464,7 +458,6 @@ country_event = {
 			modifier = buy_influence_2point0_em_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -482,7 +475,6 @@ country_event = {
 			modifier = buy_influence_2point0_em_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -500,7 +492,6 @@ country_event = {
 			modifier = buy_influence_2point0_em_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -518,7 +509,6 @@ country_event = {
 			modifier = buy_influence_2point0_em_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -535,7 +525,6 @@ country_event = {
 			modifier = buy_influence_2point0_em_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -552,7 +541,6 @@ country_event = {
 			modifier = buy_influence_1point0_mf_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -570,7 +558,6 @@ country_event = {
 			modifier = buy_influence_1point0_mf_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -588,7 +575,6 @@ country_event = {
 			modifier = buy_influence_1point0_mf_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -606,7 +592,6 @@ country_event = {
 			modifier = buy_influence_1point0_mf_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -623,7 +608,6 @@ country_event = {
 			modifier = buy_influence_1point0_mf_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_1
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -640,7 +624,6 @@ country_event = {
 			modifier = buy_influence_1point5_mf_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -658,7 +641,6 @@ country_event = {
 			modifier = buy_influence_1point5_mf_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -676,7 +658,6 @@ country_event = {
 			modifier = buy_influence_1point5_mf_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -694,7 +675,6 @@ country_event = {
 			modifier = buy_influence_1point5_mf_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -711,7 +691,6 @@ country_event = {
 			modifier = buy_influence_1point5_mf_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -728,7 +707,6 @@ country_event = {
 			modifier = buy_influence_2point0_mf_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -746,7 +724,6 @@ country_event = {
 			modifier = buy_influence_2point0_mf_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -764,7 +741,6 @@ country_event = {
 			modifier = buy_influence_2point0_mf_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -782,7 +758,6 @@ country_event = {
 			modifier = buy_influence_2point0_mf_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -799,7 +774,6 @@ country_event = {
 			modifier = buy_influence_2point0_mf_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -816,7 +790,6 @@ country_event = {
 			modifier = buy_influence_2point0_emc_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -834,7 +807,6 @@ country_event = {
 			modifier = buy_influence_2point0_emc_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -852,7 +824,6 @@ country_event = {
 			modifier = buy_influence_2point0_emc_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -870,7 +841,6 @@ country_event = {
 			modifier = buy_influence_2point0_emc_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -887,7 +857,6 @@ country_event = {
 			modifier = buy_influence_2point0_emc_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_2
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -904,7 +873,6 @@ country_event = {
 			modifier = buy_influence_3point0_emc_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -922,7 +890,6 @@ country_event = {
 			modifier = buy_influence_3point0_emc_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -940,7 +907,6 @@ country_event = {
 			modifier = buy_influence_3point0_emc_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -958,7 +924,6 @@ country_event = {
 			modifier = buy_influence_3point0_emc_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -975,7 +940,6 @@ country_event = {
 			modifier = buy_influence_3point0_emc_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_3
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -992,7 +956,6 @@ country_event = {
 			modifier = buy_influence_4point0_emc_1
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1010,7 +973,6 @@ country_event = {
 			modifier = buy_influence_4point0_emc_2
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1028,7 +990,6 @@ country_event = {
 			modifier = buy_influence_4point0_emc_3
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1046,7 +1007,6 @@ country_event = {
 			modifier = buy_influence_4point0_emc_4
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1063,7 +1023,6 @@ country_event = {
 			modifier = buy_influence_4point0_emc_5
 			days = @buy_influence_buff_duration
 		}
-		custom_tooltip = buy_influence_opinion_gain_4
 		hidden_effect = {
 			country_event = {
 				id = buy_influence.110
@@ -1086,9 +1045,9 @@ country_event = {
 	after = {
 		hidden_effect = {
 			remove_country_flag = buy_influence_from_main_menu
-			remove_country_flag = buy_influence_renewal
 			remove_country_flag = buy_influence_from_old_buff_cancellation
 			remove_country_flag = buy_influence_change_campaign
+			country_event = { id = buy_influence.801 } #Remove renewal flags
 			country_event = { id = buy_influence.102 }
 		}
 	}
@@ -1310,6 +1269,57 @@ country_event = {
 				days = @buy_influence_renewal_event_delay
 			}
 		}
+		
+		#Generated code: Set renewal flag depending on currently-active campaign
+		if = {
+			limit = { buy_influence_has_modifier_0point5_e = yes }
+			set_country_flag = buy_influence_renewal_0point5_e
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point0_e = yes }
+			set_country_flag = buy_influence_renewal_1point0_e
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point0_em = yes }
+			set_country_flag = buy_influence_renewal_1point0_em
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point5_em = yes }
+			set_country_flag = buy_influence_renewal_1point5_em
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_2point0_em = yes }
+			set_country_flag = buy_influence_renewal_2point0_em
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point0_mf = yes }
+			set_country_flag = buy_influence_renewal_1point0_mf
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_1point5_mf = yes }
+			set_country_flag = buy_influence_renewal_1point5_mf
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_2point0_mf = yes }
+			set_country_flag = buy_influence_renewal_2point0_mf
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_2point0_emc = yes }
+			set_country_flag = buy_influence_renewal_2point0_emc
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_3point0_emc = yes }
+			set_country_flag = buy_influence_renewal_3point0_emc
+		}
+		else_if = {
+			limit = { buy_influence_has_modifier_4point0_emc = yes }
+			set_country_flag = buy_influence_renewal_4point0_emc
+		}
+		#End of generated code
+		
+		else = {
+			set_country_flag = buy_influence_renewal_unknown
+		}
 	}
 }
 country_event = {
@@ -1319,8 +1329,12 @@ country_event = {
 	immediate = {
 		if = {
 			limit = { NOT = { buy_influence_has_any_modifier = yes } }
-			set_country_flag = buy_influence_renewal
 			country_event = { id = buy_influence.101 }
+		}
+		else = {
+			#Propaganda campaign has not expired, so this is not actually a renewal.
+			#(Maybe the user switched campaigns? This would reset the timer for the campaign, but buy_influence.110 would still be called on the original renewal date.)
+			country_event = { id = buy_influence.801 } #Remove renewal flags
 		}
 	}
 }
@@ -1816,6 +1830,38 @@ country_event = {
 	}
 	
 }
+
+country_event = {
+	id = buy_influence.801
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		
+		#Generated code: Remove all renewal flags
+
+		remove_country_flag = buy_influence_renewal_0point5_e
+		remove_country_flag = buy_influence_renewal_1point0_e
+		remove_country_flag = buy_influence_renewal_1point0_em
+		remove_country_flag = buy_influence_renewal_1point5_em
+		remove_country_flag = buy_influence_renewal_2point0_em
+		remove_country_flag = buy_influence_renewal_1point0_mf
+		remove_country_flag = buy_influence_renewal_1point5_mf
+		remove_country_flag = buy_influence_renewal_2point0_mf
+		remove_country_flag = buy_influence_renewal_2point0_emc
+		remove_country_flag = buy_influence_renewal_3point0_emc
+		remove_country_flag = buy_influence_renewal_4point0_emc
+		
+		#End of generated code
+		
+		
+		remove_country_flag = buy_influence_renewal_unknown
+		
+	}
+}
+
+
+	
 
 
 

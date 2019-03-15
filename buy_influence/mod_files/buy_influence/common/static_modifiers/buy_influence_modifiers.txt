@@ -32,64 +32,86 @@ buy_influence_2point0 = {
 
 #Generated code: Specification of static modifiers
 
+
+
 buy_influence_0point5_e_1 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 0.5
 	country_base_energy_produces_add = -10
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_0point5_e_2 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 0.5
 	country_base_energy_produces_add = -20
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_0point5_e_3 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 0.5
 	country_base_energy_produces_add = -30
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_0point5_e_4 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 0.5
 	country_base_energy_produces_add = -40
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_0point5_e_5 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 0.5
 	country_base_energy_produces_add = -50
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_e_1 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -30
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_e_2 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -60
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_e_3 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -90
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_e_4 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -120
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_e_5 = {
 	icon = "gfx/interface/icons/modifiers/mod_country_previous_deals.dds"
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -150
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_em_1 = {
@@ -97,6 +119,8 @@ buy_influence_1point0_em_1 = {
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -20
 	country_base_minerals_produces_add = -40
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_em_2 = {
@@ -104,6 +128,8 @@ buy_influence_1point0_em_2 = {
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -40
 	country_base_minerals_produces_add = -80
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_em_3 = {
@@ -111,6 +137,8 @@ buy_influence_1point0_em_3 = {
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -60
 	country_base_minerals_produces_add = -120
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_em_4 = {
@@ -118,6 +146,8 @@ buy_influence_1point0_em_4 = {
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -80
 	country_base_minerals_produces_add = -160
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_em_5 = {
@@ -125,6 +155,8 @@ buy_influence_1point0_em_5 = {
 	country_base_influence_produces_add = 1
 	country_base_energy_produces_add = -100
 	country_base_minerals_produces_add = -200
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point5_em_1 = {
@@ -132,6 +164,8 @@ buy_influence_1point5_em_1 = {
 	country_base_influence_produces_add = 1.5
 	country_base_energy_produces_add = -40
 	country_base_minerals_produces_add = -80
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_em_2 = {
@@ -139,6 +173,8 @@ buy_influence_1point5_em_2 = {
 	country_base_influence_produces_add = 1.5
 	country_base_energy_produces_add = -80
 	country_base_minerals_produces_add = -160
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_em_3 = {
@@ -146,6 +182,8 @@ buy_influence_1point5_em_3 = {
 	country_base_influence_produces_add = 1.5
 	country_base_energy_produces_add = -120
 	country_base_minerals_produces_add = -240
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_em_4 = {
@@ -153,6 +191,8 @@ buy_influence_1point5_em_4 = {
 	country_base_influence_produces_add = 1.5
 	country_base_energy_produces_add = -160
 	country_base_minerals_produces_add = -320
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_em_5 = {
@@ -160,6 +200,8 @@ buy_influence_1point5_em_5 = {
 	country_base_influence_produces_add = 1.5
 	country_base_energy_produces_add = -200
 	country_base_minerals_produces_add = -400
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_em_1 = {
@@ -167,6 +209,8 @@ buy_influence_2point0_em_1 = {
 	country_base_influence_produces_add = 2
 	country_base_energy_produces_add = -60
 	country_base_minerals_produces_add = -120
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_em_2 = {
@@ -174,6 +218,8 @@ buy_influence_2point0_em_2 = {
 	country_base_influence_produces_add = 2
 	country_base_energy_produces_add = -120
 	country_base_minerals_produces_add = -240
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_em_3 = {
@@ -181,6 +227,8 @@ buy_influence_2point0_em_3 = {
 	country_base_influence_produces_add = 2
 	country_base_energy_produces_add = -180
 	country_base_minerals_produces_add = -360
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_em_4 = {
@@ -188,6 +236,8 @@ buy_influence_2point0_em_4 = {
 	country_base_influence_produces_add = 2
 	country_base_energy_produces_add = -240
 	country_base_minerals_produces_add = -480
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_em_5 = {
@@ -195,6 +245,8 @@ buy_influence_2point0_em_5 = {
 	country_base_influence_produces_add = 2
 	country_base_energy_produces_add = -300
 	country_base_minerals_produces_add = -600
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point0_mf_1 = {
@@ -202,6 +254,8 @@ buy_influence_1point0_mf_1 = {
 	country_base_influence_produces_add = 1
 	country_base_minerals_produces_add = -40
 	country_base_food_produces_add = -20
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_mf_2 = {
@@ -209,6 +263,8 @@ buy_influence_1point0_mf_2 = {
 	country_base_influence_produces_add = 1
 	country_base_minerals_produces_add = -80
 	country_base_food_produces_add = -40
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_mf_3 = {
@@ -216,6 +272,8 @@ buy_influence_1point0_mf_3 = {
 	country_base_influence_produces_add = 1
 	country_base_minerals_produces_add = -120
 	country_base_food_produces_add = -60
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_mf_4 = {
@@ -223,6 +281,8 @@ buy_influence_1point0_mf_4 = {
 	country_base_influence_produces_add = 1
 	country_base_minerals_produces_add = -160
 	country_base_food_produces_add = -80
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point0_mf_5 = {
@@ -230,6 +290,8 @@ buy_influence_1point0_mf_5 = {
 	country_base_influence_produces_add = 1
 	country_base_minerals_produces_add = -200
 	country_base_food_produces_add = -100
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_1
 }
 
 buy_influence_1point5_mf_1 = {
@@ -237,6 +299,8 @@ buy_influence_1point5_mf_1 = {
 	country_base_influence_produces_add = 1.5
 	country_base_minerals_produces_add = -80
 	country_base_food_produces_add = -40
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_mf_2 = {
@@ -244,6 +308,8 @@ buy_influence_1point5_mf_2 = {
 	country_base_influence_produces_add = 1.5
 	country_base_minerals_produces_add = -160
 	country_base_food_produces_add = -80
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_mf_3 = {
@@ -251,6 +317,8 @@ buy_influence_1point5_mf_3 = {
 	country_base_influence_produces_add = 1.5
 	country_base_minerals_produces_add = -240
 	country_base_food_produces_add = -120
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_mf_4 = {
@@ -258,6 +326,8 @@ buy_influence_1point5_mf_4 = {
 	country_base_influence_produces_add = 1.5
 	country_base_minerals_produces_add = -320
 	country_base_food_produces_add = -160
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_1point5_mf_5 = {
@@ -265,6 +335,8 @@ buy_influence_1point5_mf_5 = {
 	country_base_influence_produces_add = 1.5
 	country_base_minerals_produces_add = -400
 	country_base_food_produces_add = -200
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_mf_1 = {
@@ -272,6 +344,8 @@ buy_influence_2point0_mf_1 = {
 	country_base_influence_produces_add = 2
 	country_base_minerals_produces_add = -120
 	country_base_food_produces_add = -60
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_mf_2 = {
@@ -279,6 +353,8 @@ buy_influence_2point0_mf_2 = {
 	country_base_influence_produces_add = 2
 	country_base_minerals_produces_add = -240
 	country_base_food_produces_add = -120
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_mf_3 = {
@@ -286,6 +362,8 @@ buy_influence_2point0_mf_3 = {
 	country_base_influence_produces_add = 2
 	country_base_minerals_produces_add = -360
 	country_base_food_produces_add = -180
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_mf_4 = {
@@ -293,6 +371,8 @@ buy_influence_2point0_mf_4 = {
 	country_base_influence_produces_add = 2
 	country_base_minerals_produces_add = -480
 	country_base_food_produces_add = -240
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_mf_5 = {
@@ -300,6 +380,8 @@ buy_influence_2point0_mf_5 = {
 	country_base_influence_produces_add = 2
 	country_base_minerals_produces_add = -600
 	country_base_food_produces_add = -300
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_emc_1 = {
@@ -308,6 +390,8 @@ buy_influence_2point0_emc_1 = {
 	country_base_energy_produces_add = -40
 	country_base_minerals_produces_add = -80
 	country_base_consumer_goods_produces_add = -20
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_emc_2 = {
@@ -316,6 +400,8 @@ buy_influence_2point0_emc_2 = {
 	country_base_energy_produces_add = -80
 	country_base_minerals_produces_add = -160
 	country_base_consumer_goods_produces_add = -40
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_emc_3 = {
@@ -324,6 +410,8 @@ buy_influence_2point0_emc_3 = {
 	country_base_energy_produces_add = -120
 	country_base_minerals_produces_add = -240
 	country_base_consumer_goods_produces_add = -60
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_emc_4 = {
@@ -332,6 +420,8 @@ buy_influence_2point0_emc_4 = {
 	country_base_energy_produces_add = -160
 	country_base_minerals_produces_add = -320
 	country_base_consumer_goods_produces_add = -80
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_2point0_emc_5 = {
@@ -340,6 +430,8 @@ buy_influence_2point0_emc_5 = {
 	country_base_energy_produces_add = -200
 	country_base_minerals_produces_add = -400
 	country_base_consumer_goods_produces_add = -100
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_2
 }
 
 buy_influence_3point0_emc_1 = {
@@ -348,6 +440,8 @@ buy_influence_3point0_emc_1 = {
 	country_base_energy_produces_add = -80
 	country_base_minerals_produces_add = -160
 	country_base_consumer_goods_produces_add = -40
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_3
 }
 
 buy_influence_3point0_emc_2 = {
@@ -356,6 +450,8 @@ buy_influence_3point0_emc_2 = {
 	country_base_energy_produces_add = -160
 	country_base_minerals_produces_add = -320
 	country_base_consumer_goods_produces_add = -80
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_3
 }
 
 buy_influence_3point0_emc_3 = {
@@ -364,6 +460,8 @@ buy_influence_3point0_emc_3 = {
 	country_base_energy_produces_add = -240
 	country_base_minerals_produces_add = -480
 	country_base_consumer_goods_produces_add = -120
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_3
 }
 
 buy_influence_3point0_emc_4 = {
@@ -372,6 +470,8 @@ buy_influence_3point0_emc_4 = {
 	country_base_energy_produces_add = -320
 	country_base_minerals_produces_add = -640
 	country_base_consumer_goods_produces_add = -160
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_3
 }
 
 buy_influence_3point0_emc_5 = {
@@ -380,6 +480,8 @@ buy_influence_3point0_emc_5 = {
 	country_base_energy_produces_add = -400
 	country_base_minerals_produces_add = -800
 	country_base_consumer_goods_produces_add = -200
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_3
 }
 
 buy_influence_4point0_emc_1 = {
@@ -388,6 +490,8 @@ buy_influence_4point0_emc_1 = {
 	country_base_energy_produces_add = -120
 	country_base_minerals_produces_add = -240
 	country_base_consumer_goods_produces_add = -60
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_4
 }
 
 buy_influence_4point0_emc_2 = {
@@ -396,6 +500,8 @@ buy_influence_4point0_emc_2 = {
 	country_base_energy_produces_add = -240
 	country_base_minerals_produces_add = -480
 	country_base_consumer_goods_produces_add = -120
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_4
 }
 
 buy_influence_4point0_emc_3 = {
@@ -404,6 +510,8 @@ buy_influence_4point0_emc_3 = {
 	country_base_energy_produces_add = -360
 	country_base_minerals_produces_add = -720
 	country_base_consumer_goods_produces_add = -180
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_4
 }
 
 buy_influence_4point0_emc_4 = {
@@ -412,6 +520,8 @@ buy_influence_4point0_emc_4 = {
 	country_base_energy_produces_add = -480
 	country_base_minerals_produces_add = -960
 	country_base_consumer_goods_produces_add = -240
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_4
 }
 
 buy_influence_4point0_emc_5 = {
@@ -420,4 +530,6 @@ buy_influence_4point0_emc_5 = {
 	country_base_energy_produces_add = -600
 	country_base_minerals_produces_add = -1200
 	country_base_consumer_goods_produces_add = -300
+	show_only_custom_tooltip = no
+	custom_tooltip = buy_influence_opinion_gain_4
 }
