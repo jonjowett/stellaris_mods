@@ -437,6 +437,10 @@ endgame_unity_choose_geneticists = {
 			remove_modifier = endgame_unity_decrease_species_modification_cost_4
 			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_5 days = -1 }
 		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_5 }
+			#Capped-out - do nothing
+		}
 		else = {
 			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_1 days = -1 }
 		}
@@ -509,6 +513,10 @@ endgame_unity_choose_roboticists = {
 			remove_modifier = endgame_unity_decrease_species_modification_cost_4
 			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_5 days = -1 }
 		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_5 }
+			#Capped-out - do nothing
+		}
 		else = {
 			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_1 days = -1 }
 		}
@@ -580,6 +588,10 @@ endgame_unity_choose_roboticists_m = {
 			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_4 }
 			remove_modifier = endgame_unity_decrease_species_modification_cost_4
 			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_5 days = -1 }
+		}
+		else_if = {
+			limit = { has_modifier = endgame_unity_decrease_species_modification_cost_5 }
+			#Capped-out - do nothing
 		}
 		else = {
 			add_modifier = { modifier = endgame_unity_decrease_species_modification_cost_1 days = -1 }
