@@ -8,10 +8,13 @@ This mod also adds two new technologies to the game, which are required to unloc
 
 [h1]Rationale:[/h1]
 
-I personally love the mechanics of the XL Arc Emitters as flavourful endgame weapons - but unfortunately there are no similar mechanics in the L weapon class. This means that the L weapons on your battleships have to cut through armour and shields even though your XL weapons bypass all that, which means that XL Arc Emitters are highly suboptimal.
+I personally love the mechanics of the XL Arc Emitters as flavourful endgame weapons - but unfortunately there are no similar mechanics in the L weapon class. (Other than Cloud Lightning, which is not guaranteed in every run and which is distinctly underpowered in the late game because it's supposed to be an early-game weapon.) This means that the L weapons on your battleships have to cut through armour and shields even though your XL weapons bypass all that, which means that XL Arc Emitters are highly suboptimal.
 
 [h1]Suggested Companion Mod:[/h1]
 [list][*][url=http://steamcommunity.com/sharedfiles/filedetails/?id=1326046410]Arc Emitter (Titanic)[/url] - Adds arc emitters for titans.[/list]
+
+[h1]Known Bugs:[/h1]
+[list][*]The screenshots are out of date.[/list]
 
 [h1]Technical info / compatibility:[/h1]
 [list][*]This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.[/list]
@@ -20,7 +23,7 @@ I personally love the mechanics of the XL Arc Emitters as flavourful endgame wea
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
 [h1]TLDR:[/h1]
-[list][*]Tested version: 2.0.1
+[list][*]Tested version: 2.2.5
 [*]Required DLC: None
 [*]Ironman compatible: Yes
 [*]Achievement compatible: No[/list]

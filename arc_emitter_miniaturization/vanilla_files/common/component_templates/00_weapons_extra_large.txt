@@ -24,6 +24,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
 	upgrades_to = "ENERGY_LANCE_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t5_cost
+			rare_crystals = @xl_t5_rare
+		}		
+		upkeep = {
+			energy = @xl_t5_upkeep_energy
+			alloys = @xl_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ## Energy Lance 2
@@ -47,6 +66,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t6_cost
+			rare_crystals = @xl_t6_rare
+		}		
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ####################
@@ -75,6 +113,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
 	upgrades_to = "ARC_EMITTER_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t5_cost
+			rare_crystals = @xl_t5_rare
+		}		
+		upkeep = {
+			energy = @xl_t5_upkeep_energy
+			alloys = @xl_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ## Arc Emitter 2
@@ -98,6 +155,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t6_cost
+			rare_crystals = @xl_t6_rare
+		}		
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 
@@ -128,6 +204,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
 	upgrades_to = "MASS_ACCELERATOR_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t5_cost
+			volatile_motes = @xl_t5_rare
+		}		
+		upkeep = {
+			energy = @xl_t5_upkeep_energy
+			alloys = @xl_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = volatile_motes value <= 0 }
+		}
+	}
 }
 
 # ## Mass Accelerator 2
@@ -152,6 +247,25 @@ weapon_component_template = {
 	tags = { weapon_type_kinetic }
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @xl_t6_cost
+			volatile_motes = @xl_t6_rare
+		}		
+		upkeep = {
+			energy = @xl_t6_upkeep_energy
+			alloys = @xl_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = volatile_motes value <= 0 }
+		}
+	}
 }
 
 # ####################
@@ -178,6 +292,25 @@ weapon_component_template = {
 	component_set = "PERDITION_BEAM"
 	projectile_gfx = "perdition_beam"
 	size_restriction = { titan }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ## Perdition Beam
@@ -200,6 +333,25 @@ weapon_component_template = {
 	component_set = "PERDITION_BEAM"
 	projectile_gfx = "ion_cannon"
 	size_restriction = { ion_cannon }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ## Titan Lance
@@ -222,4 +374,23 @@ weapon_component_template = {
 	
 	component_set = "TITAN_LASER"
 	projectile_gfx = "titan_laser"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }

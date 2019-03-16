@@ -19,8 +19,20 @@ weapon_component_template = {
 	ai_tag_weight = 0
 	upgrades_to = "MINIATURIZED_ARC_EMITTER_2_WEAPON"
 	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t5_cost
+			rare_crystals = @l_t5_rare
+		}		
+		upkeep = {
+			energy = @l_t5_upkeep_energy
+			alloys = @l_t5_upkeep_alloys
+		}
+	}
+	
 	#Cost, power & damage are scaled in the same way as kinetic artillery vs mega/giga cannon
-	cost = 120
+	#cost = 120
 	power = -70
 	damage = { min = 1 max = 293 }
 	
@@ -69,8 +81,20 @@ weapon_component_template = {
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
 	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t6_cost
+			rare_crystals = @l_t6_rare
+		}		
+		upkeep = {
+			energy = @l_t6_upkeep_energy
+			alloys = @l_t6_upkeep_alloys
+		}
+	}
+	
 	#Cost, power & damage are scaled in the same way as kinetic artillery vs mega/giga cannon
-	cost = 155
+	#cost = 155
 	power = -90
 	damage = { min = 1 max = 383 }
 	

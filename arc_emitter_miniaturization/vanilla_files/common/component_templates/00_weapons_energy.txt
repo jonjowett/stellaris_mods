@@ -27,6 +27,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	upgrades_to = "SMALL_BLUE_LASER"
 	ai_tags = { weapon_role_anti_armor }	#tags must be pre-registered in common/weapon_tags
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t1_cost
+		}		
+		upkeep = {
+			energy = @s_t1_upkeep_energy
+			alloys = @s_t1_upkeep_alloys
+		}
+	}
 }
 
 
@@ -43,6 +53,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "MEDIUM_BLUE_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t1_cost
+		}
+		upkeep = {
+			energy = @m_t1_upkeep_energy
+			alloys = @m_t1_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -58,6 +78,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "LARGE_BLUE_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t1_cost
+		}		
+		upkeep = {
+			energy = @l_t1_upkeep_energy
+			alloys = @l_t1_upkeep_alloys
+		}
+	}
 }
 
 
@@ -75,6 +105,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "SMALL_UV_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t2_cost
+		}		
+		upkeep = {
+			energy = @s_t2_upkeep_energy
+			alloys = @s_t2_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -90,6 +130,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "MEDIUM_UV_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t2_cost
+		}		
+		upkeep = {
+			energy = @m_t2_upkeep_energy
+			alloys = @m_t2_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -105,6 +155,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "LARGE_UV_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t2_cost
+		}		
+		upkeep = {
+			energy = @l_t2_upkeep_energy
+			alloys = @l_t2_upkeep_alloys
+		}
+	}
 }
 
 ### UV Lasers
@@ -124,6 +184,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "SMALL_XRAY_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t3_cost
+		}		
+		upkeep = {
+			energy = @s_t3_upkeep_energy
+			alloys = @s_t3_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -142,6 +212,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "MEDIUM_XRAY_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t3_cost
+		}		
+		upkeep = {
+			energy = @m_t3_upkeep_energy
+			alloys = @m_t3_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -161,6 +241,16 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "LARGE_XRAY_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t3_cost
+		}		
+		upkeep = {
+			energy = @l_t3_upkeep_energy
+			alloys = @l_t3_upkeep_alloys
+		}
+	}
 }
 
 ### XRay Lasers
@@ -180,6 +270,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "SMALL_GAMMA_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t4_cost
+			rare_crystals = @s_t4_rare
+		}		
+		upkeep = {
+			energy = @s_t4_upkeep_energy
+			alloys = @s_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -198,6 +307,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "MEDIUM_GAMMA_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t4_cost
+			rare_crystals = @m_t4_rare
+		}		
+		upkeep = {
+			energy = @m_t4_upkeep_energy
+			alloys = @m_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -216,6 +344,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	upgrades_to = "LARGE_GAMMA_LASER"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t4_cost
+			rare_crystals = @l_t4_rare
+		}		
+		upkeep = {
+			energy = @l_t4_upkeep_energy
+			alloys = @l_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 ### Gamma Lasers
@@ -234,6 +381,25 @@ weapon_component_template = {
 	projectile_gfx = "gamma_laser_s"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t5_cost
+			rare_crystals = @s_t5_rare
+		}		
+		upkeep = {
+			energy = @s_t5_upkeep_energy
+			alloys = @s_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -251,6 +417,25 @@ weapon_component_template = {
 	projectile_gfx = "gamma_laser_m"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t5_cost
+			rare_crystals = @m_t5_rare
+		}		
+		upkeep = {
+			energy = @m_t5_upkeep_energy
+			alloys = @m_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -268,6 +453,25 @@ weapon_component_template = {
 	projectile_gfx = "gamma_laser_l"
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t5_cost
+			rare_crystals = @l_t5_rare
+		}		
+		upkeep = {
+			energy = @l_t5_upkeep_energy
+			alloys = @l_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ####################
@@ -292,6 +496,16 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
 	upgrades_to = "SMALL_PLASMA_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t3_cost
+		}		
+		upkeep = {
+			energy = @s_t3_upkeep_energy
+			alloys = @s_t3_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -311,6 +525,16 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
 	upgrades_to = "MEDIUM_PLASMA_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t3_cost
+		}		
+		upkeep = {
+			energy = @m_t3_upkeep_energy
+			alloys = @m_t3_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -330,6 +554,16 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
 	upgrades_to = "LARGE_PLASMA_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t3_cost
+		}		
+		upkeep = {
+			energy = @l_t3_upkeep_energy
+			alloys = @l_t3_upkeep_alloys
+		}
+	}
 }
 
 # ## Plasma 2
@@ -351,6 +585,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
 	upgrades_to = "SMALL_PLASMA_3"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t4_cost
+			exotic_gases = @s_t4_rare
+		}		
+		upkeep = {
+			energy = @s_t4_upkeep_energy
+			alloys = @s_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = exotic_gases value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -370,6 +623,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
 	upgrades_to = "MEDIUM_PLASMA_3"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t4_cost
+			exotic_gases = @m_t4_rare
+		}		
+		upkeep = {
+			energy = @m_t4_upkeep_energy
+			alloys = @m_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			has_monthly_income = { resource = exotic_gases value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -389,6 +661,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
 	upgrades_to = "LARGE_PLASMA_3"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t4_cost
+			exotic_gases = @l_t4_rare
+		}		
+		upkeep = {
+			energy = @l_t4_upkeep_energy
+			alloys = @l_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = exotic_gases value <= 0 }
+		}
+	}
 }
 
 # ## Plasma 3
@@ -408,6 +699,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t5_cost
+			exotic_gases = @s_t5_rare
+		}		
+		upkeep = {
+			energy = @s_t5_upkeep_energy
+			alloys = @s_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = exotic_gases value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -426,6 +736,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t5_cost
+			exotic_gases = @s_t5_rare
+		}		
+		upkeep = {
+			energy = @s_t5_upkeep_energy
+			alloys = @s_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = exotic_gases value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -444,6 +773,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	ai_tag_weight = 3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t5_cost
+			exotic_gases = @l_t5_rare
+		}		
+		upkeep = {
+			energy = @l_t5_upkeep_energy
+			alloys = @l_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = exotic_gases value <= 0 }
+		}
+	}
 }
 
 # ####################
@@ -468,6 +816,16 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_hull }
 	ai_tag_weight = 5
 	upgrades_to = "SMALL_DISRUPTOR_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t3_cost
+		}		
+		upkeep = {
+			energy = @s_t3_upkeep_energy
+			alloys = @s_t3_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -487,6 +845,16 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_hull }
 	ai_tag_weight = 5
 	upgrades_to = "MEDIUM_DISRUPTOR_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t3_cost
+		}		
+		upkeep = {
+			energy = @m_t3_upkeep_energy
+			alloys = @m_t3_upkeep_alloys
+		}
+	}
 }
 
 # ## Disruptor 2
@@ -507,6 +875,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_hull }
 	ai_tag_weight = 5
 	upgrades_to = "SMALL_DISRUPTOR_3"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t4_cost
+			rare_crystals = @s_t4_rare
+		}		
+		upkeep = {
+			energy = @s_t4_upkeep_energy
+			alloys = @s_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -526,6 +913,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_hull }
 	ai_tag_weight = 5
 	upgrades_to = "MEDIUM_DISRUPTOR_3"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t4_cost
+			rare_crystals = @m_t4_rare
+		}		
+		upkeep = {
+			energy = @m_t4_upkeep_energy
+			alloys = @m_t4_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ## Disruptor 3
@@ -545,6 +951,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_hull }
 	ai_tag_weight = 5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t5_cost
+			rare_crystals = @s_t5_rare
+		}		
+		upkeep = {
+			energy = @s_t5_upkeep_energy
+			alloys = @s_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -563,6 +988,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_hull }
 	ai_tag_weight = 5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t5_cost
+			rare_crystals = @m_t5_rare
+		}		
+		upkeep = {
+			energy = @m_t5_upkeep_energy
+			alloys = @m_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # #####################
@@ -622,6 +1066,25 @@ weapon_component_template = {
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
 	upgrades_to = "ENERGY_TORPEDO_2"
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t5_cost
+			exotic_gases = @l_t5_rare
+		}		
+		upkeep = {
+			energy = @l_t5_upkeep_energy
+			alloys = @l_t5_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # ## Proton Launchers 2
@@ -640,6 +1103,25 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t6_cost
+			exotic_gases = @l_t6_rare
+		}		
+		upkeep = {
+			energy = @l_t6_upkeep_energy
+			alloys = @l_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 # #####################
@@ -660,6 +1142,99 @@ weapon_component_template = {
 	ai_tags = { weapon_role_anti_armor }
 	
 	component_set = "PSIONIC_BLAST_1"
-	cost = 0
+}
+
+###################
+# Null void beam
+###################
+
+weapon_component_template = {
+	key = "SMALL_NV_WEAPON"
+
+	size = small
+	entity = "small_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon" #
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID"
+	prerequisites = { "null_void_beam" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t2_cost
+		}		
+		upkeep = {
+			energy = @s_t2_upkeep_energy
+			alloys = @s_t2_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "MEDIUM_NV_WEAPON"
+
+	size = medium
+	entity = "medium_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID"
+	prerequisites = { "null_void_beam" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t2_cost
+		}		
+		upkeep = {
+			energy = @m_t2_upkeep_energy
+			alloys = @m_t2_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+weapon_component_template = {
+	key = "LARGE_NV_WEAPON"
+
+	size = large
+	entity = "large_kinetic_gun_entity"
+	type = instant
+	icon = "GFX_ship_part_null_void_weapon"
+	icon_frame = 1
+	projectile_gfx = "space_whale_weapon"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	
+	component_set = "NULL_VOID"
+	prerequisites = { "null_void_beam" }
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t2_cost
+		}		
+		upkeep = {
+			energy = @l_t2_upkeep_energy
+			alloys = @l_t2_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
 }
 
