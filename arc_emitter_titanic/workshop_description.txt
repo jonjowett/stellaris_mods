@@ -4,6 +4,9 @@ It is primarily intended as a companion mod for [url=http://steamcommunity.com/s
 
 May the RNG gods look favourably upon you!
 
+[h1]Known Bugs:[/h1]
+[list][*]Screenshots are out-of-date.[/list]
+
 [h1]Technical info / compatibility:[/h1]
 [list][*]This is a clean mod - no vanilla files are overwritten. As such, it should be compatible with any mod that doesn't drastically alter the core game.[/list]
 
@@ -11,7 +14,7 @@ May the RNG gods look favourably upon you!
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
 [h1]TLDR:[/h1]
-[list][*]Tested version: 2.0.1
+[list][*]Tested version: 2.2.5
 [*]Required DLC: None
 [*]Ironman compatible: Yes
 [*]Achievement compatible: No[/list]

@@ -465,7 +465,7 @@ tech_arc_emitter_1 = {
 	tier = 4
 	category = { particles }
 	ai_update_type = military	
-	prerequisites = { "tech_plasma_3" "tech_battleships" }
+	prerequisites = { "tech_disruptors_3" "tech_battleships" }
 	weight = @tier4weight2
 	
 	weight_modifier = {
@@ -484,12 +484,6 @@ tech_arc_emitter_1 = {
 				has_trait = "leader_trait_expertise_particles"
 			}
 		}
-		modifier = {
-			factor = 0.5
-			NOT = {
-				has_technology = "tech_lasers_1"
-			}
-		}	
 	}
 	
 	ai_weight = {
@@ -822,34 +816,10 @@ tech_energy_torpedoes_2 = {
 #Active Countermeasures
 tech_pd_tracking_1 = {
 	area = physics
-	tier = 1
-	cost = @tier1cost3
+	tier = 0
 	category = { computing }		
 	ai_update_type = military
-	prerequisites = { "tech_lasers_2" }
-	weight = @tier1weight3
-	
-	# unlocks point defence 1
-	
-	weight_modifier = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
-	}
-	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
-	}
+	start_tech = yes
 }
 
 #Interlinked Support Systems
@@ -1014,4 +984,16 @@ tech_space_cloud_weapon_1 = {
 			}
 		}
 	}
+}
+
+# Null void beam
+null_void_beam = {
+	area = physics
+	cost = @tier1cost2
+	tier = 2
+	is_rare = yes
+	category = { particles }
+	ai_update_type = military
+	weight = 3
+	
 }

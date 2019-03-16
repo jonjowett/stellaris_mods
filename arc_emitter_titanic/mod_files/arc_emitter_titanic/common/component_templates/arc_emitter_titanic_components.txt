@@ -29,8 +29,20 @@ weapon_component_template = {
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
 	
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titanic_t6_cost
+			rare_crystals = @titanic_t6_rare
+		}		
+		upkeep = {
+			energy = @titanic_t6_upkeep_energy
+			alloys = @titanic_t6_upkeep_alloys
+		}
+	}
+	
 	#Cost & power are the same as for the perdition beam
-	cost = 500
+	#cost = 500
 	power = -500
 	
 	#Damage is set so that average damage (7500) is the same as for the perdition beam
