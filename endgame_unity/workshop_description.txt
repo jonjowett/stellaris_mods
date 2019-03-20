@@ -4,7 +4,7 @@ This gives you the ability to use unity to permanently improve your late-game em
 
 [h1]Available buffs:[/h1]
 [list][*] [b][u]Unified Diplomats[/u][/b]:
-[list][*] +2 influence per level[/list]
+[list][*] +1 influence per level[/list]
 
 [*] [b][u]Unified Subjects[/u][/b]:
 [list][*] +40 subject trust cap per level[/list]
@@ -51,7 +51,7 @@ This gives you the ability to use unity to permanently improve your late-game em
 (*) Each time you pick either "Geneticists" or "Roboticists", you will receive an additional 5% species modification cost reduction, up to a maximum of 25%. This is because the species modification cost reduction applies to all types of species modification, and a total of 50% cost reduction would be extremely overpowered.
 
 [h1]Known bugs:[/h1]
-[list][*] Decreased megastructure build cost is no longer present in vanilla, so this aspect may not work properly. It is definitely not correctly localised (ie. the description of the effect is missing), but this is a purely-cosmetic issue. However, I haven't done much testing on this mod as yet, and this effect is the most likely to break in some weird way, so please let me know if you encounter any bugs.[/list]
+[list][*] Decreased megastructure build cost is no longer present in vanilla, so the workaround I've used may break in a future version. It is definitely working in v2.2.5, but has been reported to be broken in v2.2.6 beta. Please let me know if you have any further details/problems![/list]
 
 [h1]Suggested companion mods:[/h1]
 [list][*] [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1326068324]Increase Leader Level Cap to 20[/url] - so that you can get the full benefit of the "Unify Leaders" buff.[/list]

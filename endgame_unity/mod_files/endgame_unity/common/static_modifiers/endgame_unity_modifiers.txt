@@ -4,21 +4,22 @@
 
 #Influence generation techs (in the early game) either give you +1 per month or +1 from factions per month. The domination finisher also gives +1.
 #However, the influence ambition grants +5/month, which is a LOT.
-#So, compromise on +2/level, so 2.5 permanent bonuses are equivalent to 1 temporary bonus.
+#+2/level seems reasonable on the surface but, after extensive playtesting (v2.2.5), this is actually ridiculously overpowered.
+#Overall, +1/level seems reasonable.
 endgame_unity_influence_1 = {
-	country_base_influence_produces_add = 2
+	country_base_influence_produces_add = 1
 }
 endgame_unity_influence_2 = {
-	country_base_influence_produces_add = 4
+	country_base_influence_produces_add = 2
 }
 endgame_unity_influence_3 = {
-	country_base_influence_produces_add = 6
+	country_base_influence_produces_add = 3
 }
 endgame_unity_influence_4 = {
-	country_base_influence_produces_add = 8
+	country_base_influence_produces_add = 4
 }
 endgame_unity_influence_5 = {
-	country_base_influence_produces_add = 10
+	country_base_influence_produces_add = 5
 }
 
 

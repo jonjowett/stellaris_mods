@@ -5,7 +5,10 @@ endgame_unity_choose_influence = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
-	potential = { NOT = { has_modifier = endgame_unity_influence_5 } }
+	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
+		NOT = { has_modifier = endgame_unity_influence_5 }
+	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
 		if = {
@@ -39,6 +42,7 @@ endgame_unity_choose_subjects = {
 	is_ambition = yes
 	ai_weight = { weight = 1 }
 	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
 		NOT = { has_modifier = endgame_unity_subjects_5 }
 		OR = {
 			is_overlord = yes
@@ -80,7 +84,10 @@ endgame_unity_choose_research = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
-	potential = { NOT = { has_modifier = endgame_unity_research_5 } }
+	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
+		NOT = { has_modifier = endgame_unity_research_5 }
+	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
 		if = {
@@ -113,7 +120,10 @@ endgame_unity_choose_fleetcap = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
-	potential = { NOT = { has_modifier = endgame_unity_fleetcap_5 } }
+	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
+		NOT = { has_modifier = endgame_unity_fleetcap_5 }
+	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
 		if = {
@@ -147,8 +157,9 @@ endgame_unity_choose_terraforming = {
 	is_ambition = yes
 	ai_weight = { weight = 1 }
 	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
 		NOT = { has_modifier = endgame_unity_terraforming_5 } 
-		has_technology = tech_terrestrial_sculpting
+		has_technology = tech_terrestrial_sculpting # Must have the ability to terraform
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
@@ -191,8 +202,9 @@ endgame_unity_choose_megastructure = {
 	is_ambition = yes
 	ai_weight = { weight = 1 }
 	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
 		NOT = { has_modifier = endgame_unity_megastructure_5 } 
-		OR = {
+		OR = { #Must have the ability to build/repair megastructures
 			has_technology = tech_mega_engineering
 			has_galactic_wonders = yes #Vanilla scripted_trigger that checks whether the empire has access to any of the galactic wonders.
 			has_ascension_perk = ap_voidborn
@@ -231,8 +243,9 @@ endgame_unity_choose_starship_hulls = {
 	is_ambition = yes
 	ai_weight = { weight = 1 }
 	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
 		NOT = { has_modifier = endgame_unity_starship_hulls_5 }
-		has_technology = tech_titans
+		has_technology = tech_titans # Must have access to all ship classes
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
@@ -311,7 +324,10 @@ endgame_unity_choose_weapons = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
-	potential = { NOT = { has_modifier = endgame_unity_weapons_5 } }
+	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
+		NOT = { has_modifier = endgame_unity_weapons_5 }
+	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
 		if = {
@@ -344,7 +360,10 @@ endgame_unity_choose_leaders = {
 	length = 0
 	is_ambition = yes
 	ai_weight = { weight = 1 }
-	potential = { NOT = { has_modifier = endgame_unity_leaders_5 } }
+	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
+		NOT = { has_modifier = endgame_unity_leaders_5 }
+	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
 		if = {
@@ -378,8 +397,9 @@ endgame_unity_choose_geneticists = {
 	is_ambition = yes
 	ai_weight = { weight = 1 }
 	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
 		NOT = { has_modifier = endgame_unity_geneticists_5 }
-		has_technology = tech_gene_tailoring #Level 1 bio species editing
+		has_technology = tech_gene_tailoring # Must have ability to genemod
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
@@ -453,9 +473,10 @@ endgame_unity_choose_roboticists = {
 	is_ambition = yes
 	ai_weight = { weight = 1 }
 	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
 		NOT = { has_modifier = endgame_unity_roboticists_5 }
 		NOT = { has_authority = auth_machine_intelligence	} #Machines aren't eligible for ROBOT robomodding
-		has_technology = tech_robomodding
+		has_technology = tech_robomodding # Must have ability to robomod
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
@@ -529,9 +550,10 @@ endgame_unity_choose_roboticists_m = {
 	is_ambition = yes
 	ai_weight = { weight = 1 }
 	potential = {
+		has_technology = tech_ascension_theory # Must have the tech that unlocks unity ambitions
 		NOT = { has_modifier = endgame_unity_roboticists_m_5 }
 		has_authority = auth_machine_intelligence # Only machines can do MACHINE robomodding
-		has_technology = tech_robomodding_m
+		has_technology = tech_robomodding_m # Must have ability to robomod
 	}
 	allow = { num_ascension_perks > @endgame_unity_num_asc_perks }
 	effect = {
