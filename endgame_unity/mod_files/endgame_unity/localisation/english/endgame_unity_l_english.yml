@@ -1,5 +1,7 @@
 ﻿l_english:
  
+ mod_megastructures_cost_mult:0 "Megastructure Build Cost"
+ 
  edict_endgame_unity_choose_influence:0 "Endgame Unity: Unify our Diplomats"
  edict_endgame_unity_choose_subjects:0 "Endgame Unity: Unify our Subjects"
  edict_endgame_unity_choose_research:0 "Endgame Unity: Unify our Researchers"
