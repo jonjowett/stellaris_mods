@@ -19,7 +19,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_empty_ftl_drive"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	component_set = "ship_aura_components"
 	
@@ -35,7 +34,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_empty_ftl_drive"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	component_set = "station_small_aura_components"
 	
@@ -51,7 +49,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_empty_ftl_drive"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	component_set = "station_medium_aura_components"
 	
@@ -67,7 +64,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_empty_ftl_drive"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	component_set = "station_large_aura_components"
 	
@@ -87,7 +83,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_shield_dampener"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	size_restriction = { titan }
 	component_set = "ship_aura_components"
@@ -134,7 +129,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_quantum_destabilizer"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	size_restriction = { titan }
 	component_set = "ship_aura_components"
@@ -176,7 +170,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_snare"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	size_restriction = { titan }
 	component_set = "ship_aura_components"
@@ -220,7 +213,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_nanobot"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	size_restriction = { titan }
 	component_set = "ship_aura_components"
@@ -262,7 +254,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_nanobot"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	size_restriction = { titan }
 	component_set = "ship_aura_components"
@@ -309,7 +300,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_nanobot"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	size_restriction = { titan }
 	component_set = "ship_aura_components"
@@ -356,7 +346,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_shield_dampener"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	hidden = yes
 	
 	component_set = "station_medium_aura_components"

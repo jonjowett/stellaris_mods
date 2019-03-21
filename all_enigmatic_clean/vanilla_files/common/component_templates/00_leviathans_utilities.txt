@@ -32,7 +32,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_enigmatic_decoder"
 	icon_frame = 1
 	power = -20
-	cost = 20
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 20
+		}
+	}
 	
 	prerequisites = { tech_enigmatic_decoder }
 	component_set = "ENIGMATIC_DECODER"
@@ -60,7 +65,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_enigmatic_encoder"
 	icon_frame = 1
 	power = -20
-	cost = 20
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 20
+		}
+	}
 	
 	prerequisites = { tech_enigmatic_encoder }
 	component_set = "ENIGMATIC_ENCODER"
@@ -87,7 +97,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_enigmatic_disruption_field"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	hidden = yes
 	
 	component_set = "ENIGMATIC_DISRUPTION_FIELD"

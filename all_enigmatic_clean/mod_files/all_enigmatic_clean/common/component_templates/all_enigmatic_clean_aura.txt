@@ -8,7 +8,6 @@ utility_component_template = {
 	icon = "GFX_all_enigmatic_clean_ship_part_enigmatic_disruption_field"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	prerequisites = { tech_all_enigmatic_clean_enigmatic_disruption_field }
 	
 	size_restriction = { titan }

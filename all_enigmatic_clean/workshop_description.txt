@@ -26,7 +26,7 @@ You can safely add this mod to a save game that was already in progress (but you
 [list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
 
 [h1]TL;DR:[/h1]
-[list][*]Tested version: 2.0.1
+[list][*]Tested version: 2.2.5
 [*]Required DLC: Leviathans
 [*]Ironman compatible: Yes
 [*]Achievement compatible: No[/list]

@@ -85,14 +85,19 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_1"
 	icon_frame = 1
 	power = @power_1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	
 	modifier = {
 	}
 		
 	prerequisites = { "tech_thrusters_1" }
 	component_set = "thruster_components"
-	size_restriction = { corvette colonizer constructor science transport }
+	size_restriction = { corvette colonizer sponsored_colonizer constructor science transport }
 	upgrades_to = "SHIP_THRUSTER_2"
 	
 	ai_weight = {
@@ -106,7 +111,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_1"
 	icon_frame = 1
 	power = @destroyer_power_1
-	cost = @destroyer_cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @destroyer_cost1
+		}
+	}
 	
 	modifier = {
 	}
@@ -127,7 +137,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_1"
 	icon_frame = 1
 	power = @cruiser_power_1
-	cost = @cruiser_cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost1
+		}
+	}
 	
 	modifier = {
 	}
@@ -148,7 +163,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_1"
 	icon_frame = 1
 	power = @battleship_power_1
-	cost = @battleship_cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @battleship_cost1
+		}
+	}
 	
 	modifier = {
 	}
@@ -169,7 +189,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_1"
 	icon_frame = 1
 	power = @titan_power_1
-	cost = @titan_cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titan_cost1
+		}
+	}
 	
 	modifier = {
 	}
@@ -190,7 +215,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_1"
 	icon_frame = 1
 	power = @colossus_power_1
-	cost = @colossus_cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost1
+		}
+	}
 
 	modifier = {
 	}
@@ -213,7 +243,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_2"
 	icon_frame = 1
 	power = @power_2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.25
 		ship_evasion_add = 5
@@ -221,7 +256,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_thrusters_2" }
 	component_set = "thruster_components"
-	size_restriction = { corvette colonizer constructor science transport }
+	size_restriction = { corvette colonizer sponsored_colonizer constructor science transport }
 	upgrades_to = "SHIP_THRUSTER_3"
 	
 	ai_weight = {
@@ -235,7 +270,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_2"
 	icon_frame = 1
 	power = @destroyer_power_2
-	cost = @destroyer_cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @destroyer_cost2
+		}
+	}
 	
 	modifier = {
 		ship_base_speed_mult = 0.25
@@ -258,7 +298,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_2"
 	icon_frame = 1
 	power = @cruiser_power_2
-	cost = @cruiser_cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost2
+		}
+	}
 	
 	modifier = {
 		ship_base_speed_mult = 0.25
@@ -281,7 +326,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_2"
 	icon_frame = 1
 	power = @battleship_power_2
-	cost = @battleship_cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @battleship_cost2
+		}
+	}
 	
 	modifier = {
 		ship_base_speed_mult = 0.25
@@ -304,7 +354,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_2"
 	icon_frame = 1
 	power = @titan_power_2
-	cost = @titan_cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titan_cost2
+		}
+	}
 	
 	modifier = {
 		ship_base_speed_mult = 0.25
@@ -327,7 +382,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_2"
 	icon_frame = 1
 	power = @colossus_power_2
-	cost = @colossus_cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost2
+		}
+	}
 	
 	modifier = {
 		ship_base_speed_mult = 0.25
@@ -352,7 +412,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_3"
 	icon_frame = 1
 	power = @power_3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.50
 		ship_evasion_add = 10
@@ -360,7 +425,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_thrusters_3" }
 	component_set = "thruster_components"
-	size_restriction = { corvette colonizer constructor science transport }
+	size_restriction = { corvette colonizer sponsored_colonizer constructor science transport }
 	upgrades_to = "SHIP_THRUSTER_4"
 	
 	ai_weight = {
@@ -374,7 +439,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_3"
 	icon_frame = 1
 	power = @destroyer_power_3
-	cost = @destroyer_cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @destroyer_cost3
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.50
 		ship_evasion_add = 8
@@ -396,7 +466,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_3"
 	icon_frame = 1
 	power = @cruiser_power_3
-	cost = @cruiser_cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost3
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.50
 		ship_evasion_add = 6
@@ -418,7 +493,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_3"
 	icon_frame = 1
 	power = @battleship_power_3
-	cost = @battleship_cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @battleship_cost3
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.50
 		ship_evasion_add = 4
@@ -440,7 +520,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_3"
 	icon_frame = 1
 	power = @titan_power_3
-	cost = @titan_cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titan_cost3
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.50
 		ship_evasion_add = 2
@@ -462,7 +547,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_3"
 	icon_frame = 1
 	power = @colossus_power_3
-	cost = @colossus_cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost3
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.50
 	}
@@ -485,7 +575,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_4"
 	icon_frame = 1
 	power = @power_4
-	cost = @cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.75
 		ship_evasion_add = 15
@@ -493,7 +588,7 @@ utility_component_template = {
 
 	prerequisites = { "tech_thrusters_4" }
 	component_set = "thruster_components"
-	size_restriction = { corvette colonizer constructor science transport }
+	size_restriction = { corvette colonizer sponsored_colonizer constructor science transport }
 	upgrades_to = "SHIP_THRUSTER_5"
 	
 	ai_weight = {
@@ -507,7 +602,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_4"
 	icon_frame = 1
 	power = @destroyer_power_4
-	cost = @destroyer_cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @destroyer_cost4
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.75
 		ship_evasion_add = 12
@@ -529,7 +629,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_4"
 	icon_frame = 1
 	power = @cruiser_power_4
-	cost = @cruiser_cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost4
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.75
 		ship_evasion_add = 9
@@ -551,7 +656,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_4"
 	icon_frame = 1
 	power = @battleship_power_4
-	cost = @battleship_cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @battleship_cost4
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.75
 		ship_evasion_add = 6
@@ -573,7 +683,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_4"
 	icon_frame = 1
 	power = @titan_power_4
-	cost = @titan_cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titan_cost4
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.75
 		ship_evasion_add = 3
@@ -596,7 +711,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_4"
 	icon_frame = 1
 	power = @colossus_power_4
-	cost = @colossus_cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost4
+		}
+	}
 	modifier = {
 		ship_base_speed_mult = 0.75
 	}
@@ -619,18 +739,28 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_5"
 	icon_frame = 1
 	power = @power_5
-	cost = @cost5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+			sr_dark_matter = 1
+		}
+	}
 	modifier = {
-		ship_base_speed_mult = 1.00
+		ship_base_speed_mult = 1.25
 		ship_evasion_add = 20
 	}
 
 	prerequisites = { "tech_dark_matter_propulsion" }
 	component_set = "thruster_components"
-	size_restriction = { corvette colonizer constructor science transport }
+	size_restriction = { corvette colonizer sponsored_colonizer constructor science transport }
 	
 	ai_weight = {
 		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = sr_dark_matter value <= 0 }
+		}
 	}
 }
 
@@ -640,9 +770,15 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_5"
 	icon_frame = 1
 	power = @destroyer_power_5
-	cost = @destroyer_cost5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @destroyer_cost4
+			sr_dark_matter = 2
+		}
+	}
 	modifier = {
-		ship_base_speed_mult = 1.00
+		ship_base_speed_mult = 1.25
 		ship_evasion_add = 16
 	}
 
@@ -652,6 +788,10 @@ utility_component_template = {
 	
 	ai_weight = {
 		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = sr_dark_matter value <= 0 }
+		}
 	}
 }
 
@@ -661,9 +801,15 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_5"
 	icon_frame = 1
 	power = @cruiser_power_5
-	cost = @cruiser_cost5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cruiser_cost4
+			sr_dark_matter = 4
+		}
+	}
 	modifier = {
-		ship_base_speed_mult = 1.00
+		ship_base_speed_mult = 1.25
 		ship_evasion_add = 12
 	}
 
@@ -673,6 +819,10 @@ utility_component_template = {
 	
 	ai_weight = {
 		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = sr_dark_matter value <= 0 }
+		}
 	}
 }
 
@@ -682,9 +832,15 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_5"
 	icon_frame = 1
 	power = @battleship_power_5
-	cost = @battleship_cost5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @battleship_cost4
+			sr_dark_matter = 8
+		}
+	}
 	modifier = {
-		ship_base_speed_mult = 1.00
+		ship_base_speed_mult = 1.25
 		ship_evasion_add = 8
 	}
 
@@ -694,6 +850,10 @@ utility_component_template = {
 	
 	ai_weight = {
 		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = sr_dark_matter value <= 0 }
+		}
 	}
 }
 
@@ -703,9 +863,15 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_5"
 	icon_frame = 1
 	power = @titan_power_5
-	cost = @titan_cost5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @titan_cost4
+			sr_dark_matter = 16
+		}
+	}
 	modifier = {
-		ship_base_speed_mult = 1.00
+		ship_base_speed_mult = 1.25
 		ship_evasion_add = 4
 	}
 
@@ -715,6 +881,10 @@ utility_component_template = {
 	
 	ai_weight = {
 		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = sr_dark_matter value <= 0 }
+		}
 	}
 }
 
@@ -725,9 +895,15 @@ utility_component_template = {
 	icon = "GFX_ship_part_thruster_5"
 	icon_frame = 1
 	power = @colossus_power_5
-	cost = @colossus_cost5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @colossus_cost5
+			sr_dark_matter = 32
+		}
+	}
 	modifier = {
-		ship_base_speed_mult = 1.00
+		ship_base_speed_mult = 1.25
 	}
 
 	prerequisites = { "tech_dark_matter_propulsion" }
@@ -736,5 +912,10 @@ utility_component_template = {
 	
 	ai_weight = {
 		weight = 5
+
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = sr_dark_matter value <= 0 }
+		}
 	}
 }
