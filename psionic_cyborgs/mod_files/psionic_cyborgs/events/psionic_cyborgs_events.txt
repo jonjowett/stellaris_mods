@@ -106,6 +106,39 @@ country_event = {
 					add_trait = leader_trait_scientist_psionic
 				}
 			}
+			if = {
+				limit = { species = { has_trait = trait_brainslug } }
+				if = {
+					limit = { leader_class = ruler }
+					if = {
+						limit = { NOT = { has_trait = leader_trait_ruler_brainslug } }
+						add_trait = leader_trait_ruler_brainslug
+					}
+					remove_trait = leader_trait_governor_brainslug
+					remove_trait = leader_trait_general_brainslug
+					remove_trait = leader_trait_admiral_brainslug
+					remove_trait = leader_trait_scientist_brainslug
+				}
+				else = {
+					remove_trait = leader_trait_ruler_brainslug
+				}
+				if = {
+					limit = { AND = { leader_class = governor NOT = { has_trait = leader_trait_governor_brainslug } } }
+					add_trait = leader_trait_governor_brainslug
+				}
+				if = {
+					limit = { AND = { leader_class = general NOT = { has_trait = leader_trait_general_brainslug } } }
+					add_trait = leader_trait_general_brainslug
+				}
+				if = {
+					limit = { AND = { leader_class = admiral NOT = { has_trait = leader_trait_admiral_brainslug } } }
+					add_trait = leader_trait_admiral_brainslug
+				}
+				if = {
+					limit = { AND = { leader_class = scientist NOT = { has_trait = leader_trait_scientist_brainslug } } }
+					add_trait = leader_trait_scientist_brainslug
+				}
+			}
 		}
 	}
 	
