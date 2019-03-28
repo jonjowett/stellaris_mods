@@ -1,6 +1,60 @@
-This is a version of Khadgar's [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod that has been updated to v2.2.4.
+This mod allows you to add and remove hyperlanes on the galactic map, reshaping the galactic geography according to your whim.
+[list][*][u]Create chokepoints[/u] - We've all had pulsar systems that would make for perfect defensive chokepoints - if it wasn't for a pesky hyperlane or two.  With this mod, you can remove them and realise your (chokepoint-related) dreams.
+
+[*][u]Connect distant systems[/u] - Using this mod, you can manually link systems that are close together in space but require huge detours via hyperspace lanes. (This is especially useful to link the arms of spiral galaxies, or if you have hyperlane frequency < 1 in galaxy generation.)
+
+[*][u]Cut yourself off from filthy xenos[/u] - Inward Perfectionist empires don't want to deal with the rest of the galaxy. Make this dream a reality by removing all external hyperlanes![/list]
+
+[h1]How it works:[/h1]
+
+First, you need to research a new (rare) physics technology - "Hyperlane Generation". (Prerequisites: Gateway Activation and Mega Engineering.)
+
+Then, in order to add or remove a hyperlane, you need to build a Gateway-like megastructure in both systems. In other words - [b][u]you must own both systems[/u][/b] if you want to use this mod to add/remove a hyperlane between them.
+
+Once you have built an "emitter" in one system and a "receiver" in the other (it doesn't matter which system has the emitter), you can "activate" the emitter and a hyperlane will be added/removed.
+
+[h1]Inspiration:[/h1]
+
+This is actually an updated version of Khadgar's [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Hyperlane Generation[/url] mod (which has seemingly been abandoned). There are some interesting screenshots over there that show what you can achieve - given enough patience!
 
 I have preserved as much functionality as possible from the original mod. The main difference is that I have changed the cost of the hyperlane generator/remover megastructures:
 [list][*]Stage 1 (construction site): 2000 alloys & 50 influence
 [*]Stage 2 (completed): 2000 alloys & 2000 energy
 [*]Stage 3 (activation): 10000 energy[/list]
+
+[h1]FAQ:[/h1]
+[list][u]Can the AI use this?[/u]
+[list][*]No.
+[*]I honestly have no idea how to get the AI to recognise that it might be a good idea to link/unlink a specific pair of systems.[/list]
+
+[u]Is this mod save-game compatible?[/u]
+[list][*]Yes.
+[*]You can safely add this mod to a save game that was already in progress.
+[*]You can safely remove this mod from a save game without harming it - as long as none of this mod's megastructures are present in the galaxy. (Since this AI can't build them, you just need to ensure that all players have finished their hyperlane construction/removal.)
+[*]You can probably remove this mod at any time without harming a save game - even if this mod's megastructures are present. (The game should silently fix any errors during the load process.) However, this is not tested.[/list]
+
+[u]What are the restrictions on adding hyperlanes?[/u]
+[list][*]You need to own both systems, and there must not already be a hyperlane connecting them.
+[*]Yes, this means you can build a hyperlane between systems on opposite sides of the galaxy. However, this is visually ugly. Gateways are much cleaner![/list]
+
+[u]Can I use this mod to remove wormholes?[/u]
+[list][*]No.
+[*]However, the ability to manually close wormholes is very much on-theme - see the Inward Perfection example above.
+[*]So, I may add some kind of "wormhole disruption" in a future version, or as a submod. However, there is no timetable or ETA.[/list][/list]
+
+[h1]Suggested Companion Mods:[/h1]
+[list][*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1350762827]Hyperlane Isolator[/url] (for removing all of the hyperlanes in a system at once).[/list]
+
+[h1]Technical info / compatibility:[/h1]
+[list][*]This mod is not compatible with [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Khadgar's original mod[/url]. You should not try to run Stellaris with that mod active at the same time as this one.
+
+[*]This mod is CLEAN - no vanilla files are altered. Hence, it should be compatible with all other mods.[/list]
+
+[h1]Earlier versions / Beta versions:[/h1]
+[list][*]All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url] (eg. in case you want to revert to an earlier version)[/list]
+
+[h1]TL;DR:[/h1]
+[list][*]Tested version: 2.2.5
+[*]Required DLC: None
+[*]Ironman compatible: Yes
+[*]Achievement compatible: No[/list]
