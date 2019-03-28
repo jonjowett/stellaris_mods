@@ -69,14 +69,13 @@ cb_humiliation = {
 
 cb_ideology = {
 	show_in_diplomacy = yes
-	show_notification = yes
+	show_notification = no
 	potential = {
 		is_country_type = default
 		NOT = { has_ethic = ethic_gestalt_consciousness }
 	}
 	is_valid = {	
 		has_policy_flag = liberation_wars
-		is_neighbor_of = FROM
 		from = { is_country_type = default }
 		from = { NOT = { has_ethic = ethic_gestalt_consciousness } }
 		has_total_war_cb = no
@@ -176,14 +175,13 @@ cb_hunger = {
 }
 
 cb_despoliation = {
-	show_in_diplomacy = yes
-	show_notification = yes
+	show_in_diplomacy = no
+	show_notification = no
 	potential = {
 		is_country_type = default	
 		has_valid_civic = civic_barbaric_despoilers
 	}
 	is_valid = {
-		is_neighbor_of = from
 		has_total_war_cb = no
 		NOT = { is_overlord_to = FROM }
 		OR = {
@@ -194,15 +192,14 @@ cb_despoliation = {
 }
 
 cb_colossus = {
-	show_in_diplomacy = yes
-	show_notification = yes
+	show_in_diplomacy = no
+	show_notification = no
 	potential = {
 		is_country_type = default
 		has_technology = "tech_colossus"
 		has_policy_flag = unrestricted_wars
 	}
 	is_valid = {
-		is_neighbor_of = from
 		has_total_war_cb = no
 		any_owned_ship = { is_ship_size = colossus }
 		NOT = { is_overlord_to = FROM }
@@ -214,13 +211,12 @@ cb_colossus = {
 } 
 
 cb_stop_colossus = {
-	show_in_diplomacy = yes
-	show_notification = yes
+	show_in_diplomacy = no
+	show_notification = no
 	potential = {
 		is_country_type = default
 	}
 	is_valid = {
-		is_neighbor_of = from
 		has_total_war_cb = no
 		from = { is_country_type = default }
 		from = { any_owned_ship = { is_ship_size = colossus } }
@@ -265,7 +261,7 @@ cb_containment = {
 }
 
 cb_subject = {
-	show_in_diplomacy = yes
+	show_in_diplomacy = no
 	show_notification = no
 	potential = {
 		is_country_type = default

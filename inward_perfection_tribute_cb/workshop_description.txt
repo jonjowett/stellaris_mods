@@ -5,8 +5,7 @@ Specifically:
 [list][*] If you are IP and the war leader in a war, you are automatically granted the subjugation casus belli on the opposing war leader.
 [list][*] For example, if you are attacked, you will be given the subjugation CB a day or two later, which means you can pick the "tributary" war goal.[/list]
 
-[*] If you are IP and all other relevant conditions are met, you can demand tribute from other empires. If they say "no", you are granted the subjugation CB against them (as per the base game).
-[list][*] NB: Unlike other empires, you do not have to have unlocked domination traditions to take this action.[/list][/list]
+[*] If you are IP and all other relevant conditions are met, you can demand tribute from other empires. If they say "no", you are granted the subjugation CB against them (as per the base game).[/list]
 
 [h1]Known Issues:[/h1]
 
@@ -31,7 +30,7 @@ Specifically:
 [list][*] All of my mods are available on [url=https://github.com/jonjowett/stellaris_mods]Github[/url].[/list]
 
 [h1]TLDR:[/h1]
-[list][*] Tested version: 2.0.2
+[list][*] Tested version: 2.2.6
 [*] Required DLC: None
 [*] Ironman compatible: Yes
 [*] Achievement compatible: No[/list]

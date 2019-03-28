@@ -11,6 +11,10 @@ action_demand_tributary = {
 	should_notify_all_communications = yes
 	requires_recipient_independence = no
 	AI_acceptance_base_value = -50
+	
+	potential = {
+		NOT = { has_authority = auth_corporate }
+	}
 
 	possible = {
 		custom_tooltip = {
@@ -65,17 +69,14 @@ action_demand_tributary = {
 				}
 			}
 		}
-		custom_tooltip = {
-			fail_text = requires_domination_adopted
-			OR = {
-				has_subjugation_req = yes
-				has_valid_civic = civic_inwards_perfection
-			}
-		}
+		#Mod edit - remove the inward perfection lockout
+		#custom_tooltip = {
+		#	fail_text = "requires_actor_not_inward_perfection"
+		#	NOT = { has_valid_civic = civic_inwards_perfection }
+		#}
 	}
 
 	proposable = {
-		is_neighbor_of = from
 		relative_power = { who = from value >= superior }
 		custom_tooltip = grants_subjugation_cb
 	}
