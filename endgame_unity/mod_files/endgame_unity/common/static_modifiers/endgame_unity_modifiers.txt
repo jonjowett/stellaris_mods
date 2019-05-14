@@ -285,27 +285,27 @@ endgame_unity_geneticists_5 = {
 endgame_unity_roboticists_1 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 1
-	planet_jobs_robotic_produces_mult = 0.1
+	planet_pop_assembly_mult = 0.1
 }
 endgame_unity_roboticists_2 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 1
-	planet_jobs_robotic_produces_mult = 0.2
+	planet_pop_assembly_mult = 0.2
 }
 endgame_unity_roboticists_3 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 2
-	planet_jobs_robotic_produces_mult = 0.3
+	planet_pop_assembly_mult = 0.3
 }
 endgame_unity_roboticists_4 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 2
-	planet_jobs_robotic_produces_mult = 0.4
+	planet_pop_assembly_mult = 0.4
 }
 endgame_unity_roboticists_5 = {
 	icon = "gfx/interface/icons/modifiers/mod_pop_robot_upkeep_mult.dds"
 	ROBOT_species_trait_points_add = 3
-	planet_jobs_robotic_produces_mult = 0.5
+	planet_pop_assembly_mult = 0.5
 }
 
 
