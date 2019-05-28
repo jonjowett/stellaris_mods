@@ -76,34 +76,48 @@ country_event = {
 			if = {
 				limit = { species = { has_trait = trait_psionic } }
 				if = {
-					limit = { leader_class = ruler }
-					if = {
-						limit = { NOT = { has_trait = leader_trait_ruler_psionic } }
-						add_trait = leader_trait_ruler_psionic
+					limit = {
+						# We don't want to put the normal psychic trait back on the Chosen One (the traits are supposed to be mutually exclusive).
+						NOR = {
+							has_trait = leader_trait_ruler_chosen
+							has_trait = leader_trait_governor_chosen
+							has_trait = leader_trait_general_chosen
+							has_trait = leader_trait_admiral_chosen
+							has_trait = leader_trait_scientist_chosen
+						}
 					}
-					remove_trait = leader_trait_governor_psionic
-					remove_trait = leader_trait_general_psionic
-					remove_trait = leader_trait_admiral_psionic
-					remove_trait = leader_trait_scientist_psionic
-				}
-				else = {
-					remove_trait = leader_trait_ruler_psionic
-				}
-				if = {
-					limit = { AND = { leader_class = governor NOT = { has_trait = leader_trait_governor_psionic } } }
-					add_trait = leader_trait_governor_psionic
-				}
-				if = {
-					limit = { AND = { leader_class = general NOT = { has_trait = leader_trait_general_psionic } } }
-					add_trait = leader_trait_general_psionic
-				}
-				if = {
-					limit = { AND = { leader_class = admiral NOT = { has_trait = leader_trait_admiral_psionic } } }
-					add_trait = leader_trait_admiral_psionic
-				}
-				if = {
-					limit = { AND = { leader_class = scientist NOT = { has_trait = leader_trait_scientist_psionic } } }
-					add_trait = leader_trait_scientist_psionic
+					if = {
+						limit = { leader_class = ruler }
+						if = {
+							limit = {
+								NOT = { has_trait = leader_trait_ruler_psionic }
+							}
+							add_trait = leader_trait_ruler_psionic
+						}
+						remove_trait = leader_trait_governor_psionic
+						remove_trait = leader_trait_general_psionic
+						remove_trait = leader_trait_admiral_psionic
+						remove_trait = leader_trait_scientist_psionic
+					}
+					else = {
+						remove_trait = leader_trait_ruler_psionic
+					}
+					if = {
+						limit = { AND = { leader_class = governor NOT = { has_trait = leader_trait_governor_psionic } } }
+						add_trait = leader_trait_governor_psionic
+					}
+					if = {
+						limit = { AND = { leader_class = general NOT = { has_trait = leader_trait_general_psionic } } }
+						add_trait = leader_trait_general_psionic
+					}
+					if = {
+						limit = { AND = { leader_class = admiral NOT = { has_trait = leader_trait_admiral_psionic } } }
+						add_trait = leader_trait_admiral_psionic
+					}
+					if = {
+						limit = { AND = { leader_class = scientist NOT = { has_trait = leader_trait_scientist_psionic } } }
+						add_trait = leader_trait_scientist_psionic
+					}
 				}
 			}
 			if = {
