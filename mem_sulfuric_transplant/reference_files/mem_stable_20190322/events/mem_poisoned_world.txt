@@ -1,0 +1,78 @@
+
+namespace = mem_poisoned_world
+
+#Poisoned World -- Exodus
+#Idea and writing by shockedsystem
+#Code by LamilLerran
+ship_event = {
+	id = mem_poisoned_world.100
+	title = mem_poisoned_world.100.name
+	desc = mem_poisoned_world.100.desc
+	picture = GFX_evt_dead_city
+	location = FROM
+	is_triggered_only = yes
+	
+	immediate = { 
+		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
+		FROM = {
+			clear_deposits = yes
+		}
+	}
+	
+	option = {
+		name = mem_poisoned_world.100.a
+		FROM = {
+			add_deposit = d_physics_3
+		}
+	}
+}
+
+#Poisoned World -- Collective Insanity
+#Idea and writing by shockedsystem
+#Code by LamilLerran
+ship_event = {
+	id = mem_poisoned_world.101
+	title = mem_poisoned_world.101.name
+	desc = mem_poisoned_world.101.desc
+	picture = GFX_evt_city_ruins
+	location = FROM
+	is_triggered_only = yes
+	
+	immediate = { 
+		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
+	}
+	
+	option = {
+		name = mem_poisoned_world.101.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+		}
+	}
+}
+
+#Poisoned World Anomaly Failure
+#Idea and writing by shockedsystem
+#Code by LamilLerran
+ship_event = {
+	id = mem_poisoned_world.200
+	title = "mem_poisoned_world.200.name"
+	desc = "mem_poisoned_world.200.desc"
+	picture = GFX_evt_alien_nature
+	location = FROM
+	is_triggered_only = yes
+	
+	immediate = { 
+		this = { reduce_hp = 10 }
+		hidden_effect = { owner = { country_event = { id = story.3 days = 30 } } }
+	}
+	
+	option = {
+		name = "mem_poisoned_world.200.a"
+		custom_tooltip = "mem_poisoned_world.200.a.tooltip"
+	}
+}

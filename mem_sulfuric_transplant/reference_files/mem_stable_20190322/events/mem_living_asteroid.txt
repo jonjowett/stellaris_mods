@@ -1,0 +1,53 @@
+########################
+# Living Asteroid Anomaly
+# Code by Malthus
+# Text by Foremole
+########################
+
+namespace = mem_living_asteroid
+
+################################################################################
+################################################################################
+################################################################################
+ 
+ # Anomaly Success
+ship_event = {
+    id = mem_living_asteroid.1
+    title = "mem_living_asteroid.1.name"
+    desc = "mem_living_asteroid.1.desc"
+	picture = GFX_evt_microscopic_life
+	show_sound = event_ship_bridge
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			clear_deposits = yes
+		}
+		owner = { country_event = { id = story.2 days = 30 } }
+	}
+	
+	option = {
+		name = FASCINATING
+		FROM = {
+			add_deposit = d_society_3
+		}
+	}
+}
+
+# Anomaly Success
+ship_event = {
+    id = mem_living_asteroid.2
+    title = "mem_living_asteroid.2.name"
+    desc = "mem_living_asteroid.2.desc"
+	picture = GFX_evt_mining_station
+	show_sound = event_ship_bridge
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = UNFORTUNATE
+	}
+}

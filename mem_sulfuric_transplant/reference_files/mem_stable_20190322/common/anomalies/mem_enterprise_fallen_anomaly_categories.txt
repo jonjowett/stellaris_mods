@@ -1,0 +1,23 @@
+#############################
+# Enterprise of the Fallen
+# Anomaly Categories
+#############################
+
+# Ancient Ruins discovery (Tomb World only)
+mem_enterprise_fallen_category = {
+	picture = GFX_evt_ship_in_orbit
+	level = 3
+	max_once_global = yes
+
+	spawn_chance = {
+		modifier = {
+			add = 5
+			is_planet_class = pc_nuked
+		}        
+	}
+
+	on_spawn = {
+	}
+    
+	on_success = mem_enterprise_fallen.1
+}

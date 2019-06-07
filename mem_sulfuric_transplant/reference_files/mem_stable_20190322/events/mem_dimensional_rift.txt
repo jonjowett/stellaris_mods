@@ -1,0 +1,110 @@
+namespace = mem_dimensional_rift
+
+#Dimensional Rift Anomaly
+#Writing and idea by Lionheart
+#Code by LamilLerran
+ship_event = {
+	id = mem_dimensional_rift.7
+	title = "mem_dimensional_rift.7.name"
+	desc = "mem_dimensional_rift.7.desc"
+	picture = GFX_evt_outpost
+	location = FROM
+	is_triggered_only = yes
+	
+	option = {
+		name = "mem_dimensional_rift.7.a"
+		owner = {
+			add_modifier = { modifier = mem_powering_abandoned_station }
+			hidden_effect = { root = { ship_event = { id = mem_dimensional_rift.1 days = 3 random = 2 } } }
+			#TODO: Set a flag to keep the anomaly from spawning again?
+		}
+	}
+	option = {
+		name = "mem_dimensional_rift.7.b"
+	}
+}
+#Powered Up
+ship_event = {
+	id = mem_dimensional_rift.1
+	title = "mem_dimensional_rift.1.name"
+	desc = "mem_dimensional_rift.1.desc"
+	picture = GFX_evt_physics_research
+	location = FROMFROM
+	is_triggered_only = yes
+	
+	option = {
+		name = "mem_dimensional_rift.1.a"
+		enable_special_project = {
+			name = "MEM_DIMENSIONAL_RIFT_PROJECT"
+			location = FROMFROM
+		}
+	}
+	option = {
+		name = "mem_dimensional_rift.1.b"
+		owner = { 
+			remove_modifier = mem_powering_abandoned_station
+		}
+	}
+}
+
+#Records Accessed
+ship_event = {
+	id = mem_dimensional_rift.2
+	title = "mem_dimensional_rift.2.name"
+	desc = "mem_dimensional_rift.2.desc"
+	picture = GFX_evt_physics_research
+	location = FROM
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	option = {
+		name = "mem_dimensional_rift.2.a"
+		owner = { 
+			remove_modifier = mem_powering_abandoned_station
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+
+#Dimensional Rift Anomaly Failures
+#Writing by Lionheart
+#Code by LamilLerran
+ship_event = {
+	id = mem_dimensional_rift.105
+	title = "mem_dimensional_rift.105.name"
+	desc = "mem_dimensional_rift.105.desc"
+	picture = GFX_evt_mining_station
+	show_sound = event_default
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "mem_dimensional_rift.105.a"
+	}
+}
+
+ship_event = {
+	id = mem_dimensional_rift.106
+	title = "mem_dimensional_rift.106.name"
+	desc = "mem_dimensional_rift.106.desc"
+	picture = GFX_evt_exploding_ship
+	show_sound = event_ship_explosion
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	immediate = {
+			fleet = { kill_leader = {type = scientist show_notification = no} destroy_fleet = this}
+	}
+	
+	option = {
+		name = "mem_dimensional_rift.106.a"
+	}
+}

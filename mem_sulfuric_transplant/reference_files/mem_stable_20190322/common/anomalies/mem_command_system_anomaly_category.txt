@@ -1,0 +1,21 @@
+#Command System Anomaly
+#Writing and idea by ForeMole
+#Code by LamilLerran
+
+mem_command_system_category = {
+	picture = GFX_evt_nuclear_explosion
+	level = 3
+	max_once_global = yes
+	
+	spawn_chance = {
+		modifier = {
+			add = 5
+			is_planet_class = pc_nuked
+		}
+	}
+	
+	on_spawn = {
+	}
+	
+	on_success = mem_command_system.1
+}

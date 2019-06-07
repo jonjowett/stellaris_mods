@@ -1,0 +1,19 @@
+mem_giant_tank_army = {
+	damage = 3.5
+	health = 4.5
+	morale = 2.0
+	time = 90
+	has_species = no
+	icon_frame = 11
+	
+	resources = {
+		category = armies
+		upkeep = {
+			energy = 5
+		}
+	}
+	
+	potential = {
+		always = no
+	}
+}

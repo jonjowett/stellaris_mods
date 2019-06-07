@@ -1,0 +1,52 @@
+namespace = mem_asteroid_structure
+
+#Asteroid Structure Network
+#Idea and writing by shockedsystem
+#Code by asnys
+ship_event = {
+	id = mem_asteroid_structure.10
+	title = mem_asteroid_structure.10.name
+	desc = mem_asteroid_structure.10.desc
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_ship_bridge
+	location = root
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mem_asteroid_structure.10.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier3materialreward
+				min = @tier3materialmin
+				max = @tier3materialmax
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+		}
+	}
+}
+
+#TODO: Name conflict
+#Asteroid Structure Network
+#Idea and writing by shockedsystem
+#Code by asnys
+ship_event = {
+	id = mem_asteroid_structure.11
+	title = mem_asteroid_structure.11.name
+	desc = mem_asteroid_structure.11.desc
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_ship_bridge
+	location = root
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mem_asteroid_structure.11.a
+	}
+}

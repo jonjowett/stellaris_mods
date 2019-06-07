@@ -1,0 +1,602 @@
+#############################################
+# Eager Traders Event
+#
+# Code by Deltasquid
+#
+# Changes by Malthus: 	MTTH of 1 day seems to make problems in rare cases changed to 30 days
+#						added blank events that block the real ones from happening for one empire so it does not happen 100% of the time for the first fitting empire
+#						added country flag to prevent trader events from happening again if one has already happened - repetition kills the immersion
+#
+############################################
+
+namespace = mem_eager_traders
+
+#on_monthly_pulse
+event = {
+	id = mem_eager_traders.99
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_country = {
+			limit = {
+				is_ai = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NAND = {
+					has_country_flag = mem_eager_traders_happened1
+					has_country_flag = mem_eager_traders_happened2
+				}
+			}
+			
+			if = {
+				limit = {
+					NOT = { has_country_flag = mem_eager_traders_happened1 }
+					any_neighbor_country = {
+						has_ai_personality = ruthless_capitalists
+						NOT = { 
+							has_country_flag = mem_ruthless_capitalist_met_player
+						}
+						has_communications = prev
+					}
+				}
+				random_list = {
+					4 = { country_event = { id = mem_eager_traders.1 days = 10 random = 5 } }
+					3 = { country_event = { id = mem_eager_traders.7 days = 10 random = 5 } }
+				}					
+			}
+			
+			if = {
+				limit = {
+					NOT = { has_country_flag = mem_eager_traders_happened2 }
+					any_neighbor_country = {
+						has_ai_personality = peaceful_traders
+						NOT = {
+							has_country_flag = mem_peaceful_traders_met_player
+						} 
+						has_communications = prev
+					}
+				}
+				random_list = {
+					4 = { country_event = { id = mem_eager_traders.5 days = 10 random = 5 } }
+					3 = { country_event = { id = mem_eager_traders.8 days = 10 random = 5 } }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = mem_eager_traders.1
+	title = "mem_eager_traders.1.name"
+	desc = "mem_eager_traders.1.desc"
+	picture = GFX_evt_space_station
+	show_sound = event_ship_thrusters
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = no
+		NOT = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		NOT = {
+			has_country_flag = mem_eager_traders_happened1
+		}
+		any_neighbor_country = {
+    		has_ai_personality = ruthless_capitalists
+			NOT = { 
+				has_country_flag = mem_ruthless_capitalist_met_player
+			}
+			has_communications = ROOT
+		}
+	}
+	
+	immediate = {
+		set_country_flag = mem_eager_traders_happened1
+		random_neighbor_country = {
+			limit = {
+				has_ai_personality = ruthless_capitalists
+				NOT = { 
+					has_country_flag = mem_ruthless_capitalist_met_player
+				}
+			}
+			set_country_flag = mem_ruthless_capitalist_met_player
+			save_event_target_as = ruthcap
+		}
+	}
+	
+	option = {
+		name = mem_eager_traders.1.xenophile
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		event_target:ruthcap = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_allowed_merchant_access
+			}
+		}				
+		hidden_effect = { 
+			If = { 
+				limit = { 
+					OR = {
+						has_ethic = ethic_spiritualist
+						has_ethic = ethic_fanatic_spiritualist
+					}
+				}
+				country_event = { id = mem_eager_traders.4 days = 75 random = 15 }
+			}
+			ELSE = {
+				country_event = { id = mem_eager_traders.2 days = 75 random = 15 } 
+			}
+		}
+	}
+	
+	option = {
+		name = mem_eager_traders.1.individualist
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		event_target:ruthcap = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_allowed_merchant_access
+			}
+		}
+		hidden_effect = { 
+			If = { 
+				limit = { 
+					OR = { 
+						has_ethic = ethic_spiritualist
+						has_ethic = ethic_fanatic_spiritualist
+					} 
+				}
+				country_event = { id = mem_eager_traders.4 days = 75 random = 15 }
+			}
+			ELSE = {
+				country_event = { id = mem_eager_traders.2 days = 75 random = 15 } 
+			}
+		}
+	}
+	
+	option = {
+		name = mem_eager_traders.1.fanindividualist
+		trigger = {
+			OR = {
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_egalitarian
+			}
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist			
+			}
+		}
+		event_target:ruthcap = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_allowed_merchant_access
+			}
+		}
+		hidden_effect = { 
+			country_event = { id = mem_eager_traders.3 days = 75 random = 15 } 
+		}		
+	}
+	
+	option = {
+		name = mem_eager_traders.1.xenophobe
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		event_target:ruthcap = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_refused_merchant_access
+			}
+		}
+	}	
+	
+	option = {
+		name = mem_eager_traders.1.resigned
+		event_target:ruthcap = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_allowed_merchant_access
+			}
+		}
+		hidden_effect = { 
+			If = { 
+				limit = { 
+					OR = { 
+						has_ethic = ethic_spiritualist
+						has_ethic = ethic_fanatic_spiritualist
+					 } 
+				}
+				country_event = { id = mem_eager_traders.4 days = 75 random = 15 }
+			}
+			ELSE = {
+				country_event = { id = mem_eager_traders.2 days = 75 random = 15 } 
+			}
+		}
+	}
+}
+
+country_event = {
+	id = mem_eager_traders.2
+	title = "mem_eager_traders.2.name"
+	desc = "mem_eager_traders.2.desc"
+	picture = GFX_evt_space_station
+	show_sound = event_ship_thrusters 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mem_eager_traders.2.annoyed
+		add_modifier = {
+			modifier = mem_busted_economy
+			days = 1800
+		}
+	}
+	
+	option = {
+		trigger = {
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		name = mem_eager_traders.2.fascinated
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier1researchreward
+			min = @tier1researchmin
+			max = @tier1researchmax
+		}
+		add_modifier = {
+			modifier = mem_busted_economy
+			days = 1800
+		}
+	}
+}
+
+country_event = {
+	id = mem_eager_traders.3
+	title = "mem_eager_traders.3.name"
+	desc = "mem_eager_traders.3.desc"
+	picture = GFX_evt_space_station
+	show_sound = event_ship_thrusters
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ASTOUNDING
+		event_target:ruthcap = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_mutual_scam
+			}
+		}
+	}
+}
+
+country_event = {
+	id = mem_eager_traders.4
+	title = "mem_eager_traders.4.name"
+	desc = "mem_eager_traders.4.desc"
+	picture = GFX_evt_space_station
+	show_sound = event_ship_thrusters 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mem_eager_traders.4.option
+	}
+}
+
+country_event = {
+	id = mem_eager_traders.5
+	title = "mem_eager_traders.5.name"
+	desc = "mem_eager_traders.5.desc"
+	picture = GFX_evt_big_landing_ship
+	show_sound = event_ship_thrusters
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		NOT = {
+			has_country_flag = mem_eager_traders_happened2
+		}
+		any_neighbor_country = {
+    		has_ai_personality = peaceful_traders
+			NOT = {
+				has_country_flag = mem_peaceful_traders_met_player
+			} 
+			has_communications = ROOT
+		}
+	}
+	
+	immediate = {
+		set_country_flag = mem_eager_traders_happened2
+		random_neighbor_country = {
+			limit = {
+				has_ai_personality = peaceful_traders
+				NOT = { 
+					has_country_flag = mem_peaceful_traders_met_player
+				}
+			}
+			set_country_flag = mem_peaceful_traders_met_player
+			save_event_target_as = peacefultraders
+		}
+	}
+	
+	option = {
+		name = mem_eager_traders.5.xenophile
+		custom_tooltip = mem_eager_traders.5.xenophile.tooltip
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		hidden_effect = {
+			every_owned_pop = {
+				limit = { 
+					OR = {
+						has_ethic = ethic_xenophile
+					}
+				}
+				add_modifier = {
+					modifier = mem_pleased_by_custom_event
+					days = 360
+				}
+			}
+			every_owned_pop = {
+				limit = { 
+					OR = {
+						has_ethic = ethic_xenophobe
+					}
+				}
+				add_modifier = {
+					modifier = mem_displeased_by_custom_event
+					days = 360
+				}
+			}
+		}
+		event_target:peacefultraders = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_allowed_merchant_access
+			}
+		}
+	}
+	
+	option = {
+		name = mem_eager_traders.5.xenophobe
+		custom_tooltip = mem_eager_traders.5.xenophobe.tooltip
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		hidden_effect = {
+			every_owned_pop = {
+				limit = { 
+					OR = {
+						has_ethic = ethic_xenophobe
+					}
+				}
+				add_modifier = {
+					modifier = mem_pleased_by_custom_event
+					days = 360
+				}
+			}
+			every_owned_pop = {
+				limit = { 
+					OR = {
+						has_ethic = ethic_xenophile
+						has_ethic = ethic_materialist
+					}
+				}
+			}
+			add_modifier = {
+				modifier = mem_displeased_by_custom_event
+				days = 360
+			}
+		}
+		event_target:peacefultraders = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_refused_merchant_access
+			}
+		}
+	}	
+	
+	option = {
+		name = mem_eager_traders.5.individualist
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		add_modifier = {
+			modifier = mem_booming_economy
+			days = 1800
+		}
+		event_target:peacefultraders = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_allowed_merchant_access
+			}
+			add_modifier = {
+				modifier = mem_booming_economy
+				days = 1800
+			}
+		}
+	}
+	
+	option = {
+		name = mem_eager_traders.5.mercenary
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+			OR = { 
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		event_target:peacefultraders = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_allowed_merchant_access
+			}
+		}
+		hidden_effect = { 
+			country_event = { id = mem_eager_traders.6 days = 600 random = 100 }
+		}
+	}
+	
+	option = {
+		name = mem_eager_traders.5.peaceful
+		trigger = {
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		event_target:peacefultraders = {	
+			add_opinion_modifier = {
+				who = ROOT
+				modifier = mem_opinion_peaceful_trade
+			}
+		}
+		add_opinion_modifier = {
+			who = event_target:peacefultraders
+			modifier = mem_opinion_peaceful_trade
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		trigger = {
+			NOR = {
+				AND = {
+					OR = {
+						has_ethic = ethic_militarist
+						has_ethic = ethic_fanatic_militarist
+					}
+					OR = { 
+						has_ethic = ethic_egalitarian
+						has_ethic = ethic_fanatic_egalitarian
+					}
+				}
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+	}
+}
+
+country_event = {
+	id = mem_eager_traders.6
+	title = "mem_eager_traders.6.name"
+	desc = "mem_eager_traders.6.desc"
+	picture = GFX_evt_smugglers_in_bar
+	show_sound = event_conversation
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mem_eager_traders.6.good
+		add_resource = {
+			influence = 50
+		}
+		add_monthly_resource_mult = {
+			resource = energy
+			value = @tier2materialreward
+			min = @tier2materialmin
+			max = @tier2materialmax
+		}
+	}
+}
+
+# blank event to prevent traders event for one fitting empire
+country_event = {
+	id = mem_eager_traders.7
+	hide_window = yes
+	
+	trigger = {
+		is_ai = no
+		any_neighbor_country = {
+    		has_ai_personality = ruthless_capitalists
+			NOT = { 
+				has_country_flag = mem_ruthless_capitalist_met_player
+			}
+			has_communications = ROOT
+		}
+	}
+
+	is_triggered_only = yes
+	
+	immediate = {
+		random_neighbor_country = {
+			limit = {
+				has_ai_personality = ruthless_capitalists
+				NOT = { 
+					has_country_flag = mem_ruthless_capitalist_met_player
+				}
+			}
+			set_country_flag = mem_ruthless_capitalist_met_player
+		}
+	}
+}
+
+# blank event to prevent traders event for one fitting empire
+country_event = {
+	id = mem_eager_traders.8
+	hide_window = yes
+	
+	trigger = {
+		is_ai = no
+		any_neighbor_country = {
+    		has_ai_personality = peaceful_traders
+			NOT = {
+				has_country_flag = mem_peaceful_traders_met_player
+			} 
+			has_communications = ROOT
+		}
+	}
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = mem_eager_traders_happened
+		random_neighbor_country = {
+			limit = {
+				has_ai_personality = peaceful_traders
+				NOT = { 
+					has_country_flag = mem_peaceful_traders_met_player
+				}
+			}
+			set_country_flag = mem_peaceful_traders_met_player
+		}
+	}
+}

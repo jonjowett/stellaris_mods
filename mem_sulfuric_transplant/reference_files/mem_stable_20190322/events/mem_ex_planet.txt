@@ -1,0 +1,139 @@
+namespace = mem_ex_planet
+
+#####################################
+# Ex-Planet Project
+#####################################
+
+# This = construction ship
+# From = planet it is built on
+# Fires when construction is complete,
+# immediately before station is created
+ship_event = {
+	id = mem_ex_planet.1
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		from = {
+			has_modifier = ex_planet
+			NOT = {
+				has_planet_flag = mem_ex_planet_event_open
+			}
+			space_owner = {
+				NOT = {
+					has_country_flag = mem_ex_planet_event_fired
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		from = {
+			planet_event = { id = mem_ex_planet.300 days = 360 random = 180 } #did this because originally had a 1 year mtth
+		}
+	}
+}
+
+planet_event = {
+	id = mem_ex_planet.300
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_modifier = ex_planet
+		has_mining_station = yes
+		NOT = {
+			has_planet_flag = mem_ex_planet_event_open
+		}
+		space_owner = {
+			NOT = {
+				has_country_flag = mem_ex_planet_event_fired
+			}
+		}
+	}
+	
+	immediate = {
+		set_planet_flag = mem_ex_planet_event_open
+		space_owner = {
+			country_event = { id = mem_ex_planet.301 }
+		}
+	}
+}
+
+country_event = {
+	id = mem_ex_planet.301
+	title = mem_ex_planet.301.title
+	desc = mem_ex_planet.301.desc
+	picture = GFX_evt_mining_station
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	immediate = {
+		random_planet = {
+			limit = {
+				has_planet_flag = mem_ex_planet_event_open
+				space_owner = {
+					is_country = root
+				}
+			}
+			save_event_target_as = mem_ex_planet
+		}
+		set_country_flag = mem_ex_planet_event_fired
+	}
+	
+	option = { # Do it
+		name = mem_ex_planet.301.a
+		enable_special_project = {
+			name = MEM_EX_PLANET_PROJECT
+			location = event_target:mem_ex_planet
+			owner = root
+		}
+	}
+	
+	option = { # Forget it
+		name = mem_ex_planet.301.b
+	}
+}
+
+ship_event = {
+	id = mem_ex_planet.302
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = {
+			country_event = { id = mem_ex_planet.303 }
+		}
+	}
+}
+
+country_event = {
+	id = mem_ex_planet.303
+	title = mem_ex_planet.303.title
+	desc = mem_ex_planet.303.desc
+	picture = GFX_evt_mining_station
+	show_sound = event_scanner
+	is_triggered_only = yes
+	
+	immediate = {
+		random_planet = {
+			limit = {
+				has_planet_flag = mem_ex_planet_event_open
+				space_owner = {
+					is_country = root
+				}
+			}
+			remove_planet_flag = mem_ex_planet_event_open
+			save_event_target_as = mem_ex_planet
+		}
+	}
+	
+	option = {
+		name = mem_ex_planet.303.a
+		event_target:mem_ex_planet = {
+			add_deposit = d_society_8
+		}
+	}
+}  

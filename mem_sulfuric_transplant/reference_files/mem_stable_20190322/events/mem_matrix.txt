@@ -1,0 +1,122 @@
+########################
+# Tomb World Matrix
+# by Malthus
+########################
+
+namespace = mem_matrix
+
+################################################################################
+################################################################################
+################################################################################
+
+# Matrix Anomaly Success
+
+ship_event = {
+	id = mem_matrix.1
+	title = mem_matrix.1.name
+    desc = mem_matrix.1.desc
+    picture = GFX_evt_sapient_AI
+	is_triggered_only = yes
+	location = FROM
+    
+	immediate = {
+		FROM = {
+			set_planet_flag = mem_nuke_war_site # This is used in the Tomb World Survey Quest, to make sure we're consistent about how the planet died
+			set_planet_flag = mem_matrix_site
+		}
+		owner = { set_country_flag = mem_matrix_finder }
+	}
+
+    option = {
+        name = mem_matrix.1.a
+        FROM = {
+        	enable_special_project = {
+        		name = MEM_MATRIX_INVESTIGATION
+        		location = this
+        		owner = root.owner
+        	}
+        }
+    }
+}
+
+# Matrix Anomaly Failure
+
+ship_event = {
+    id = mem_matrix.2
+    title = mem_matrix.2.name
+    desc = mem_matrix.2.desc
+    picture = GFX_evt_dead_city
+    location = FROM
+    
+    is_triggered_only = yes
+
+    option = {
+        name = mem_matrix.2.a
+    }
+}
+
+# Matrix Anomaly Critical Failure
+
+ship_event = {
+    id = mem_matrix.3
+    title = mem_matrix.3.name
+    desc = mem_matrix.3.desc
+    picture = GFX_evt_dead_city
+    location = FROM
+    
+    is_triggered_only = yes
+	
+    option = {
+        name = mem_matrix.3.a
+		
+		hidden_effect = {
+			kill_leader = { show_notification = no }
+		}
+    }
+}
+
+# Randomize the Project Outcome
+
+ship_event = {
+	id = mem_matrix.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		ship_event = { id = mem_matrix.5 }
+	}
+}
+
+# Get the building and some research 
+
+ship_event = {
+    id = mem_matrix.5
+    title = mem_matrix.5.name
+    desc = mem_matrix.5.desc
+    picture = GFX_evt_sapient_AI
+    location = FROM
+	
+	is_triggered_only = yes
+	
+	# Place Matrix Building
+	immediate = {
+    	random_planet = {
+    		limit = {
+    			has_planet_flag = mem_matrix_site
+    		}
+			add_deposit = d_mem_matrix
+		}
+	}
+	option = {
+        name = mem_matrix.5.a
+		owner = { 
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+		}
+    }
+}
+	

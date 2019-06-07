@@ -1,0 +1,21 @@
+#Abandoned Mecha
+#Idea and writing by ForeDaMole
+#Code by LamilLerran
+
+mem_abandoned_mecha_category = {
+	picture = GFX_evt_city_ruins
+	level = 4
+	max_once_global = yes
+	
+	spawn_chance = {
+		modifier = {
+			is_planet_class = pc_nuked
+			add = 5
+		}
+	}
+	
+	on_spawn = {
+	}
+	
+	on_success = mem_abandoned_mecha.10
+}

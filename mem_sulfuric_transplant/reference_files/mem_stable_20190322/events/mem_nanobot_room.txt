@@ -1,0 +1,125 @@
+namespace = mem_nanobot_room
+
+# Idea by Tzerrell
+# Writing and Code by Rahorus
+# Anomaly Event
+
+ship_event = {
+	id = mem_nanobot_room.1
+	title = mem_nanobot_room.1.name
+	desc = mem_nanobot_room.1.desc
+	picture = GFX_evt_mining_operations
+	show_sound = event_construction
+	location = FROM 
+	
+	is_triggered_only = yes 
+	
+	immediate = {
+		FROM = {
+			clear_deposits = yes
+		}
+	}
+	
+	
+	option = {
+		name = mem_nanobot_room.1.a
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_materialist
+				}
+			}
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier2materialreward
+				min = @tier2materialmin
+				max = @tier2materialmax
+			}
+		}
+	}
+	
+	option = {
+		name = mem_nanobot_room.1.mat
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_materialist
+				}
+			}
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier2materialreward
+				min = @tier2materialmin
+				max = @tier2materialmax
+			}
+		}
+		FROM = {
+			add_deposit = d_minerals_4
+		}
+	}
+
+	after = {
+		owner = { pop_lcluster_event = yes }
+	}
+}
+
+# Anomaly Fail
+
+ship_event = {
+	id = mem_nanobot_room.10
+	title = mem_nanobot_room.10.name
+	desc = mem_nanobot_room.10.desc
+	picture = GFX_evt_landing_ship
+	show_sound = event_ship_thrusters
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			clear_deposits = yes
+		}
+	}
+	
+	option = {
+		name = mem_nanobot_room.10.a 
+	}
+}
+
+# Anomaly Epic Fail
+
+ship_event = {
+	id = mem_nanobot_room.20
+	title = mem_nanobot_room.20.name
+	desc = mem_nanobot_room.20.desc
+	picture = GFX_evt_exploding_ship
+	show_sound = event_ship_explosion
+	location = FROMFROM
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			clear_deposits = yes
+		}
+	}
+	
+	option = {
+		name = mem_nanobot_room.20.a 
+		ROOT = {
+			fleet = {
+				kill_leader = {
+					type = scientist
+					show_notification = no
+				}
+				destroy_fleet = this
+			}
+		}
+	}
+}

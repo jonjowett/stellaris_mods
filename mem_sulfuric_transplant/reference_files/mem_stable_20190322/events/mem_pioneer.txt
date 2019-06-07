@@ -1,0 +1,209 @@
+# Pioneer Anomaly aka Possible Small Craft anomaly
+# Idea and Writing by ViolentBeetle
+# Coding by Rahorus and ViolentBeetle
+
+namespace = mem_pioneer
+
+#Pioneer
+ship_event = {
+	id = mem_pioneer.1
+	title = mem_pioneer.1.name
+	desc = mem_pioneer.1.desc
+	picture = GFX_evt_star_yellow
+	location = FROM 
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = mem_pioneer.1.a 
+		trigger = { 
+			owner = {
+				NOR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_xenophobe
+				}
+			}
+		}
+	}
+	
+	option = { 
+		name = mem_pioneer.1.b 
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophile
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = mem_pioneer.1.c
+		trigger = { 
+			owner = { 
+				OR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_xenophobe
+				}
+			}
+		}
+	}
+	
+	after = {
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3influencemin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+#Cargo ship
+ship_event = {
+	id = mem_pioneer.2
+	title = mem_pioneer.2.name
+	desc = mem_pioneer.2.desc
+	picture = GFX_evt_star_yellow
+	location = FROM 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = INTERESTING
+		
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3influencemin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+#Military craft
+ship_event = {
+	id = mem_pioneer.3
+	title = mem_pioneer.3.name
+	desc = mem_pioneer.3.desc
+	picture = GFX_evt_star_yellow
+	location = FROM 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = INTERESTING
+		
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3influencemin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+#Life pod
+ship_event = {
+	id = mem_pioneer.4
+	title = mem_pioneer.4.name
+	desc = mem_pioneer.4.desc
+	picture = GFX_evt_star_yellow
+	location = FROM 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = INTERESTING
+		
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_xenophobe
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = mem_pioneer.4.a
+		
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+	}
+	
+	after = {
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3influencemin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+#Individual travel machine
+ship_event = {
+	id = mem_pioneer.5
+	title = mem_pioneer.5.name
+	desc = mem_pioneer.5.desc
+	picture = GFX_evt_star_yellow
+	location = FROM 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mem_pioneer.5.a
+		
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3influencemin
+				max = @tier3researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3influencemin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Pioneer Anomaly Fail
+
+ship_event = {
+	id = mem_pioneer.99
+	title = mem_pioneer.99.name 
+	desc = mem_pioneer.99.desc
+	picture = GFX_evt_star_yellow
+	show_sound = event_default
+	location = FROM 
+	
+	is_triggered_only = yes 
+
+	option = {
+		name = UNFORTUNATE
+	}
+}
+	

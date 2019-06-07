@@ -1,0 +1,300 @@
+@graceperiod = 9000
+
+mem_lunar_age_system = {
+	#name = "HERE BE PRIMITIVES, DELETE LATER"
+	class = "rl_standard_stars"
+	
+	usage = misc_system_init
+	usage_odds = 1000
+	primitive_system = yes
+	max_instances = 1
+	scaled_spawn_chance = 8
+	
+	flags = { mem_lunar_age_system primitive_system }
+	
+	planet = {
+		class = star
+		orbit_distance = 0
+	}
+	
+	change_orbit = 40
+	
+	planet = {
+		count = { min = 1 max = 4 }
+		orbit_distance = 25
+		class = random_non_colonizable
+
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 10
+			class = random_non_colonizable
+		}
+	}
+	
+	planet = {
+		orbit_distance = 30
+		class = rl_habitable_normal
+		size = 18
+		
+		flags = { mem_lunar_age_planet }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			
+			create_species = {
+				name = random
+				class = random_non_machine
+				portrait = random
+				homeworld = THIS
+				traits = {
+					trait = random_traits
+				}
+			}
+			
+			last_created_species = {
+				save_event_target_as = lunar_species
+			}
+			
+			create_country = {
+				name = random
+				ethos = random
+				authority = random
+				civics = {
+					civic = civic_mem_colonial_greed
+					civic = civic_atmospheric_pollution
+				}
+				species = last_created_species
+				
+				
+				flag = {
+					icon ={ 
+						category = "blocky"
+						file = "flag_blocky_4.dds"
+					}
+					background = {
+						category = "backgrounds"
+						file = "new_dawn.dds"
+					}
+					colors = {
+						"dark_blue"
+						"green"
+						"null"
+						"null"
+					}
+				}
+				type = primitive
+			}
+			last_created_country = {
+				set_country_flag = mem_lunar_age
+				set_primitive_age = mem_lunar_age
+				set_country_flag = mem_use_custom_primitive_buildings
+				save_event_target_as = home_world	
+			}
+			set_owner = event_target:home_world
+			while = {
+				count = 28
+				create_pop = { species = event_target:home_world }
+			}
+			remove_building = building_colony_shelter
+			add_building = building_mem_primitive_capital
+			add_building = building_mem_urban_dwellings
+			add_building = building_mem_lunar_age_elevator
+			add_building = building_mem_primitive_factory
+			add_building = building_mem_primitive_mine
+			add_building = building_mem_primitive_power_plant
+			add_building = building_mem_primitive_farm
+		}
+		
+		moon = {
+			orbit_distance = 15
+			class = rl_habitable_normal
+			size = 10
+			
+			flags = { mem_lunar_age_moon }
+			
+			init_effect = {
+				prevent_anomaly = yes
+				
+				create_country = {
+					name = random
+					ethos = event_target:home_world
+					authority = random
+					civics = {
+						civic = civic_mem_colonial_administration
+						civic = civic_mem_land_of_opportunity
+					}
+					species = last_created_species
+					
+					
+					flag = {
+						icon = {
+							category = "blocky"
+							file = "flag_blocky_8.dds"
+						}
+						background = {
+							category = "backgrounds"
+							file = "v.dds"
+						}
+						colors = {
+							"red"
+							"dark_brown"
+							"null"
+							"null"
+						}
+					}
+					type = primitive
+				}
+
+				last_created_country = {				
+					set_country_flag = mem_lunar_age_colony
+					set_primitive_age = mem_lunar_age_colony
+					set_country_flag = mem_use_custom_primitive_buildings
+					random_list = {
+						25 = {  }
+						5 = { shift_ethic = ethic_xenophobe }
+						5 = { shift_ethic = ethic_xenophile }
+						5 = { shift_ethic = ethic_pacifist }
+						5 = { shift_ethic = ethic_militarist }
+						5 = { shift_ethic = ethic_materialist }
+						5 = { shift_ethic = ethic_spiritualist }
+					}
+				}
+				set_owner = last_created_country
+				set_capital = yes
+
+				last_created_country = {
+					prev = {
+						while = {
+							count = 15
+							create_pop = {
+								species = last_created
+							}					
+						}
+						add_building = building_mem_lunar_age_colonial_administration
+						add_building = building_mem_lunar_age_colonial_housing
+						add_building = building_mem_primitive_farm
+						add_building = building_mem_primitive_mine
+						remove_building = building_colony_shelter
+					}
+				}
+				
+				IF = {
+					limit = {
+						owner = {
+							OR = {
+								ideal_planet_class = pc_arid
+								ideal_planet_class = pc_savannah
+								ideal_planet_class = pc_desert
+							}
+						}
+					}
+					random_list = {
+						33 = { change_pc = pc_arid }
+						33 = { change_pc = pc_savannah }
+						33 = { change_pc = pc_desert }
+					}
+				}
+				
+				IF = {
+					limit = {
+						owner = {
+							OR = {
+								ideal_planet_class = pc_ocean
+								ideal_planet_class = pc_continental
+								ideal_planet_class = pc_tropical
+							}
+						}
+					}
+					random_list = {
+						33 = { change_pc = pc_ocean }
+						33 = { change_pc = pc_continental }
+						33 = { change_pc = pc_tropical }
+					}
+				}
+				
+				IF = {
+					limit = {
+						owner = {
+							OR = {
+								ideal_planet_class = pc_tundra
+								ideal_planet_class = pc_arctic
+								ideal_planet_class = pc_alpine
+							}
+						}
+					}
+					random_list = {
+						33 = { change_pc = pc_tundra }
+						33 = { change_pc = pc_arctic }
+						33 = { change_pc = pc_alpine }
+					}
+				}
+
+
+				create_primitive_blockers = yes
+				
+#				while = { #pop jobs
+#					count = 3
+#					create_army = {
+#						name = "NAME_mem_colonial_corps"
+#						owner = last_created
+#						species = last_created
+#						type = "postatomic_army"
+#					}
+#				}
+			}
+		}
+	}
+	
+	change_orbit = 10
+	
+	planet = {
+		orbit_distance = 30
+		class = pc_gas_giant
+		size = { min = 20 max = 25 }
+		count = { min = 1 max = 2 }
+		
+		change_orbit = 5
+		
+		moon = {
+			orbit_distance = 5
+			class = pc_toxic
+			size = { min = 5 max = 7 }
+			count = { min = 0 max = 1 }
+		}
+		
+		moon = {
+			orbit_distance = 5
+			class = pc_barren_cold
+			size = { min = 5 max = 7 }
+			count = { min = 0 max = 1 }
+		}
+		
+		moon = {
+			orbit_distance = 5
+			class = pc_frozen
+			size = { min = 5 max = 7 }
+			count = { min = 0 max = 1 }
+		}
+	}
+	
+	planet = {
+		orbit_distance = 20
+		class = pc_frozen
+		size = { min = 12 max = 20 }
+		count = { min = 0 max = 1 }
+		
+		moon = {
+			orbit_distance = { min = 5 max = 7 }
+			class = pc_frozen
+			size = { min = 5 max = 10 }
+			count = { min = 0 max = 1 }
+		}
+	}
+	
+	init_effect = {
+		set_timed_global_flag = {
+			flag = mem_lunar_age_grace_period
+			days = @graceperiod
+		}
+	}
+}

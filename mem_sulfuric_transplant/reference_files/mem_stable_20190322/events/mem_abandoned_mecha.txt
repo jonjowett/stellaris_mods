@@ -1,0 +1,44 @@
+namespace = mem_abandoned_mecha
+
+#Abandoned Mecha
+#Idea and writing by ForeDaMole
+#Code by LamilLerran
+
+ship_event = {
+	id = mem_abandoned_mecha.10
+	title = mem_abandoned_mecha.10.name
+	desc = mem_abandoned_mecha.10.desc
+	picture = GFX_evt_mem_mecha
+	location = root
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
+	}
+	
+	option = {
+		name = INTERESTING
+		FROM = { 
+			add_deposit = d_mem_abandoned_mecha
+		}
+	}
+}
+
+ship_event = {
+	id = mem_abandoned_mecha.20
+	title = mem_abandoned_mecha.20.name
+	desc = mem_abandoned_mecha.20.desc
+	picture = GFX_evt_ancient_alien_temple
+	location = root
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
+	}
+	
+	option = {
+		name = mem_abandoned_mecha.20.a
+	}
+}

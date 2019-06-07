@@ -1,0 +1,85 @@
+# Robot Armies
+mem_super_robot_army = {
+	has_species = no
+	damage = 2.5
+	health = 4.5
+	has_morale = no
+	morale_damage = 1.5
+	collateral_damage = 2.0
+	war_exhaustion = 0.5
+	time = 90
+
+	icon_frame = 4
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 350
+			energy = 50
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	potential = {
+		custom_tooltip = {
+			text = mem_super_robot_army_limit_tooltip
+			planet = {
+				has_deposit = d_mem_ancient_robots_factory
+			}
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = mem_super_robot_army_limit_tooltip
+			planet = {
+				has_deposit = d_mem_ancient_robots_factory
+			}
+			owner = {
+				NOT = { 
+					 check_variable = {
+						which = "mem_super_robot_army_count" 
+						value = 4
+					}
+				}
+			}
+		}
+	}
+	
+	on_queued = {
+		owner = {
+			change_variable = {
+				which = "mem_super_robot_army_count" 
+				value = 1
+			}
+		}
+	}
+	
+	on_unqueued = {
+		owner = {
+			change_variable = {
+				which = "mem_super_robot_army_count" 
+				value = -1
+			}
+		}
+	}
+}
+
+# Defensive Army
+mem_evil_robot_army = {
+	defensive = yes
+	has_species = no
+	damage = 2.0
+	health = 3.0
+	has_morale = no
+	morale_damage = 1.5
+
+	icon_frame = 4
+	
+	potential = {
+		always = no
+	}
+}

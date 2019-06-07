@@ -1,0 +1,43 @@
+namespace = mem_command_system
+
+#Command System Anomaly
+#Writing and idea by ForeMole
+#Code by LamilLerran
+ship_event = {
+	id = mem_command_system.1
+	title = "mem_command_system.1.name"
+	desc = "mem_command_system.1.desc"
+	picture = GFX_evt_nuclear_explosion
+	location = FROM
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = FASCINATING
+		from = {
+			add_deposit = d_mem_command_system
+		}
+	}
+}
+
+#Command System Anomaly Failure
+#Writing and idea by ForeMole
+#Code by LamilLerran
+ship_event = {
+	id = mem_command_system.100
+	title = "mem_command_system.100.name"
+	desc = "mem_command_system.100.desc"
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_default
+	location = FROM
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "mem_command_system.100.a"
+		#leader = { add_trait = leader_trait_careful } trait has been outcommented with the anomaly change
+	}
+}

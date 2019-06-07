@@ -1,0 +1,22 @@
+########################
+# Tomb World Matrix
+# by Malthus
+########################
+# Ancient Structures Discovery (Tomb World only)
+mem_matrix_category = {
+	picture = GFX_evt_dead_city
+	level = 5
+	max_once_global = yes
+
+	spawn_chance = {
+		modifier = {
+			add = 5
+			is_planet_class = pc_nuked
+		}
+	}
+	
+	on_spawn = {
+	}
+
+	on_success = mem_matrix.1
+}

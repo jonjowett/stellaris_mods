@@ -1,0 +1,30 @@
+decision_mem_sulfuric_transplant_uproot = {
+	owned_planets_only = yes
+	sound = event_alien_nature
+	icon = default
+	
+	resources = {
+		category = decisions
+		#cost = {
+		#	energy = 2000
+		#	influence = 50
+		#}
+	}
+	
+	potential = {
+		has_deposit = d_mem_towers_sulfuric_forest
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	effect = {
+		remove_deposit = d_mem_towers_sulfuric_forest
+		owner = { remove_country_flag = mem_towers_forest_planted }
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
