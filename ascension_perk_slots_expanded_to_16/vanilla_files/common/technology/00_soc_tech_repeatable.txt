@@ -86,7 +86,7 @@ tech_repeatable_improved_core_system_cap = {
 	}
 	
 	modifier = {
-		country_admin_cap_add = 10
+		country_admin_cap_add = 15
 	}
 }
 

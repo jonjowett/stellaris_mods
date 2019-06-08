@@ -43,13 +43,6 @@ tech_space_trading = {
 	
 	weight_modifier = {
 		modifier = {
-			factor = 10
-			OR = {
-				has_technology = tech_mine_rare_crystals
-				has_technology = tech_rare_crystals
-			}
-		}
-		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = society
@@ -89,6 +82,14 @@ tech_interstellar_economics = {
 	
 	weight_modifier = {
 		factor = 2
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = tech_mine_rare_crystals
+				has_technology = tech_rare_crystals
+				has_country_flag = has_market_access
+			}
+		}
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -144,6 +145,10 @@ tech_galactic_markets = {
 					has_trait = "leader_trait_curator"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -212,7 +217,7 @@ tech_eco_simulation = {
 	weight = @tier1weight1
 	
 	modifier = {
-		planet_farmers_food_produces_mult = 0.1
+		planet_farmers_food_produces_mult = 0.2
 	}
 	
 	weight_modifier = {
@@ -266,15 +271,15 @@ tech_eco_simulation = {
 
 #Gene Crops
 tech_gene_crops = {
-	cost = @tier2cost3
+	cost = @tier2cost1
 	area = society
 	tier = 2
 	category = { biology }
-	prerequisites = { "tech_eco_simulation" "tech_colonial_centralization"}
-	weight = @tier2weight3
+	prerequisites = { "tech_eco_simulation" }
+	weight = @tier2weight1
 	
 	modifier = {
-		planet_farmers_food_produces_mult = 0.1
+		planet_farmers_food_produces_mult = 0.2
 	}
 	
 	weight_modifier = {
@@ -328,15 +333,15 @@ tech_gene_crops = {
 
 #Nano-Vitality Crops
 tech_nano_vitality_crops = {
-	cost = @tier4cost2
+	cost = @tier3cost1
 	area = society
-	tier = 4
+	tier = 3
 	category = { biology }	
-	prerequisites = { "tech_gene_crops" "tech_galactic_administration"}
-	weight = @tier4weight2
+	prerequisites = { "tech_gene_crops" }
+	weight = @tier3weight1
 	
 	modifier = {
-		planet_farmers_food_produces_mult = 0.1
+		planet_farmers_food_produces_mult = 0.2
 	}
 	
 	weight_modifier = {
@@ -429,6 +434,10 @@ tech_nutrient_replication = {
 					has_trait = "leader_trait_curator"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}	
 		modifier = {
 			factor = 1.25
@@ -486,7 +495,7 @@ tech_hydroponics = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = society
 				has_trait = "leader_trait_expertise_biology"
 			}			
 		}
@@ -496,7 +505,7 @@ tech_hydroponics = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = society
 				has_trait = "leader_trait_expertise_biology"
 			}
 		}
@@ -516,13 +525,6 @@ tech_food_processing_1 = {
 	
 	weight_modifier = {
 		modifier = {
-			factor = 10
-			OR = {
-				has_technology = tech_mine_volatile_motes
-				has_technology = tech_volatile_motes
-			}
-		}
-		modifier = {
 			factor = 0.01
 			is_machine_empire = yes
 			NOR = { 
@@ -532,13 +534,13 @@ tech_food_processing_1 = {
 					num_districts = { type = district_farming value > 0 }
 				}
 			}
-		}		
+		}
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = society
 				has_trait = "leader_trait_expertise_biology"
-			}			
+			}
 		}
 	}
 	
@@ -546,7 +548,7 @@ tech_food_processing_1 = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = society
 				has_trait = "leader_trait_expertise_biology"
 			}
 		}
@@ -559,7 +561,7 @@ tech_food_processing_2 = {
 	area = society
 	tier = 3
 	category = { biology }	
-	prerequisites = { "tech_food_processing_1" "tech_colonial_centralization" }
+	prerequisites = { "tech_food_processing_1" }
 	weight = @tier3weight1
 	
 	weight_modifier = {
@@ -574,13 +576,21 @@ tech_food_processing_2 = {
 					num_districts = { type = district_farming value > 0 }
 				}
 			}
-		}	
+		}
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = society
 				has_trait = "leader_trait_expertise_biology"
-			}			
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = tech_mine_volatile_motes
+				has_technology = tech_volatile_motes
+				has_country_flag = has_market_access
+			}
 		}
 	}
 	
@@ -588,7 +598,7 @@ tech_food_processing_2 = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
+				area = society
 				has_trait = "leader_trait_expertise_biology"
 			}
 		}
@@ -812,6 +822,55 @@ tech_alien_life_studies = {
 		modifier = {
 			factor = 0
 			NOT = { has_country_flag = first_alien_life }
+		}
+	}
+}
+
+# Acane Deciphering
+tech_arcane_deciphering = {
+	cost = @tier2cost3
+	area = society
+	tier = 2
+	category = { statecraft }
+	prerequisites = { tech_society_2 }
+	weight = @tier2weight3
+	is_rare = yes
+	
+	feature_flags = {
+		unlock_arcane_deciphering
+	}
+	
+	weight_modifier = {
+		factor = 0.50
+		modifier = {
+			factor = 0
+			NOT = {
+				has_resource = { type = minor_artifacts amount > 0 }	
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				has_ancrel = yes
+			}
+		}
+		modifier = {
+			factor = 2
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 5 #important resource
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
 		}
 	}
 }
@@ -1079,6 +1138,10 @@ tech_tomb_world_adaption = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 2
 			any_owned_planet = {
 				is_planet_class = pc_nuked
@@ -1141,10 +1204,11 @@ tech_frontier_hospital = {
 	
 	weight_modifier = {
 		modifier = {
-			factor = 10
-			OR = {
+			factor = 0
+			NOR = {
 				has_technology = tech_mine_exotic_gases
 				has_technology = tech_exotic_gases
+				has_country_flag = has_market_access
 			}
 		}
 		modifier = {
@@ -2071,6 +2135,11 @@ tech_epigenetic_triggers = {
 	}
 	
 	potential = {
+		NOT = {
+			has_valid_civic = civic_fanatic_purifiers
+			#has_valid_civic = civic_machine_terminator # covered by not being machine
+			#has_valid_civic = civic_hive_devouring_swarm # can uplift to make delicious
+		}
 		OR = {
 			NOT = { has_authority = auth_machine_intelligence }
 			has_civic = civic_machine_assimilator
@@ -2226,14 +2295,15 @@ tech_gene_banks = {
 					area = society
 					has_trait = "leader_trait_curator"
 				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
 			}
-		}		
+		}
 		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_spark_of_genius"
-			}
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.5
@@ -2307,6 +2377,10 @@ tech_gene_seed_purification = {
 					has_trait = "leader_trait_curator"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -2398,6 +2472,10 @@ tech_morphogenetic_field_mastery = {
 					has_trait = "leader_trait_curator"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -2630,13 +2708,21 @@ tech_gene_expressions = {
 					area = society
 					has_trait = "leader_trait_curator"
 				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
 			}
 		}
 		modifier = {
-			factor = 1.50
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = 1.25
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_spark_of_genius"
+				has_trait = "leader_trait_expertise_biology"
 			}
 		}
 	}	
@@ -2682,28 +2768,29 @@ tech_selected_lineages = {
 					area = society
 					has_trait = "leader_trait_curator"
 				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
 			}
 		}
 		modifier = {
 			factor = 0.5
-			OR = {
-				has_ethic = "ethic_egalitarian"
-				has_ethic = "ethic_fanatic_egalitarian"
-			}	
-		}		
+			is_egalitarian = yes
+		}	
 		modifier = {
-			factor = 1.1
-			has_ethic = ethic_authoritarian
+			factor = 2
+			is_authoritarian = yes
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
-			has_ethic = ethic_fanatic_authoritarian
-		}			
-		modifier = {
-			factor = 1.50
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_spark_of_genius"
+				has_trait = "leader_trait_expertise_biology"
 			}
 		}
 	}
@@ -2753,28 +2840,29 @@ tech_capacity_boosters = {
 					area = society
 					has_trait = "leader_trait_curator"
 				}
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_spark_of_genius"
+				}
 			}
 		}
 		modifier = {
 			factor = 0.5
-			OR = {
-				has_ethic = "ethic_egalitarian"
-				has_ethic = "ethic_fanatic_egalitarian"
-			}	
-		}		
+			is_egalitarian = yes
+		}	
 		modifier = {
-			factor = 1.1
-			has_ethic = ethic_authoritarian
+			factor = 2
+			is_authoritarian = yes
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
-			has_ethic = ethic_fanatic_authoritarian
-		}			
-		modifier = {
-			factor = 1.50
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_spark_of_genius"
+				has_trait = "leader_trait_expertise_biology"
 			}
 		}
 	}
@@ -2825,12 +2913,8 @@ tech_doctrine_fleet_size_1 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -2844,12 +2928,8 @@ tech_doctrine_fleet_size_1 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -2877,12 +2957,8 @@ tech_doctrine_fleet_size_2 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -2896,12 +2972,8 @@ tech_doctrine_fleet_size_2 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -2929,12 +3001,8 @@ tech_doctrine_fleet_size_3 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -2948,12 +3016,8 @@ tech_doctrine_fleet_size_3 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -2981,12 +3045,8 @@ tech_doctrine_fleet_size_4 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3000,12 +3060,8 @@ tech_doctrine_fleet_size_4 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3033,12 +3089,8 @@ tech_doctrine_fleet_size_5 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3052,12 +3104,8 @@ tech_doctrine_fleet_size_5 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3081,12 +3129,8 @@ tech_interstellar_fleet_traditions = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3100,12 +3144,8 @@ tech_interstellar_fleet_traditions = {
 	ai_weight = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3133,12 +3173,8 @@ tech_refit_standards = {
 	
 	weight_modifier = {
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3151,12 +3187,8 @@ tech_refit_standards = {
 	
 	ai_weight = {
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3185,12 +3217,8 @@ tech_command_matrix = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3203,12 +3231,8 @@ tech_command_matrix = {
 	
 	ai_weight = {
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3236,12 +3260,8 @@ tech_doctrine_navy_size_1 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3255,12 +3275,8 @@ tech_doctrine_navy_size_1 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3288,12 +3304,8 @@ tech_doctrine_navy_size_2 = {
 	weight_modifier = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3307,12 +3319,8 @@ tech_doctrine_navy_size_2 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3340,12 +3348,8 @@ tech_doctrine_navy_size_3 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3359,12 +3363,8 @@ tech_doctrine_navy_size_3 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3392,12 +3392,8 @@ tech_doctrine_navy_size_4 = {
 	weight_modifier = {
 		factor = 3
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3411,12 +3407,8 @@ tech_doctrine_navy_size_4 = {
 	ai_weight = {
 		factor = 10
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3447,12 +3439,8 @@ tech_centralized_command = {
 	
 	weight_modifier = {
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3465,12 +3453,8 @@ tech_centralized_command = {
 	
 	ai_weight = {
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3498,12 +3482,8 @@ tech_combat_training = {
 	
 	weight_modifier = {
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3516,12 +3496,8 @@ tech_combat_training = {
 	
 	ai_weight = {
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3552,12 +3528,8 @@ tech_ground_defense_planning = {
 	weight_modifier = {
 		factor = 2
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3571,12 +3543,8 @@ tech_ground_defense_planning = {
 	ai_weight = {
 		factor = 2
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3606,12 +3574,8 @@ tech_global_defense_grid = {
 	weight_modifier = {
 		factor = 2
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3625,12 +3589,8 @@ tech_global_defense_grid = {
 	ai_weight = {
 		factor = 2
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3671,10 +3631,7 @@ tech_psionic_theory = {
 		factor = 0.5
 		modifier = {
 			factor = 0.5
-			NOR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
-			}
+			is_spiritualist = no
 		}
 		modifier = {
 			factor = 2
@@ -3693,6 +3650,10 @@ tech_psionic_theory = {
 				area = society
 				has_trait = "leader_trait_expertise_psionics"
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 2
@@ -3714,10 +3675,7 @@ tech_psionic_theory = {
 		modifier = {
 			factor = 0
 			AND = {
-				OR = {
-					has_ethic = "ethic_materialist"
-					has_ethic = "ethic_fanatic_materialist"
-				}
+				is_materialist = yes
 				NOR = {
 					research_leader = {
 						area = society
@@ -3808,6 +3766,10 @@ tech_telepathy = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 2
 			has_ethic = "ethic_spiritualist"
 		}
@@ -3828,10 +3790,7 @@ tech_telepathy = {
 		factor = 5 #very rare tech
 		modifier = {
 			factor = 1.5
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-			}
+			is_spiritualist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3883,28 +3842,8 @@ tech_precognition_interface = {
 			}
 		}
 		modifier = {
-			factor = 1.10
-			research_leader = {
-				area = society
-				has_level > 2
-				has_trait = "leader_trait_expertise_psionics"
-			}
-		}
-		modifier = {
-			factor = 1.5
-			research_leader = {
-				area = society
-				has_level > 3
-				has_trait = "leader_trait_expertise_psionics"
-			}
-		}
-		modifier = {
-			factor = 2
-			research_leader = {
-				area = society
-				has_level > 4
-				has_trait = "leader_trait_expertise_psionics"
-			}
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 2
@@ -3915,10 +3854,17 @@ tech_precognition_interface = {
 			has_ethic = "ethic_fanatic_spiritualist"
 		}
 		modifier = {
-			factor = 4
+			factor = 2
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_maniacal"
+			}
+		}
+		modifier = {
+			factor = 4
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_psionics"
 			}
 		}
 	}
@@ -3926,12 +3872,8 @@ tech_precognition_interface = {
 	ai_weight = {
 		factor = 5 #very rare tech
 		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
+			factor = 2
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -3985,18 +3927,22 @@ tech_psi_jump_drive_1 = {
 					has_trait = "leader_trait_expertise_psionics"
 				}
 				research_leader = {
-					area = physics
+					area = society
 					has_trait = "leader_trait_curator"
 				}
 				research_leader = {
-					area = physics
+					area = society
 					has_trait = "leader_trait_spark_of_genius"
 				}
 				research_leader = {
-					area = physics
+					area = society
 					has_trait = "leader_trait_maniacal"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}		
 	}
 }
@@ -4041,12 +3987,8 @@ tech_galactic_ambitions = {
 	
 	ai_weight = {
 		modifier = {
-			factor = 1.5
-			has_ethic = ethic_militarist
-		}
-		modifier = {
 			factor = 2
-			has_ethic = ethic_fanatic_militarist
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -4165,12 +4107,8 @@ tech_interstellar_campaigns = {
 	
 	ai_weight = {
 		modifier = {
-			factor = 1.5
-			has_ethic = ethic_militarist
-		}
-		modifier = {
 			factor = 2
-			has_ethic = ethic_fanatic_militarist
+			is_militarist = yes
 		}
 		modifier = {
 			factor = 1.25
@@ -4430,6 +4368,10 @@ tech_subdermal_stimulation = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = society
@@ -4653,7 +4595,7 @@ tech_living_state = {
 	}
 	
 	modifier = {
-		pop_factions_produces_add = 1
+		pop_factions_influence_produces_add = 1
 	}
 	
 	weight_modifier = {
@@ -5179,10 +5121,11 @@ tech_hyper_entertainment_forum = {
 
 	weight_modifier = {	
 		modifier = {
-			factor = 10
-			OR = {
+			factor = 0
+			NOR = {
 				has_technology = tech_mine_exotic_gases
 				has_technology = tech_exotic_gases
+				has_country_flag = has_market_access
 			}
 		}
 		modifier = {
@@ -5222,10 +5165,11 @@ tech_paradise_dome = {
 
 	weight_modifier = {	
 		modifier = {
-			factor = 10
-			OR = {
+			factor = 0
+			NOR = {
 				has_technology = tech_mine_rare_crystals
 				has_technology = tech_rare_crystals
+				has_country_flag = has_market_access
 			}
 		}
 		modifier = {
@@ -5303,17 +5247,18 @@ tech_heritage_site = {
 
 	weight_modifier = {
 		modifier = {
-			factor = 10
-			OR = {
-				has_technology = tech_mine_volatile_motes
-				has_technology = tech_volatile_motes
-			}
-		}
-		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = tech_mine_rare_crystals
+				has_technology = tech_rare_crystals
+				has_country_flag = has_market_access
 			}
 		}
 	}
@@ -5420,10 +5365,11 @@ tech_holographic_rituals = {
 	
 	weight_modifier = {
 		modifier = {
-			factor = 10
-			OR = {
+			factor = 0
+			NOR = {
 				has_technology = tech_mine_rare_crystals
 				has_technology = tech_rare_crystals
+				has_country_flag = has_market_access
 			}
 		}
 		modifier = {
@@ -5636,13 +5582,24 @@ tech_ascension_theory = {
 			NOR = {
 				has_modifier = "curator_insight"
 				research_leader = {
-					area = physics
+					area = society
 					has_trait = "leader_trait_curator"
 				}
 				research_leader = {
-					area = physics
-					has_trait = "leader_trait_expertise_computing"
+					area = society
+					has_trait = "leader_trait_expertise_statecraft"
 				}
+			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
 			}
 		}
 	}
@@ -5722,11 +5679,19 @@ tech_penal_colonies = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_statecraft"
 			}
+		}
+		modifier = {
+			factor = 2
+			is_authoritarian = yes
 		}
 		modifier = {
 			factor = 0
@@ -5773,6 +5738,10 @@ tech_resort_colonies = {
 					has_trait = "leader_trait_curator"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -5878,8 +5847,8 @@ tech_housing_agrarian_idyll = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
 			}
 		}
 	}
@@ -5889,8 +5858,8 @@ tech_housing_agrarian_idyll = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_industry"
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
 			}
 		}
 	}

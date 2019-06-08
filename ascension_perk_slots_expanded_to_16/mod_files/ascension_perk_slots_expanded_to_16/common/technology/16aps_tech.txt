@@ -9,7 +9,7 @@
 # Ensure this is in line with the total number of perks in defines, and also the number of visible slots in the traditions view.
 @repeatable_ascension_theory_levels = 8
 
-# Slightly decreased the weight for this tech - it's supposed to be rare!
+# Slightly decreased the weight for this tech (compared with @repeatableTechWeight=25) - it's supposed to be rare!
 @repeatable_ascension_theory_weight = 20
 
 # Replacement for @repeatableTechFactor, which is currently spelled @repatableTechFactor, and might soon change back, breaking everything again

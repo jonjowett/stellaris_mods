@@ -249,3 +249,5 @@
 @feproduction = 12
 @fecost = 500
 @fetime = 730
+
+@ap_technological_ascendancy_rare_tech = 1.5
