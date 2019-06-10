@@ -701,38 +701,52 @@ ship_section_template = {
 #	entity = "battleship_stern_S4_entity"
 #	icon = "GFX_ship_part_core_stern"
 #	
+#	ai_weight = {
+#		modifier = {
+#			factor = 10.0
+#			is_preferred_weapons = weapon_type_strike_craft
+#		}
+#		modifier = {
+#			factor = 0.1
+#			NOT = { is_preferred_weapons = weapon_type_strike_craft }
+#		}		
+#	}
+#	
 #	component_slot = {
 #		name = "SMALL_GUN_01"
-#		slot_size = small
+#		slot_size = point_defence
+#		slot_type = weapon
+#		locatorname = "small_gun_01"
+#	}
+#	
+#	component_slot = {
+#		name = "SMALL_GUN_01"
+#		slot_size = point_defence
 #		slot_type = weapon
 #		locatorname = "small_gun_01"
 #	}
 #	
 #	component_slot = {
 #		name = "SMALL_GUN_02"
-#		slot_size = small
+#		slot_size = point_defence
 #		slot_type = weapon
 #		locatorname = "small_gun_02"
-#	}	
-#	
+#	}
 #	component_slot = {
-#		name = "SMALL_GUN_03"
-#		slot_size = small
-#		slot_type = weapon
-#		locatorname = "small_gun_03"
+#		name = "STRIKE_CRAFT_01"
+#		slot_size = large
+#		slot_type = strike_craft
+#		rotation = 90
+#		locatorname = "strike_craft_locator_01"
 #	}
 #	
-#	component_slot = {
-#		name = "SMALL_GUN_04"
-#		slot_size = small
-#		slot_type = weapon
-#		locatorname = "small_gun_04"
+#	aux_utility_slots = 2
+#	
+#	resources = {
+#		category = ship_sections
+#		cost = {
+#			alloys = @section_cost
+#		}
 #	}
-#	
-#	small_utility_slots = 2
-#	medium_utility_slots = 1
-#	large_utility_slots = 2
-#	
-#	cost = 150
 #}
 
