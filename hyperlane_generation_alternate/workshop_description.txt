@@ -43,7 +43,7 @@ I have preserved as much functionality as possible from the original mod. The ma
 [*]So, I may add some kind of "wormhole disruption" in a future version, or as a submod. However, there is no timetable or ETA.[/list][/list]
 
 [h1]Suggested Companion Mods:[/h1]
-[list][*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1350762827]Hyperlane Isolator[/url] (for removing all of the hyperlanes in a system at once).[/list]
+[list][*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1350762827]Hyperlane Isolator[/url], which allows you to remove [u]all[/u] of the hyperlanes that connect to a system at once. Although you can remove hyperlanes with this mod, an Isolator can be faster and more convenient in some circumstances.[/list]
 
 [h1]Technical info / compatibility:[/h1]
 [list][*]This mod is not compatible with [url=http://steamcommunity.com/sharedfiles/filedetails/?id=1317527025]Khadgar's original mod[/url]. You should not try to run Stellaris with that mod active at the same time as this one.
